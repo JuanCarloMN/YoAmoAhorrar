@@ -62,3 +62,15 @@
   width: 70px;
   height: 70px;
 }
+
+.wd-20 {
+  width: 20% !important;
+}
+
+.wd-80 {
+  width: 80% !important;
+}
+
+.no-salto {
+  white-space: nowrap !important;
+}

@@ -85,7 +85,7 @@ export const AgendaModal = () => {
 
         if ( formValues.title.length <= 0 ) return;
 
-        console.log( formValues );
+        // console.log( formValues );
         await startSavingEvent( formValues );
         closeDateModal();
         setFormSubmitted( false );
