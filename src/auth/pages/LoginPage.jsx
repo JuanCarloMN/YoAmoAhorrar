@@ -83,7 +83,6 @@ export const LoginPage = () => {
                                 type="submit"
                                 className="btnSubmit"
                                 value="Login" 
-                                on
                             />
                         </div>
                     </form>

@@ -63,14 +63,109 @@
   height: 70px;
 }
 
-.wd-20 {
-  width: 20% !important;
-}
-
-.wd-80 {
-  width: 80% !important;
+.wd-100 {
+  width: 100% !important;
 }
 
 .no-salto {
   white-space: nowrap !important;
+}
+
+.navbar-brand {
+  margin-top: 10px;
+}
+
+.navbar-toggler-icon {
+  width: 30px;
+  height: 30px;
+}
+
+.menu-opciones {
+  display: inline-block;
+  margin-top: 0px;
+}
+
+.menu-opciones .nav-item .btn {
+  font-size: 18px;
+}
+
+.logo {
+  margin-left: 0;
+  width: 5rem;
+}
+
+.perfil {
+  width: 100%;
+  height: 40px;
+  padding: 0 7px;
+  background: none;
+  min-width: max-content;
+  color: #fff;
+}
+
+.perfil a {
+  display: inline-flex;
+  min-width: 50px;
+  min-height: 40px;
+  align-items: center;
+  justify-content: center;
+  margin-left: 7px;
+  text-decoration: none;
+}
+
+.perfil img {
+  width: 35px;
+  height: 35px;
+  border-radius: 100px;
+  margin-right: 10px;
+}
+
+.perfil a:hover {
+  text-decoration: underline;
+}
+
+.salir {
+  min-width: 80px;
+}
+
+/* MEDIAQUERIES */
+/* Dispositivo xs */
+@media screen and ( max-width: 320px ) {
+
+}
+
+/* Dispositivo sm */
+@media screen and ( max-width: 576px ) {
+
+}
+
+/* Dispositivo md */
+@media screen and ( max-width: 768px) {
+
+  .salir {
+    font-size: 12px;
+    min-width: 70px;
+  }
+}
+
+/* Dispositivo lg */
+@media screen and ( max-width: 992px ) {  
+  .menu-opciones .nav-item .btn {
+    font-size: 14px;
+  }
+
+  .salir {
+    font-size: 14px;
+    min-width: 75px;
+  }
+}
+
+/* Dispositivo xl */
+@media screen and ( max-width: 1200px ) {
+
+}
+
+/* Dispositivo xxl */
+@media screen and ( max-width: 2400px ) {
+
 }

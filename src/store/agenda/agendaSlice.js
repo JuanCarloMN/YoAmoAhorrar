@@ -47,7 +47,7 @@ export const agendaSlice = createSlice({
         },
         onLoadEvents: ( state, { payload } ) => {
             state.isLoadingEvents = false;
-            // state.events = payload;
+            state.events = [];
 
             payload.forEach( event => {
                 const exists = state.events.some( dbEvent => dbEvent === event.id );

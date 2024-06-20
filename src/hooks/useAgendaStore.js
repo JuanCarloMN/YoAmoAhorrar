@@ -7,7 +7,7 @@ import Swal from 'sweetalert2';
 export const useAgendaStore = () => {
 
     const dispatch = useDispatch();
-    const { events, activeEvent } = useSelector( state => state.agenda );
+    const { events, activeEvent, state } = useSelector( state => state.agenda );
     const { user } = useSelector( state => state.auth );
 
     const setActiveEvent = ( agendaEvent ) => {
@@ -44,11 +44,9 @@ export const useAgendaStore = () => {
 
     const startLoadingEvents = async () => {
         try {
-            
             const { data } = await agendaApi.get('/events/');
-            const events = convertDateEvent( data.eventos );
-            dispatch( onLoadEvents ( events ) );
-            console.log({ events });
+            const eventos = convertDateEvent( data.eventos );
+            dispatch( onLoadEvents ( eventos ) );
 
         } catch (error) {
             console.log('Error al cargar los eventos');

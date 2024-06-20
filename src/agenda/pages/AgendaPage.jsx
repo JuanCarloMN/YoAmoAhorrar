@@ -50,7 +50,7 @@ export const AgendaPage = () => {
 
     return (
         <>
-            <Navbar />
+            {/* <Navbar /> */}
 
             <Calendar 
                 culture='es'
@@ -59,7 +59,7 @@ export const AgendaPage = () => {
                 defaultView={ lastView }
                 startAccessor="start"
                 endAccessor="end"
-                style={{ height: 'calc( 100vh - 100px )', width: 'calc( 100vw - 10px )' }}
+                style={{ height: 'calc( 100vh - 105px )', width: 'calc( 100vw - 15px )' }}
                 messages={ getMessagesES() }
                 eventPropGetter={ eventStyleGetter }
                 components={{
@@ -68,6 +68,7 @@ export const AgendaPage = () => {
                 onDoubleClickEvent={ onDoubleClick }
                 onSelectEvent={ onSelect }
                 onView={ onViewChange }
+                className='mt-2 ms-2'
             />
 
             <AgendaModal />
