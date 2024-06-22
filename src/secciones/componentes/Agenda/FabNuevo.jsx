@@ -1,22 +1,23 @@
 import { addHours } from 'date-fns';
-import { useAgendaStore, useUiStore } from '../../hooks';
+import { useAgendaStore, useUiStore } from '../../../hooks';
 
 
-export const FabAddNew = () => {
+export const FabNuevo = () => {
 
     const { openDateModal } = useUiStore();
-    const { setActiveEvent } = useAgendaStore();
+    const { setEventoActivo } = useAgendaStore();
 
     const handleClickNew = () => {
-        setActiveEvent({
-            title: '',
-            notes: '',
-            start: new Date(),
-            end: addHours( new Date(), 2 ),
+        setEventoActivo({
+            titulo: '',
+            notas: '',
+            tipo: 0,
+            inicio: new Date(),
+            fin: addHours( new Date(), 2 ),
             bgColor: '#FaFaFa',
-            user: {
+            usuario: {
                 _id: 123,
-                name: 'Juan Carlo'
+                nombre: 'Juan Carlo'
             }
         });
         openDateModal();

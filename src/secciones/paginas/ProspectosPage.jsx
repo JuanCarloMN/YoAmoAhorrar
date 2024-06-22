@@ -1,6 +1,6 @@
 
 export const ProspectosPage = () => {
     return (
-        <h1>Lista de Prospectos</h1>
+        <h1 className="p-5">Lista de Prospectos</h1>
     )
 }

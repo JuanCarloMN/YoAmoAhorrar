@@ -1,7 +1,6 @@
 import { useEffect } from "react"
 import { Navigate, Route, Routes } from "react-router-dom"
-import { AgendaPage } from "../agenda"
-import { ClientesPage, Navbar, PolizasPage, ProspectosPage } from "../secciones"
+import { ClientesPage, Navbar, PolizasPage, ProspectosPage, AgendaPage, PerfilPage } from "../secciones"
 import { LoginPage } from "../auth"
 import { useAuthStore } from "../hooks"
 import { PrivateRoute } from "./"
@@ -33,7 +32,7 @@ export const SeccionesRouter = () => {
             )
             : (
                 <>
-                    <Route path='/' element={ 
+                    <Route path='/agenda' element={ 
                         <PrivateRoute>
                             <Navbar />
                             <AgendaPage /> 
@@ -61,12 +60,14 @@ export const SeccionesRouter = () => {
                         </PrivateRoute>
                         } />
 
+                    <Route path='/perfil' element={ 
+                        <PrivateRoute>
+                            <Navbar />
+                            <PerfilPage /> 
+                        </PrivateRoute>
+                        } />
 
-                    {/* <Route path="clientes" element={<ClientesPage />} />
-                    <Route path="prospectos" element={<ProspectosPage />} />
-                    <Route path="polizas" element={<PolizasPage />} /> */}
-
-                    <Route path='/*' element={ <Navigate to='/' /> } />
+                    <Route path='/*' element={ <Navigate to='/agenda' /> } />
                 </>
             )
         }

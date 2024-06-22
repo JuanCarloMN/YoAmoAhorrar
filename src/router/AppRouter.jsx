@@ -1,9 +1,9 @@
 import { Navigate, Route, Routes } from 'react-router-dom';
 
 import { LoginPage } from '../auth';
-import { AgendaPage } from '../agenda';
 import { useAuthStore } from '../hooks';
 import { useEffect } from 'react';
+import { AgendaPage } from '../secciones';
 
 export const AppRouter = () => {
     

@@ -4,7 +4,7 @@ import { clearErrorMessage, onChecking, onLogin, onLogout, onLogoutAgenda } from
 
 export const useAuthStore = () => {
     
-    const { status, user, errorMessage } = useSelector( state => state.auth );
+    const { status, usuario, errorMessage } = useSelector( state => state.auth );
     const dispatch = useDispatch();
 
     const startLogin = async ( { email, password } ) => {
@@ -15,7 +15,8 @@ export const useAuthStore = () => {
             const { data } = await agendaApi.post('/auth', { email, password });
             localStorage.setItem( 'token', data.token );
             localStorage.setItem( 'token-init-date', new Date().getTime() );
-            dispatch( onLogin( {name: data.name, uid: data.uid } ) );
+            localStorage.setItem( 'tipoEvento', 1 );
+            dispatch( onLogin( {nombre: data.nombre, uid: data.uid } ) );
         } catch (error) {
             dispatch( onLogout( 'Credenciales incorrectas' ) );
             setTimeout(() => {
@@ -24,15 +25,15 @@ export const useAuthStore = () => {
         }
     }
 
-    const startRegister = async ( { name, email, password} ) => {
-
+    const startRegister = async ( { nombre, email, password} ) => {
+        
         dispatch( onChecking() );
-
+        
         try {
-            const { data } = await agendaApi.post('/auth/new', { name, email, password });
+            const { data } = await agendaApi.post('/auth/nuevo', { nombre, email, password });
             localStorage.setItem( 'token', data.token );
             localStorage.setItem( 'token-init-date', new Date().getTime() );
-            dispatch( onLogin( {name: data.name, uid: data.uid } ) );
+            dispatch( onLogin( {nombre: data.nombre, uid: data.uid } ) );
         } catch (error) {
             console.log(error);
             dispatch( onLogout( error.response.data?.msg || 'Error al registrar el ususario' ) );
@@ -47,10 +48,10 @@ export const useAuthStore = () => {
         if ( !token ) return dispatch( onLogout() );
 
         try {
-            const { data } = await agendaApi.get('/auth/renew');
+            const { data } = await agendaApi.get('/auth/renovar');
             localStorage.setItem('token', data.token );
             localStorage.setItem( 'token-init-date', new Date().getTime() );
-            dispatch( onLogin( {name: data.name, uid: data.uid } ) );
+            dispatch( onLogin( {nombre: data.nombre, uid: data.uid } ) );
         } catch (error) {
             localStorage.clear();
             dispatch( onLogout() )
@@ -66,7 +67,7 @@ export const useAuthStore = () => {
     return {
         // Propiedades
         status, 
-        user, 
+        usuario, 
         errorMessage,
 
         // Métodos

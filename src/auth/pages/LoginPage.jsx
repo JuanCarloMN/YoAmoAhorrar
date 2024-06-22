@@ -4,24 +4,24 @@ import Swal from 'sweetalert2';
 import { useAuthStore, useForm } from '../../hooks';
 import './LoginPage.css';
 
-const loginFormFields = {
+const camposLogin = {
     loginEmail: '',
     loginPassowrd: ''
 }
 
-const registerFormFields = {
-    registerName: '',
-    registerEmail: '',
-    registerPassword: '',
-    registerPassword2: '',
+const camposRegistro = {
+    registroNombre: '',
+    registroEmail: '',
+    registroPassword: '',
+    registroPassword2: '',
 }
 
 export const LoginPage = () => {
 
     const { startLogin, startRegister, errorMessage } = useAuthStore();
     
-    const { loginEmail, loginPassowrd, onInputChange: onLoginInputChange } = useForm( loginFormFields );
-    const { registerName, registerEmail, registerPassword, registerPassword2,  onInputChange: onRegisterInputChange } = useForm( registerFormFields );
+    const { loginEmail, loginPassowrd, onInputChange: onLoginInputChange } = useForm( camposLogin );
+    const { registroNombre, registroEmail, registroPassword, registroPassword2,  onInputChange: onRegisterInputChange } = useForm( camposRegistro );
 
     const loginSubmit = ( event ) => {
         event.preventDefault();
@@ -31,13 +31,12 @@ export const LoginPage = () => {
     const registerSubmit = ( event ) => {
         event.preventDefault();
         
-        if ( registerPassword !== registerPassword2 ) {
-            Swal.fire('Error en registro', 'Contraseñas no son iguales', 'error');
+        if ( registroPassword !== registroPassword2 ) {
+            Swal.fire('Error en registro', 'Las contraseñas no son iguales', 'error');
             return;
         }
 
-        startRegister( { name: registerName, email: registerEmail, password: registerPassword })
-        // console.log({ registerName, registerEmail, registerPassword, registerPassword2 });
+        startRegister( { nombre: registroNombre, email: registroEmail, password: registroPassword })
     }
 
     useEffect( () => {
@@ -45,12 +44,6 @@ export const LoginPage = () => {
             Swal.fire('Error en la autenticación', errorMessage, 'error' );
         }
     }, [ errorMessage ]);
-
-    // useEffect( () => {
-    //     if ( errorMessage !== undefined ){
-    //         Swal.fire('Error al registrar al usuario', errorMessage, 'error' );
-    //     }
-    // }, [ errorMessage ]);
 
     return (
         <div className="container login-container ">
@@ -96,8 +89,8 @@ export const LoginPage = () => {
                                 type="text"
                                 className="form-control"
                                 placeholder="Nombre"
-                                name="registerName"
-                                value={ registerName }
+                                name="registroNombre"
+                                value={ registroNombre }
                                 onChange={ onRegisterInputChange }
                             />
                         </div>
@@ -106,8 +99,8 @@ export const LoginPage = () => {
                                 type="email"
                                 className="form-control"
                                 placeholder="Correo"
-                                name="registerEmail"
-                                value={ registerEmail }
+                                name="registroEmail"
+                                value={ registroEmail }
                                 onChange={ onRegisterInputChange }
                             />
                         </div>
@@ -116,8 +109,8 @@ export const LoginPage = () => {
                                 type="password"
                                 className="form-control"
                                 placeholder="Contraseña" 
-                                name="registerPassword"
-                                value={ registerPassword }
+                                name="registroPassword"
+                                value={ registroPassword }
                                 onChange={ onRegisterInputChange }
                             />
                         </div>
@@ -127,8 +120,8 @@ export const LoginPage = () => {
                                 type="password"
                                 className="form-control"
                                 placeholder="Repita la contraseña" 
-                                name="registerPassword2"
-                                value={ registerPassword2 }
+                                name="registroPassword2"
+                                value={ registroPassword2 }
                                 onChange={ onRegisterInputChange }
                             />
                         </div>

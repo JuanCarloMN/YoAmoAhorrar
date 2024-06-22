@@ -1,52 +1,52 @@
 import { useDispatch, useSelector } from 'react-redux';
-import { onAddNewEvent, onDeleteEvent, onLoadEvents, onSetActiveEvent, onUpdateEvent } from '../store';
+import { onNuevoEvento, onBorrarEvento, onCargarEventos, onSetEventoActivo, onActualizaEvento } from '../store';
 import agendaApi from '../api/agendaApi';
-import { convertDateEvent } from '../helpers';
+import { convierteFechaEvento } from '../helpers';
 import Swal from 'sweetalert2';
 
 export const useAgendaStore = () => {
 
     const dispatch = useDispatch();
-    const { events, activeEvent, state } = useSelector( state => state.agenda );
-    const { user } = useSelector( state => state.auth );
+    const { eventos, eventoActivo, state, eventosTipo } = useSelector( state => state.agenda );
+    const { usuario } = useSelector( state => state.auth );
 
-    const setActiveEvent = ( agendaEvent ) => {
-        dispatch( onSetActiveEvent( agendaEvent ) );
+    const setEventoActivo = ( agendaEvento ) => {
+        dispatch( onSetEventoActivo( agendaEvento ) );
     }
 
-    const startSavingEvent = async ( agendaEvent ) => {
+    const startSalvarEvento = async ( agendaEvento ) => {
 
         try {
-            if ( agendaEvent.id ) {
+            if ( agendaEvento.id ) {
                 // Actualizar evento
-                await agendaApi.put(`/events/${ agendaEvent.id }`, agendaEvent );
-                dispatch( onUpdateEvent( { ...agendaEvent, user } ) );
+                await agendaApi.put(`/eventos/${ agendaEvento.id }`, agendaEvento );
+                dispatch( onActualizaEvento( { ...agendaEvento, usuario } ) );
                 return;
             } 
     
             // Agregar evento
-            const { data } = await agendaApi.post('/events/new', agendaEvent)
-            dispatch( onAddNewEvent( { ...agendaEvent, id: data.evento.id, user } ) );
+            const { data } = await agendaApi.post('/eventos/nuevo', agendaEvento)
+            dispatch( onNuevoEvento( { ...agendaEvento, id: data.evento.id, usuario } ) );
         } catch (error) {
             Swal.fire('Error al guardar el evento', error.response.data.msg, 'error' );
         }
 
     }
 
-    const startDeletingEvent = async () => {
+    const startBorrarEvento = async () => {
         try {
-            await agendaApi.delete(`/events/${ activeEvent.id }` );
-            dispatch( onDeleteEvent() );
+            await agendaApi.delete(`/eventos/${ eventoActivo.id }` );
+            dispatch( onBorrarEvento() );
         } catch (error) {
             Swal.fire('Error al eliminar el evento', error.response.data.msg, 'error' );
         }
     }
 
-    const startLoadingEvents = async () => {
+    const startCargarEventos = async () => {
         try {
-            const { data } = await agendaApi.get('/events/');
-            const eventos = convertDateEvent( data.eventos );
-            dispatch( onLoadEvents ( eventos ) );
+            const { data } = await agendaApi.get('/eventos/');
+            const eventos = convierteFechaEvento( data.eventos );
+            dispatch( onCargarEventos ( eventos ) );
 
         } catch (error) {
             console.log('Error al cargar los eventos');
@@ -56,14 +56,15 @@ export const useAgendaStore = () => {
  
     return {
         // Propiedades
-        activeEvent,
-        events,
-        hasEventSelected: !!activeEvent,
+        eventoActivo,
+        eventos,
+        eventosTipo,
+        hayEventoSeleccionado: !!eventoActivo,
 
         // Métodos
-        setActiveEvent,
-        startDeletingEvent,
-        startLoadingEvents,
-        startSavingEvent,
+        setEventoActivo,
+        startBorrarEvento,
+        startCargarEventos,
+        startSalvarEvento,
     }
 }

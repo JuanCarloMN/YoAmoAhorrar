@@ -17,60 +17,92 @@ import { addHours } from 'date-fns';
 export const agendaSlice = createSlice({
     name: 'agenda',
     initialState: {
-        isLoadingEvents: true,
-        events: [ 
-            // tempEvent 
-        ],
-        activeEvent: null
+        isCargandoEventos: true,
+        eventos: [],
+        eventosTipo: [],
+        tipo: 0,
+        eventoActivo: null
     },
     reducers: {
-        onSetActiveEvent: ( state, { payload } ) => {
-            state.activeEvent = payload;
+        onSetEventoActivo: ( state, { payload } ) => {
+            state.eventoActivo = payload;
         },
-        onAddNewEvent: (state, { payload } ) => {
-            state.events.push( payload );
-            state.activeEvent = null;
+        onNuevoEvento: (state, { payload } ) => {
+            const tipo = parseInt(localStorage.getItem('tipoEvento'));
+
+            state.eventos.push( payload );
+
+            if ( payload.tipo === tipo ) {
+                state.eventosTipo.push( payload );
+            }
+
+            state.eventoActivo = null;
         },
-        onUpdateEvent: ( state, { payload } ) => {
-            state.events = state.events.map( event => {
-                if ( event.id === payload.id ) {
+        onActualizaEvento: ( state, { payload } ) => {
+            const tipo = parseInt(localStorage.getItem('tipoEvento'));
+
+            state.eventos = state.eventos.map( evento => {
+                if ( evento.id === payload.id ) {
                     return payload;
                 }
-                return event;
+                return evento;
+            });
+
+            state.eventosTipo = [];
+            state.eventosTipo = state.eventos.map( evento => {
+                if ( evento.tipo === tipo ) {
+                    return evento;
+                }
             });
         },
-        onDeleteEvent: ( state ) => {
-            if ( state.activeEvent ) {
-                state.events = state.events.filter( event => event.id !== state.activeEvent.id );
-                state.activeEvent = null;
+        onBorrarEvento: ( state ) => {
+            if ( state.eventoActivo ) {
+                state.eventos = state.eventos.filter( evento => evento.id !== state.eventoActivo.id );
+                state.eventosTipo = state.eventosTipo.filter( evento => evento.id !== state.eventoActivo.id );
+                state.eventoActivo = null;
             }
         },
-        onLoadEvents: ( state, { payload } ) => {
-            state.isLoadingEvents = false;
-            state.events = [];
+        onCargarEventos: ( state, { payload } ) => {
+            state.isCargandoEventos = false;
+            state.eventos = [];
+            state.eventosTipo = [];
+            const tipo = parseInt(localStorage.getItem('tipoEvento'));
 
-            payload.forEach( event => {
-                const exists = state.events.some( dbEvent => dbEvent === event.id );
-                if ( !exists ){
-                    state.events.push( event );
+            if ( !tipo )
+                tipo = 1;
+
+            payload.forEach( evento => {
+                const existe = state.eventos.some( dbEvento => dbEvento === evento.id );
+                if ( !existe ){
+                    state.eventos.push( evento );
+                }
+                const existeTipo = state.eventosTipo.some( dbEvento => dbEvento === evento.id );
+                if ( !existeTipo && evento.tipo === tipo ){
+                    state.eventosTipo.push( evento );
                 }
             });
         },
         onLogoutAgenda: ( state ) => {
-            state.isLoadingEvents = true;
-            state.events = [];
-            state.activeEvent = null;
+            state.isCargandoEventos = true;
+            state.eventos = [];
+            state.eventosTipo = [];
+            state.tipo = 0;
+            state.eventoActivo = null;
+        },
+        onActualizaEventosTipo: ( state ) => {
+            const tipo = parseInt(localStorage.getItem('tipoEvento'));
+            state.eventosTipo = state.eventos.filter( evento => evento.tipo === tipo );
         }
     }
 });
 
-
 // Action creators are generated for each case reducer function
 export const { 
-    onAddNewEvent, 
-    onDeleteEvent, 
-    onLoadEvents,
+    onNuevoEvento, 
+    onBorrarEvento, 
+    onCargarEventos,
     onLogoutAgenda,
-    onSetActiveEvent, 
-    onUpdateEvent, 
+    onSetEventoActivo, 
+    onActualizaEvento, 
+    onActualizaEventosTipo,
 } = agendaSlice.actions;

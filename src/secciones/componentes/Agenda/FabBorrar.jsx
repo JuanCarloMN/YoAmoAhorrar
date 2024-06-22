@@ -1,12 +1,12 @@
-import { useAgendaStore, useUiStore } from '../../hooks';
+import { useAgendaStore, useUiStore } from '../../../hooks';
 
 
-export const FabDelete = () => {
+export const FabBorrar = () => {
 
-    const { startDeletingEvent, hasEventSelected } = useAgendaStore();
+    const { startBorrarEvento, hayEventoSeleccionado } = useAgendaStore();
 
     const handleDelete = () => {
-        startDeletingEvent();
+        startBorrarEvento();
     }
 
     return (
@@ -14,7 +14,7 @@ export const FabDelete = () => {
             className="btn btn-danger fab-danger"
             onClick={ handleDelete }
             style={{ 
-                display: hasEventSelected ? '' : 'none'
+                display: hayEventoSeleccionado ? '' : 'none'
             }}
         >
             <i className="fas fa-trash-alt" ></i>
