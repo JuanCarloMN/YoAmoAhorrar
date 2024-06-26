@@ -18,12 +18,10 @@ export const useClienteStore = () => {
     }
 
     const startSalvarCliente = async ( cliente ) => {
-
-        console.log(cliente._id);
         try {
-            if ( cliente._id ) {
+            if ( cliente.id ) {
                 // Actualiza información del cliente
-                const { data } = await clienteApi.put(`/clientes/${ cliente._id }`, cliente );
+                const { data } = await clienteApi.put(`/clientes/${ cliente.id }`, cliente );
                 dispatch( onActualizaCliente( { ...cliente, usuario } ) );
                 return;
             }
@@ -36,10 +34,10 @@ export const useClienteStore = () => {
         }
     }
 
-    const starBorrarCliente = async () => {
+    const starBorrarCliente = async ( cliente ) => {
         try {
-            await clienteApi.delete(`/clientes/${ clienteActivo.id }`);
-            dispatch( onBorrarCliente() );
+            await clienteApi.delete(`/clientes/${ cliente.id }`);
+            dispatch( onBorrarCliente( cliente ) );
         } catch (error) {
             Swal.fire('Error al eliminar el cliente', error.response.data.msg, 'error');
         }

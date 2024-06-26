@@ -6,6 +6,9 @@ import { useClienteStore, useUiStore } from '../../../hooks';
 import DatePicker, { registerLocale } from 'react-datepicker';
 import { infoCP } from '../../../helpers';
 
+import Swal from 'sweetalert2';
+import 'sweetalert2/dist/sweetalert2.min.css';
+
 // registerLocale('es', es );
 const customStyles = {
     content: {
@@ -82,6 +85,11 @@ export const ClienteModal = () => {
             const mes = valor.substr( 7, 2 );
             const dia = valor.substr( 9, 2 );
             
+            if ( mes === '00' || mes > '12' || dia === '00' || dia > '31' ) {
+                Swal.fire( 'RFC incorrecto', 'Revisar las fechas ingresadas en el RFC', 'error' );
+                return;
+            }
+
             setValoresFormulario({
                 ...valoresFormulario,
                 [ target.name ]: valor.toUpperCase(),

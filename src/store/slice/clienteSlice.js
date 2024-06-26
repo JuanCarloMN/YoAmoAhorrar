@@ -17,24 +17,22 @@ export const clienteSlice = createSlice({
         },
         onActualizaCliente: ( state, { payload } ) => {
             state.clientes = state.clientes.map( cliente => {
-                if ( cliente._id === payload._id ) {
+                if ( cliente.id === payload.id ) {
                     return payload;
                 }
                 return cliente;
             });
         },
-        onBorrarCliente: ( state ) => {
-            if ( state.clienteActivo ) {
-                state.clientes = state.clientes.filter( ciente => ciente._id !== state.clienteActivo._id );
-                state.clienteActivo = null;
-            }
+        onBorrarCliente: ( state, { payload } ) => {
+            state.clientes = state.clientes.filter( cliente => cliente.id !== payload.id );
+            state.clienteActivo = null;
         },
         onCargarClientes: ( state, { payload } ) => {
             state.isCargandoClientes = false;
             state.clientes = [];
 
             payload.forEach( cliente => {
-                const existe = state.clientes.some( dbCliente => dbCliente === cliente._id );
+                const existe = state.clientes.some( dbCliente => dbCliente === cliente.id );
                 if ( !existe ){
                     state.clientes.push( cliente );
                 }
@@ -48,7 +46,6 @@ export const clienteSlice = createSlice({
     }
 });
 
-// Action creators are generated for each case reducer function
 export const { 
     onActualizaCliente, 
     onBorrarCliente, 

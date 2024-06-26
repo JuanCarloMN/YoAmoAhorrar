@@ -22,3 +22,14 @@ export const convierteFechaCliente = ( clientes = [] ) => {
         return cliente;
     });
 }
+
+export const convierteFechaProspecto = ( prospectos = [] ) => {
+
+    return prospectos.map( prospecto => {
+       
+        prospecto.prospectoNacimiento = parseISO( prospecto.prospectoNacimiento );
+        prospecto.prospectoDesde = parseISO( prospecto.prospectoDesde );
+        
+        return prospecto;
+    });
+}

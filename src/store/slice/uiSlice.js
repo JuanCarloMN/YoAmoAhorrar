@@ -5,6 +5,7 @@ export const uiSlice = createSlice({
     initialState: {
         isEventoModalOpen: false,
         isClienteModalOpen: false,
+        isProspectoModalOpen: false,
     },
     reducers: {
         onOpenEventoModal: ( state ) => {
@@ -19,6 +20,12 @@ export const uiSlice = createSlice({
         onCloseClienteModal: ( state ) => {
             state.isClienteModalOpen = false;
         },
+        onOpenProspectoModal: ( state ) => {
+            state.isProspectoModalOpen = true;
+        },
+        onCloseProspectoModal: ( state ) => {
+            state.isProspectoModalOpen = false;
+        },
     }
 });
 
@@ -29,5 +36,8 @@ export const {
 
     onOpenClienteModal,
     onCloseClienteModal, 
+
+    onOpenProspectoModal,
+    onCloseProspectoModal, 
 
 } = uiSlice.actions;

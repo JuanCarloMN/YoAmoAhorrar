@@ -117,7 +117,6 @@ export const Navbar = () => {
                                 <li><NavLink className="dropdown-item" to="/prospectos">Prospectos</NavLink></li>
                                 <li><NavLink className="dropdown-item" to="/polizas">Pólizas</NavLink></li>
                                 <li><hr className="dropdown-divider" /></li>
-                                <li><a href="#" className="dropdown-item">Genera CP</a></li>
                                 <li><a href="#" className="dropdown-item">Agentes</a></li>
                                 <li><a href="#" className="dropdown-item">Promotorías</a></li>
                                 <li><hr className="dropdown-divider" /></li>
@@ -141,17 +140,13 @@ export const Navbar = () => {
                                 Utilerías
                             </a>
                             <ul className="dropdown-menu" aria-labelledby="dropdown-menu">
-                                <li><NavLink className="dropdown-item" to="/clientes">Opciones de Speech</NavLink></li>
-                                <li><NavLink className="dropdown-item" to="/prospectos">Genera</NavLink></li>
-                                <li><NavLink className="dropdown-item" to="/polizas">Pólizas</NavLink></li>
+                                <li><a href="#" className="dropdown-item">Opciones de Speech</a></li>
                                 <li><hr className="dropdown-divider" /></li>
-                                <li><a href="#" className="dropdown-item">Agentes</a></li>
-                                <li><a href="#" className="dropdown-item">Promotorías</a></li>
+                                <li><a href="#" className="dropdown-item">Exportar Clientes</a></li>
+                                <li><a href="#" className="dropdown-item">Exportar Prospectos</a></li>
+                                <li><a href="#" className="dropdown-item">Exportar Pólizas</a></li>
                                 <li><hr className="dropdown-divider" /></li>
-                                <li><a href="#" className="dropdown-item">Tipo de Pólizas</a></li>
-                                <li><a href="#" className="dropdown-item">Tipo de Estatus</a></li>
-                                <li><a href="#" className="dropdown-item">Tipo de Monedas</a></li>
-                                <li><a href="#" className="dropdown-item">Tipo de Pago</a></li>
+                                <li><a href="#" className="dropdown-item">Respaldar Base de Datos</a></li>
                             </ul>
                         </li>
                     </ul>

@@ -3,10 +3,13 @@ import { ClienteModal } from "../componentes/modal/ClienteModal"
 import { useSelector } from "react-redux";
 import { useClienteStore, useUiStore } from "../../hooks";
 
+import Swal from 'sweetalert2';
+import 'sweetalert2/dist/sweetalert2.min.css';
+
 export const ClientesPage = () => {
 
     const { openClienteModal } = useUiStore()
-    const { startCargaClientes, setClienteActivo } = useClienteStore()
+    const { startCargaClientes, setClienteActivo, starBorrarCliente } = useClienteStore()
     const { clientes } = useSelector( state => state.cliente );
     
     const nuevoCliente = () => {
@@ -14,7 +17,26 @@ export const ClientesPage = () => {
     }
 
     const eliminaCliente = ( cliente ) => {
-        console.log({cliente});
+        Swal.fire({
+            title: "Eliminar al cliente",
+            text: "¿Deseas eliminar al cliente: " + cliente.clienteNombre + '?',
+            icon: "question",
+            showCancelButton: true,
+            cancelButtonColor: "#3085d6",
+            confirmButtonText: "Eliminar",
+            confirmButtonColor: "#d33"
+        }).then( async ( result ) => {
+            if ( result.isConfirmed ) {
+
+                await starBorrarCliente( cliente );
+
+                Swal.fire({
+                    title: "Cliente eliminado",
+                    text: "Se eliminó al cliente de forma correcta",
+                    icon: "success"
+                });
+            }
+        });
     }
 
     const editaCliente = ( cliente ) => {
