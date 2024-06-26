@@ -1,5 +1,4 @@
 import { createSlice } from '@reduxjs/toolkit';
-import { addHours } from 'date-fns';
 
 // const tempEvent = {
 //     _id: new Date().getTime(),
@@ -32,8 +31,12 @@ export const agendaSlice = createSlice({
 
             state.eventos.push( payload );
 
-            if ( payload.tipo === tipo ) {
-                state.eventosTipo.push( payload );
+            if ( tipo === 0 ) {
+                state.eventosTipo = state.eventos;
+            } else {
+                if ( payload.tipo === tipo ) {
+                    state.eventosTipo.push( payload );
+                }
             }
 
             state.eventoActivo = null;
@@ -48,12 +51,16 @@ export const agendaSlice = createSlice({
                 return evento;
             });
 
-            state.eventosTipo = [];
-            state.eventosTipo = state.eventos.map( evento => {
-                if ( evento.tipo === tipo ) {
-                    return evento;
-                }
-            });
+            if ( tipo === 0 ) {
+                state.eventosTipo = state.eventos;
+            } else {
+                state.eventosTipo = [];
+                state.eventosTipo = state.eventos.map( evento => {
+                    if ( evento.tipo === tipo ) {
+                        return evento;
+                    }
+                });
+            }
         },
         onBorrarEvento: ( state ) => {
             if ( state.eventoActivo ) {
@@ -63,22 +70,27 @@ export const agendaSlice = createSlice({
             }
         },
         onCargarEventos: ( state, { payload } ) => {
+            const tipo = parseInt(localStorage.getItem('tipoEvento')) || 0;
+
             state.isCargandoEventos = false;
             state.eventos = [];
             state.eventosTipo = [];
-            const tipo = parseInt(localStorage.getItem('tipoEvento'));
-
-            if ( !tipo )
-                tipo = 1;
 
             payload.forEach( evento => {
                 const existe = state.eventos.some( dbEvento => dbEvento === evento.id );
                 if ( !existe ){
                     state.eventos.push( evento );
                 }
+
                 const existeTipo = state.eventosTipo.some( dbEvento => dbEvento === evento.id );
-                if ( !existeTipo && evento.tipo === tipo ){
-                    state.eventosTipo.push( evento );
+                if ( !existeTipo ) {
+                    if ( tipo === 0 ) {
+                        state.eventosTipo.push( evento );
+                    } else {
+                        if ( evento.tipo === tipo ){
+                            state.eventosTipo.push( evento );
+                        }
+                    }
                 }
             });
         },
@@ -91,7 +103,12 @@ export const agendaSlice = createSlice({
         },
         onActualizaEventosTipo: ( state ) => {
             const tipo = parseInt(localStorage.getItem('tipoEvento'));
-            state.eventosTipo = state.eventos.filter( evento => evento.tipo === tipo );
+            
+            if ( tipo === 0 ) {
+                state.eventosTipo = state.eventos;
+            } else {
+                state.eventosTipo = state.eventos.filter( evento => evento.tipo === tipo );
+            }
         }
     }
 });

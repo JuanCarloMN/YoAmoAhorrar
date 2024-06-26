@@ -28,7 +28,7 @@ Modal.setAppElement('#root');
 
 export const AgendaModal = () => {
 
-    const { isDateModalOpen, closeDateModal } = useUiStore();
+    const { isEventoModalOpen, closeEventoModal } = useUiStore();
     const { eventoActivo, startSalvarEvento } = useAgendaStore();
     const [ formSubmitted, setFormSubmitted ] = useState( false );
 
@@ -77,7 +77,7 @@ export const AgendaModal = () => {
     }
 
     const onCloseModal = () => {
-        closeDateModal();
+        closeEventoModal();
     }
 
     const onSubmit = async ( evento ) => {
@@ -103,13 +103,13 @@ export const AgendaModal = () => {
         if ( valoresFormulario.titulo.length <= 0 ) return;
 
         await startSalvarEvento( valoresFormulario );
-        closeDateModal();
+        closeEventoModal();
         setFormSubmitted( false );
     }
 
     return (
         <Modal
-            isOpen={ isDateModalOpen }
+            isOpen={ isEventoModalOpen }
             onRequestClose={ onCloseModal }
             style={ customStyles }
             className="modal"
@@ -118,7 +118,7 @@ export const AgendaModal = () => {
         >
             <h1> { ( eventoActivo?.titulo === '' ) ? 'Nuevo' : 'Editar' } evento </h1>
             <hr />
-            <form className="container" onSubmit={ onSubmit}>
+            <form className="container" onSubmit={ onSubmit }>
 
                 <div className="form-group mb-2 d-flex justify-content-between">
                     <div className="col-6 p-1">

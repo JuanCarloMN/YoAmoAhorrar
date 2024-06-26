@@ -4,11 +4,12 @@ import { useAuthStore } from "../../hooks";
 export const Navbar = () => {
 
     const { starLogout, usuario } = useAuthStore();
-
     return (
         <nav className="navbar navbar-expand-md navbar-dark bg-dark p-1 ">
             <div className="container-fluid d-flex align-items-center justify-content-between p-0">
-                <img className="logo col-10 col-sm-2 col-md-1 " src="img/logo2.png" alt="" />
+                <NavLink className="btn btn-dark" to="/agenda?tipo=0">
+                    <img className="logo col-10 col-sm-2 col-md-1 " src="img/logo2.png" alt="" />
+                </NavLink>
                 
                 {/* <!-- Boton para el menú móvil --> */}
                 <div className="col-2 col-sm-2 d-block d-md-none ">
@@ -116,6 +117,7 @@ export const Navbar = () => {
                                 <li><NavLink className="dropdown-item" to="/prospectos">Prospectos</NavLink></li>
                                 <li><NavLink className="dropdown-item" to="/polizas">Pólizas</NavLink></li>
                                 <li><hr className="dropdown-divider" /></li>
+                                <li><a href="#" className="dropdown-item">Genera CP</a></li>
                                 <li><a href="#" className="dropdown-item">Agentes</a></li>
                                 <li><a href="#" className="dropdown-item">Promotorías</a></li>
                                 <li><hr className="dropdown-divider" /></li>
@@ -140,7 +142,7 @@ export const Navbar = () => {
                             </a>
                             <ul className="dropdown-menu" aria-labelledby="dropdown-menu">
                                 <li><NavLink className="dropdown-item" to="/clientes">Opciones de Speech</NavLink></li>
-                                <li><NavLink className="dropdown-item" to="/prospectos">Prospectos</NavLink></li>
+                                <li><NavLink className="dropdown-item" to="/prospectos">Genera</NavLink></li>
                                 <li><NavLink className="dropdown-item" to="/polizas">Pólizas</NavLink></li>
                                 <li><hr className="dropdown-divider" /></li>
                                 <li><a href="#" className="dropdown-item">Agentes</a></li>

@@ -6,14 +6,14 @@ import queryString from 'query-string';
 
 import { localizer, getMessagesES } from '../../helpers';
 import { useAgendaStore, useAuthStore, useUiStore } from '../../hooks';
-import { AgendaEvento, AgendaModal, FabNuevo, FabBorrar } from '../componentes/Agenda';
+import { AgendaEvento, AgendaModal, FabNuevo, FabBorrar } from '../componentes/agenda';
 import { useDispatch, useSelector } from 'react-redux';
-import { onActualizaEventosTipo } from '../../store';
+import { onActualizaEventosTipo } from '../../store/slice/agendaSlice';
 
 export const AgendaPage = () => {
 
     const { usuario } = useAuthStore();
-    const { openDateModal } = useUiStore();
+    const { openEventoModal } = useUiStore();
     const { eventos } = useSelector( state => state.agenda );
     const { eventosTipo, setEventoActivo, startCargarEventos } = useAgendaStore();
     const [ ultimaVista, setUltimaVista ] = useState( localStorage.getItem('ultimaVista') || 'week' );
@@ -22,8 +22,6 @@ export const AgendaPage = () => {
 
     const eventStyleGetter = ( evento, inicio, fin, isSelected ) => {
         
-        const isMyEvento = ( usuario.uid === evento.usuario._id ) || ( usuario.uid === evento.usuario.uid );
-
         const style = {
             backgroundColor: colorEvento( evento.tipo ),
             borderRadious: '0px',
@@ -49,7 +47,7 @@ export const AgendaPage = () => {
     }
 
     const onDoubleClick = ( evento ) => {
-        openDateModal();
+        openEventoModal();
     }
 
     const onSelect = ( evento ) => {

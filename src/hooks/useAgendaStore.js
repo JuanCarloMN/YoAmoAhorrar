@@ -1,8 +1,8 @@
 import { useDispatch, useSelector } from 'react-redux';
-import { onNuevoEvento, onBorrarEvento, onCargarEventos, onSetEventoActivo, onActualizaEvento } from '../store';
 import agendaApi from '../api/agendaApi';
 import { convierteFechaEvento } from '../helpers';
 import Swal from 'sweetalert2';
+import { onActualizaEvento, onBorrarEvento, onCargarEventos, onNuevoEvento, onSetEventoActivo } from '../store/slice/agendaSlice';
 
 export const useAgendaStore = () => {
 
@@ -46,7 +46,7 @@ export const useAgendaStore = () => {
         try {
             const { data } = await agendaApi.get('/eventos/');
             const eventos = convierteFechaEvento( data.eventos );
-            dispatch( onCargarEventos ( eventos ) );
+            dispatch( onCargarEventos( eventos ) );
 
         } catch (error) {
             console.log('Error al cargar los eventos');

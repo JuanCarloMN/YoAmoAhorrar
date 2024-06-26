@@ -1,5 +1,6 @@
-export * from './agenda/agendaSlice';
-export * from './auth/authSlice';
-export * from './ui/uiSlice';
+export * from './slice/agendaSlice';
+export * from './slice/authSlice';
+export * from './slice/uiSlice';
+export * from './slice/clienteSlice';
 
 export * from './store';

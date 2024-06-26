@@ -6,5 +6,5 @@ import { YoAmoAhorrarApp } from './YoAmoAhorrarApp.jsx'
 ReactDOM.createRoot(document.getElementById('root')).render(
   // <React.StrictMode>
     <YoAmoAhorrarApp />
-  // </React.StrictMode>,
+  // </React.StrictMode>
 )

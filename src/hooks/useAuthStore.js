@@ -1,6 +1,7 @@
 import { useDispatch, useSelector } from "react-redux"
 import agendaApi from "../api/agendaApi";
-import { clearErrorMessage, onChecking, onLogin, onLogout, onLogoutAgenda } from "../store";
+import { clearErrorMessage, onChecking, onLogin, onLogout } from "../store/slice/authSlice";
+import { onLogoutAgenda } from "../store/slice/agendaSlice";
 
 export const useAuthStore = () => {
     
@@ -15,7 +16,7 @@ export const useAuthStore = () => {
             const { data } = await agendaApi.post('/auth', { email, password });
             localStorage.setItem( 'token', data.token );
             localStorage.setItem( 'token-init-date', new Date().getTime() );
-            localStorage.setItem( 'tipoEvento', 1 );
+            localStorage.setItem( 'tipoEvento', 0 );
             dispatch( onLogin( {nombre: data.nombre, uid: data.uid } ) );
         } catch (error) {
             dispatch( onLogout( 'Credenciales incorrectas' ) );
