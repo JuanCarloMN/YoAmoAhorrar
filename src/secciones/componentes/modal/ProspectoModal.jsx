@@ -154,12 +154,12 @@ export const ProspectoModal = () => {
             overlayClassName="modal-fondo"
             closeTimeoutMS={ 200 }
         >
-            <h1 className='mt-0'> { ( prospectoActivo?.prospectoNombre === '' || prospectoActivo?.prospectoNombre === undefined ) ? 'Nuevo' : 'Editar' } prospecto </h1>
-            <hr className='mt-0'/>
+            <h1> { ( prospectoActivo?.prospectoNombre === '' || prospectoActivo?.prospectoNombre === undefined ) ? 'Nuevo' : 'Editar' } prospecto </h1>
+            <hr />
 
             <form className="container" onSubmit={ onSubmit }>
-                <h5 className='ms-2 mb-0'>Datos del prospecto</h5>
-                <div className="form-group d-flex p-2 mb-0 justify-content-between">    
+                <h5>Datos del prospecto</h5>
+                <div className="form-group d-flex mt-2 mb-0 justify-content-between">    
                     <div className="form-floating me-2 col-4">
                         <input 
                             type="text" 
@@ -200,7 +200,7 @@ export const ProspectoModal = () => {
                         <label htmlFor="materno">Apellido materno</label>
                     </div>
                 </div>
-                <div className="form-group d-flex justify-content-between p-2 align-items-end">
+                <div className="form-group d-flex justify-content-between mt-2 align-items-end">
                     <div className="form-floating me-2 col-4">
                         <ReactInputMask 
                             type="text" 
@@ -252,10 +252,10 @@ export const ProspectoModal = () => {
                         />
                     </div>
                 </div>
-                <hr className='mt-1 mb-2' />
+                {/* <hr className='mt-1 mb-2' /> */}
 
-                <h5 className='ms-2 mb-0'>Datos de contacto</h5>
-                <div className="form-group d-flex justify-content-between p-2 align-items-center">
+                <h5 className="mt-2">Datos de contacto</h5>
+                <div className="form-group d-flex justify-content-between mt-2 align-items-center">
                     <div className="form-floating me-2 col-3">
                         <ReactInputMask 
                             type="text" 
@@ -286,7 +286,7 @@ export const ProspectoModal = () => {
                         />
                         <label htmlFor="telefono">Teléfono fijo</label>
                     </div>
-                    <div className="form-floating me-2 col-6">
+                    <div className="form-floating col-6">
                         <input 
                             type="email" 
                             className="form-control"
@@ -300,7 +300,7 @@ export const ProspectoModal = () => {
                         <label htmlFor="email">Correo electrónico</label>
                     </div>
                 </div>
-                <div className="form-group d-flex justify-content-between p-2 align-items-center">
+                <div className="form-group d-flex justify-content-between mt-2 align-items-center">
 
                     <div className="form-floating me-2 col-10">
                         <input 
@@ -331,7 +331,7 @@ export const ProspectoModal = () => {
                         <label htmlFor="cp">C. P.</label>
                     </div>
                 </div>
-                <div className="form-group d-flex justify-content-between p-2 align-items-center">
+                <div className="form-group d-flex justify-content-between mt-2 align-items-center">
 
                     <div className="form-floating me-2 col-4">
                         <select className="form-select" id="colonia" name='prospectoColonia' aria-label="Seleccione la colonia" value={ valoresFormulario.prospectoColonia } onChange={ onInputChange } >
@@ -363,7 +363,7 @@ export const ProspectoModal = () => {
                         <label htmlFor="ciudad">Ciudad</label>
                     </div>
 
-                    <div className="form-floating me-2 col-4">
+                    <div className="form-floating col-4">
                         <select className="form-select" id="estado" name='prospectoEstado' aria-label="Seleccione el estado" value={ valoresFormulario.prospectoEstado } onChange={ onInputChange } >
 
                             {/* <option key={ 0 } value={ 0 } >Seleccione el estado</option> */}
@@ -378,12 +378,12 @@ export const ProspectoModal = () => {
                         <label htmlFor="estado">Estado</label>
                     </div>
                 </div>
-                <hr className='mt-1 mb-2' />
+                {/* <hr className='mt-1 mb-2' /> */}
 
-                <h5 className='ms-2 mb-0'>Otros datos</h5>
+                <h5 className='mt-2 mb-0'>Otros datos</h5>
                 <div className="form-group d-flex justify-content-between align-items-end">
-                    <div className="form-item col-6 ">
-                        <div className="form-item p-2 ">
+                    <div className="form-item me-2 col-6 ">
+                        <div className="form-item mb-2 ">
                             <label className="form-label mt-0 mb-0" htmlFor="desde" >Prospecto desde</label>
                             <DatePicker 
                                 selected={  valoresFormulario.prospectoDesde }
@@ -401,7 +401,7 @@ export const ProspectoModal = () => {
                                 placeholder="Prospecto desde"
                             />
                         </div>
-                        <div className="form-floating p-2">
+                        <div className="form-floating ">
                             <input 
                                 type="text" 
                                 className="form-control"
@@ -416,7 +416,7 @@ export const ProspectoModal = () => {
                         </div>
                     </div>
 
-                    <div className="form-floating p-2 col-6">
+                    <div className="form-floating col-6">
                         <textarea 
                             type="text" 
                             className="notas form-control"
@@ -431,9 +431,9 @@ export const ProspectoModal = () => {
                     </div>
 
                 </div>
-                <hr className='mt-2 mb-3' />
+                {/* <hr className='mt-2 mb-3' /> */}
 
-                <div className="d-flex justify-content-between">
+                <div className="d-flex mt-3 justify-content-between">
                     <button
                         type="submit"
                         className="btn btn-outline-primary btn-block"

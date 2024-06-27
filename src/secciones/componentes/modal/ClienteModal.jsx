@@ -154,12 +154,12 @@ export const ClienteModal = () => {
             overlayClassName="modal-fondo"
             closeTimeoutMS={ 200 }
         >
-            <h1 className='mt-0'> { ( clienteActivo?.clienteNombre === '' || clienteActivo?.clienteNombre === undefined ) ? 'Nuevo' : 'Editar' } cliente </h1>
-            <hr className='mt-0'/>
+            <h2> { ( clienteActivo?.clienteNombre === '' || clienteActivo?.clienteNombre === undefined ) ? 'Nuevo' : 'Editar' } cliente </h2>
+            <hr />
 
             <form className="container" onSubmit={ onSubmit }>
-                <h5 className='ms-2 mb-0'>Datos del cliente</h5>
-                <div className="form-group d-flex p-2 mb-0 justify-content-between">    
+                <h5>Datos del cliente</h5>
+                <div className="form-group d-flex mt-2 mb-0 justify-content-between">    
                     <div className="form-floating me-2 col-4">
                         <input 
                             type="text" 
@@ -200,7 +200,7 @@ export const ClienteModal = () => {
                         <label htmlFor="materno">Apellido materno</label>
                     </div>
                 </div>
-                <div className="form-group d-flex justify-content-between p-2 align-items-end">
+                <div className="form-group d-flex justify-content-between mt-2 align-items-end">
                     <div className="form-floating me-2 col-4">
                         <ReactInputMask 
                             type="text" 
@@ -231,8 +231,8 @@ export const ClienteModal = () => {
                         />
                         <label htmlFor="curp">CURP</label>
                     </div>
-                    <div className="form-item col-4 mt-0 mb-0 ">
-                        <label className="form-label mt-0 mb-0" htmlFor="nacimiento" >Fecha de nacimiento</label>
+                    <div className="form-item col-4 ">
+                        <label className="form-label" htmlFor="nacimiento" >Fecha de nacimiento</label>
                         <DatePicker 
                             selected={  valoresFormulario.clienteNacimiento }
                             onChange={ ( evento ) => onDateChanged( evento, 'clienteNacimiento' ) }
@@ -250,10 +250,10 @@ export const ClienteModal = () => {
                         />
                     </div>
                 </div>
-                <hr className='mt-1 mb-2' />
+                {/* <hr className='mt-1 mb-2' /> */}
 
-                <h5 className='ms-2 mb-0'>Datos de contacto</h5>
-                <div className="form-group d-flex justify-content-between p-2 align-items-center">
+                <h5 className="mt-2">Datos de contacto</h5>
+                <div className="form-group d-flex justify-content-between mt-2 align-items-center">
                     <div className="form-floating me-2 col-3">
                         <ReactInputMask 
                             type="text" 
@@ -284,7 +284,7 @@ export const ClienteModal = () => {
                         />
                         <label htmlFor="telefono">Teléfono fijo</label>
                     </div>
-                    <div className="form-floating me-2 col-6">
+                    <div className="form-floating col-6">
                         <input 
                             type="email" 
                             className="form-control"
@@ -298,7 +298,7 @@ export const ClienteModal = () => {
                         <label htmlFor="email">Correo electrónico</label>
                     </div>
                 </div>
-                <div className="form-group d-flex justify-content-between p-2 align-items-center">
+                <div className="form-group d-flex justify-content-between mt-2 align-items-center ">
 
                     <div className="form-floating me-2 col-10">
                         <input 
@@ -329,7 +329,7 @@ export const ClienteModal = () => {
                         <label htmlFor="cp">C. P.</label>
                     </div>
                 </div>
-                <div className="form-group d-flex justify-content-between p-2 align-items-center">
+                <div className="form-group d-flex justify-content-between mt-2 align-items-center">
 
                     <div className="form-floating me-2 col-4">
                         <select className="form-select" id="colonia" name='clienteColonia' aria-label="Seleccione la colonia" value={ valoresFormulario.clienteColonia } onChange={ onInputChange } >
@@ -357,7 +357,7 @@ export const ClienteModal = () => {
                         <label htmlFor="ciudad">Ciudad</label>
                     </div>
 
-                    <div className="form-floating me-2 col-4">
+                    <div className="form-floating col-4">
                         <select className="form-select" id="estado" name='clienteEstado' aria-label="Seleccione el estado" value={ valoresFormulario.clienteEstado } onChange={ onInputChange } >
                             { ciudades.map( ( ciudad ) => {
                                 return (
@@ -370,13 +370,13 @@ export const ClienteModal = () => {
                         <label htmlFor="estado">Estado</label>
                     </div>
                 </div>
-                <hr className='mt-1 mb-2' />
+                {/* <hr className='mt-1 mb-2' /> */}
 
-                <h5 className='ms-2 mb-0'>Otros datos</h5>
-                <div className="form-group d-flex justify-content-between align-items-end">
-                    <div className="form-item col-6 ">
-                        <div className="form-item p-2 ">
-                            <label className="form-label mt-0 mb-0" htmlFor="desde" >Cliente desde</label>
+                <h5 className='mt-2'>Otros datos</h5>
+                <div className="form-group d-flex justify-content-between align-items-end ">
+                    <div className="form-item me-2 col-6 ">
+                        <div className="form-item mb-2">
+                            <label className="form-label" htmlFor="desde" >Cliente desde</label>
                             <DatePicker 
                                 selected={  valoresFormulario.clienteDesde }
                                 onChange={ ( evento ) => onDateChanged( evento, 'clienteDesde' ) }
@@ -393,7 +393,7 @@ export const ClienteModal = () => {
                                 placeholder="Cliente desde"
                             />
                         </div>
-                        <div className="form-floating p-2">
+                        <div className="form-floating">
                             <input 
                                 type="text" 
                                 className="form-control"
@@ -408,7 +408,7 @@ export const ClienteModal = () => {
                         </div>
                     </div>
 
-                    <div className="form-floating p-2 col-6">
+                    <div className="form-floating col-6">
                         <textarea 
                             type="text" 
                             className="notas form-control"
@@ -423,9 +423,9 @@ export const ClienteModal = () => {
                     </div>
 
                 </div>
-                <hr className='mt-2 mb-3' />
+                {/* <hr className='mt-2 mb-3' /> */}
 
-                <div className="d-flex justify-content-between">
+                <div className="d-flex mt-3 justify-content-between">
                     <button
                         type="submit"
                         className="btn btn-outline-primary btn-block"
