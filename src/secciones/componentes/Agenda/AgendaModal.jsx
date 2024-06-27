@@ -110,7 +110,6 @@ export const AgendaModal = () => {
     return (
         <Modal
             isOpen={ isEventoModalOpen }
-            onRequestClose={ onCloseModal }
             style={ customStyles }
             className="modal"
             overlayClassName="modal-fondo"

@@ -84,7 +84,7 @@ export const AgendaPage = () => {
                 defaultView={ ultimaVista }
                 startAccessor="inicio"
                 endAccessor="fin"
-                style={{ height: 'calc( 100vh - 110px )', width: 'calc( 100vw - 15px )' }}
+                style={{ height: 'calc( 100vh - 150px )', width: 'calc( 100vw - 15px )' }}
                 messages={ getMessagesES() }
                 eventPropGetter={ eventStyleGetter }
                 components={{

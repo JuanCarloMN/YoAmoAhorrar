@@ -8,16 +8,16 @@ export const FabNuevo = () => {
 
     const handleClickNew = () => {
         setEventoActivo({
-            titulo: '',
-            notas: '',
-            tipo: 0,
-            inicio: new Date(),
-            fin: addHours( new Date(), 2 ),
-            bgColor: '#FaFaFa',
-            usuario: {
-                _id: 123,
-                nombre: 'Juan Carlo'
-            }
+            // titulo: '',
+            // notas: '',
+            // tipo: 0,
+            // inicio: new Date(),
+            // fin: addHours( new Date(), 2 ),
+            // bgColor: '#FaFaFa',
+            // usuario: {
+            //     _id: 123,
+            //     nombre: 'Juan Carlo'
+            // }
         });
         openEventoModal();
     }

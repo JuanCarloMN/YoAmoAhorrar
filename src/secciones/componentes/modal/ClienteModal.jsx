@@ -1,9 +1,9 @@
-import { useEffect, useMemo, useState } from 'react';
+import { useEffect, useState } from 'react';
 import Modal from 'react-modal';
 import ReactInputMask from 'react-input-mask';
 
 import { useClienteStore, useUiStore } from '../../../hooks';
-import DatePicker, { registerLocale } from 'react-datepicker';
+import DatePicker from 'react-datepicker';
 import { infoCP } from '../../../helpers';
 
 import Swal from 'sweetalert2';
@@ -32,6 +32,20 @@ export const ClienteModal = () => {
     const { isClienteModalOpen, closeClienteModal } = useUiStore();
     const { clienteActivo, startSalvarCliente, setClienteActivo } = useClienteStore();
 
+    const [ validaciones, setValidaciones ] = useState({
+        validaNombre: '',
+        validaRFC: '',
+        validaCURP: '',
+        validaNacimiento: '',
+        validaCelular: '',
+        validaEmail: '',
+        validaDireccion: '',
+        validaCP: '',
+        validaColonia: '',
+        validaCiudad: '',
+        validaEstado: ''
+    });
+
     const [ valoresFormulario, setValoresFormulario ] = useState({
         clienteNombre: '',
         clienteApellidoP: '',
@@ -52,20 +66,124 @@ export const ClienteModal = () => {
         clienteNotas: ''
     });
 
-    const claseValidacion = useMemo( () => {
-        if ( !formSubmitted ) return '';
 
-        return ( valoresFormulario.clienteNombre.length > 0 )
-            ? ''
-            : 'is-invalid'
+    const validaCampos = () => {
+        let todoBien = true;
 
-    }, [ valoresFormulario.clienteNombre, formSubmitted ]);
+        setValidaciones({
+            validaNombre: '',
+            validaRFC: '',
+            validaCURP: '',
+            validaNacimiento: '',
+            validaCelular: '',
+            validaEmail: '',
+            validaDireccion: '',
+            validaCP: '',
+            validaColonia: '',
+            validaCiudad: '',
+            validaEstado: ''
+        })
+
+        if ( !valoresFormulario.clienteNombre ) {
+            validaciones.validaNombre = 'is-invalid';
+            todoBien = false;
+        }
+        if ( !valoresFormulario.clienteRFC ) {
+            validaciones.validaRFC = 'is-invalid';
+            todoBien = false;
+        }
+        if ( !valoresFormulario.clienteCURP ) {
+            validaciones.validaCURP = 'is-invalid';
+            todoBien = false;
+        }
+        if ( !valoresFormulario.clienteNacimiento ) {
+            validaciones.validaNacimiento = 'is-invalid';
+            todoBien = false;
+        }
+        if ( !valoresFormulario.clienteCelular ) {
+            console.log(valoresFormulario.clienteCelular);
+            validaciones.validaCelular = 'is-invalid';
+            todoBien = false;
+        }
+        if ( !valoresFormulario.clienteEmail ) {
+            validaciones.validaEmail = 'is-invalid';
+            todoBien = false;
+        }
+        if ( !valoresFormulario.clienteDireccion ) {
+            validaciones.validaDireccion = 'is-invalid';
+            todoBien = false;
+        }
+        if ( !valoresFormulario.clienteCP ) {
+            validaciones.validaCP = 'is-invalid';
+            todoBien = false;
+        }
+
+        setValidaciones({
+            validaNombre: validaciones.validaNombre,
+            validaRFC: validaciones.validaRFC,
+            validaCURP: validaciones.validaCURP,
+            validaNacimiento: validaciones.validaNacimiento,
+            validaCelular: validaciones.validaCelular,
+            validaEmail: validaciones.validaEmail,
+            validaDireccion: validaciones.validaDireccion,
+            validaCP: validaciones.validaCP,
+            validaColonia: validaciones.validaColonia,
+            validaCiudad: validaciones.validaCiudad,
+            validaEstado: validaciones.validaEstado
+        })
+
+        return todoBien;
+    }
 
     const onInputChange = ({ target }) => {
         setValoresFormulario({
             ...valoresFormulario,
             [ target.name ]: target.value
-        })
+        });
+
+        const valor = ( target.value ) ? '' : 'is-invalid'
+        let campoValida = '';
+
+        switch ( target.name ) {
+            case 'clienteNombre':
+                campoValida = 'validaNombre'
+                break;
+            case 'clienteRFC':
+                campoValida = 'validaRFC'
+                break;
+            case 'clienteCURP':
+                campoValida = 'validaCURP'
+                break;
+            case 'clienteNoacimiento':
+                campoValida = 'validaNacimiento'
+                break;
+            case 'clienteCelular':
+                campoValida = 'validaCelular'
+                break;
+            case 'clienteEmail':
+                campoValida = 'validaEmail'
+                break;
+            case 'clienteDireccion':
+                campoValida = 'validaDireccion'
+                break;
+            case 'clienteCP':
+                campoValida = 'validaCP'
+                break;
+            case 'clienteColonia':
+                campoValida = 'validaColonia'
+                break;
+            case 'clienteCiudad':
+                campoValida = 'validaCiudad'
+                break;
+            case 'clienteEstado':
+                campoValida = 'validaEstado'
+                break;
+        }
+
+        setValidaciones({
+            ...validaciones,
+            [ campoValida ]: valor
+        });
     }
 
     const onCURPChange = ({ target }) => {
@@ -74,7 +192,12 @@ export const ClienteModal = () => {
         setValoresFormulario({
             ...valoresFormulario,
             [ target.name ]: valor.toUpperCase()
-        })
+        });
+
+        setValidaciones({
+            ...validaciones,
+            [ 'validaCURP' ]: ( valor ) ? '' : 'is-invalid'
+        });
     }
 
     const onRFCChange = ({ target }) => {
@@ -100,8 +223,13 @@ export const ClienteModal = () => {
             setValoresFormulario({
                 ...valoresFormulario,
                 [ target.name ]: valor.toUpperCase(),
-            })
+            });
         }
+
+        setValidaciones({
+            ...validaciones,
+            [ 'validaRFC' ]: ( valor ) ? '' : 'is-invalid'
+        });
     }
 
     const onCPChange = ({ target }) => {
@@ -112,13 +240,30 @@ export const ClienteModal = () => {
         
         setCiudades( infoCP( 1, parseInt(target.value)) );
         setColonias( infoCP( 2, parseInt(target.value)) );
+
+        setValidaciones({
+            ...validaciones,
+            [ 'validaCP' ]: ( target.value ) ? '' : 'is-invalid'
+        });
     }
 
-    const onDateChanged = ( evento, changing ) => {
+    const onNacimientoChanged = ( fecha, changing ) => {
         setValoresFormulario({
             ...valoresFormulario,
-            [ changing ]: evento
-        })
+            [ changing ]: fecha
+        });
+
+        setValidaciones({
+            ...validaciones,
+            [ 'validaNacimiento' ]: ( fecha ) ? '' : 'is-invalid'
+        });
+    }
+
+    const onDesdeChanged = ( fecha, changing ) => {
+        setValoresFormulario({
+            ...valoresFormulario,
+            [ changing ]: fecha
+        });
     }
 
     const onCloseModal = () => {
@@ -131,13 +276,32 @@ export const ClienteModal = () => {
         cliente.preventDefault();
         setFormSubmitted( true );
         
-        if ( valoresFormulario.clienteNombre.length <= 0 ) return;
-
+        if ( !validaCampos() ) {
+            Swal.fire( 'Información incorrecta', 'Revisar que se haya ingresado la información correcta', 'error' );
+            setFormSubmitted( false );
+            return;
+        }
+                
         await startSalvarCliente( valoresFormulario );
 
         setFormSubmitted( false );
         setClienteActivo( null );
         setValoresFormulario({});
+
+        setValidaciones({
+            validaNombre: '',
+            validaRFC: '',
+            validaCURP: '',
+            validaNacimiento: '',
+            validaCelular: '',
+            validaEmail: '',
+            validaDireccion: '',
+            validaCP: '',
+            validaColonia: '',
+            validaCiudad: '',
+            validaEstado: ''
+        });
+
         closeClienteModal();
     }
 
@@ -154,16 +318,29 @@ export const ClienteModal = () => {
             overlayClassName="modal-fondo"
             closeTimeoutMS={ 200 }
         >
-            <h2> { ( clienteActivo?.clienteNombre === '' || clienteActivo?.clienteNombre === undefined ) ? 'Nuevo' : 'Editar' } cliente </h2>
-            <hr />
-
             <form className="container" onSubmit={ onSubmit }>
+                <div className="row">
+                    <div className="col d-flex justify-content-between align-items-end">
+                        <h2> { ( clienteActivo?.clienteNombre === '' || clienteActivo?.clienteNombre === undefined ) ? 'Nuevo' : 'Editar' } cliente </h2>
+                        <div className=" justify-content-between">
+                            <button type="submit" className="btn btn-outline-primary btn-block me-5">
+                                <span> Guardar</span>
+                            </button>
+
+                            <button type="button" className="btn btn-outline-secondary btn-block" onClick={ onCloseModal }>
+                                <span> Cancelar</span>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                <hr />
+
                 <h5>Datos del cliente</h5>
                 <div className="form-group d-flex mt-2 mb-0 justify-content-between">    
                     <div className="form-floating me-2 col-4">
                         <input 
                             type="text" 
-                            className="form-control"
+                            className={ `form-control ${ validaciones.validaNombre }` }
                             placeholder="Nombre(s)"
                             autoComplete="on"
                             value={ valoresFormulario.clienteNombre }
@@ -204,7 +381,7 @@ export const ClienteModal = () => {
                     <div className="form-floating me-2 col-4">
                         <ReactInputMask 
                             type="text" 
-                            className="form-control"
+                            className={ `form-control ${ validaciones.validaRFC }` }
                             mask="aaaa-999999-***"
                             maskChar=""
                             placeholder="RFC"
@@ -219,7 +396,7 @@ export const ClienteModal = () => {
                     <div className="form-floating me-2 col-4">
                         <ReactInputMask 
                             type="text" 
-                            className="form-control"
+                            className={ `form-control ${ validaciones.validaCURP }` }
                             mask="aaaa999999aaaaaa**"
                             maskChar=""
                             placeholder="CURP"
@@ -235,12 +412,12 @@ export const ClienteModal = () => {
                         <label className="form-label" htmlFor="nacimiento" >Fecha de nacimiento</label>
                         <DatePicker 
                             selected={  valoresFormulario.clienteNacimiento }
-                            onChange={ ( evento ) => onDateChanged( evento, 'clienteNacimiento' ) }
+                            onChange={ ( fecha ) => onNacimientoChanged( fecha, 'clienteNacimiento' ) }
                             dateFormat="dd-MMM-yyyy"
                             wrapperClassName="datePicker"
                             maxDate={ new Date() }
                             dropdownMode="select"
-                            className="form-control"
+                            className={ `form-control ${ validaciones.validaNacimiento }` }
                             locale="es"
                             registerLocale
                             name="clienteNacimiento"
@@ -250,14 +427,14 @@ export const ClienteModal = () => {
                         />
                     </div>
                 </div>
-                {/* <hr className='mt-1 mb-2' /> */}
+                <hr />
 
                 <h5 className="mt-2">Datos de contacto</h5>
                 <div className="form-group d-flex justify-content-between mt-2 align-items-center">
                     <div className="form-floating me-2 col-3">
                         <ReactInputMask 
                             type="text" 
-                            className="form-control"
+                            className={ `form-control ${ validaciones.validaCelular }` }
                             placeholder="Celular"
                             mask="999-9999-999"
                             maskChar=""
@@ -287,7 +464,7 @@ export const ClienteModal = () => {
                     <div className="form-floating col-6">
                         <input 
                             type="email" 
-                            className="form-control"
+                            className={ `form-control ${ validaciones.validaEmail }` }
                             placeholder="Correo electrónico"
                             autoComplete="on"
                             value={ valoresFormulario.clienteEmail }
@@ -298,12 +475,11 @@ export const ClienteModal = () => {
                         <label htmlFor="email">Correo electrónico</label>
                     </div>
                 </div>
-                <div className="form-group d-flex justify-content-between mt-2 align-items-center ">
-
-                    <div className="form-floating me-2 col-10">
+                <div className="form-group d-flex justify-content-between mt-2 align-items-center">
+                    <div className="form-floating me-3 col-10">
                         <input 
                             type="text" 
-                            className="form-control"
+                            className={ `form-control ${ validaciones.validaDireccion }` }
                             placeholder="Direccion"
                             autoComplete="on"
                             value={ valoresFormulario.clienteDireccion }
@@ -316,7 +492,7 @@ export const ClienteModal = () => {
                     <div className="form-floating col-2">
                         <ReactInputMask
                             type="text" 
-                            className="form-control"
+                            className={ `form-control ${ validaciones.validaCP }` }
                             placeholder="Código Postal"
                             mask="999999"
                             maskChar=""
@@ -330,7 +506,6 @@ export const ClienteModal = () => {
                     </div>
                 </div>
                 <div className="form-group d-flex justify-content-between mt-2 align-items-center">
-
                     <div className="form-floating me-2 col-4">
                         <select className="form-select" id="colonia" name='clienteColonia' aria-label="Seleccione la colonia" value={ valoresFormulario.clienteColonia } onChange={ onInputChange } >
                             { colonias.map( ( colonia ) => {
@@ -343,7 +518,6 @@ export const ClienteModal = () => {
                         </select>
                         <label htmlFor="colonia">Colonia</label>
                     </div>
-
                     <div className="form-floating me-2 col-4">
                         <select className="form-select" id="ciudad" name='clienteCiudad' aria-label="Seleccione la ciudad" value={ valoresFormulario.clienteCiudad } onChange={ onInputChange } >
                             { ciudades.map( ( ciudad ) => {
@@ -356,7 +530,6 @@ export const ClienteModal = () => {
                         </select>
                         <label htmlFor="ciudad">Ciudad</label>
                     </div>
-
                     <div className="form-floating col-4">
                         <select className="form-select" id="estado" name='clienteEstado' aria-label="Seleccione el estado" value={ valoresFormulario.clienteEstado } onChange={ onInputChange } >
                             { ciudades.map( ( ciudad ) => {
@@ -370,16 +543,16 @@ export const ClienteModal = () => {
                         <label htmlFor="estado">Estado</label>
                     </div>
                 </div>
-                {/* <hr className='mt-1 mb-2' /> */}
+                <hr />
 
                 <h5 className='mt-2'>Otros datos</h5>
-                <div className="form-group d-flex justify-content-between align-items-end ">
-                    <div className="form-item me-2 col-6 ">
+                <div className="form-group d-flex justify-content-between align-items-end">
+                    <div className="form-item me-3 col-6 ">
                         <div className="form-item mb-2">
                             <label className="form-label" htmlFor="desde" >Cliente desde</label>
                             <DatePicker 
                                 selected={  valoresFormulario.clienteDesde }
-                                onChange={ ( evento ) => onDateChanged( evento, 'clienteDesde' ) }
+                                onChange={ ( fecha ) => onDesdeChanged( fecha, 'clienteDesde' ) }
                                 dateFormat="dd-MMM-yyyy"
                                 wrapperClassName="datePicker"
                                 maxDate={ new Date() }
@@ -422,24 +595,6 @@ export const ClienteModal = () => {
                         <label htmlFor="notas">Notas</label>
                     </div>
 
-                </div>
-                {/* <hr className='mt-2 mb-3' /> */}
-
-                <div className="d-flex mt-3 justify-content-between">
-                    <button
-                        type="submit"
-                        className="btn btn-outline-primary btn-block"
-                    >
-                        <span> Guardar</span>
-                    </button>
-
-                    <button
-                        type="button"
-                        className="btn btn-outline-secondary btn-block"
-                        onClick={ onCloseModal }
-                    >
-                        <span> Cancelar</span>
-                    </button>
                 </div>
             </form>
         </Modal>
