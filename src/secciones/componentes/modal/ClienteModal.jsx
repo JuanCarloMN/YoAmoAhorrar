@@ -238,8 +238,6 @@ export const ClienteModal = () => {
                             onChange={ ( evento ) => onDateChanged( evento, 'clienteNacimiento' ) }
                             dateFormat="dd-MMM-yyyy"
                             wrapperClassName="datePicker"
-                            // showMonthDropdown
-                            // showYearDropdown
                             maxDate={ new Date() }
                             dropdownMode="select"
                             className="form-control"
@@ -335,8 +333,6 @@ export const ClienteModal = () => {
 
                     <div className="form-floating me-2 col-4">
                         <select className="form-select" id="colonia" name='clienteColonia' aria-label="Seleccione la colonia" value={ valoresFormulario.clienteColonia } onChange={ onInputChange } >
-
-                            {/* <option key={ 0 } value={ 0 } >Seleccione la colonia</option> */}
                             { colonias.map( ( colonia ) => {
                                 return (
                                     <option key={ colonia[1] } value={ colonia[1] }>
@@ -350,8 +346,6 @@ export const ClienteModal = () => {
 
                     <div className="form-floating me-2 col-4">
                         <select className="form-select" id="ciudad" name='clienteCiudad' aria-label="Seleccione la ciudad" value={ valoresFormulario.clienteCiudad } onChange={ onInputChange } >
-
-                            {/* <option key={ 0 } value={ 0 } >Seleccione la ciudad</option> */}
                             { ciudades.map( ( ciudad ) => {
                                 return (
                                     <option key={ ciudad[1] } value={ ciudad[1] }>
@@ -365,8 +359,6 @@ export const ClienteModal = () => {
 
                     <div className="form-floating me-2 col-4">
                         <select className="form-select" id="estado" name='clienteEstado' aria-label="Seleccione el estado" value={ valoresFormulario.clienteEstado } onChange={ onInputChange } >
-
-                            {/* <option key={ 0 } value={ 0 } >Seleccione el estado</option> */}
                             { ciudades.map( ( ciudad ) => {
                                 return (
                                     <option key={ ciudad[2] } value={ ciudad[2] }>
@@ -453,4 +445,3 @@ export const ClienteModal = () => {
         </Modal>
     )
 }
-
