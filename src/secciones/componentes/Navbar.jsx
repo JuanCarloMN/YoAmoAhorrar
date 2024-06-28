@@ -206,15 +206,21 @@ export const Navbar = () => {
                     </ul>
                 </div>
 
-                <div className="container menu-opciones">
+                <div className="container menu-opciones text-light">
                     <div className="row">
+                        <div className="col text-end">
+                            <small>UDI:</small>
+                        </div>
                         <div className="col">
-                            <span className="text-light"><small>UID: </small>${ valores.valorUDI }</span>
+                            <span> ${ valores.valorUDI }</span>
                         </div>
                     </div>
                     <div className="row">
+                        <div className="col text-end">
+                            <small>Dólar:</small>
+                        </div>
                         <div className="col">
-                            <span className="text-light"><small>Dólar: </small>${ valores.valorDolar }</span>
+                            <span> ${ valores.valorDolar }</span>
                         </div>
                     </div>
                 </div>
