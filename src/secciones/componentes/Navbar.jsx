@@ -209,12 +209,12 @@ export const Navbar = () => {
                 <div className="container menu-opciones">
                     <div className="row">
                         <div className="col">
-                            <span className="text-light"><small>Valor de la UID: </small>${ valores.valorUDI }</span>
+                            <span className="text-light"><small>UID: </small>${ valores.valorUDI }</span>
                         </div>
                     </div>
                     <div className="row">
                         <div className="col">
-                            <span className="text-light"><small>Valor del Dólar: </small>${ valores.valorDolar }</span>
+                            <span className="text-light"><small>Dólar: </small>${ valores.valorDolar }</span>
                         </div>
                     </div>
                 </div>
