@@ -150,6 +150,14 @@
   background: #FFF;
 }
 
+.email {
+  text-decoration: none;
+}
+
+.email:hover {
+  text-decoration: underline;
+}
+
 /* MEDIAQUERIES */
 /* Dispositivo xs */
 @media screen and ( max-width: 320px ) {

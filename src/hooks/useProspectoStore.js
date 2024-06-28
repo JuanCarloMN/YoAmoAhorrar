@@ -1,7 +1,9 @@
 import { useDispatch, useSelector } from 'react-redux';
 
 import prospectoApi from '../api/prospectoApi';
-import { onActualizaProspecto, onBorrarProspecto, onCargarProspectos, onNuevoProspecto, onSetProspectoActivo } from '../store';
+import clienteApi from '../api/clienteApi';
+
+import { onActualizaProspecto, onBorrarProspecto, onCargarProspectos, onNuevoCliente, onNuevoProspecto, onSetProspectoActivo } from '../store';
 import { convierteFechaProspecto } from '../helpers';
 
 import Swal from 'sweetalert2';
@@ -43,6 +45,35 @@ export const useProspectoStore = () => {
         }
     }
 
+    const startConvierteProspecto = async ( prospecto ) => {
+        try {
+            const datosCliente = {
+                clienteNombre: prospecto.prospectoNombre,
+                clienteApellidoP: prospecto.prospectoApellidoP,
+                clienteApellidoM: prospecto.prospectoApellidoM,
+                clienteRFC: prospecto.prospectoRFC,
+                clienteCURP: prospecto.prospectoCURP,
+                clienteNacimiento: prospecto.prospectoNacimiento,
+                clienteCelular: prospecto.prospectoCelular,
+                clienteTelefono: prospecto.prospectoTelefono,
+                clienteEmail: prospecto.prospectoEmail,
+                clienteDireccion: prospecto.prospectoDireccion,
+                clienteCP: prospecto.prospectoCP,
+                clienteColonia: prospecto.prospectoColonia,
+                clienteCiudad: prospecto.prospectoCiudad,
+                clienteEstado: prospecto.prospectoEstado,
+                clienteDesde: prospecto.prospectoDesde,
+                clienteReferido: prospecto.prospectoReferido,
+                clienteNotas: prospecto.prospectoNotas,
+            }
+            const { data } = await clienteApi.post('/clientes/nuevo', datosCliente);
+            dispatch( onNuevoCliente( { ...datosCliente, id: data.cliente.id, usuario } ) )
+            dispatch( starBorrarProspecto( prospecto) );
+        } catch (error) {
+            Swal.fire('Error al convertir a cliente', error.response.data.msg, 'error');
+        }
+    }
+
     const startCargaProspectos = async () => {
         try {
             const { data } = await prospectoApi.get('prospectos/');
@@ -64,6 +95,7 @@ export const useProspectoStore = () => {
         setProspectoActivo,
         starBorrarProspecto,
         startCargaProspectos,
+        startConvierteProspecto,
         startSalvarProspecto,
     }
 }

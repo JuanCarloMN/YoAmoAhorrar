@@ -9,20 +9,47 @@ import 'sweetalert2/dist/sweetalert2.min.css';
 export const ProspectosPage = () => {
 
     const { openProspectoModal } = useUiStore()
-    const { startCargaProspectos, setProspectoActivo, starBorrarProspecto } = useProspectoStore()
+    const { startCargaProspectos, setProspectoActivo, starBorrarProspecto, startConvierteProspecto } = useProspectoStore()
     const { prospectos } = useSelector( state => state.prospecto );
     
     const nuevoProspecto = () => {
         openProspectoModal();
     }
 
-    const eliminaProspecto = ( prospecto ) => {
+    const convertirCliente = ( prospecto ) => {
         Swal.fire({
-            title: "Eliminar al prospecto",
-            text: "¿Deseas eliminar al prospecto: " + prospecto.prospectoNombre + '?',
+            title: "¿Deseas convertirlo en cliente?",
+            text: prospecto.prospectoNombre + ' ' + prospecto.prospectoApellidoP + ' ' + prospecto.prospectoApellidoM,
             icon: "question",
+            iconColor: "#10A009",
             showCancelButton: true,
             cancelButtonColor: "#3085d6",
+            cancelButtonText: "Cancelar",
+            confirmButtonText: "Convertir",
+            confirmButtonColor: "#10A009"
+        }).then( async ( result ) => {
+            if ( result.isConfirmed ) {
+
+                await startConvierteProspecto( prospecto );
+
+                Swal.fire({
+                    title: "Prospecto convertido a cliente",
+                    icon: "success",
+                    confirmButtonColor: "#10A009"
+                });
+            }
+        });
+    }
+
+    const eliminaProspecto = ( prospecto ) => {
+        Swal.fire({
+            title: "¿Deseas eliminar al prospecto?",
+            text: prospecto.prospectoNombre + ' ' + prospecto.prospectoApellidoP + ' ' + prospecto.prospectoApellidoM,
+            icon: "question",
+            iconColor: "#d33",
+            showCancelButton: true,
+            cancelButtonColor: "#3085d6",
+            cancelButtonText: "Cancelar",
             confirmButtonText: "Eliminar",
             confirmButtonColor: "#d33"
         }).then( async ( result ) => {
@@ -50,15 +77,15 @@ export const ProspectosPage = () => {
 
     return (
         <>
-            <div className="container">
+            <div className="container-fluid p-4">
                 <div className="row">
                     <div className="col-12 d-flex justify-content-between align-items-center">
                         <h1 className="mt-2">Lista de Prospectos</h1>
                         <button className="btn btn-outline-primary" onClick={ nuevoProspecto }>Agregar Prospecto</button>
                     </div>
                     <div className="col-12">
-                        <div className="table-responsive">
-                            <table className="table table-striped table-hover ">
+                        {/* <div className="table-responsive"> */}
+                            <table className="table table-striped table-hover table-responsive">
                                 <caption>Lista de prospectos</caption>
                                 <thead>
                                     <tr className="table-dark">
@@ -69,40 +96,48 @@ export const ProspectosPage = () => {
                                         <th className="">&nbsp;</th>
                                     </tr>
                                 </thead>
-                                    <tbody>
-                                    {
-                                        prospectos.map( prospecto => (
-                                            <tr className="table-light align-middle" >
-                                                <td valign="center">{ prospecto.prospectoNombre + ' ' + prospecto.prospectoApellidoP + ' ' + prospecto.prospectoApellidoM }</td>
-                                                <td valign="center">{ prospecto.prospectoCelular }</td>
-                                                <td>{ prospecto.prospectoEmail }</td>
-                                                <td>{ prospecto.prospectoDireccion }</td>
-                                                <td>
-                                                    <div className="d-flex">
-                                                        <button
-                                                            className="btn btn-outline-primary me-2"
-                                                            onClick={ () => editaProspecto( prospecto ) }
-                                                            aria-label="Editar prospecto"
-                                                        >
-                                                            <i className="fa-solid fa-pen-to-square"></i>
-                                                        </button>
-                                                        
-                                                        <button
-                                                            className="btn btn-outline-danger"
-                                                            onClick={ () => eliminaProspecto( prospecto ) }
-                                                            aria-label="Editar prospecto"
-                                                        >
-                                                            <i className="fa-solid fa-trash"></i>
-                                                        </button>
+                                <tbody>
+                                {
+                                    prospectos.map( prospecto => (
+                                        <tr className="table-light align-middle" >
+                                            <td >{ prospecto.prospectoNombre + ' ' + prospecto.prospectoApellidoP + ' ' + prospecto.prospectoApellidoM }</td>
+                                            <td className="nowrap">{ prospecto.prospectoCelular }</td>
+                                            <td className="nowrap"><a href={`mailto:${ prospecto.prospectoEmail }`} className="email table-light">{ prospecto.prospectoEmail }</a></td>
+                                            <td>{ prospecto.prospectoDireccion }</td>
+                                            <td >
+                                                <div className="d-flex justify-content-end">
+                                                    <button
+                                                        className="btn btn-outline-primary me-2"
+                                                        onClick={ () => editaProspecto( prospecto ) }
+                                                        aria-label="Editar prospecto"
+                                                    >
+                                                        <i className="fa-solid fa-pen-to-square"></i>
+                                                    </button>
+                                                    
+                                                    <button
+                                                        className="btn btn-outline-success me-2"
+                                                        onClick={ () => convertirCliente( prospecto ) }
+                                                        aria-label="Convertir a cliente"
+                                                    >
+                                                        <i className="fa-solid fa-circle-dollar-to-slot"></i>
+                                                    </button>
+                                                    
+                                                    <button
+                                                        className="btn btn-outline-danger"
+                                                        onClick={ () => eliminaProspecto( prospecto ) }
+                                                        aria-label="Editar prospecto"
+                                                    >
+                                                        <i className="fa-solid fa-trash"></i>
+                                                    </button>
 
-                                                    </div>
-                                                </td>
-                                            </tr>
-                                        ))
-                                    }
+                                                </div>
+                                            </td>
+                                        </tr>
+                                    ))
+                                }
                                 </tbody>
                             </table>
-                        </div>
+                        {/* </div> */}
                     </div>
                 </div>
             </div>

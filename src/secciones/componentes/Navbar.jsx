@@ -1,9 +1,63 @@
 import { NavLink } from "react-router-dom";
 import { useAuthStore } from "../../hooks";
+import { useEffect, useState } from "react";
+import { getEnvVariables } from "../../helpers";
+
+const { VITE_URL_VALORES } = getEnvVariables();
 
 export const Navbar = () => {
 
     const { starLogout, usuario } = useAuthStore();
+
+    const [ valores, setValores ] = useState({
+        fecha: new Date(),
+        valorUDI: 0,
+        valorDolar: 0
+    })
+
+    const obtenValores = async () => {
+        const indicadores = await ( await fetch( VITE_URL_VALORES )).json();
+        const indicador = indicadores.ListaIndicadores.filter( valor => (valor.codTipoIndicador === 158 || valor.codTipoIndicador === 159));
+
+        setValores({
+            valorDolar: indicador[0].valor,
+            valorUDI: indicador[1].valor
+        });
+        
+        localStorage.setItem( 'fechaIndicadores', indicador[0].fecha );
+        localStorage.setItem( 'valorDolar', indicador[0].valor );
+        localStorage.setItem( 'valorUDI', indicador[1].valor );
+    }
+
+    useEffect( () => {
+        const fechaIndicadores = localStorage.getItem('fechaIndicadores');
+        const localDolar = localStorage.getItem('valorDolar');
+        const localUDI = localStorage.getItem('valorUDI');
+
+        const fecha = new Date();
+        let dia = fecha.getDate()
+        let mes = fecha.getMonth() + 1
+        let ano = fecha.getFullYear()
+        let hoy = '';
+
+        hoy = ( mes < 10 ) ? dia + '-0' + mes + '-' + ano : dia + '-' + mes + '-' + ano
+
+        if ( !fechaIndicadores || !localDolar || !localUDI ) {
+            obtenValores();
+        } else {
+            if ( hoy !== fechaIndicadores ) {
+                obtenValores();
+            } else {
+                setValores({
+                    valorDolar: localDolar,
+                    valorUDI: localUDI
+                });
+            }
+        }
+
+
+    }, []);
+
     return (
         <nav className="navbar navbar-expand-md navbar-dark bg-dark p-1 ">
             <div className="container-fluid d-flex align-items-center justify-content-between p-0">
@@ -152,7 +206,22 @@ export const Navbar = () => {
                     </ul>
                 </div>
 
-                <div className="d-flex col-12 col-sm-8 col-md-4 col-lg-3 col-xl-3 align-items-evenly justify-content-evenly justify-content-sm-between justify-content-md-center ">
+                <div className="container menu-opciones">
+                    <div className="row">
+                        <div className="col">
+                            <span className="text-light"><small>Valor de la UID: </small>${ valores.valorUDI }</span>
+                        </div>
+                    </div>
+                    <div className="row">
+                        <div className="col">
+                            <span className="text-light"><small>Valor del Dólar: </small>${ valores.valorDolar }</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div className="menu-opciones d-flex flex-fill justify-content-start align-items-center text-light">
+                </div>
+                <div className="d-flex col-12 col-sm-8 col-md-4 col-lg-3 col-xl-3 align-items-evenly justify-content-evenly justify-content-sm-between justify-content-md-center me-1 ">
                     <div className="perfil col text-sm-end ">
                         <NavLink className="perfil" to="/perfil">
                             <img src="perla.jpg" alt="" />
