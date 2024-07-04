@@ -174,10 +174,7 @@ export const Navbar = () => {
                                 <li><a href="#" className="dropdown-item">Agentes</a></li>
                                 <li><a href="#" className="dropdown-item">Promotorías</a></li>
                                 <li><hr className="dropdown-divider" /></li>
-                                <li><a href="#" className="dropdown-item">Tipo de Pólizas</a></li>
-                                <li><a href="#" className="dropdown-item">Tipo de Estatus</a></li>
-                                <li><a href="#" className="dropdown-item">Tipo de Monedas</a></li>
-                                <li><a href="#" className="dropdown-item">Tipo de Pago</a></li>
+                                <li><NavLink className="dropdown-item" to="/catalogos">Catálogos</NavLink></li>
                             </ul>
                         </li>
 

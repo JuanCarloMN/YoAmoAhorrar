@@ -4,6 +4,7 @@ export const uiSlice = createSlice({
     name: 'ui',
     initialState: {
         isEventoModalOpen: false,
+        isCatalogoModalOpen: false,
         isClienteModalOpen: false,
         isProspectoModalOpen: false,
     },
@@ -13,6 +14,12 @@ export const uiSlice = createSlice({
         },
         onCloseEventoModal: ( state ) => {
             state.isEventoModalOpen = false;
+        },
+        onOpenCatalogoModal: ( state ) => {
+            state.isCatalogoModalOpen = true;
+        },
+        onCloseCatalogoModal: ( state ) => {
+            state.isCatalogoModalOpen = false;
         },
         onOpenClienteModal: ( state ) => {
             state.isClienteModalOpen = true;
@@ -33,6 +40,9 @@ export const uiSlice = createSlice({
 export const { 
     onOpenEventoModal, 
     onCloseEventoModal,
+
+    onOpenCatalogoModal,
+    onCloseCatalogoModal, 
 
     onOpenClienteModal,
     onCloseClienteModal, 

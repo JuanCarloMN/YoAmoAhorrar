@@ -75,7 +75,7 @@ export const ClientesPage = () => {
                                     clientes.map( cliente => (
                                         <tr className="table-light align-middle" >
                                             <td >{ cliente.clienteNombre + ' ' + cliente.clienteApellidoP + ' ' + cliente.clienteApellidoM }</td>
-                                            <td className="nowrap">{ cliente.clienteCelular }</td>
+                                            <td className="nowrap"><a target="window.open" href={`https://web.whatsapp.com/send/?phone=${ cliente.clienteCelular.replaceAll('-', '') }&text&type=phone_number&app_absent=0`} className="email table-light">{ cliente.clienteCelular }</a></td>
                                             <td className="nowrap"><a href={`mailto:${ cliente.clienteEmail }`} className="email table-light">{ cliente.clienteEmail }</a></td>
                                             <td>{ cliente.clienteDireccion }</td>
                                             <td>
@@ -95,7 +95,6 @@ export const ClientesPage = () => {
                                                     >
                                                         <i className="fa-solid fa-trash"></i>
                                                     </button>
-
                                                 </div>
                                             </td>
                                         </tr>

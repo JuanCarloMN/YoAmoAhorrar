@@ -1,5 +1,5 @@
 import { useDispatch, useSelector } from 'react-redux';
-import { onCloseClienteModal, onCloseEventoModal, onCloseProspectoModal, onOpenClienteModal, onOpenEventoModal, onOpenProspectoModal } from '../store';
+import { onCloseCatalogoModal, onCloseClienteModal, onCloseEventoModal, onCloseProspectoModal, onOpenCatalogoModal, onOpenClienteModal, onOpenEventoModal, onOpenProspectoModal } from '../store';
 
 
 export const useUiStore = () => {
@@ -8,6 +8,7 @@ export const useUiStore = () => {
 
     const { 
         isEventoModalOpen,
+        isCatalogoModalOpen,
         isClienteModalOpen,
         isProspectoModalOpen,
     } = useSelector( state => state.iu );
@@ -24,6 +25,14 @@ export const useUiStore = () => {
         ( isEventoModalOpen )
             ? openEventoModal()
             : closeEventoModal();
+    }
+
+    const openCatalogoModal = () => {
+        dispatch( onOpenCatalogoModal() );
+    }
+
+    const closeCatalogoModal = () => {
+        dispatch( onCloseCatalogoModal() );
     }
 
     const openClienteModal = () => {
@@ -45,13 +54,16 @@ export const useUiStore = () => {
     return {
         // Propiedades
         isEventoModalOpen,
+        isCatalogoModalOpen,
         isClienteModalOpen,
         isProspectoModalOpen,
 
         // Métodos
+        closeCatalogoModal,
         closeClienteModal,
         closeEventoModal,
         closeProspectoModal,
+        openCatalogoModal,
         openClienteModal,
         openEventoModal,
         openProspectoModal,

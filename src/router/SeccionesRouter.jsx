@@ -4,6 +4,7 @@ import { ClientesPage, Navbar, PolizasPage, ProspectosPage, AgendaPage, PerfilPa
 import { LoginPage } from "../auth"
 import { useAuthStore } from "../hooks"
 import { PrivateRoute } from "./"
+import { CatalogosPage } from "../secciones/paginas/CatalogosPage"
 
 export const SeccionesRouter = () => {
 
@@ -64,6 +65,13 @@ export const SeccionesRouter = () => {
                         <PrivateRoute>
                             <Navbar />
                             <PerfilPage /> 
+                        </PrivateRoute>
+                        } />
+
+                    <Route path='/catalogos' element={ 
+                        <PrivateRoute>
+                            <Navbar />
+                            <CatalogosPage /> 
                         </PrivateRoute>
                         } />
 
