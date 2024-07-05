@@ -1,4 +1,5 @@
-import { editaCatalogo, eliminaCatalogo, nuevoCatalogo } from "../../helpers";
+import { editaDato, eliminaDato, nuevoDato } from "../../helpers";
+import { useCatalogoStore } from "../../hooks";
 
 export const CatalogoCard = ( { tipo = 0, datos = [] } ) => {
     let datosCatalogo = [];
@@ -16,6 +17,8 @@ export const CatalogoCard = ( { tipo = 0, datos = [] } ) => {
         tituloEditar = 'Editar ' + catalogoDescripcion;
         tituloEliminar = 'Eliminar ' + catalogoDescripcion;
     }
+
+    const { startSalvarDato, starBorrarDato, setDatoActivo } = useCatalogoStore();
     
     const catalogo = ( tipo ) => {
         switch ( tipo ) {
@@ -68,7 +71,7 @@ export const CatalogoCard = ( { tipo = 0, datos = [] } ) => {
                                         <th>Descripción</th>
                                         <th className="text-end"><button
                                                 className="btn btn-outline-success"
-                                                onClick={ () => nuevoCatalogo( datos.id, tituloNuevo ) }
+                                                onClick={ () => nuevoDato( catalogoId, tituloNuevo, startSalvarDato ) }
                                                 aria-label={ tituloNuevo }
                                             >
                                                 <i className="fa-solid fa-plus"></i>
@@ -83,7 +86,7 @@ export const CatalogoCard = ( { tipo = 0, datos = [] } ) => {
                                             <td className="col text-end">
                                                 <button
                                                     className="btn btn-outline-primary me-2"
-                                                    onClick={ () => editaCatalogo( tipo , dato._id, catalogoId, tituloEditar, dato.descripcion ) }
+                                                    onClick={ () => editaDato( datos, dato._id, catalogoId, tituloEditar, dato.descripcion, startSalvarDato, setDatoActivo ) }
                                                     aria-label={ tituloEditar }
                                                 >
                                                     <i className="fa-solid fa-pen-to-square"></i>
@@ -91,7 +94,7 @@ export const CatalogoCard = ( { tipo = 0, datos = [] } ) => {
                                                 
                                                 <button
                                                     className="btn btn-outline-danger"
-                                                    onClick={ () => eliminaCatalogo( tipo, dato._id, catalogoId, tituloEliminar, dato.descripcion ) }
+                                                    onClick={ () => eliminaDato( catalogoId, dato._id, tituloEliminar, dato.descripcion, starBorrarDato, setDatoActivo ) }
                                                     aria-label={ tituloEliminar }
                                                 >
                                                     <i className="fa-solid fa-trash"></i>

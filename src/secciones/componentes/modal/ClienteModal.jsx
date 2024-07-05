@@ -101,7 +101,6 @@ export const ClienteModal = () => {
             todoBien = false;
         }
         if ( !valoresFormulario.clienteCelular ) {
-            console.log(valoresFormulario.clienteCelular);
             validaciones.validaCelular = 'is-invalid';
             todoBien = false;
         }

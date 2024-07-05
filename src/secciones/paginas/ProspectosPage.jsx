@@ -99,9 +99,9 @@ export const ProspectosPage = () => {
                                 <tbody>
                                 {
                                     prospectos.map( prospecto => (
-                                        <tr className="table-light align-middle" >
+                                        <tr className="table-light align-middle" key={ prospecto.prospectoEmail } >
                                             <td >{ prospecto.prospectoNombre + ' ' + prospecto.prospectoApellidoP + ' ' + prospecto.prospectoApellidoM }</td>
-                                            <td className="nowrap">{ prospecto.prospectoCelular }</td>
+                                            <td className="nowrap"><a target="window.open" href={`https://api.whatsapp.com/send/?phone=${ prospecto.prospectoCelular.replaceAll('-', '') }`} className="email table-light">{ prospecto.prospectoCelular }</a></td>
                                             <td className="nowrap"><a href={`mailto:${ prospecto.prospectoEmail }`} className="email table-light">{ prospecto.prospectoEmail }</a></td>
                                             <td>{ prospecto.prospectoDireccion }</td>
                                             <td >

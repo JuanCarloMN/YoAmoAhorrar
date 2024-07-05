@@ -1,62 +1,53 @@
 import Swal from "sweetalert2";
 
-export const nuevoCatalogo = ( tipo, titulo ) => {
+export const nuevoDato = ( idCatalogo, titulo, startSalvarDato ) => {
     Swal.fire(
         {
             title: titulo,
             input: "text",
-            inputAttributes: {
-                autocapitalize: "true"
-            },
             showCancelButton: true,
             cancelButtonColor: "#3085d6",
             confirmButtonText: "Aceptar",
             confirmButtonColor: "#10A009",
         }
-    ).then(( result ) => 
+    ).then( async ( result ) => 
         {
             if ( result.isConfirmed ) {
-
-                if ( result.value === '' ) {
+                if ( result.value.trim() === '' ) {
                     Swal.fire( titulo, 'Información incorrecta', 'error' );
+                } else {
+                    await startSalvarDato( { id: idCatalogo, descripcion: result.value.trim() } )
                 }
-                console.log({result});
             }
-
         }
     );
 }
 
-export const editaCatalogo = ( tipo, id, categoria, titulo, valor ) => {
+export const editaDato = ( catalogo, idDato, idCatalogo, titulo, valor, startSalvarDato, setDatoActivo ) => {
+    setDatoActivo( { id: idDato, descripcion: valor } );
+    Swal.fire({
+        title: titulo,
+        input: "text",
+        inputValue: valor,
+        showCancelButton: true,
+        cancelButtonColor: "#3085d6",
+        confirmButtonText: "Aceptar",
+        confirmButtonColor: "#10A009",
+    }).then( async ( result ) => {
+        if ( result.isConfirmed ) {
 
-    Swal.fire(
-        {
-            title: titulo,
-            input: "text",
-            inputValue: valor,
-            inputAttributes: {
-                autocapitalize: "true"
-            },
-            showCancelButton: true,
-            cancelButtonColor: "#3085d6",
-            confirmButtonText: "Aceptar",
-            confirmButtonColor: "#10A009",
-        }
-    ).then(( result ) => 
-        {
-            if ( result.isConfirmed ) {
-
-                if ( result.value === '' ) {
-                    Swal.fire( titulo, 'Información incorrecta', 'error' );
-                }
-                console.log({result});
+            if ( result.value.trim() === '' ) {
+                Swal.fire( titulo, 'Información incorrecta', 'error' );
+            } else {
+                await startSalvarDato( { id: idCatalogo, idActualizar: idDato, descripcion: result.value.trim() } )
+                setDatoActivo( null );
             }
-
         }
-    );
+    });
 }
 
-export const eliminaCatalogo = ( tipo, id, categoria, titulo, valor ) => {
+export const eliminaDato = ( idCatalogo, idDato, titulo, valor, starBorrarDato, setDatoActivo ) => {
+    setDatoActivo( { id: idDato, descripcion: valor } );
     Swal.fire({
         title: titulo,
         text: valor,
@@ -68,11 +59,8 @@ export const eliminaCatalogo = ( tipo, id, categoria, titulo, valor ) => {
         confirmButtonColor: "#d33"
     }).then( async ( result ) => {
         if ( result.isConfirmed ) {
-            Swal.fire({
-                title: "Cliente eliminado",
-                text: "Se eliminó al cliente de forma correcta",
-                icon: "success"
-            });
+            await starBorrarDato( { id: idCatalogo, idEliminar: idDato } )
+            setDatoActivo( null );
         }
     });
 }

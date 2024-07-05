@@ -8,23 +8,34 @@ export const catalogoSlice = createSlice({
         catalogoActivo: null
     },
     reducers: {
-        onSetCatalogoActivo: ( state, { payload } ) => {
+        onSetDatoActivo: ( state, { payload } ) => {
             state.catalogoActivo = payload;
         },
-        onNuevoCatalogo: (state, { payload } ) => {
-            state.catalogos.push( payload );
-            state.catalogoActivo = null;
-        },
-        onActualizaCatalogo: ( state, { payload } ) => {
+        onNuevoDato: (state, { payload } ) => {
             state.catalogos = state.catalogos.map( catalogo => {
-                if ( catalogo.id === payload.id ) {
+                if (catalogo.id === payload.id ){
                     return payload;
                 }
                 return catalogo;
-            });
+            })
+            state.catalogoActivo = null;
         },
-        onBorrarCatalogo: ( state, { payload } ) => {
-            state.catalogos = state.catalogos.filter( catalogo => catalogo.id !== payload.id );
+        onActualizaDato: ( state, { payload } ) => {
+            state.catalogos = state.catalogos.map( catalogo => {
+                if (catalogo.id === payload.id ){
+                    return payload;
+                }
+                return catalogo;
+            })
+            state.catalogoActivo = null;
+        },
+        onBorrarDato: ( state, { payload } ) => {
+            state.catalogos = state.catalogos.map( catalogo => {
+                if ( catalogo.id === payload.id ) {
+                    return { id: catalogo.id, catalogoDescripcion: catalogo.catalogoDescripcion, catalogoDatos: catalogo.catalogoDatos.filter( dato => dato._id !== payload.idEliminar )};
+                }
+                return catalogo;
+            })
             state.catalogoActivo = null;
         },
         onCargarCatalogos: ( state, { payload } ) => {
@@ -47,10 +58,10 @@ export const catalogoSlice = createSlice({
 });
 
 export const { 
-    onActualizaCatalogo, 
-    onBorrarCatalogo, 
+    onActualizaDato, 
+    onBorrarDato, 
     onCargarCatalogos,
     onLogoutCatalogo,
-    onNuevoCatalogo, 
-    onSetCatalogoActivo, 
+    onNuevoDato, 
+    onSetDatoActivo, 
 } = catalogoSlice.actions;
