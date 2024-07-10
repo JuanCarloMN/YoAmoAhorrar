@@ -22,6 +22,40 @@ const customStyles = {
     },
 };
 
+const estadoInicial = {
+    validaNombre: '',
+    validaRFC: '',
+    validaCURP: '',
+    validaNacimiento: '',
+    validaCelular: '',
+    validaEmail: '',
+    validaDireccion: '',
+    validaCP: '',
+    validaColonia: '',
+    validaCiudad: '',
+    validaEstado: ''
+}
+
+const inicioFormulario = {
+    clienteNombre: '',
+    clienteApellidoP: '',
+    clienteApellidoM: '',
+    clienteRFC: '',
+    clienteCURP: '',
+    clienteNacimiento: new Date(),
+    clienteCelular: '',
+    clienteTelefono: '',
+    clienteEmail: '',
+    clienteDireccion: '',
+    clienteCP: '',
+    clienteColonia: '',
+    clienteCiudad: '',
+    clienteEstado: '',
+    clienteDesde: new Date(),
+    clienteReferido: '',
+    clienteNotas: ''
+}
+
 const anoActual = new Date().getFullYear() - 2000;
 export const ClienteModal = () => {
 
@@ -32,57 +66,15 @@ export const ClienteModal = () => {
     const { isClienteModalOpen, closeClienteModal } = useUiStore();
     const { clienteActivo, startSalvarCliente, setClienteActivo } = useClienteStore();
 
-    const [ validaciones, setValidaciones ] = useState({
-        validaNombre: '',
-        validaRFC: '',
-        validaCURP: '',
-        validaNacimiento: '',
-        validaCelular: '',
-        validaEmail: '',
-        validaDireccion: '',
-        validaCP: '',
-        validaColonia: '',
-        validaCiudad: '',
-        validaEstado: ''
-    });
+    const [ validaciones, setValidaciones ] = useState( estadoInicial );
 
-    const [ valoresFormulario, setValoresFormulario ] = useState({
-        clienteNombre: '',
-        clienteApellidoP: '',
-        clienteApellidoM: '',
-        clienteRFC: '',
-        clienteCURP: '',
-        clienteNacimiento: new Date(),
-        clienteCelular: '',
-        clienteTelefono: '',
-        clienteEmail: '',
-        clienteDireccion: '',
-        clienteCP: '',
-        clienteColonia: '',
-        clienteCiudad: '',
-        clienteEstado: '',
-        clienteDesde: new Date(),
-        clienteReferido: '',
-        clienteNotas: ''
-    });
+    const [ valoresFormulario, setValoresFormulario ] = useState( inicioFormulario );
 
 
     const validaCampos = () => {
         let todoBien = true;
 
-        setValidaciones({
-            validaNombre: '',
-            validaRFC: '',
-            validaCURP: '',
-            validaNacimiento: '',
-            validaCelular: '',
-            validaEmail: '',
-            validaDireccion: '',
-            validaCP: '',
-            validaColonia: '',
-            validaCiudad: '',
-            validaEstado: ''
-        })
+        setValidaciones( estadoInicial );
 
         if ( !valoresFormulario.clienteNombre ) {
             validaciones.validaNombre = 'is-invalid';
@@ -267,7 +259,7 @@ export const ClienteModal = () => {
 
     const onCloseModal = () => {
         setClienteActivo( null );
-        setValoresFormulario({});
+        setValoresFormulario( inicioFormulario );
         closeClienteModal();
     }
 
@@ -278,6 +270,8 @@ export const ClienteModal = () => {
         if ( !validaCampos() ) {
             Swal.fire( 'Información incorrecta', 'Revisar que se haya ingresado la información correcta', 'error' );
             setFormSubmitted( false );
+
+            
             return;
         }
                 
@@ -285,7 +279,17 @@ export const ClienteModal = () => {
 
         setFormSubmitted( false );
         setClienteActivo( null );
-        setValoresFormulario({});
+        setValoresFormulario( inicioFormulario );
+
+        setValidaciones( estadoInicial );
+
+        closeClienteModal();
+    }
+
+    useEffect( () => {
+        if ( clienteActivo !== null ) {
+            setValoresFormulario({ ...clienteActivo });
+        }
 
         setValidaciones({
             validaNombre: '',
@@ -300,14 +304,6 @@ export const ClienteModal = () => {
             validaCiudad: '',
             validaEstado: ''
         });
-
-        closeClienteModal();
-    }
-
-    useEffect( () => {
-        if ( clienteActivo !== null ) {
-            setValoresFormulario({ ...clienteActivo });
-        }
     }, [ clienteActivo ]);
 
     return (

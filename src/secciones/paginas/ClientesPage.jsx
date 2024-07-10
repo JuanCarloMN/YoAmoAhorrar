@@ -91,7 +91,7 @@ export const ClientesPage = () => {
                                                     <button
                                                         className="btn btn-outline-danger"
                                                         onClick={ () => eliminaCliente( cliente ) }
-                                                        aria-label="Editar cliente"
+                                                        aria-label="Eliminar cliente"
                                                     >
                                                         <i className="fa-solid fa-trash"></i>
                                                     </button>

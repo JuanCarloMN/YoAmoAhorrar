@@ -1,27 +1,26 @@
 import { useEffect, useState } from 'react';
-import { useLocation } from 'react-router-dom';
 import { Calendar } from 'react-big-calendar';
 import 'react-big-calendar/lib/css/react-big-calendar.css';
-import queryString from 'query-string';
 
-import { localizer, getMessagesES } from '../../helpers';
-import { useAgendaStore, useAuthStore, useUiStore } from '../../hooks';
-import { AgendaEvento, AgendaModal, FabNuevo, FabBorrar } from '../componentes/agenda';
+import { localizer, getMessagesES, fechaCorta } from '../../helpers';
+import { useAgendaStore, useUiStore } from '../../hooks';
+import { AgendaEvento, AgendaModal, FabNuevo, FabBorrar, AgendaToolbar } from '../componentes/agenda';
 import { useDispatch, useSelector } from 'react-redux';
 import { onActualizaEventosTipo } from '../../store/slice/agendaSlice';
 
 export const AgendaPage = () => {
+    const fechaActual = new Date();
+    const fechaAgenda = (localStorage.getItem('fechaAgenda')) ? localStorage.getItem('fechaAgenda') : fechaActual;
 
-    const { usuario } = useAuthStore();
     const { openEventoModal } = useUiStore();
     const { eventos } = useSelector( state => state.agenda );
     const { eventosTipo, setEventoActivo, startCargarEventos } = useAgendaStore();
-    const [ ultimaVista, setUltimaVista ] = useState( localStorage.getItem('ultimaVista') || 'week' );
-    const location = useLocation();
+    const [ ultimaVista, setUltimaVista ] = useState( localStorage.getItem('ultimaVista') || 'month' );
+    const [ fecha, setFecha ] = useState( fechaAgenda );
+    const [ tipo, setTipo ] = useState( localStorage.getItem('tipoEvento') || 0);
     const dispatch = useDispatch();
-
+    
     const eventStyleGetter = ( evento, inicio, fin, isSelected ) => {
-        
         const style = {
             backgroundColor: colorEvento( evento.tipo ),
             borderRadious: '0px',
@@ -59,24 +58,63 @@ export const AgendaPage = () => {
         setUltimaVista( evento );
     }
 
+    const cambiaVista = ( tipo ) => {
+        setUltimaVista( tipo );
+    }
+
+    const cambiaTipo = ( tipo ) => {
+        setTipo( tipo );
+    }
+
+    const fechaCalendario = ( nuevaFecha ) => {
+        setFecha( nuevaFecha );
+    }
+
+    const cambiaFecha = ( tipo ) => {
+        let nuevaFecha = new Date( fecha );
+        if ( tipo === 1 ) {
+            setFecha( fechaActual );
+            return;
+        }
+
+        switch ( ultimaVista ) {
+            case 'month':
+                nuevaFecha = ( tipo === 2 ) ? nuevaFecha.setMonth( nuevaFecha.getMonth() - 1 ) : nuevaFecha.setMonth( nuevaFecha.getMonth() + 1 )
+                break;
+            case 'week':
+                nuevaFecha = ( tipo === 2 ) ? nuevaFecha.setDate( nuevaFecha.getDate() - 7 ) : nuevaFecha.setDate( nuevaFecha.getDate() + 7 )
+                break;
+            case 'day':
+                nuevaFecha = ( tipo === 2 ) ? nuevaFecha.setDate( nuevaFecha.getDate() - 1 ) : nuevaFecha.setDate( nuevaFecha.getDate() + 1 )
+                break;
+        
+            default:
+                break;
+        }
+        setFecha( new Date( nuevaFecha ) );
+    }
+
     useEffect( () => {
         startCargarEventos();
     }, []);
 
     // Si cambia el tipo de evento, se deben de cargar los nuevos eventos
     useEffect( () => {
-        const { tipo = 0 } = queryString.parse( location.search );
-        const elTipo = parseInt( tipo );
         if ( eventos.length === 0 ){
             return;
         }
-        localStorage.setItem( 'tipoEvento', elTipo );
-        dispatch(onActualizaEventosTipo());
+        localStorage.setItem( 'tipoEvento', tipo );
+        dispatch( onActualizaEventosTipo() );
       
-    }, [location]);
+    }, [ tipo ]);
+
+    useEffect( () => {
+        localStorage.setItem('fechaAgenda', fecha )
+    }, [ fecha ])
 
     return (
         <>
+            <AgendaToolbar cambiaVista={ cambiaVista } cambiaTipo={ cambiaTipo } cambiaFecha={ cambiaFecha } fechaCalendario={ fechaCalendario } fecha={ fecha } vista={ ultimaVista } tipo={ tipo } />
             <Calendar 
                 culture='es'
                 localizer={ localizer }
@@ -84,16 +122,21 @@ export const AgendaPage = () => {
                 defaultView={ ultimaVista }
                 startAccessor="inicio"
                 endAccessor="fin"
-                style={{ height: 'calc( 100vh - 150px )', width: 'calc( 100vw - 15px )' }}
+                style={{ height: 'calc( 100vh - 150px )', width: 'calc( 100vw - 35px )' }}
                 messages={ getMessagesES() }
                 eventPropGetter={ eventStyleGetter }
                 components={{
-                    event: AgendaEvento
+                    event: AgendaEvento,
                 }}
                 onDoubleClickEvent={ onDoubleClick }
                 onSelectEvent={ onSelect }
                 onView={ onViewChange }
-                className='mt-2 ms-2'
+                className='ms-3 mb-3'
+                view={ ultimaVista }
+                toolbar={ false }
+                date={ fecha }
+                onNavigate={ fecha }
+                showAllEvents
             />
 
             <AgendaModal />

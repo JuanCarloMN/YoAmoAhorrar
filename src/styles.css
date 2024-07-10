@@ -158,6 +158,10 @@
   text-decoration: underline;
 }
 
+.react-datepicker-popper {
+  z-index: 9999 !important;
+}
+
 /* MEDIAQUERIES */
 /* Dispositivo xs */
 @media screen and ( max-width: 320px ) {

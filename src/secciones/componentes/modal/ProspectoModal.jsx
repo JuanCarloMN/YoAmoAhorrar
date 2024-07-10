@@ -9,6 +9,20 @@ import { infoCP } from '../../../helpers';
 import Swal from 'sweetalert2';
 import 'sweetalert2/dist/sweetalert2.min.css';
 
+const estadoInicial = {
+    validaNombre: '',
+    validaRFC: '',
+    validaCURP: '',
+    validaNacimiento: '',
+    validaCelular: '',
+    validaEmail: '',
+    validaDireccion: '',
+    validaCP: '',
+    validaColonia: '',
+    validaCiudad: '',
+    validaEstado: ''
+}
+
 // registerLocale('es', es );
 const customStyles = {
     content: {
@@ -22,6 +36,26 @@ const customStyles = {
     },
 };
 
+const inicioFormulario = {
+    prospectoNombre: '',
+    prospectoApellidoP: '',
+    prospectoApellidoM: '',
+    prospectoRFC: '',
+    prospectoCURP: '',
+    prospectoNacimiento: new Date(),
+    prospectoCelular: '',
+    prospectoTelefono: '',
+    prospectoEmail: '',
+    prospectoDireccion: '',
+    prospectoCP: '',
+    prospectoColonia: '',
+    prospectoCiudad: '',
+    prospectoEstado: '',
+    prospectoDesde: new Date(),
+    prospectoReferido: '',
+    prospectoNotas: ''
+};
+
 const anoActual = new Date().getFullYear() - 2000;
 export const ProspectoModal = () => {
 
@@ -32,56 +66,14 @@ export const ProspectoModal = () => {
     const { isProspectoModalOpen, closeProspectoModal } = useUiStore();
     const { prospectoActivo, startSalvarProspecto, setProspectoActivo } = useProspectoStore();
 
-    const [ validaciones, setValidaciones ] = useState({
-        validaNombre: '',
-        validaRFC: '',
-        validaCURP: '',
-        validaNacimiento: '',
-        validaCelular: '',
-        validaEmail: '',
-        validaDireccion: '',
-        validaCP: '',
-        validaColonia: '',
-        validaCiudad: '',
-        validaEstado: ''
-    });
+    const [ validaciones, setValidaciones ] = useState( estadoInicial );
 
-    const [ valoresFormulario, setValoresFormulario ] = useState({
-        prospectoNombre: '',
-        prospectoApellidoP: '',
-        prospectoApellidoM: '',
-        prospectoRFC: '',
-        prospectoCURP: '',
-        prospectoNacimiento: new Date(),
-        prospectoCelular: '',
-        prospectoTelefono: '',
-        prospectoEmail: '',
-        prospectoDireccion: '',
-        prospectoCP: '',
-        prospectoColonia: '',
-        prospectoCiudad: '',
-        prospectoEstado: '',
-        prospectoDesde: new Date(),
-        prospectoReferido: '',
-        prospectoNotas: ''
-    });
+    const [ valoresFormulario, setValoresFormulario ] = useState( inicioFormulario );
 
     const validaCampos = () => {
         let todoBien = true;
 
-        setValidaciones({
-            validaNombre: '',
-            validaRFC: '',
-            validaCURP: '',
-            validaNacimiento: '',
-            validaCelular: '',
-            validaEmail: '',
-            validaDireccion: '',
-            validaCP: '',
-            validaColonia: '',
-            validaCiudad: '',
-            validaEstado: ''
-        })
+        setValidaciones( estadoInicial )
 
         if ( !valoresFormulario.prospectoNombre ) {
             validaciones.validaNombre = 'is-invalid';
@@ -266,7 +258,7 @@ export const ProspectoModal = () => {
 
     const onCloseModal = () => {
         setProspectoActivo( null );
-        setValoresFormulario({});
+        setValoresFormulario( inicioFormulario );
         closeProspectoModal();
     }
 
@@ -284,7 +276,17 @@ export const ProspectoModal = () => {
 
         setFormSubmitted( false );
         setProspectoActivo( null );
-        setValoresFormulario({});
+        setValoresFormulario( inicioFormulario );
+
+        setValidaciones( estadoInicial );
+        
+        closeProspectoModal();
+    }
+    
+    useEffect( () => {
+        if ( prospectoActivo !== null ) {
+            setValoresFormulario({ ...prospectoActivo });
+        }
 
         setValidaciones({
             validaNombre: '',
@@ -299,14 +301,6 @@ export const ProspectoModal = () => {
             validaCiudad: '',
             validaEstado: ''
         });
-
-        closeProspectoModal();
-    }
-
-    useEffect( () => {
-        if ( prospectoActivo !== null ) {
-            setValoresFormulario({ ...prospectoActivo });
-        }
     }, [ prospectoActivo ]);
 
     return (

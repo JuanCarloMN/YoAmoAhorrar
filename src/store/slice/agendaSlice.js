@@ -20,7 +20,7 @@ export const agendaSlice = createSlice({
         eventos: [],
         eventosTipo: [],
         tipo: 0,
-        eventoActivo: null
+        eventoActivo: null,
     },
     reducers: {
         onSetEventoActivo: ( state, { payload } ) => {
@@ -75,6 +75,7 @@ export const agendaSlice = createSlice({
             state.isCargandoEventos = false;
             state.eventos = [];
             state.eventosTipo = [];
+            state.tipo = tipo;
 
             payload.forEach( evento => {
                 const existe = state.eventos.some( dbEvento => dbEvento === evento.id );
@@ -109,7 +110,8 @@ export const agendaSlice = createSlice({
             } else {
                 state.eventosTipo = state.eventos.filter( evento => evento.tipo === tipo );
             }
-        }
+            state.tipo = tipo;
+        },
     }
 });
 

@@ -5,6 +5,7 @@ import { LoginPage } from "../auth"
 import { useAuthStore } from "../hooks"
 import { PrivateRoute } from "./"
 import { CatalogosPage } from "../secciones/paginas/CatalogosPage"
+import { AgendaToolbar } from "../secciones/componentes/agenda"
 
 export const SeccionesRouter = () => {
 
