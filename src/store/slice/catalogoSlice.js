@@ -4,7 +4,7 @@ export const catalogoSlice = createSlice({
     name: 'catalogo',
     initialState: {
         isCargandoCatalogo: true,
-        catalogos: [],
+        catalogos: [{ id: 0, catalogoDescripcion: '', catalogoDatos: [{_id: 0, descripcion: ''}]}, { id: 2, catalogoDescripcion: '', catalogoDatos: [{_id: 0, descripcion: ''}]}],
         catalogoActivo: null
     },
     reducers: {

@@ -1,7 +1,8 @@
-import { useDispatch, useSelector } from "react-redux"
 import agendaApi from "../api/agendaApi";
+import { useDispatch, useSelector } from "react-redux"
 import { clearErrorMessage, onChecking, onLogin, onLogout } from "../store/slice/authSlice";
 import { onLogoutAgenda } from "../store/slice/agendaSlice";
+import { onLogoutCatalogo } from "../store";
 
 export const useAuthStore = () => {
     
@@ -62,6 +63,7 @@ export const useAuthStore = () => {
     const starLogout = () => {
         localStorage.clear();
         dispatch( onLogoutAgenda() );
+        dispatch( onLogoutCatalogo() );
         dispatch( onLogout() );
     }
 

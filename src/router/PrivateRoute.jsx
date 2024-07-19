@@ -15,6 +15,4 @@ export const PrivateRoute = ( { children } ) => {
         ? children
         : <Navigate to='/auth/login' />
     )
-
 }
-

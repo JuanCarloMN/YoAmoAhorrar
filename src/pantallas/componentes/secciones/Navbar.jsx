@@ -1,18 +1,18 @@
 import { NavLink } from "react-router-dom";
-import { useAuthStore } from "../../hooks";
 import { useEffect, useState } from "react";
-import { obtenIndicadores } from "../../helpers";
+import { useAuthStore, useCatalogoStore } from "../../../hooks";
+import { obtenIndicadores } from "../../../helpers";
 
 export const Navbar = () => {
 
     const { starLogout, usuario } = useAuthStore();
+    const { startCargaCatalogos } = useCatalogoStore();
 
     const [ valores, setValores ] = useState({
         fecha: new Date(),
         valorUDI: 0,
         valorDolar: 0
     })
-
     const obtenValores = async () => {
         await obtenIndicadores();
 
@@ -24,6 +24,7 @@ export const Navbar = () => {
 
     useEffect( () => {
         obtenValores();
+        startCargaCatalogos();
     }, []);
 
     return (
@@ -35,15 +36,7 @@ export const Navbar = () => {
                 
                 {/* <!-- Boton para el menú móvil --> */}
                 <div className="col-2 col-sm-2 d-block d-md-none ">
-                    <button 
-                        className="navbar-toggler" 
-                        type="button"
-                        data-bs-toggle="collapse"
-                        data-bs-target="#menu"
-                        aria-controls="menu"
-                        aria-expanded="false"
-                        aria-label="Mostrar / Ocultar menú"
-                    >
+                    <button className="navbar-toggler"  type="button" data-bs-toggle="collapse" data-bs-target="#menu" aria-controls="menu" aria-expanded="false" aria-label="Mostrar / Ocultar menú" >
                         <span className="navbar-toggler-icon"></span>
                     </button>
                 </div>
@@ -51,7 +44,6 @@ export const Navbar = () => {
                 {/* <!-- Menú de navegacion --> */}
                 <div className="menu-opciones collapse navbar-collapse col-1 col-md-6 flex-fill justify-content-md-evenly ms-3" id="menu">
                     <ul className="navbar-nav ">
-
                         <li className="nav-item mt-1">
                             <NavLink className="" to="/agenda">
                                 <span className="btn btn-dark">Agenda</span>
@@ -60,16 +52,7 @@ export const Navbar = () => {
 
                         {/* <!-- Catálogos --> */}
                         <li className="nav-item dropdown mt-1">
-                            <a 
-                                href="#" 
-                                className="btn btn-dark dropdown-toggle"
-                                role="button"
-                                data-bs-toggle="dropdown"
-                                aria-expanded="false"
-                                id="dropdown-menu"
-                            >
-                                Catálogos
-                            </a>
+                            <a href="#" className="btn btn-dark dropdown-toggle" role="button" data-bs-toggle="dropdown" aria-expanded="false" id="dropdown-menu" > Catálogos </a>
                             <ul className="dropdown-menu" aria-labelledby="dropdown-menu">
                                 <li><NavLink className="dropdown-item" to="/clientes">Clientes</NavLink></li>
                                 <li><NavLink className="dropdown-item" to="/prospectos">Prospectos</NavLink></li>
@@ -84,16 +67,7 @@ export const Navbar = () => {
 
                         {/* <!-- Utierías --> */}
                         <li className="nav-item dropdown mt-1">
-                            <a 
-                                href="#" 
-                                className="btn btn-dark dropdown-toggle"
-                                role="button"
-                                data-bs-toggle="dropdown"
-                                aria-expanded="false"
-                                id="dropdown-menu"
-                            >
-                                Utilerías
-                            </a>
+                            <a href="#" className="btn btn-dark dropdown-toggle" role="button" data-bs-toggle="dropdown" aria-expanded="false" id="dropdown-menu" > Utilerías </a>
                             <ul className="dropdown-menu" aria-labelledby="dropdown-menu">
                                 <li><a href="#" className="dropdown-item">Opciones de Speech</a></li>
                                 <li><hr className="dropdown-divider" /></li>
@@ -136,13 +110,9 @@ export const Navbar = () => {
                         </NavLink>
                     </div>
                     <div className="col text-sm-end ">
-                        <button 
-                            className="salir btn btn-outline-danger"
-                            onClick={ starLogout }
-                            >
+                        <button className="salir btn btn-outline-danger" onClick={ starLogout } >
                             <i className="fas fa-sign-out-alt"></i>
-                            &nbsp;
-                            <span>Salir</span>
+                            <span>&nbsp;Salir</span>
                         </button>
                     </div>
                 </div>

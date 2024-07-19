@@ -23,6 +23,14 @@ export const clienteSlice = createSlice({
                 return cliente;
             });
         },
+        onActualizaClienteActivo: ( state, { payload } ) => {
+            state.clienteActivo = state.clienteActivo.map( cliente => {
+                if ( cliente.id === payload.id ) {
+                    return payload;
+                }
+                return cliente;
+            });
+        },
         onBorrarCliente: ( state, { payload } ) => {
             state.clientes = state.clientes.filter( cliente => cliente.id !== payload.id );
             state.clienteActivo = null;

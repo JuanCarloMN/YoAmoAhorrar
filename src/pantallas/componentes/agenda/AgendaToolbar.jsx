@@ -1,9 +1,7 @@
 import DatePicker from 'react-datepicker';
-import { formatoFecha } from "../../../helpers";
 
 export const AgendaToolbar = ( { cambiaVista, cambiaTipo, cambiaFecha, fechaCalendario, fecha, vista, tipo } ) => {
 
-    // console.log({fecha});
     const fechaActual = fecha;
     let vistaActual = [ '', '', '' ];
     let tipoActual = [ '', '', '', '', '', '' ];
@@ -50,9 +48,6 @@ export const AgendaToolbar = ( { cambiaVista, cambiaTipo, cambiaFecha, fechaCale
                             </svg>
                         </button>
                     </div>
-                    <span>
-
-                    </span>
                 </div>
                 <div className="col bg-light d-flex flex-fill justify-content-center border align-items-center">
                         <DatePicker
@@ -118,9 +113,6 @@ export const AgendaToolbar = ( { cambiaVista, cambiaTipo, cambiaFecha, fechaCale
                         <button className={`btn btn-outline-secondary ${ vistaActual[2]}`} onClick={ () => enviaVista( 'day' ) }>
                             Día
                         </button>
-                        {/* <button className="btn btn-outline-secondary" onClick={ () => enviaVista( 'agenda' ) }>
-                            Agenda
-                        </button> */}
                     </div>
                 </div>
             </div>

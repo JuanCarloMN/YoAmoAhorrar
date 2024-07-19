@@ -1,16 +1,13 @@
 import { useEffect } from "react"
 import { Navigate, Route, Routes } from "react-router-dom"
-import { ClientesPage, Navbar, PolizasPage, ProspectosPage, AgendaPage, PerfilPage } from "../secciones"
+import { ClientesPage, Navbar, PolizasPage, ProspectosPage, AgendaPage, PerfilPage, CatalogosPage } from "../pantallas"
 import { LoginPage } from "../auth"
 import { useAuthStore } from "../hooks"
 import { PrivateRoute } from "./"
-import { CatalogosPage } from "../secciones/paginas/CatalogosPage"
-import { AgendaToolbar } from "../secciones/componentes/agenda"
 
 export const SeccionesRouter = () => {
 
     const { status, checkAuthToken } = useAuthStore();
-    // const authStatus = 'not-authenticated';
 
     useEffect( () => {
         checkAuthToken();

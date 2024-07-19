@@ -2,7 +2,7 @@ import { useEffect } from "react";
 import { useSelector } from "react-redux";
 
 import { useCatalogoStore } from "../../hooks";
-import { CatalogoCard } from "../componentes/CatalogoCard";
+import { CatalogoCard } from "../componentes/secciones/CatalogoCard";
 
 export const CatalogosPage = () => {
 

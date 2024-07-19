@@ -2,7 +2,7 @@ import { useEffect, useState } from 'react';
 import { Calendar } from 'react-big-calendar';
 import 'react-big-calendar/lib/css/react-big-calendar.css';
 
-import { localizer, getMessagesES, fechaCorta } from '../../helpers';
+import { localizer, getMessagesES } from '../../helpers';
 import { useAgendaStore, useUiStore } from '../../hooks';
 import { AgendaEvento, AgendaModal, FabNuevo, FabBorrar, AgendaToolbar } from '../componentes/agenda';
 import { useDispatch, useSelector } from 'react-redux';
@@ -122,7 +122,7 @@ export const AgendaPage = () => {
                 defaultView={ ultimaVista }
                 startAccessor="inicio"
                 endAccessor="fin"
-                style={{ height: 'calc( 100vh - 150px )', width: 'calc( 100vw - 35px )' }}
+                style={{ height: 'calc( 100vh - 180px )', width: 'calc( 100vw - 35px )' }}
                 messages={ getMessagesES() }
                 eventPropGetter={ eventStyleGetter }
                 components={{

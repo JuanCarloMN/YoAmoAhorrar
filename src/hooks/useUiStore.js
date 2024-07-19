@@ -1,5 +1,5 @@
 import { useDispatch, useSelector } from 'react-redux';
-import { onCloseCatalogoModal, onCloseClienteModal, onCloseEventoModal, onCloseProspectoModal, onOpenCatalogoModal, onOpenClienteModal, onOpenEventoModal, onOpenProspectoModal } from '../store';
+import { onClosePolizaModal, onCloseClienteModal, onCloseEventoModal, onCloseProspectoModal, onOpenPolizaModal, onOpenClienteModal, onOpenEventoModal, onOpenProspectoModal } from '../store';
 
 
 export const useUiStore = () => {
@@ -8,7 +8,7 @@ export const useUiStore = () => {
 
     const { 
         isEventoModalOpen,
-        isCatalogoModalOpen,
+        isPolizaModalOpen,
         isClienteModalOpen,
         isProspectoModalOpen,
     } = useSelector( state => state.iu );
@@ -27,12 +27,12 @@ export const useUiStore = () => {
             : closeEventoModal();
     }
 
-    const openCatalogoModal = () => {
-        dispatch( onOpenCatalogoModal() );
+    const openPolizaModal = () => {
+        dispatch( onOpenPolizaModal() );
     }
 
-    const closeCatalogoModal = () => {
-        dispatch( onCloseCatalogoModal() );
+    const closePolizaModal = () => {
+        dispatch( onClosePolizaModal() );
     }
 
     const openClienteModal = () => {
@@ -53,19 +53,19 @@ export const useUiStore = () => {
  
     return {
         // Propiedades
-        isEventoModalOpen,
-        isCatalogoModalOpen,
         isClienteModalOpen,
+        isEventoModalOpen,
+        isPolizaModalOpen,
         isProspectoModalOpen,
 
         // Métodos
-        closeCatalogoModal,
         closeClienteModal,
         closeEventoModal,
+        closePolizaModal,
         closeProspectoModal,
-        openCatalogoModal,
         openClienteModal,
         openEventoModal,
+        openPolizaModal,
         openProspectoModal,
         toggleEventoModal,
     }

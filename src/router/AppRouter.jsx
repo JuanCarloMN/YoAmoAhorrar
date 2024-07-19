@@ -3,12 +3,11 @@ import { Navigate, Route, Routes } from 'react-router-dom';
 import { LoginPage } from '../auth';
 import { useAuthStore } from '../hooks';
 import { useEffect } from 'react';
-import { AgendaPage } from '../secciones';
+import { AgendaPage } from '../pantallas';
 
 export const AppRouter = () => {
     
     const { status, checkAuthToken } = useAuthStore();
-    // const authStatus = 'not-authenticated';
 
     useEffect( () => {
         checkAuthToken();
@@ -19,7 +18,6 @@ export const AppRouter = () => {
             <h3>Cargando...</h3>
         )
     }
-
 
     return (
         <Routes>
@@ -38,7 +36,6 @@ export const AppRouter = () => {
                     </>
                 )
             }
-
         </Routes>
     )
 }

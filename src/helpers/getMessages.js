@@ -1,4 +1,4 @@
-
+// Mensajes en español para la agenda
 export const getMessagesES = () => {
     return {
         allDay: 'Todo el día',

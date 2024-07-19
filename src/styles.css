@@ -53,6 +53,7 @@
   right: 25px;
   width: 70px;
   height: 70px;
+  z-index: 9999 !important;
 }
 
 .fab-danger {
@@ -63,6 +64,7 @@
   left: 25px;
   width: 70px;
   height: 70px;
+  z-index: 9999 !important;
 }
 
 .wd-100 {

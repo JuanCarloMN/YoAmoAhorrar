@@ -1,18 +1,5 @@
 import { createSlice } from '@reduxjs/toolkit';
 
-// const tempEvent = {
-//     _id: new Date().getTime(),
-//     title: 'Fiesta del jefe',
-//     notes: 'Comprar pastel',
-//     start: new Date(),
-//     end: addHours( new Date(), 2 ),
-//     bgColor: '#FaFaFa',
-//     user: {
-//         _id: 123,
-//         name: 'Juan Carlo'
-//     }
-// }
-
 export const agendaSlice = createSlice({
     name: 'agenda',
     initialState: {

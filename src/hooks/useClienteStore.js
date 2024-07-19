@@ -34,7 +34,7 @@ export const useClienteStore = () => {
         }
     }
 
-    const starBorrarCliente = async ( cliente ) => {
+    const startBorrarCliente = async ( cliente ) => {
         try {
             await clienteApi.delete(`/clientes/${ cliente.id }`);
             dispatch( onBorrarCliente( cliente ) );
@@ -52,6 +52,10 @@ export const useClienteStore = () => {
             Swal.fire('Error al cargar los clientes', error.response.data.msg, 'error');
         }
     }
+
+    const startActualizaActivo = ( campo, valor ) => {
+        clienteActivo[ campo ] = valor;
+    }
  
     return {
         // Propiedades
@@ -61,7 +65,8 @@ export const useClienteStore = () => {
 
         // // Métodos
         setClienteActivo,
-        starBorrarCliente,
+        startActualizaActivo,
+        startBorrarCliente,
         startCargaClientes,
         startSalvarCliente,
     }

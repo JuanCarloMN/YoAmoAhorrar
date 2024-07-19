@@ -9,4 +9,3 @@ export const PublicRoute = ( { children } ) => {
         ? <Navigate to='/auth/login' />
         : children
 }
-
