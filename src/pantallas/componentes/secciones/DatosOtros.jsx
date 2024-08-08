@@ -1,14 +1,14 @@
 import { useState } from "react";
 import ReactDatePicker from "react-datepicker";
-import { validaCampoCliente, validacionCliente } from "../../../helpers";
+import { validaCampo, validacionDatos } from "../../../helpers";
 
-const inicioValidacion = validacionCliente;
+const inicioValidacion = validacionDatos;
 export const DatosOtros = ( { valoresFormulario, setValoresFormulario } ) => {
     const [ validaciones, setValidaciones ] = useState( inicioValidacion );
 
     const onInputChange = ({ target }) => {
         const valor = ( target.value ) ? '' : 'is-invalid'
-        const campoValida = validaCampoCliente( target.name );
+        const campoValida = validaCampo( target.name );
 
         setValoresFormulario({
             ...valoresFormulario,
@@ -37,15 +37,15 @@ export const DatosOtros = ( { valoresFormulario, setValoresFormulario } ) => {
                     </div>
                 </button>
             </div>
-            <div id="datosOtros" className="accordion-collapse collapse" aria-labelledby="seccionOtros" data-bs-parent="#clientes">
+            <div id="datosOtros" className="accordion-collapse collapse" aria-labelledby="seccionOtros" data-bs-parent="#datos">
                 <div className="accordion-body me-2">
                     <div className="form-group d-flex justify-content-between align-items-end me-3">
                         <div className="form-item me-3 col-6 ">
                             <div className="form-item mb-2">
                                 <label className="form-label" htmlFor="desde" >Cliente desde</label>
                                 <ReactDatePicker 
-                                    selected={  valoresFormulario.clienteDesde }
-                                    onChange={ ( fecha ) => onDesdeChanged( fecha, 'clienteDesde' ) }
+                                    selected={  valoresFormulario.datoDesde }
+                                    onChange={ ( fecha ) => onDesdeChanged( fecha, 'datoDesde' ) }
                                     dateFormat="dd-MMM-yyyy"
                                     wrapperClassName="datePicker"
                                     maxDate={ new Date() }
@@ -60,13 +60,13 @@ export const DatosOtros = ( { valoresFormulario, setValoresFormulario } ) => {
                                 />
                             </div>
                             <div className="form-floating">
-                                <input type="text" className="form-control" placeholder="¿Quién lo refirió?" autoComplete="on" value={ valoresFormulario.clienteReferido } onChange={ onInputChange } name="clienteReferido" id='referido' />
+                                <input type="text" className="form-control" placeholder="¿Quién lo refirió?" autoComplete="on" value={ valoresFormulario.datoReferido } onChange={ onInputChange } name="datoReferido" id='referido' />
                                 <label htmlFor="referido">¿Quién lo refirió?</label>
                             </div>
                         </div>
 
                         <div className="form-floating col-6">
-                            <textarea type="text" className="notas form-control" placeholder="Notas" style={{ height: 120 }} value={ valoresFormulario.clienteNotas } onChange={ onInputChange } name="clienteNotas" id='notas' />
+                            <textarea type="text" className="notas form-control" placeholder="Notas" style={{ height: 120 }} value={ valoresFormulario.datoNotas } onChange={ onInputChange } name="datoNotas" id='notas' />
                             <label htmlFor="notas">Notas</label>
                         </div>
 

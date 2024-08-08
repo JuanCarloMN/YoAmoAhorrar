@@ -21,6 +21,7 @@ export const useProspectoStore = () => {
 
     const startSalvarProspecto = async ( prospecto ) => {
         try {
+            
             if ( prospecto.id ) {
                 // Actualiza información del prospecto
                 const { data } = await prospectoApi.put(`/prospectos/${ prospecto.id }`, prospecto );
@@ -30,6 +31,7 @@ export const useProspectoStore = () => {
 
             // Agregar prospecto nuevo
             const { data } = await prospectoApi.post('/prospectos/nuevo', prospecto);
+            
             dispatch( onNuevoProspecto( { ...prospecto, id: data.prospecto.id, usuario } ) )
         } catch (error) {
             Swal.fire('Error al guardar la información del prospecto', error.data.msg, 'error');

@@ -5,6 +5,7 @@ import { ProspectoModal } from "../componentes/modal/ProspectoModal";
 
 import Swal from 'sweetalert2';
 import 'sweetalert2/dist/sweetalert2.min.css';
+import { cambiaCampos, exportarExcel, formularioDatos } from "../../helpers";
 
 export const ProspectosPage = () => {
 
@@ -13,6 +14,7 @@ export const ProspectosPage = () => {
     const { prospectos } = useSelector( state => state.prospecto );
     
     const nuevoProspecto = () => {
+        setProspectoActivo( formularioDatos );
         openProspectoModal();
     }
 
@@ -66,8 +68,9 @@ export const ProspectosPage = () => {
         });
     }
 
-    const editaProspecto = ( prospecto ) => {
-        setProspectoActivo( prospecto );
+    const editaProspecto = ( prospecto ) => {        
+        const datoActivo = cambiaCampos( prospecto, 1 );
+        setProspectoActivo( datoActivo );
         openProspectoModal();
     }
 

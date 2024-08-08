@@ -1,11 +1,11 @@
 import { useEffect } from "react";
-import { ClienteModal } from "../componentes/modal/ClienteModal"
 import { useSelector } from "react-redux";
 import { useClienteStore, useUiStore } from "../../hooks";
+import { ClienteModal } from "../componentes/modal/ClienteModal"
 
 import Swal from 'sweetalert2';
 import 'sweetalert2/dist/sweetalert2.min.css';
-import { exportarExcel, formularioCliente } from "../../helpers";
+import { cambiaCampos, exportarExcel, formularioDatos } from "../../helpers";
 
 export const ClientesPage = () => {
 
@@ -14,7 +14,7 @@ export const ClientesPage = () => {
     const { clientes } = useSelector( state => state.cliente );
     
     const nuevoCliente = () => {
-        setClienteActivo( formularioCliente );
+        setClienteActivo( formularioDatos );
         openClienteModal();
     }
 
@@ -41,7 +41,8 @@ export const ClientesPage = () => {
     }
 
     const editaCliente = ( cliente ) => {
-        setClienteActivo( cliente );
+        const datoActivo = cambiaCampos( cliente, 1 );
+        setClienteActivo( datoActivo );
         openClienteModal();
     }
 

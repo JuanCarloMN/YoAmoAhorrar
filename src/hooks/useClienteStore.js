@@ -19,6 +19,7 @@ export const useClienteStore = () => {
 
     const startSalvarCliente = async ( cliente ) => {
         try {
+            
             if ( cliente.id ) {
                 // Actualiza información del cliente
                 const { data } = await clienteApi.put(`/clientes/${ cliente.id }`, cliente );

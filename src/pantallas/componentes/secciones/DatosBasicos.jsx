@@ -1,11 +1,11 @@
 import { useState } from "react";
 import { useSelector } from "react-redux";
-import { validaCampoCliente, validacionCliente } from "../../../helpers";
+import { validaCampo, validacionDatos } from "../../../helpers";
 import ReactInputMask from "react-input-mask";
 import DatePicker from 'react-datepicker';
 
 import Swal from "sweetalert2";
-const inicioValidacion = validacionCliente;
+const inicioValidacion = validacionDatos;
 const anoActual = new Date().getFullYear() - 2000;
 
 export const DatosBasicos = ( { valoresFormulario, setValoresFormulario } ) => {
@@ -15,7 +15,7 @@ export const DatosBasicos = ( { valoresFormulario, setValoresFormulario } ) => {
 
     const onInputChange = ({ target }) => {
         const valor = ( target.value ) ? '' : 'is-invalid'
-        const campoValida = validaCampoCliente( target.name );
+        const campoValida = validaCampo( target.name );
 
         setValoresFormulario({
             ...valoresFormulario,
@@ -58,8 +58,8 @@ export const DatosBasicos = ( { valoresFormulario, setValoresFormulario } ) => {
             setValoresFormulario({
                 ...valoresFormulario,
                 [ target.name ]: valor.toUpperCase(),
-                [ "clienteNacimiento" ]: new Date( ano + '/' + mes + '/' + dia ),
-                [ "clienteCURP" ]: valor.substr( 0, 4 ) + valor.substr( 5, 6 ),
+                [ "datoNacimiento" ]: new Date( ano + '/' + mes + '/' + dia ),
+                [ "datoCURP" ]: valor.substr( 0, 4 ) + valor.substr( 5, 6 ),
             })
         } else {
             setValoresFormulario({
@@ -74,6 +74,13 @@ export const DatosBasicos = ( { valoresFormulario, setValoresFormulario } ) => {
         });
     }
 
+    const onNacimientoChanged = ( fecha, changing ) => {
+        setValoresFormulario({
+            ...valoresFormulario,
+            [ changing ]: fecha
+        });
+    }
+
     return (
         <div className="accordion-item border mb-2">
             <div className="accordion-header" >
@@ -83,39 +90,39 @@ export const DatosBasicos = ( { valoresFormulario, setValoresFormulario } ) => {
                     </div>
                 </button>
             </div>
-            <div id="datosBasicos" className="accordion-collapse collapse show" data-bs-parent="#clientes">
+            <div id="datosBasicos" className="accordion-collapse collapse show" data-bs-parent="#datos">
                 <div className="accordion-body me-2">
                     <div className="form-group d-flex mt-2 mb-0 justify-content-between">    
                         <div className="form-floating me-2 col-4">
-                            <input type="text" className={ `form-control ${ validaciones.validaNombre }` } placeholder="Nombre(s)" autoComplete="on" value={ valoresFormulario.clienteNombre } onChange={ onInputChange } name="clienteNombre" id='nombre' />
+                            <input type="text" className={ `form-control ${ validaciones.validaNombre }` } placeholder="Nombre(s)" autoComplete="on" value={ valoresFormulario.datoNombre } onChange={ onInputChange } name="datoNombre" id='nombre' />
                             <label htmlFor="nombre">Nombre(s)</label>
                         </div>
                         <div className="form-floating me-2 col-4">
-                            <input type="text" className="form-control" placeholder="Apellido paterno" autoComplete="on" value={ valoresFormulario.clienteApellidoP } onChange={ onInputChange } name="clienteApellidoP" id='paterno' />
+                            <input type="text" className="form-control" placeholder="Apellido paterno" autoComplete="on" value={ valoresFormulario.datoApellidoP } onChange={ onInputChange } name="datoApellidoP" id='paterno' />
                             <label htmlFor="paterno">Apellido paterno</label>
                         </div>
                         <div className="form-floating col-4">
-                            <input type="text" className="form-control" placeholder="Apellido materno" autoComplete="on" value={ valoresFormulario.clienteApellidoM } onChange={ onInputChange } name="clienteApellidoM" id='materno' />
+                            <input type="text" className="form-control" placeholder="Apellido materno" autoComplete="on" value={ valoresFormulario.datoApellidoM } onChange={ onInputChange } name="datoApellidoM" id='materno' />
                             <label htmlFor="materno">Apellido materno</label>
                         </div>
                     </div>
                     <div className="form-group d-flex justify-content-between mt-2 align-items-end">
                         <div className="form-floating me-2 col-4">
-                            <ReactInputMask  type="text"  className={ `form-control ${ validaciones.validaRFC }` } mask="aaaa-999999-***" maskChar="" placeholder="RFC" autoComplete="on" value={ valoresFormulario.clienteRFC } onChange={ onRFCChange } name="clienteRFC" id='rfc' />
+                            <ReactInputMask  type="text"  className={ `form-control ${ validaciones.validaRFC }` } mask="aaaa-999999-***" maskChar="" placeholder="RFC" autoComplete="on" value={ valoresFormulario.datoRFC } onChange={ onRFCChange } name="datoRFC" id='rfc' />
                             <label htmlFor="rfc">RFC</label>
                         </div>
                         <div className="form-floating me-2 col-4">
-                            <ReactInputMask type="text"  className={ `form-control ${ validaciones.validaCURP }` } mask="aaaa999999aaaaaa**" maskChar="" placeholder="CURP" autoComplete="on" value={ valoresFormulario.clienteCURP } onChange={ onCURPChange } name="clienteCURP" id='curp' />
+                            <ReactInputMask type="text"  className={ `form-control ${ validaciones.validaCURP }` } mask="aaaa999999aaaaaa**" maskChar="" placeholder="CURP" autoComplete="on" value={ valoresFormulario.datoCURP } onChange={ onCURPChange } name="datoCURP" id='curp' />
                             <label htmlFor="curp">CURP</label>
                         </div>
                         <div className="form-item col-4 ">
                             <label className="form-label" htmlFor="nacimiento" >Fecha de nacimiento</label>
-                            <DatePicker selected={ valoresFormulario.clienteNacimiento } onChange={ ( fecha ) => onNacimientoChanged( fecha, 'clienteNacimiento' ) } dateFormat="dd-MMM-yyyy" wrapperClassName="datePicker" maxDate={ new Date() } dropdownMode="select" className={ `form-control ${ validaciones.validaNacimiento }` } locale="es" registerLocale name="clienteNacimiento" id='nacimiento' popperPlacement="top-start" placeholder="Fecha de nacimiento" />
+                            <DatePicker selected={ (valoresFormulario.datoNacimiento) } onChange={ ( fecha ) => onNacimientoChanged( fecha, 'datoNacimiento' ) } dateFormat="dd-MMM-yyyy" wrapperClassName="datePicker" maxDate={ new Date() } dropdownMode="select" className={ `form-control ${ validaciones.validaNacimiento }` } locale="es" registerLocale name="datoNacimiento" id='nacimiento' popperPlacement="top-start" placeholder="Fecha de nacimiento" />
                         </div>
                     </div>
                     <div className="form-group d-flex justify-content-between mt-3 align-items-end">
                         <div className="form-floating me-2 col-4">
-                            <select className="form-select" id="colonia" name='clienteColonia' aria-label="Seleccione el estado civil" value={ valoresFormulario.clienteColonia } onChange={ onInputChange } >
+                            <select className="form-select" id="colonia" name='datoEstadoCivil' aria-label="Seleccione el estado civil" value={ valoresFormulario.datoEstadoCivil } onChange={ onInputChange } >
                                 <option key="0" value="seleccion">Seleccione el estado civil</option>
                                 { catalogos[1].catalogoDatos.map( ( catalogo ) => {
                                     return (
@@ -128,7 +135,7 @@ export const DatosBasicos = ( { valoresFormulario, setValoresFormulario } ) => {
                             <label htmlFor="colonia">Estado Civil</label>
                         </div>
                         <div className="form-floating me-2 col-4">
-                            <select className="form-select" id="ciudad" name='clienteCiudad' aria-label="Seleccione el sexo" value={ valoresFormulario.clienteCiudad } onChange={ onInputChange } >
+                            <select className="form-select" id="ciudad" name='datoSexo' aria-label="Seleccione el sexo" value={ valoresFormulario.datoSexo } onChange={ onInputChange } >
                                 <option key="0" value="seleccion">Seleccione el sexo</option>
                                 <option key="1" value="Hombre">Hombre</option>
                                 <option key="2" value="Mujer">Mujer</option>
@@ -137,7 +144,7 @@ export const DatosBasicos = ( { valoresFormulario, setValoresFormulario } ) => {
                             <label htmlFor="ciudad">Sexo</label>
                         </div>
                         <div className="form-floating col-4">
-                            <select className="form-select" id="estado" name='clienteEstado' aria-label="Seleccione la escolaridad" value={ valoresFormulario.clienteEstado } onChange={ onInputChange } >
+                            <select className="form-select" id="estado" name='datoEscolaridad' aria-label="Seleccione la escolaridad" value={ valoresFormulario.datoEscolaridad } onChange={ onInputChange } >
                                 <option key="0" value="seleccion">Seleccione la escolaridad</option>
                                 { catalogos[0].catalogoDatos.map( ( catalogo ) => {
                                     return (

@@ -6,5 +6,5 @@ export * from './funciones';
 export * from './funcionesCatalogos';
 export * from './getEnvVariables';
 export * from './getMessages';
-export * from './validaFormulario';
+export * from './funcionesFormulario';
 export * from './valoresIniciales';

@@ -1,13 +1,13 @@
 import { useState } from "react";
-import { validaCampoCliente, validacionCliente } from "../../../helpers";
+import { validaCampo, validacionDatos } from "../../../helpers";
 
-const inicioValidacion = validacionCliente;
+const inicioValidacion = validacionDatos;
 export const DatosLaborales = ( { valoresFormulario, setValoresFormulario } ) => {
     const [ validaciones, setValidaciones ] = useState( inicioValidacion );
 
     const onInputChange = ({ target }) => {
         const valor = ( target.value ) ? '' : 'is-invalid'
-        const campoValida = validaCampoCliente( target.name );
+        const campoValida = validaCampo( target.name );
 
         setValoresFormulario({
             ...valoresFormulario,
@@ -29,25 +29,25 @@ export const DatosLaborales = ( { valoresFormulario, setValoresFormulario } ) =>
                     </div>
                 </button>
             </div>
-            <div id="datosLaborales" className="accordion-collapse collapse" aria-labelledby="seccionInteres" data-bs-parent="#clientes">
+            <div id="datosLaborales" className="accordion-collapse collapse" aria-labelledby="seccionInteres" data-bs-parent="#datos">
                 <div className="accordion-body me-2">
                     <div className="form-group d-flex justify-content-between mt-2">
                         <div className="form-floating me-2 col-4">
-                            <input type="text" className="form-control" placeholder="Empresa donde trabaja" autoComplete="on" value={ valoresFormulario.clienteEmpresa } onChange={ onInputChange } name="clienteEmpresa" id='empresa' />
+                            <input type="text" className="form-control" placeholder="Empresa donde trabaja" autoComplete="on" value={ valoresFormulario.datoEmpresa } onChange={ onInputChange } name="datoEmpresa" id='empresa' />
                             <label htmlFor="empresa">Empresa donde trabaja</label>
                         </div>
                         <div className="form-floating me-2 col-4">
-                            <input type="text" className="form-control" placeholder="Puesto" autoComplete="on" value={ valoresFormulario.clientePuesto } onChange={ onInputChange } name="clientePuesto" id='puesto' />
+                            <input type="text" className="form-control" placeholder="Puesto" autoComplete="on" value={ valoresFormulario.datoPuesto } onChange={ onInputChange } name="datoPuesto" id='puesto' />
                             <label htmlFor="puesto">Puesto</label>
                         </div>
                         <div className="form-floating col-4">
-                            <input type="text" className="form-control" placeholder="Antigüedad" autoComplete="on" value={ valoresFormulario.clienteAntiguedad } onChange={ onInputChange } name="clienteAntiguedad" id='antiguedad' />
+                            <input type="text" className="form-control" placeholder="Antigüedad" autoComplete="on" value={ valoresFormulario.datoAntiguedad } onChange={ onInputChange } name="datoAntiguedad" id='antiguedad' />
                             <label htmlFor="antiguedad">Antigüedad</label>
                         </div>
                     </div>
                     <div className="form-group d-flex justify-content-between mt-2">
                         <div className="form-floating col-12">
-                            <input type="text" className="form-control" placeholder="Actividades que desempeña" autoComplete="on" value={ valoresFormulario.clienteActividades } onChange={ onInputChange } name="clienteActividades" id='actividades' />
+                            <input type="text" className="form-control" placeholder="Actividades que desempeña" autoComplete="on" value={ valoresFormulario.datoActividades } onChange={ onInputChange } name="datoActividades" id='actividades' />
                             <label htmlFor="actividades">Actividades que desempeña</label>
                         </div>
                     </div>

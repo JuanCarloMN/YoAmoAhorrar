@@ -2,15 +2,15 @@ import { useEffect, useState } from 'react';
 import Modal from 'react-modal';
 
 import { useClienteStore, useUiStore } from '../../../hooks';
-import { estiloModal, formularioCliente, validacionCliente, validaFormularioCliente } from '../../../helpers';
+import { cambiaCampos, estiloModal, formularioDatos, validacionDatos, validaFormulario } from '../../../helpers';
 import { DatosBasicos, DatosContacto, DatosInteres, DatosLaborales, DatosOtros } from '../secciones';
 
 import Swal from 'sweetalert2';
 import 'sweetalert2/dist/sweetalert2.min.css';
 
 const customStyles = estiloModal;
-const inicioValidacion = validacionCliente;
-const inicioFormulario = formularioCliente;
+const inicioValidacion = validacionDatos;
+const inicioFormulario = formularioDatos;
 
 export const ClienteModal = () => {
     const [ validaciones, setValidaciones ] = useState( inicioValidacion );
@@ -21,15 +21,15 @@ export const ClienteModal = () => {
     const validaCampos = () => {
         let todoBien = true;
 
-        setValidaciones( inicioValidacion );
-        validaciones.validaNombre = validaFormularioCliente( valoresFormulario.clienteNombre );
-        validaciones.validaRFC = validaFormularioCliente( valoresFormulario.clienteRFC );
-        validaciones.validaCURP = validaFormularioCliente( valoresFormulario.clienteCURP );
-        validaciones.validaNacimiento = validaFormularioCliente( valoresFormulario.clienteNacimiento );
-        validaciones.validaCelular = validaFormularioCliente( valoresFormulario.clienteCelular );
-        validaciones.validaEmail = validaFormularioCliente( valoresFormulario.clienteEmail );
-        validaciones.validaDireccion = validaFormularioCliente( valoresFormulario.clienteDireccion );
-        validaciones.validaCP = validaFormularioCliente( valoresFormulario.clienteCP );
+        setValidaciones( {} );
+        validaciones.validaNombre = validaFormulario( valoresFormulario.datoNombre );
+        validaciones.validaRFC = validaFormulario( valoresFormulario.datoRFC );
+        validaciones.validaCURP = validaFormulario( valoresFormulario.datoCURP );
+        validaciones.validaNacimiento = validaFormulario( valoresFormulario.datoNacimiento );
+        validaciones.validaCelular = validaFormulario( valoresFormulario.datoCelular );
+        validaciones.validaEmail = validaFormulario( valoresFormulario.datoEmail );
+        validaciones.validaDireccion = validaFormulario( valoresFormulario.datoDireccion );
+        validaciones.validaCP = validaFormulario( valoresFormulario.datoCP );
 
         Object.values( validaciones ).forEach( valor => {
             if ( valor === 'is-invalid' ){
@@ -56,6 +56,7 @@ export const ClienteModal = () => {
     const onCloseModal = () => {
         setClienteActivo( null );
         setValoresFormulario( inicioFormulario );
+        setValidaciones( inicioValidacion );
         closeClienteModal();
     }
 
@@ -66,9 +67,9 @@ export const ClienteModal = () => {
             Swal.fire( 'Información incorrecta', 'Revisar que se haya ingresado la información correcta', 'error' );
             return;
         }
-                
-        await startSalvarCliente( valoresFormulario );
-
+        
+        const datoActivo = await cambiaCampos( valoresFormulario, 2 );
+        await startSalvarCliente( datoActivo );
         setClienteActivo( null );
         setValoresFormulario( inicioFormulario );
         setValidaciones( inicioValidacion );
@@ -76,8 +77,11 @@ export const ClienteModal = () => {
     }
 
     useEffect( () => {
+        
         if ( clienteActivo !== null ) {
             setValoresFormulario({ ...clienteActivo });
+        } else {
+            setValoresFormulario( inicioFormulario )
         }
 
         setValidaciones( inicioValidacion );
@@ -88,7 +92,7 @@ export const ClienteModal = () => {
             <form className="container" onSubmit={ onSubmit }>
                 <div className="row">
                     <div className="col d-flex justify-content-between align-items-end">
-                        <h2> { ( clienteActivo?.clienteNombre === '' || clienteActivo?.clienteNombre === undefined ) ? 'Nuevo cliente' : 'Editar cliente: ' + valoresFormulario.clienteNombre }</h2>
+                        <h2> { ( clienteActivo?.datoNombre === '' || clienteActivo?.datoNombre === undefined ) ? 'Nuevo cliente' : 'Editar cliente: ' + valoresFormulario.datoNombre }</h2>
                         <div className=" justify-content-between">
                             <button type="submit" className="btn btn-outline-primary btn-block me-5">
                                 <span> Guardar</span>
@@ -103,7 +107,7 @@ export const ClienteModal = () => {
                 <hr />
 
                 <div className="container border p-3">
-                    <div className="accordion accordion-flush " id="clientes">
+                    <div className="accordion accordion-flush " id="datos">
                         {/* Datos básicos */}
                         <DatosBasicos valoresFormulario={ valoresFormulario } setValoresFormulario={ setValoresFormulario } />
 

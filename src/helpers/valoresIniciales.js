@@ -1,6 +1,6 @@
 import { addHours } from "date-fns"
 
-export const validacionCliente = {
+export const validacionDatos = {
         validaNombre: '',
         validaRFC: '',
         validaCURP: '',
@@ -15,24 +15,37 @@ export const validacionCliente = {
     }
 
 
-export const formularioCliente = {
-        clienteNombre: '',
-        clienteApellidoP: '',
-        clienteApellidoM: '',
-        clienteRFC: '',
-        clienteCURP: '',
-        clienteNacimiento: new Date(),
-        clienteCelular: '',
-        clienteTelefono: '',
-        clienteEmail: '',
-        clienteDireccion: '',
-        clienteCP: '',
-        clienteColonia: '',
-        clienteCiudad: '',
-        clienteEstado: '',
-        clienteDesde: new Date(),
-        clienteReferido: '',
-        clienteNotas: ''
+export const formularioDatos = {
+        datoNombre: '',
+        datoApellidoP: '',
+        datoApellidoM: '',
+        datoRFC: '',
+        datoCURP: '',
+        datoNacimiento: new Date(),
+        datoEstadoCivil: '',
+        datoSexo: '',
+        datoEscolaridad: '',
+        datoCelular: '',
+        datoTelefono: '',
+        datoEmail: '',
+        datoDireccion: '',
+        datoCP: '',
+        datoColonia: '',
+        datoCiudad: '',
+        datoEstado: '',
+        datoEmpresa: '',
+        datoPuesto: '',
+        datoAntiguedad: '',
+        datoActividades: '',
+        datoConyugue: '',
+        datoNumeroHijos: '',
+        datoTipoVivienda: '',
+        datoPasatiempo: '',
+        datoMascotas: '',
+        datoDeporte: '',
+        datoDesde: new Date(),
+        datoReferido: '',
+        datoNotas: ''
     }
 
 export const estiloModal = {

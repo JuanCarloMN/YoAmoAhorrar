@@ -10,6 +10,16 @@ export const formatoFecha = ( fecha ) => {
     return dia + '-' + mes + '-' + anio;
 }
 
+// Regresa la fecha con el formato dia, mes, año separada con el signo que se le envíe
+export const fechaCorta = ( fecha, signo = '-' ) => {
+
+    const dia = ( fecha.getDate() < 10 ) ? '0' + fecha.getDate() : fecha.getDate();
+    const mes = ( ( fecha.getMonth() + 1 ) < 10 ) ? '0' + ( fecha.getMonth() + 1 ) : fecha.getMonth() + 1;
+    const anio = fecha.getFullYear();
+
+    return dia + signo + mes + signo + anio
+}
+
 // Convierte el número de mes a texto largo o corto
 export const mesTexto = ( mes, tipo ) => {
 
@@ -29,14 +39,14 @@ export const mesTexto = ( mes, tipo ) => {
     }
 }
 
-// Regresa la fecha con el formato dia, mes, año separada con el signo que se le envíe
-export const fechaCorta = ( fecha, signo = '-' ) => {
+// Regresa la fecha desde una fecha de MongoDB
+export const fechaMongo = ( fecha ) => {
 
-    const dia = ( fecha.getDate() < 10 ) ? '0' + fecha.getDate() : fecha.getDate();
-    const mes = ( ( fecha.getMonth() + 1 ) < 10 ) ? '0' + ( fecha.getMonth() + 1 ) : fecha.getMonth() + 1;
-    const anio = fecha.getFullYear();
+    // 1970-01-01
 
-    return dia + signo + mes + signo + anio
+    // const dia = 
+    // const anio = 
+    // return dia + '-' + mes + '-' + anio;
 }
 
 // Obtiene el valor del dólar y la UDI al día de hoy
