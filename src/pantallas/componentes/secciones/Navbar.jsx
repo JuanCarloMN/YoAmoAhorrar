@@ -104,9 +104,11 @@ export const Navbar = () => {
                 </div>
                 <div className="d-flex col-12 col-sm-8 col-md-4 col-lg-3 col-xl-3 align-items-evenly justify-content-evenly justify-content-sm-between justify-content-md-center me-1 ">
                     <div className="perfil col text-sm-end ">
-                        <NavLink className="perfil" to="/perfil">
+                        <NavLink className="perfil" to="/perfil" >
                             <img src="perla.jpg" alt="" />
-                            { usuario.nombre }
+                            <span className="btn btn-dark">
+                                { usuario.nombre }
+                            </span>
                         </NavLink>
                     </div>
                     <div className="col text-sm-end ">
