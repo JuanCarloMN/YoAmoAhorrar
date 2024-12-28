@@ -1,5 +1,5 @@
 import { Provider } from 'react-redux';
-import { AppRouter, SeccionesRouter } from './router';
+import { SeccionesRouter } from './router';
 import { BrowserRouter } from 'react-router-dom';
 import { store } from './store';
 

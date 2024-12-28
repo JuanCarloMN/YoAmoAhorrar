@@ -8,11 +8,11 @@ export const PrivateRoute = ( { children } ) => {
     const ultimaRuta = pathname + search;
     localStorage.setItem( 'ultimaRuta', ultimaRuta );
 
-    const { status, checkAuthToken } = useAuthStore();
+    const { status } = useAuthStore();
 
     return (
         ( status === 'authenticated' )
         ? children
-        : <Navigate to='/auth/login' />
+        : <Navigate to='/portafolio' />
     )
 }

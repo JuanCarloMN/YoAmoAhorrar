@@ -33,3 +33,13 @@ export const convierteFechaProspecto = ( prospectos = [] ) => {
         return prospecto;
     });
 }
+
+export const convierteFechaMensaje = ( mensajes = [] ) => {
+
+    return mensajes.map( mensaje => {
+       
+        mensaje.mensajeFecha = parseISO( mensaje.mensajeFecha );
+        
+        return mensaje;
+    });
+}

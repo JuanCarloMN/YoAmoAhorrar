@@ -3,7 +3,7 @@ import { Navigate, Route, Routes } from 'react-router-dom';
 import { LoginPage } from '../auth';
 import { useAuthStore } from '../hooks';
 import { useEffect } from 'react';
-import { AgendaPage } from '../pantallas';
+import { AgendaPage, PerlaMaldonadoPage } from '../pantallas';
 
 export const AppRouter = () => {
     
@@ -25,8 +25,10 @@ export const AppRouter = () => {
                 ( status === 'not-authenticated' )
                 ? (
                     <>
+                        <Route path='/portafolio' element={ <PerlaMaldonadoPage /> } />
+                        <Route path='/*' element={ <Navigate to='/portafolio' /> } />
                         <Route path='/auth/*' element={ <LoginPage /> } />
-                        <Route path='/*' element={ <Navigate to='/auth/login' /> } />
+                        {/* <Route path='/*' element={ <Navigate to='/auth/login' /> } /> */}
                     </>
                 )
                 : (
@@ -39,4 +41,3 @@ export const AppRouter = () => {
         </Routes>
     )
 }
-

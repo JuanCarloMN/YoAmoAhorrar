@@ -3,9 +3,9 @@ import { useAuthStore } from '../hooks';
 
 export const PublicRoute = ( { children } ) => {
 
-    const { status, checkAuthToken } = useAuthStore();
+    const { status } = useAuthStore();
 
     return ( status === 'not-authenticated' )
-        ? <Navigate to='/auth/login' />
+        ? <Navigate to='/portafolio' />
         : children
 }

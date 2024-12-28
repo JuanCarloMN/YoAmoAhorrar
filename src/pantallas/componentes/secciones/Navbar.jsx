@@ -69,6 +69,7 @@ export const Navbar = () => {
                         <li className="nav-item dropdown mt-1">
                             <a href="#" className="btn btn-dark dropdown-toggle" role="button" data-bs-toggle="dropdown" aria-expanded="false" id="dropdown-menu" > Utilerías </a>
                             <ul className="dropdown-menu" aria-labelledby="dropdown-menu">
+                                <li><NavLink className="dropdown-item" to="/mensajes">Revisar mensajes</NavLink></li>
                                 <li><a href="#" className="dropdown-item">Opciones de Speech</a></li>
                                 <li><hr className="dropdown-divider" /></li>
                                 <li><a href="#" className="dropdown-item">Exportar Clientes</a></li>

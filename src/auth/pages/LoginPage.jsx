@@ -47,7 +47,7 @@ export const LoginPage = () => {
 
     return (
         <div className="container login-container ">
-            <div className="row row-cols-2 g-0">
+            <div className="row g-0 d-flex justify-content-center">
                 <div className="col-md-6 login-form-1">
                     <h3>Ingreso</h3>
                     <form onSubmit={ loginSubmit } className='form-group' >
@@ -78,9 +78,15 @@ export const LoginPage = () => {
                                 value="Login" 
                             />
                         </div>
+                        <div className="d-grid gap-2">
+                            <a href='/portafolio' 
+                                type="button"
+                                className="btnSubmit text-center"
+                            >Regresar</a>
+                        </div>
                     </form>
                 </div>
-
+{/* 
                 <div className="col-md-6 login-form-2">
                     <h3>Registro</h3>
                     <form onSubmit={ registerSubmit } className='form-group' >
@@ -133,7 +139,7 @@ export const LoginPage = () => {
                                 value="Crear cuenta" />
                         </div>
                     </form>
-                </div>
+                </div> */}
             </div>
         </div>
     )

@@ -5,3 +5,4 @@ export * from './paginas/ClientesPage';
 export * from './paginas/PerfilPage';
 export * from './paginas/PolizasPage';
 export * from './paginas/ProspectosPage';
+export * from './portafolio';

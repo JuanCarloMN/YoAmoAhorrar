@@ -86,3 +86,10 @@ export const eventoInicial = {
     inicio: new Date(),
     fin: addHours( new Date(), 2 )
 }
+
+export const mensajeInicial = {
+    mensajeNombre: '',
+    mensajeEmail: '',
+    mensajeDetalle: '',
+    mensajeFecha: new Date()
+}
