@@ -1,7 +1,7 @@
 import { mensajeApi } from '../api';
 import Swal from 'sweetalert2';
 import { convierteFechaMensaje } from '../helpers';
-import { onCargarMensajes } from '../store/slice/mensajeSlice';
+import { onActualizaMensaje, onCargarMensajes } from '../store/slice/mensajeSlice';
 import { useDispatch } from 'react-redux';
 
 export const useMensajeStore = () => {
@@ -13,6 +13,7 @@ export const useMensajeStore = () => {
             if ( mensaje.id ) {
                 // Actualizar mensaje
                 await mensajeApi.put(`/mensajes/${ mensaje.id }`, mensaje );
+                dispatch( onActualizaMensaje( mensaje ) );
                 return;
             } 
     
@@ -38,7 +39,6 @@ export const useMensajeStore = () => {
         try {
             const { data } = await mensajeApi.get('/mensajes/');
             const mensajes = convierteFechaMensaje( data.mensajes );
-            console.log({mensajes});
             
             dispatch( onCargarMensajes( mensajes ) );
 

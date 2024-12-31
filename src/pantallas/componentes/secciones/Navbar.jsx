@@ -112,7 +112,7 @@ export const Navbar = () => {
                             </span>
                         </NavLink>
                     </div>
-                    <div className="col text-sm-end ">
+                    <div className="col text-sm-end me-3">
                         <button className="salir btn btn-outline-danger" onClick={ starLogout } >
                             <i className="fas fa-sign-out-alt"></i>
                             <span>&nbsp;Salir</span>

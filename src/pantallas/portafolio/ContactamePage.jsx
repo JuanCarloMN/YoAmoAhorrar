@@ -25,8 +25,6 @@ export const ContactamePage = () => {
             setClaseEmail('');
         if ( target.name === 'mensaje' && target.value.length > 9 )
             setClaseMensaje('');
-
-        console.log({valoresFormulario});
         
     }
 
@@ -59,7 +57,6 @@ export const ContactamePage = () => {
             ...valoresFormulario,
             ['mensajeFecha']: new Date()
         });
-        console.log({valoresFormulario});
         
         await startSalvarMensaje( valoresFormulario )
         setValoresFormulario( mensajeInicial );
@@ -79,7 +76,7 @@ export const ContactamePage = () => {
                                 </div>
                             </div>
                             
-                            <div className="col-12 col-lg-6 mb-0">
+                            <div className="col-12 col-lg-6 mb-3">
                                 <div className="form-floating ">
                                     <input type="email" name="mensajeEmail" id="mensajeEmail" className={`form-control ` + claseEmail } placeholder="Tu correo" value={ valoresFormulario.mensajeEmail } onChange={ onInputChange } />
                                     <label htmlFor="mensajeEmail">Correo</label>

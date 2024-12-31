@@ -140,6 +140,12 @@
   min-width: 80px;
 }
 
+.ico-contacto {
+  width: 85px;
+  height: 85px;
+  font-size: medium;
+}
+
 .notas {
   min-height: 150px;
 }

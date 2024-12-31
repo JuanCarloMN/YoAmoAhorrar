@@ -1,46 +1,23 @@
 import { useEffect } from "react";
 import { useSelector } from "react-redux";
-import { useMensajeStore, useProspectoStore, useUiStore } from "../../hooks";
+import { useMensajeStore } from "../../hooks";
 
 import Swal from 'sweetalert2';
 import 'sweetalert2/dist/sweetalert2.min.css';
-import { cambiaCampos, exportarExcel, formularioDatos } from "../../helpers";
+import moment from "moment";
+
+moment.locale('es', {
+    months: 'Enero_Febrero_Marzo_Abril_Mayo_Junio_Julio_Agosto_Septiembre_Octubre_Noviembre_Diciembre'.split('_'),
+    monthsShort: 'Ene._Feb._Mar._Abr._May._Jun._Jul._Ago._Sept._Oct._Nov._Dec.'.split('_'),
+    weekdays: 'Domingo_Lunes_Martes_Miercoles_Jueves_Viernes_Sabado'.split('_'),
+    weekdaysShort: 'Dom._Lun._Mar._Mier._Jue._Vier._Sab.'.split('_'),
+    weekdaysMin: 'Do_Lu_Ma_Mi_Ju_Vi_Sa'.split('_')
+  }
+  );
 
 export const MensajesPage = () => {
-    const { openProspectoModal } = useUiStore()
     const { startCargarMensajes, startSalvarMensaje } = useMensajeStore();
-    const { startCargaProspectos, setProspectoActivo, starBorrarProspecto, startConvierteProspecto } = useProspectoStore()
     const { mensajes } = useSelector( state => state.mensaje );
-    
-    const nuevoProspecto = () => {
-        setProspectoActivo( formularioDatos );
-        openProspectoModal();
-    }
-
-    const convertirCliente = ( prospecto ) => {
-        Swal.fire({
-            title: "¿Deseas convertirlo en cliente?",
-            text: prospecto.prospectoNombre + ' ' + prospecto.prospectoApellidoP + ' ' + prospecto.prospectoApellidoM,
-            icon: "question",
-            iconColor: "#10A009",
-            showCancelButton: true,
-            cancelButtonColor: "#3085d6",
-            cancelButtonText: "Cancelar",
-            confirmButtonText: "Convertir",
-            confirmButtonColor: "#10A009"
-        }).then( async ( result ) => {
-            if ( result.isConfirmed ) {
-
-                await startConvierteProspecto( prospecto );
-
-                Swal.fire({
-                    title: "Prospecto convertido a cliente",
-                    icon: "success",
-                    confirmButtonColor: "#10A009"
-                });
-            }
-        });
-    }
 
     const atenderMensaje = ( mensaje ) => {
         Swal.fire({
@@ -56,7 +33,15 @@ export const MensajesPage = () => {
         }).then( async ( result ) => {
             if ( result.isConfirmed ) {
 
-                await startSalvarMensaje( mensaje );
+                const actualizaMensaje = {
+                    id: mensaje.id,
+                    mensajeNombre: mensaje.mensajeNombre,
+                    mensajeEmail: mensaje.mensajeEmail,
+                    mensajeDetalle: mensaje.mensajeDetalle,
+                    mensajeAtendido: true,
+                    mensajeFecha: mensaje.mensajeFecha
+                }
+                await startSalvarMensaje( actualizaMensaje );
 
                 Swal.fire({
                     title: "Mensaje atendido",
@@ -68,7 +53,7 @@ export const MensajesPage = () => {
     }
 
     useEffect( () => {
-        startCargarMensajes();
+        startCargarMensajes();        
     }, []);
 
     return (
@@ -93,10 +78,10 @@ export const MensajesPage = () => {
                             <tbody>
                             {
                                 mensajes.map( mensaje => (
-                                    <tr className="table-light align-middle" key={ mensaje.mensajeEmail } >
+                                    <tr className="table-light align-middle" key={ mensaje.id } >
                                         <td >{ mensaje.mensajeNombre }</td>
                                         <td className="nowrap"><a href={`mailto:${ mensaje.mensajeEmail }`} className="email table-light">{ mensaje.mensajeEmail }</a></td>
-                                        <td className="nowrap">27 Diciembre 2024</td>
+                                        <td className="nowrap">{ moment(mensaje.mensajeFecha).format('DD MMMM YYYY') }</td>
                                         <td>{ mensaje.mensajeDetalle }</td>
                                         <td >
                                             <div className="d-flex justify-content-end">
