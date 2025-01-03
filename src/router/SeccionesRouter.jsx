@@ -1,10 +1,9 @@
 import { useEffect } from "react"
 import { Navigate, Route, Routes } from "react-router-dom"
-import { ClientesPage, Navbar, PolizasPage, ProspectosPage, AgendaPage, PerfilPage, CatalogosPage, PerlaMaldonadoPage } from "../pantallas"
+import { ClientesPage, Navbar, PolizasPage, ProspectosPage, AgendaPage, PerfilPage, CatalogosPage, PerlaMaldonadoPage, BlogPage, MensajesPage } from "../pantallas"
 import { LoginPage } from "../auth"
 import { useAuthStore } from "../hooks"
 import { PrivateRoute } from "./"
-import { MensajesPage } from "../pantallas/paginas/MensajesPage"
 
 export const SeccionesRouter = () => {
 
@@ -28,6 +27,7 @@ export const SeccionesRouter = () => {
                 <>
                     <Route path='/portafolio' element={ <PerlaMaldonadoPage /> } />
                     <Route path='/auth/*' element={ <LoginPage /> } />
+                    <Route path='/blog/*' element={ <BlogPage /> } />
                     <Route path='/*' element={ <Navigate to='/portafolio' /> } />
                     {/* <Route path='/*' element={ <Navigate to='/auth/login' /> } /> */}
                 </>

@@ -29,14 +29,17 @@ header .logo p {
 }
 
 header .menu .c1 {
-    background: #3da5e2;
+    background: #3693c9;
 }
-
 header .menu .c2 {
-    background: #005385
+    background: #2f7fad
 }
 
 header .menu .c3 {
+    background: #1d5373
+}
+
+header .menu .c4 {
     background: #003855
 }
 
@@ -90,6 +93,7 @@ header .menu .c3:hover {
     font-weight: 300;
     font-size: 18px;
     letter-spacing: 2px;
+    width: 100%;
 }
 
 .acerca-de .info .titulo {
@@ -166,10 +170,10 @@ header .menu .c3:hover {
 }
 
 /* Footer */
-.redes-sociales {
+/* .redes-sociales {
     padding: 40px 0;
     margin-bottom: 40px;
-}
+} */
 
 .redes-sociales .icono {
     width: 100px;
@@ -200,8 +204,16 @@ header .menu .c3:hover {
     background: #3b5998;
 }
 
+.logo-footer {
+    width: 150px;
+}
 
 /* MEDIAQUERIES */
+
+/* Dispositivo xs */
+@media screen and ( max-width: 320px ) {
+
+}
 /* Dispositivo sm */
 @media screen and (max-width: 576px){
 	.redes-sociales .icono {
@@ -214,6 +226,33 @@ header .menu .c3:hover {
 		height: 35px;
 	}
 
+    header .logo h2 {
+        font-size: small;
+    }
+
+    header .logo p {
+        font-size: small;
+    }
+    
+    header .menu .c1 {
+        font-size: small;
+    }
+
+    header .menu .c2 {
+        font-size: small;
+    }
+
+    header .menu .c3 {
+        font-size: small;
+    }
+
+    header .menu .c4 {
+        font-size: small;
+    }
+
+    .acerca-de .foto {
+        width: 70%;
+    }
 }
 
 /* Dispositivo md */

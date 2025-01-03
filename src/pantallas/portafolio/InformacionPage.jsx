@@ -6,9 +6,9 @@ export const InformacionPage = () => {
             <main>
                 <div className="container">
                     {/* Acerca de */}
-                    <div className="row acerca-de align-items-center px-4 mb-5" id="acerca-de">
-                        <div className="col-lg-5 col-12 foto text-center">
-                            <img src="img/perfil.jpg" alt="" className="rounded-circle mb-3" />
+                    <div className="row acerca-de align-items-center px-lg-4 mb-5" id="acerca-de">
+                        <div className="col-lg-5 col foto text-center">
+                            <img src="img/perfil.jpg" alt="" className="rounded-circle mb-3 foto" />
                             <p className="nombre">Perla Gabriela Maldonado</p>
                         </div>
                         
