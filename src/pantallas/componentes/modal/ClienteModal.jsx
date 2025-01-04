@@ -76,8 +76,7 @@ export const ClienteModal = () => {
         closeClienteModal();
     }
 
-    useEffect( () => {
-        
+    useEffect( () => {        
         if ( clienteActivo !== null ) {
             setValoresFormulario({ ...clienteActivo });
         } else {

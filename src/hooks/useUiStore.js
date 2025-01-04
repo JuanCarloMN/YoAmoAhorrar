@@ -1,5 +1,5 @@
 import { useDispatch, useSelector } from 'react-redux';
-import { onClosePolizaModal, onCloseClienteModal, onCloseEventoModal, onCloseProspectoModal, onOpenPolizaModal, onOpenClienteModal, onOpenEventoModal, onOpenProspectoModal } from '../store';
+import { onClosePolizaModal, onCloseClienteModal, onCloseEventoModal, onCloseProspectoModal, onOpenPolizaModal, onOpenClienteModal, onOpenEventoModal, onOpenProspectoModal, onOpenBlogModal, onCloseBlogModal } from '../store';
 
 
 export const useUiStore = () => {
@@ -7,11 +7,20 @@ export const useUiStore = () => {
     const dispatch = useDispatch();
 
     const { 
+        isBlogModalOpen,
+        isClienteModalOpen,
         isEventoModalOpen,
         isPolizaModalOpen,
-        isClienteModalOpen,
         isProspectoModalOpen,
     } = useSelector( state => state.iu );
+
+    const openBlogModal = () => {
+        dispatch( onOpenBlogModal() );
+    }
+
+    const closeBlogModal = () => {
+        dispatch( onCloseBlogModal() );
+    }
 
     const openEventoModal = () => {
         dispatch( onOpenEventoModal() );
@@ -53,16 +62,19 @@ export const useUiStore = () => {
  
     return {
         // Propiedades
+        isBlogModalOpen,
         isClienteModalOpen,
         isEventoModalOpen,
         isPolizaModalOpen,
         isProspectoModalOpen,
 
         // Métodos
+        closeBlogModal,
         closeClienteModal,
         closeEventoModal,
         closePolizaModal,
         closeProspectoModal,
+        openBlogModal,
         openClienteModal,
         openEventoModal,
         openPolizaModal,

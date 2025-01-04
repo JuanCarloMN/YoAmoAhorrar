@@ -1,52 +1,36 @@
+import { useEffect } from "react";
+import { useSelector } from "react-redux";
+import { useBlogStore } from "../../hooks";
+
+import moment from "moment";
 
 export const BlogEntradasPage = () => {
+
+	const { startCargarBlogs } = useBlogStore();
+    const { blogs } = useSelector( state => state.blog );
+
+	useEffect( () => {
+        startCargarBlogs();
+    }, []);
+
     return (
-        <main class="container">
-			<div class="row">
-				<div class="col-12 col-md-8 mb-5 pb-5">
-					<div class="mb-5 border-bottom pb-5">
-						<h2 class="titulo">Ejemplo de post de blog</h2>
-						<p class="text-muted mb-4">Enero de 2021 por <a href="#">Carlos Arturo</a></p>
-						<p>Cum sociis natoque penatibus et magnis <a href="#">dis parturient montes</a>, nascetur ridiculus mus. Aenean eu leo quam. Pellentesque ornare sem lacinia quam venenatis vestibulum. Sed posuere consectetur est at lobortis. Cras mattis consectetur purus sit amet fermentum.</p>
-						<p>Curabitur blandit tempus porttitor. <strong>Nullam quis risus eget urna mollis</strong> ornare vel eu leo. Nullam id dolor id nibh ultricies vehicula ut id elit.</p>
-						<p>Etiam porta sem malesuada magna mollis euismod. Cras mattis consectetur purus sit amet fermentum. Aenean lacinia bibendum nulla sed consectetur.</p>
-					</div>
-
-					<div class="mb-5 border-bottom pb-5">
-						<h2 class="titulo">Ejemplo de post de blog</h2>
-						<p class="text-muted mb-4">Enero de 2021 por <a href="#">Carlos Arturo</a></p>
-						<p>Cum sociis natoque penatibus et magnis <a href="#">dis parturient montes</a>, nascetur ridiculus mus. Aenean eu leo quam. Pellentesque ornare sem lacinia quam venenatis vestibulum. Sed posuere consectetur est at lobortis. Cras mattis consectetur purus sit amet fermentum.</p>
-						<p>Curabitur blandit tempus porttitor. <strong>Nullam quis risus eget urna mollis</strong> ornare vel eu leo. Nullam id dolor id nibh ultricies vehicula ut id elit.</p>
-						<p>Etiam porta sem malesuada magna mollis euismod. Cras mattis consectetur purus sit amet fermentum. Aenean lacinia bibendum nulla sed consectetur.</p>
-					</div>
-
-					<div class="mb-5 border-bottom pb-5">
-						<h2 class="titulo">Ejemplo de post de blog</h2>
-						<p class="text-muted mb-4">Enero de 2021 por <a href="#">Carlos Arturo</a></p>
-						<p>Cum sociis natoque penatibus et magnis <a href="#">dis parturient montes</a>, nascetur ridiculus mus. Aenean eu leo quam. Pellentesque ornare sem lacinia quam venenatis vestibulum. Sed posuere consectetur est at lobortis. Cras mattis consectetur purus sit amet fermentum.</p>
-						<p>Curabitur blandit tempus porttitor. <strong>Nullam quis risus eget urna mollis</strong> ornare vel eu leo. Nullam id dolor id nibh ultricies vehicula ut id elit.</p>
-						<p>Etiam porta sem malesuada magna mollis euismod. Cras mattis consectetur purus sit amet fermentum. Aenean lacinia bibendum nulla sed consectetur.</p>
-					</div>
+        <main className="container">
+			<div className="row">
+				<div className="col pb-2">
+					{
+						blogs.map( blog => (
+							<div className="mb-5 border-bottom pb-5">
+								<h2 className="titulo">{ blog.blogTitulo }</h2>
+								<p className="text-muted mb-4">{ moment( blog.blogFecha ).format('DD MMMM YYYY') } por <a href="#">{ blog.blogUsuario }</a></p>
+								<p className="blog-parrafo w-100">{ blog.blogDetalle }</p>
+							</div>
+						))
+					}
 				</div>
-
-				<div class="col-12 col-md-4 mb-5 pb-5">
-					<div class="p-3 mb-5 bg-light rounded">
-						<h4 class="font-italic">Acerca de</h4>
-						<p class="mb-0">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Debitis necessitatibus quibusdam nam temporibus expedita impedit voluptate, exercitationem voluptatum alias pariatur?</p>
-					</div>
-
-					<div class="p-3">
-						<h4 class="font-italic">Archivos</h4>
-						<ol class="list-unstyled">
-							<li><a href="#">Diciembre 2024</a></li>
-							<li><a href="#">Noviembre 2024</a></li>
-							<li><a href="#">Octubre 2024</a></li>
-							<li><a href="#">Septiembre 2024</a></li>
-							<li><a href="#">Agosto 2024</a></li>
-							<li><a href="#">Julio 2024</a></li>
-							<li><a href="#">Anteriores</a></li>
-						</ol>
-					</div>
+				<div className="text-center p-0 align-items-center">
+					<img src="./img/Logo.png" alt="Perla Maldonado" className="logo-footer"/>
+					<br />
+					<span className="fw-lighter">2025</span>
 				</div>
 			</div>
 		</main>

@@ -14,6 +14,12 @@ export const validacionDatos = {
         validaEstado: ''
     }
 
+export const validaBlog = {
+    validaTitulo: '',
+    validaDetalle: '',
+    validaCategoria: '',
+    validaUsuario: '',
+}
 
 export const formularioDatos = {
         datoNombre: '',
@@ -92,4 +98,15 @@ export const mensajeInicial = {
     mensajeEmail: '',
     mensajeDetalle: '',
     mensajeFecha: new Date()
+}
+
+export const blogInicial = {
+    blogTitulo: '',
+    blogDetalle: '',
+    blogCategoria: '',
+    blogUsuario: '',
+    blogFecha: new Date(),
+    blogFoto1: '',
+    blogFoto2: '',
+    blogFoto3: ''
 }

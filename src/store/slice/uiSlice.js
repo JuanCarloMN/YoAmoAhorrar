@@ -3,12 +3,19 @@ import { createSlice } from '@reduxjs/toolkit';
 export const uiSlice = createSlice({
     name: 'ui',
     initialState: {
+        isBlogModalOpen: false,
+        isClienteModalOpen: false,
         isEventoModalOpen: false,
         isPolizaModalOpen: false,
-        isClienteModalOpen: false,
         isProspectoModalOpen: false,
     },
     reducers: {
+        onOpenBlogModal: ( state ) => {
+            state.isBlogModalOpen = true;
+        },
+        onCloseBlogModal: ( state ) => {
+            state.isBlogModalOpen = false;
+        },
         onOpenEventoModal: ( state ) => {
             state.isEventoModalOpen = true;
         },
@@ -37,6 +44,9 @@ export const uiSlice = createSlice({
 });
 
 export const { 
+    onOpenBlogModal,
+    onCloseBlogModal,
+    
     onOpenEventoModal, 
     onCloseEventoModal,
 

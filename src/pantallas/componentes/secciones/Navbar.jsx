@@ -29,7 +29,7 @@ export const Navbar = () => {
 
     return (
         <nav className="navbar navbar-expand-md navbar-dark bg-dark p-1 ">
-            <div className="container-fluid d-flex align-items-center justify-content-between p-0">
+            <div className="container-fluid d-flex align-items-center justify-content-between p-0 ms-2">
                 <NavLink className="" to="/agenda">
                     <img className="logo col-10 col-sm-2 col-md-1 " src="img/logo2.png" alt="" />
                 </NavLink>
@@ -42,7 +42,7 @@ export const Navbar = () => {
                 </div>
 
                 {/* <!-- Menú de navegacion --> */}
-                <div className="menu-opciones collapse navbar-collapse col-1 col-md-6 flex-fill justify-content-md-evenly ms-3" id="menu">
+                <div className="menu-opciones collapse navbar-collapse col-1 col-md-7 flex-fill justify-content-md-evenly ms-3" id="menu">
                     <ul className="navbar-nav ">
                         <li className="nav-item mt-1">
                             <NavLink className="" to="/agenda">
@@ -78,6 +78,13 @@ export const Navbar = () => {
                                 <li><hr className="dropdown-divider" /></li>
                                 <li><a href="#" className="dropdown-item">Respaldar Base de Datos</a></li>
                             </ul>
+                        </li>
+
+                        {/* Blog */}
+                        <li className="nav-item mt-1">
+                            <NavLink className="" to="/miblog">
+                                <span className="btn btn-dark">Blog</span>
+                            </NavLink>
                         </li>
                     </ul>
                 </div>

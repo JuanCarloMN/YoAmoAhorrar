@@ -1,6 +1,6 @@
 import { useEffect } from "react"
 import { Navigate, Route, Routes } from "react-router-dom"
-import { ClientesPage, Navbar, PolizasPage, ProspectosPage, AgendaPage, PerfilPage, CatalogosPage, PerlaMaldonadoPage, BlogPage, MensajesPage } from "../pantallas"
+import { ClientesPage, Navbar, PolizasPage, ProspectosPage, AgendaPage, PerfilPage, CatalogosPage, PerlaMaldonadoPage, BlogPage, MensajesPage, MiBlogPage } from "../pantallas"
 import { LoginPage } from "../auth"
 import { useAuthStore } from "../hooks"
 import { PrivateRoute } from "./"
@@ -80,6 +80,13 @@ export const SeccionesRouter = () => {
                         <PrivateRoute>
                             <Navbar />
                             <MensajesPage /> 
+                        </PrivateRoute>
+                        } />
+
+                    <Route path='/miblog' element={ 
+                        <PrivateRoute>
+                            <Navbar />
+                            <MiBlogPage /> 
                         </PrivateRoute>
                         } />
 

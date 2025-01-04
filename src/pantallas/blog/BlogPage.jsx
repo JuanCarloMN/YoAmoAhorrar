@@ -8,8 +8,8 @@ export const BlogPage = () => {
         <>
             <div className="container">
                 <BlogCabeceroPage />
-                <BlogUltimoPostPage />
-                <BlogDestacadoPage />
+                {/* <BlogUltimoPostPage />
+                <BlogDestacadoPage /> */}
                 <BlogEntradasPage />
             </div>
         </>

@@ -238,6 +238,11 @@
   font-weight: 400;
 }
 
+.blog-parrafo {
+  white-space: pre;
+  text-wrap: inherit;
+}
+
 input:checked + .radio-title {
   background-color: #bda3d6;
   box-shadow: 0 0 12px #bda3d6;

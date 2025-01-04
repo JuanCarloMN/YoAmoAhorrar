@@ -6,7 +6,6 @@ export const validaFormulario = ( campo ) => {
 }
 
 export const validaCampo = ( campo ) => {
-    const campoValida = () => {
         switch ( campo ) {
             case 'datoNombre': return 'validaNombre'
             case 'datoRFC': return 'validaRFC'
@@ -19,9 +18,12 @@ export const validaCampo = ( campo ) => {
             case 'datoColonia': return 'validaColonia'
             case 'datoCiudad': return 'validaCiudad'
             case 'datoEstado': return 'validaEstado'
+
+            case 'blogTitulo': return 'validaTitulo'
+            case 'blogDetalle': return 'validaDetalle'
+            case 'blogCategoria': return 'validaCategoria'
+            case 'blogUsuario': return 'validaUsuario'
         }
-    }
-    return campoValida;
 }
 
 export const campoEquivalente = ( campo, tipo ) => {

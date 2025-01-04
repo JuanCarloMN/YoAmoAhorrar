@@ -1,5 +1,6 @@
 export * from './useAgendaStore';
 export * from './useAuthStore';
+export * from './useBlogStore';
 export * from './useCatalogoStore';
 export * from './useClienteStore';
 export * from './useForm';

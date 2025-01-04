@@ -43,3 +43,13 @@ export const convierteFechaMensaje = ( mensajes = [] ) => {
         return mensaje;
     });
 }
+
+export const convierteFechaBlog = ( blogs = [] ) => {
+
+    return blogs.map( blog => {
+       
+        blog.blogFecha = parseISO( blog.blogFecha );
+        
+        return blog;
+    });
+}
