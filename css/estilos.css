@@ -1,5 +1,5 @@
 body{
-    background: #f2f2f2;
+    background: #f7f2fa;
     font-family: 'Open Sans', sans-serif;
 }
 
@@ -23,36 +23,56 @@ header .logo svg {
     width: 20px;
     height: 20px;
 }
+.icono-perfil svg {
+    fill: white;
+    margin-top: 10px;
+    width: 25px;
+    height: 25px;
+}
 
 header .logo p {
     color: #777777;
 }
 
 header .menu .c1 {
-    background: #3693c9;
+    white-space: nowrap;
+    background: #d980f9;
 }
+
 header .menu .c2 {
-    background: #2f7fad
+    background: #af50e5
 }
 
 header .menu .c3 {
-    background: #1d5373
+    background: #8a0bd2
 }
 
 header .menu .c4 {
-    background: #003855
+    background: #5b0672
+}
+
+header .menu .c5 {
+    background: #3b044b
 }
 
 header .menu .c1:hover {
-    background: #1ba0ef;
+    background: #1e032e;
 }
 
 header .menu .c2:hover {
-    background: #00426a
+    background: #1e032e
 }
 
 header .menu .c3:hover {
-    background: #002d44
+    background: #1e032e
+}
+
+header .menu .c4:hover {
+    background: #1e032e
+}
+
+header .menu .c5:hover {
+    background: #1e032e
 }
 
 /* MAIN */
@@ -204,6 +224,14 @@ header .menu .c3:hover {
     background: #3b5998;
 }
 
+.logo-encabezado {
+    width: 250px;
+}
+
+.logo-encabezado-blog {
+    width: 250px;
+}
+
 .logo-footer {
     width: 150px;
 }
@@ -250,8 +278,21 @@ header .menu .c3:hover {
         font-size: small;
     }
 
+    header .menu .c5 {
+        font-size: small;
+    }
+
     .acerca-de .foto {
         width: 70%;
+    }
+
+    .logo-encabezado-blog {
+        width: 150px;
+    }
+    .icono-perfil svg {
+        margin-top: 5px;
+        width: 20px;
+        height: 20px;
     }
 }
 

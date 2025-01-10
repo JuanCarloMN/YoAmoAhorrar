@@ -91,7 +91,7 @@ export const ProspectoModal = () => {
             <form className="container" onSubmit={ onSubmit }>
                 <div className="row">
                     <div className="col d-flex justify-content-between align-items-end">
-                        <h2> { ( prospectoActivo?.prospectoNombre === '' || prospectoActivo?.prospectoNombre === undefined ) ? 'Nuevo prospecto' : 'Editar prospecto: ' + prospectoActivo?.prospectoNombre } </h2>
+                        <h2> { ( prospectoActivo?.datoNombre === '' || prospectoActivo?.datoNombre === undefined ) ? 'Nuevo prospecto' : 'Editar prospecto: ' + prospectoActivo?.datoNombre } </h2>
                         <div className=" justify-content-between">
                             <button type="submit" className="btn btn-outline-primary btn-block me-5">
                                 <span> Guardar</span>

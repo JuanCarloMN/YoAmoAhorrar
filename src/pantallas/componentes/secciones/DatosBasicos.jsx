@@ -124,7 +124,7 @@ export const DatosBasicos = ( { valoresFormulario, setValoresFormulario } ) => {
                         <div className="form-floating me-2 col-4">
                             <select className="form-select" id="colonia" name='datoEstadoCivil' aria-label="Seleccione el estado civil" value={ valoresFormulario.datoEstadoCivil } onChange={ onInputChange } >
                                 <option key="0" value="seleccion">Seleccione el estado civil</option>
-                                { catalogos[1].catalogoDatos.map( ( catalogo ) => {
+                                { catalogos[0].catalogoDatos.map( ( catalogo ) => {
                                     return (
                                         <option key={ catalogo._id } value={ catalogo.descripcion }>
                                             { catalogo.descripcion }
@@ -146,7 +146,7 @@ export const DatosBasicos = ( { valoresFormulario, setValoresFormulario } ) => {
                         <div className="form-floating col-4">
                             <select className="form-select" id="estado" name='datoEscolaridad' aria-label="Seleccione la escolaridad" value={ valoresFormulario.datoEscolaridad } onChange={ onInputChange } >
                                 <option key="0" value="seleccion">Seleccione la escolaridad</option>
-                                { catalogos[0].catalogoDatos.map( ( catalogo ) => {
+                                { catalogos[4].catalogoDatos.map( ( catalogo ) => {
                                     return (
                                         <option key={ catalogo._id } value={ catalogo.descripcion }>
                                             { catalogo.descripcion }

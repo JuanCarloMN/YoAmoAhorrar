@@ -271,7 +271,6 @@ input:checked + .radio-title .template-claro {
 
 /* Dispositivo md */
 @media screen and ( max-width: 768px) {
-
   .salir {
     font-size: 12px;
     min-width: 70px;

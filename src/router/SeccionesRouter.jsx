@@ -4,6 +4,7 @@ import { ClientesPage, Navbar, PolizasPage, ProspectosPage, AgendaPage, PerfilPa
 import { LoginPage } from "../auth"
 import { useAuthStore } from "../hooks"
 import { PrivateRoute } from "./"
+import { TestimonioPage } from "../pantallas/testimonios/TestimonioPage"
 
 export const SeccionesRouter = () => {
 
@@ -28,6 +29,7 @@ export const SeccionesRouter = () => {
                     <Route path='/portafolio' element={ <PerlaMaldonadoPage /> } />
                     <Route path='/auth/*' element={ <LoginPage /> } />
                     <Route path='/blog/*' element={ <BlogPage /> } />
+                    <Route path='/testimonios/*' element={ <TestimonioPage /> } />
                     <Route path='/*' element={ <Navigate to='/portafolio' /> } />
                     {/* <Route path='/*' element={ <Navigate to='/auth/login' /> } /> */}
                 </>

@@ -6,12 +6,10 @@ import { BlogUltimoPostPage } from "./BlogUltimoPostPage"
 export const BlogPage = () => {
     return (
         <>
-            <div className="container">
-                <BlogCabeceroPage />
-                {/* <BlogUltimoPostPage />
-                <BlogDestacadoPage /> */}
-                <BlogEntradasPage />
-            </div>
+            <BlogCabeceroPage />
+            {/* <BlogUltimoPostPage />
+            <BlogDestacadoPage /> */}
+            <BlogEntradasPage />
         </>
     )
 }

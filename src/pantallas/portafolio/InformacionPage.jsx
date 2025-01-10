@@ -14,8 +14,10 @@ export const InformacionPage = () => {
                         
                         <div className="col-lg-7 col-12 info">
                             <h2 className="titulo text-center text-lg-start">Acerca de</h2>
-                            <p className="resumen">Lorem ipsum dolor sit amet consectetur adipisicing elit. Iure distinctio dignissimos et autem natus quibusdam explicabo id minus consequuntur optio!</p>
-                            <p className="resumen">Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptate ad fugiat officiis veniam perspiciatis deleniti provident illo odio eum cumque.</p>
+                            <p className="resumen">¡Hola! Yo soy <b>Perla Maldonado.</b></p>
+                            <p className="resumen">Soy especialista en proteger tus finanzas personales, con más de 6 años de experiencia ayudando a personas como tú  a construir un retiro espectacular y a cumplir sus metas financieras para que su “Yo” del futuro, se sienta orgulloso.</p>
+                            <p className="resumen">Apasionada por el aprendizaje continuo y comprometida con brindar soluciones personalizadas para cada cliente.</p>
+                            <p className="resumen">Viajar es una de mis mayores inspiraciones, lo que me permite entender diversas perspectivas y enriquecer mi enfoque en la asesoría financiera.</p>
 
                             {/* <p className="label">SwiftUI</p>
                             <div className="progress mb-3">
