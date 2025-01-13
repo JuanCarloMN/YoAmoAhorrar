@@ -8,6 +8,7 @@ export const uiSlice = createSlice({
         isEventoModalOpen: false,
         isPolizaModalOpen: false,
         isProspectoModalOpen: false,
+        isSuscriptoresModalOpen: false,
     },
     reducers: {
         onOpenBlogModal: ( state ) => {
@@ -15,6 +16,12 @@ export const uiSlice = createSlice({
         },
         onCloseBlogModal: ( state ) => {
             state.isBlogModalOpen = false;
+        },
+        onOpenSuscriptoresModal: ( state ) => {
+            state.isSuscriptoresModalOpen = true;
+        },
+        onCloseSuscriptoresModal: ( state ) => {
+            state.isSuscriptoresModalOpen = false;
         },
         onOpenEventoModal: ( state ) => {
             state.isEventoModalOpen = true;
@@ -58,5 +65,8 @@ export const {
 
     onOpenProspectoModal,
     onCloseProspectoModal, 
+
+    onOpenSuscriptoresModal,
+    onCloseSuscriptoresModal, 
 
 } = uiSlice.actions;

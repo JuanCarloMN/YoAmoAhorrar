@@ -1,5 +1,5 @@
 import { useDispatch, useSelector } from 'react-redux';
-import { onClosePolizaModal, onCloseClienteModal, onCloseEventoModal, onCloseProspectoModal, onOpenPolizaModal, onOpenClienteModal, onOpenEventoModal, onOpenProspectoModal, onOpenBlogModal, onCloseBlogModal } from '../store';
+import { onClosePolizaModal, onCloseClienteModal, onCloseEventoModal, onCloseProspectoModal, onOpenPolizaModal, onOpenClienteModal, onOpenEventoModal, onOpenProspectoModal, onOpenBlogModal, onCloseBlogModal, onOpenSuscriptoresModal, onCloseSuscriptoresModal } from '../store';
 
 
 export const useUiStore = () => {
@@ -12,14 +12,24 @@ export const useUiStore = () => {
         isEventoModalOpen,
         isPolizaModalOpen,
         isProspectoModalOpen,
+        isSuscriptoresModalOpen,
     } = useSelector( state => state.iu );
 
     const openBlogModal = () => {
         dispatch( onOpenBlogModal() );
     }
 
+    
     const closeBlogModal = () => {
         dispatch( onCloseBlogModal() );
+    }
+    
+    const openSuscriptoresModal = () => {
+        dispatch( onOpenSuscriptoresModal() );
+    }
+
+    const closeSuscriptoresModal = () => {
+        dispatch( onCloseSuscriptoresModal() );
     }
 
     const openEventoModal = () => {
@@ -67,6 +77,7 @@ export const useUiStore = () => {
         isEventoModalOpen,
         isPolizaModalOpen,
         isProspectoModalOpen,
+        isSuscriptoresModalOpen,
 
         // Métodos
         closeBlogModal,
@@ -74,11 +85,13 @@ export const useUiStore = () => {
         closeEventoModal,
         closePolizaModal,
         closeProspectoModal,
+        closeSuscriptoresModal,
         openBlogModal,
         openClienteModal,
         openEventoModal,
         openPolizaModal,
         openProspectoModal,
+        openSuscriptoresModal,
         toggleEventoModal,
     }
 }

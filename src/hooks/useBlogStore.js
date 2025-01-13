@@ -56,7 +56,17 @@ export const useBlogStore = () => {
             console.log( error );
         }
     }
- 
+
+    const startSuscribirse = async ( mensaje ) => {
+        try {
+            const { data } = await blogApi.post('/libres/suscribirseBlog', mensaje)
+            Swal.fire({title: "Suscripción al Blog", text: "Te has suscrito al Blog de forma correcta", icon: "success"});
+        } catch (error) {
+            console.log({error});
+            
+            Swal.fire('Error al suscribirse', error, 'error' );
+        }
+    }
     return {
         // Propiedades
         blogActivo,
@@ -67,5 +77,6 @@ export const useBlogStore = () => {
         startBorrarBlog,
         startCargarBlogs,
         startSalvarBlog,
+        startSuscribirse,
     }
 }

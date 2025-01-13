@@ -7,7 +7,7 @@ export const TestimonioCabeceroPage = () => {
                 <a href="/" className="btn btn-outline-dark btn-sm">Regresar</a>
                 </div>
                 <div className="col-8 col-lg-10 d-flex justify-content-center align-items-center">
-                    <h3 className=" me-lg-5">Testimonios</h3>
+                    <h1 className=" me-lg-5">Testimonios</h1>
                     <div className="ms-lg-2">
                         <img src="./img/Logo.png" alt="Perla Maldonado" className="logo-encabezado-blog"/>
                     </div>

@@ -110,3 +110,8 @@ export const blogInicial = {
     blogFoto2: '',
     blogFoto3: ''
 }
+
+export const blogSuscribirse = {
+    blogEmail: '',
+    blogFecha: new Date()
+}

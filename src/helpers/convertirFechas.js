@@ -53,3 +53,13 @@ export const convierteFechaBlog = ( blogs = [] ) => {
         return blog;
     });
 }
+
+export const convierteFechaSuscriptor = ( suscriptores = [] ) => {
+
+    return suscriptores.map( suscriptor => {
+       
+        suscriptor.suscriptorFecha = parseISO( suscriptor.suscriptorFecha );
+        
+        return suscriptor;
+    });
+}

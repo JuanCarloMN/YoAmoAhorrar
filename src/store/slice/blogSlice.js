@@ -43,6 +43,21 @@ export const blogSlice = createSlice({
             state.blogs = [];
             state.blogActivo = null;
         },
+        onSuscribirse: ( state ) => {
+            state.blogs.push( payload );
+            state.blogActivo = null;
+        },
+        onCargaListaSuscriptores: ( state, { payload } ) => {
+            state.isCargandoBlogs = false;
+            state.blogs = [];
+
+            payload.forEach( blog => {
+                const existe = state.blogs.some( dbBlog => dbBlog === blog.id );
+                if ( !existe ){
+                    state.blogs.push( blog );
+                }
+            });
+        },
     }
 });
 

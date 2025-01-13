@@ -23,7 +23,6 @@ export const useMensajeStore = () => {
         } catch (error) {
             Swal.fire('Error al guardar el mensaje', error.response.data.msg, 'error' );
         }
-
     }
 
     // const startBorrarMensaje = async () => {

@@ -4,13 +4,14 @@ import { useBlogStore, useUiStore } from "../../hooks";
 
 import Swal from 'sweetalert2';
 import 'sweetalert2/dist/sweetalert2.min.css';
-import { blogInicial, cambiaCampos } from "../../helpers";
+import { blogInicial } from "../../helpers";
 import { MiBlogModal } from "./MiBlogModal";
 import moment from "moment";
+import { ListaSuscriptores } from "./ListaSuscriptores";
 
 export const MiBlogPage = () => {
 
-    const { openBlogModal } = useUiStore()
+    const { openBlogModal, openSuscriptoresModal } = useUiStore()
     const { startCargarBlogs, setBlogActivo, startBorrarBlog } = useBlogStore();
     const { blogs } = useSelector( state => state.blog );
     
@@ -46,6 +47,10 @@ export const MiBlogPage = () => {
         openBlogModal();
     }
 
+    const verSuscriptores = () => {
+        openSuscriptoresModal();
+    }
+
     useEffect( () => {
         startCargarBlogs();
     }, []);
@@ -56,8 +61,10 @@ export const MiBlogPage = () => {
                 <div className="row">
                     <div className="col-12 d-flex justify-content-between align-items-center">
                         <h1 className="mt-2">Mis Blogs</h1>
-                        <div className="col text-end">
-                            <button className="btn btn-outline-primary" onClick={ nuevoBlog }>Agregar Entrada</button>
+
+                            <div className="col text-end">
+                                <button className="btn btn-outline-success me-3" onClick={ verSuscriptores }>Lista suscriptores</button>
+                                <button className="btn btn-outline-primary" onClick={ nuevoBlog }>Agregar Entrada</button>
                         </div>
                     </div>
                     <div className="col-12">
@@ -101,6 +108,7 @@ export const MiBlogPage = () => {
             </div>
 
             <MiBlogModal />
+            <ListaSuscriptores />
         </>
     )
 }

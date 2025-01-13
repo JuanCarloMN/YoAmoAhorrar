@@ -1,9 +1,47 @@
+import Swal from "sweetalert2";
+import { blogSuscribirse } from "../../helpers";
+import { useBlogStore } from "../../hooks";
+import { useState } from "react";
+
 export const BlogCabeceroPage = () => {
+
+	const [ valoresFormulario, setValoresFormulario ] = useState( blogSuscribirse );
+	const { startSuscribirse } = useBlogStore();
+	const suscribirse = () => {
+		Swal.fire(
+				{
+					title: "Suscripción al Blog",
+					text: "Suscríbite a mi Blog para que puedas descargar mis plantillas de finanzas personales y ponerle órden financiero a tu vida",
+					input: "email",
+					inputPlaceholder: "correo electrónico",
+					inputValue: "",
+					showCancelButton: true,
+					cancelButtonColor: "#3085d6",
+					confirmButtonText: "Aceptar",
+					confirmButtonColor: "#10A009",
+				}
+			).then( async ( result ) => 
+				{
+					if ( result.isConfirmed ) {
+						if ( result.value.trim() === '' ) {
+							Swal.fire( titulo, 'Información incorrecta', 'error' );
+						} else {
+							setValoresFormulario({
+								...valoresFormulario,
+								[ 'blogEmail' ]: result.value.trim()
+							});
+							await startSuscribirse( { suscriptorEmail: result.value.trim(), suscriptorFecha: new Date() } )
+						}
+					}
+				}
+			);
+		
+	}
     return (
         <header className="container py-3 ">
 			<div className="row flex-nowrap justify-content-between align-items-center">
 				<div className="col-4 col-lg-2">
-					<a href="#" className="btn btn-outline-dark btn-sm">Suscribirse</a>
+					<button className="btn btn-outline-dark btn-sm" onClick={ suscribirse }>Suscribirse</button>
 				</div>
 				<div className="col-4 col-lg-5 d-flex justify-content-center align-items-center">
 					<h1 className=" me-lg-5">Blog</h1>
