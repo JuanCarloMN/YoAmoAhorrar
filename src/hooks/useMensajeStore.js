@@ -19,9 +19,9 @@ export const useMensajeStore = () => {
     
             // Agregar mensaje
             const { data } = await mensajeApi.post('/libres/nuevoMensaje', mensaje)
-            Swal.fire({title: "Mensaje enviado", text: "El mensaje ha sido enviado de forma correcta", icon: "success"});
-        } catch (error) {
-            Swal.fire('Error al guardar el mensaje', error.response.data.msg, 'error' );
+            Swal.fire({title: "Mensaje enviado", text: "El mensaje ha sido enviado de forma correcta", icon: "success", confirmButtonColor: "#542052"});
+        } catch (error) {            
+            Swal.fire({title: "Error al guardar el mensaje", text: error.response.data.errores.mensajeEmail.msg, icon: "error", confirmButtonColor: "#542052"});
         }
     }
 

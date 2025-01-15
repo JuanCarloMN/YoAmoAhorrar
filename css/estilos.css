@@ -1,5 +1,21 @@
+:root {
+    --color-templates: #07afd9;
+    --color-profile-1: #9B769A;
+    --color-profile-2: #7E6D86;
+    --color-profile-3: #542052;
+    --color-profile-4: #190A19;
+    --color-profile-5: #F5EEF5;
+  }
+
+@font-face {
+font-family: 'AvenirRegular';
+src: local('AvenirRegular'), url(../src/fonts/AvenirRegular.ttf) format('truetype');
+/* other formats include: 'woff2', 'truetype, 'opentype',
+                            'embedded-opentype', and 'svg' */
+}
+
 body{
-    background: #f7f2fa;
+    background: #F5EEF5;
     font-family: 'Open Sans', sans-serif;
 }
 
@@ -9,8 +25,7 @@ header .nav {
     background: #fff;
 }
 
-header .logo h2,
-header .logo p {
+header .logo h2, header .logo p {
     font-size: 16px;
     display: inline-block;
 }
@@ -23,6 +38,40 @@ header .logo svg {
     width: 20px;
     height: 20px;
 }
+
+header .logo p {
+    color: #777777;
+}
+
+header .menu .opcion-menu {
+    white-space: nowrap;
+    text-decoration: none;
+    text-align: center;
+    color: white;
+    border-color: #542052;
+    background: #9B769A;
+}
+
+header .menu .opcion-menu:hover {
+    background: #542052;
+}
+
+/* MAIN */
+/* Portafolio */
+.boton-seccion {
+    background: #542052;
+    border: none;
+    padding: 7px 30px;
+    color: #fff;
+    font-family: 'Open Sans', sans-serif;
+    cursor: pointer;
+    width: auto;
+    border-radius: 3px;
+}
+
+.boton-seccion:hover {
+    background: #7e6d86ff;
+}
 .icono-perfil svg {
     fill: white;
     margin-top: 10px;
@@ -30,60 +79,13 @@ header .logo svg {
     height: 25px;
 }
 
-header .logo p {
-    color: #777777;
-}
-
-header .menu .c1 {
-    white-space: nowrap;
-    background: #d980f9;
-}
-
-header .menu .c2 {
-    background: #af50e5
-}
-
-header .menu .c3 {
-    background: #8a0bd2
-}
-
-header .menu .c4 {
-    background: #5b0672
-}
-
-header .menu .c5 {
-    background: #3b044b
-}
-
-header .menu .c1:hover {
-    background: #1e032e;
-}
-
-header .menu .c2:hover {
-    background: #1e032e
-}
-
-header .menu .c3:hover {
-    background: #1e032e
-}
-
-header .menu .c4:hover {
-    background: #1e032e
-}
-
-header .menu .c5:hover {
-    background: #1e032e
-}
-
-/* MAIN */
-/* Portafolio */
 .portafolio {
     border-top: 5px solid #3da5e2;
     background: #fff;
 }
 
 .portafolio .titulo {
-    color: #3da5e2;
+    color: #542052;
     font-family: 'Open Sans', sans-serif;
     font-weight: 300;
 }
@@ -117,7 +119,7 @@ header .menu .c5:hover {
 }
 
 .acerca-de .info .titulo {
-    color: #005385;
+    color: #542052;
     font-family: 'Open Sans', sans-serif;
     font-weight: 300;
     font-size: 40px;
@@ -126,6 +128,8 @@ header .menu .c5:hover {
 
 .acerca-de .info .resumen {
     letter-spacing: 1px;
+    text-align: justify;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
 .acerca-de .info .label {
@@ -153,7 +157,7 @@ header .menu .c5:hover {
 }
 
 .contacto .titulo {
-    color: #005385;
+    color: #542052;
     font-family: 'Open Sans', sans-serif;
     font-weight: 300;
     font-size: 40px;
@@ -175,7 +179,7 @@ header .menu .c5:hover {
 }
 
 .contacto .formulario .boton {
-    background: #3da5e2;
+    background: #542052;
     border: none;
     padding: 7px 30px;
     color: #fff;
@@ -186,15 +190,10 @@ header .menu .c5:hover {
 }
 
 .contacto .formulario .boton:hover {
-    background: #1ba0ef;
+    background: #7e6d86ff;
 }
 
 /* Footer */
-/* .redes-sociales {
-    padding: 40px 0;
-    margin-bottom: 40px;
-} */
-
 .redes-sociales .icono {
     width: 100px;
     height: 100px;
@@ -328,4 +327,3 @@ header .menu .c5:hover {
 
 /* Dispositivo xxl */
 @media screen and (max-width: 1400){}
-

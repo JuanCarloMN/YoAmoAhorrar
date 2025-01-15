@@ -28,7 +28,7 @@ export const BlogEntradasPage = () => {
 					}
 				</div>
 				<div className="text-center p-0 align-items-center">
-					<img src="./img/Logo.png" alt="Perla Maldonado" className="logo-footer"/>
+					<img src="./img/solo-logo.png" alt="Perla Maldonado" className="logo-footer"/>
 					<br />
 					<span className="fw-lighter">2025</span>
 				</div>

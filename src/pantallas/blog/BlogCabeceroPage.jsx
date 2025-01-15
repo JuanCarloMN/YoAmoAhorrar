@@ -16,9 +16,9 @@ export const BlogCabeceroPage = () => {
 					inputPlaceholder: "correo electrónico",
 					inputValue: "",
 					showCancelButton: true,
-					cancelButtonColor: "#3085d6",
+					cancelButtonColor: "#7E6D86",
 					confirmButtonText: "Aceptar",
-					confirmButtonColor: "#10A009",
+					confirmButtonColor: "#542052",
 				}
 			).then( async ( result ) => 
 				{
@@ -41,12 +41,12 @@ export const BlogCabeceroPage = () => {
         <header className="container py-3 ">
 			<div className="row flex-nowrap justify-content-between align-items-center">
 				<div className="col-4 col-lg-2">
-					<button className="btn btn-outline-dark btn-sm" onClick={ suscribirse }>Suscribirse</button>
+					<button className="boton-seccion" onClick={ suscribirse }>Suscribirse</button>
 				</div>
 				<div className="col-4 col-lg-5 d-flex justify-content-center align-items-center">
 					<h1 className=" me-lg-5">Blog</h1>
 					<div className="ms-lg-2">
-						<img src="./img/Logo.png" alt="Perla Maldonado" className="logo-encabezado-blog"/>
+						<img src="./img/solo-logo.png" alt="Perla Maldonado" className="logo-encabezado-blog"/>
 					</div>
 					{/* <a href="#" className="text-dark logo">Blog - Perla Maldonado</a> */}
 				</div>
@@ -56,7 +56,9 @@ export const BlogCabeceroPage = () => {
 							<path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z"/>
 						</svg>
 					</a> */}
-					<a href="/" className="btn btn-outline-dark btn-sm">Regresar</a>
+					<a href="/" >
+						<button className="boton-seccion" type="button" >Regresar</button>
+					</a>
 				</div>
 			</div>
 

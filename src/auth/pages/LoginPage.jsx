@@ -41,7 +41,7 @@ export const LoginPage = () => {
 
     useEffect( () => {
         if ( errorMessage !== undefined ){
-            Swal.fire('Error en la autenticación', errorMessage, 'error' );
+            Swal.fire({title: "Error en la autenticación", text: errorMessage, icon: "error", confirmButtonColor: "#542052"});
         }
     }, [ errorMessage ]);
 

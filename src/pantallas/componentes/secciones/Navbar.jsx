@@ -31,7 +31,7 @@ export const Navbar = () => {
         <nav className="navbar navbar-expand-md navbar-dark bg-dark p-1 ">
             <div className="container-fluid d-flex align-items-center justify-content-between p-0 ms-2">
                 <NavLink className="" to="/agenda">
-                    <img className="logo col-10 col-sm-2 col-md-1 " src="img/logo2.png" alt="" />
+                    <img className="logo col-10 col-sm-2 col-md-1 " src="img/solo-logo.png" alt="" />
                 </NavLink>
                 
                 {/* <!-- Boton para el menú móvil --> */}

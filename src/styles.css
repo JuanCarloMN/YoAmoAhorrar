@@ -1,10 +1,28 @@
 :root {
   --color-templates: #07afd9;
+  --color-profile-1: #9B769A;
+  --color-profile-2: #7E6D86;
+  --color-profile-3: #542052;
+  --color-profile-4: #190A19;
+  --color-profile-5: #F5EEF5;
 }
 
 * {
   box-sizing: border-box;
   font-family: sans-serif;
+}
+
+.boton-agenda {
+  background-color: #542052;
+  color: white;
+}
+
+.boton-agenda:hover {
+  background-color: #7E6D86;
+}
+
+.boton-agenda::selection {
+  background-color: #542052;
 }
 
 /* Modal */
@@ -62,6 +80,8 @@
   width: 70px;
   height: 70px;
   z-index: 9999 !important;
+  color: white;
+  background-color: #542052;
 }
 
 .fab-danger {
@@ -258,6 +278,10 @@ input:checked + .radio-title .template-oscuro {
 
 input:checked + .radio-title .template-claro {
   color: #fff;
+}
+
+.navbar {
+  background-color: #190A19;
 }
 
 @media screen and ( max-width: 320px ) {

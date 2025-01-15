@@ -5,46 +5,15 @@ export const CabeceroPage = () => {
             <header className="container my-5">
                 <div className="nav row g-0 justify-content-between rounded-top d-flex">
                     {/* Logotipo */}
-                    {/* <div className="logo w-50 col d-flex align-items-center ms-2 me-2 justify-content-center ">
-                        <h2 className="fw-bold text-upercase mb-0">PERLA GABRIELA MALDONADO</h2>
-                        <div className="icono">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" className="bi bi-dot" viewBox="0 0 16 16">
-                                <path d="M8 9.5a1.5 1.5 0 1 0 0-3 1.5 1.5 0 0 0 0 3"/>
-                            </svg>
-                        </div>
-                        <p className="mb-0 me-2 text-start">Finanzas Personales</p>
-                    </div> */}
                     <div className="col col-lg-5 d-flex justify-content-center">
                         <div className="ms-2 auto-col">
-                            <img src="./img/Logo.png" alt="Perla Maldonado" className="logo-encabezado"/>
+                            <img src="./img/pm-logo.png" alt="Perla Maldonado" className="logo-encabezado"/>
                         </div>
                     </div>
 
                     {/* Enlaces */}
                     <nav className="menu col-12 col-lg-7 border d-flex align-items-stretch justify-content-end ">
-                        <a href="#acerca-de" className="c1 flex-fill px-lg-4 d-flex align-items-center text-center text-white text-decoration-none ">
-                            <div className="w-100">
-                                <span>Acerca de</span>
-                                <div className="icono-perfil">
-                                    <svg xmlns="http://www.w3.org/2000/svg" className="icono-perfil" viewBox="0 0 16 16">
-                                        <path d="M3 14s-1 0-1-1 1-4 6-4 6 3 6 4-1 1-1 1zm5-6a3 3 0 1 0 0-6 3 3 0 0 0 0 6"/>
-                                    </svg>
-                                </div>
-                            </div>
-                        </a>
-
-                        <a href="#contactame" className="c2 flex-fill px-lg-4 d-flex align-items-center text-center text-white text-decoration-none ">
-                            <div className="w-100">
-                                <span>Contáctame</span>
-                                <div className="icono-perfil">
-                                    <svg xmlns="http://www.w3.org/2000/svg" className="icono-perfil" viewBox="0 0 16 16">
-                                        <path d="M.05 3.555A2 2 0 0 1 2 2h12a2 2 0 0 1 1.95 1.555L8 8.414zM0 4.697v7.104l5.803-3.558zM6.761 8.83l-6.57 4.027A2 2 0 0 0 2 14h12a2 2 0 0 0 1.808-1.144l-6.57-4.027L8 9.586zm3.436-.586L16 11.801V4.697z"/>
-                                    </svg>
-                                </div>
-                            </div> 
-                        </a>
-
-                        <a href="blog" className="c3 flex-fill px-lg-4 d-flex align-items-center text-center text-white text-decoration-none ">
+                        <a href="blog" className="opcion-menu border col-4 flex-fill px-lg-4 d-flex align-items-center ">
                             <div className="w-100">
                                 <span>Blog</span>
                                 <div className="icono-perfil">
@@ -55,7 +24,7 @@ export const CabeceroPage = () => {
                             </div> 
                         </a>
 
-                        <a href="testimonios" className="c4 flex-fill px-lg-4 d-flex align-items-center text-center text-white text-decoration-none ">
+                        <a href="testimonios" className="opcion-menu border col-4 flex-fill px-lg-4 d-flex align-items-center ">
                             <div className="w-100">
                                 <span>Testimonio</span>
                                 <div className="icono-perfil">
@@ -66,7 +35,7 @@ export const CabeceroPage = () => {
                             </div> 
                         </a>
 
-                        <a href="auth/login" className="c5 flex-fill px-lg-4 d-flex align-items-center text-center text-white text-decoration-none ">
+                        <a href="auth/login" className="opcion-menu border col-4 flex-fill px-lg-4 d-flex align-items-center ">
                             <div className="w-100">
                                 <span>Agenda</span>
                                 <div className="icono-perfil">
@@ -86,6 +55,11 @@ export const CabeceroPage = () => {
                         <div className="carousel slide" data-bs-ride="carousel" id="slider">
                             <div className="carousel-inner">
                                 <div className="carousel-item active">
+                                    <a href="/blog">
+                                        <img src="./img/banner_seguro_moderno.jpg" className="d-block w-100 " />
+                                    </a>
+                                </div>
+                                {/* <div className="carousel-item ">
                                     <img src="./img/banner_ppr.jpg" className="d-block w-100 " />
                                 </div>
                                 <div className="carousel-item">
@@ -93,7 +67,7 @@ export const CabeceroPage = () => {
                                 </div>
                                 <div className="carousel-item">
                                     <img src="./img/banner_vida_mujer.jpg" className="d-block w-100" />
-                                </div>
+                                </div> */}
                             </div>
 
                             <button className="carousel-control-prev" type="button" data-bs-target="#slider" data-bs-slide="prev">
@@ -108,8 +82,9 @@ export const CabeceroPage = () => {
 
                             <div className="carousel-indicators">
                                 <button type="button" data-bs-target="#slider" data-bs-slide-to="0" className="active" aria-current="true" aria-label="Slideshow1"></button>
-                                <button type="button" data-bs-target="#slider" data-bs-slide-to="1" aria-label="Slideshow2"></button>
+                                {/* <button type="button" data-bs-target="#slider" data-bs-slide-to="1" aria-label="Slideshow2"></button>
                                 <button type="button" data-bs-target="#slider" data-bs-slide-to="2" aria-label="Slideshow3"></button>
+                                <button type="button" data-bs-target="#slider" data-bs-slide-to="3" aria-label="Slideshow4"></button> */}
                             </div>
                         </div>
                     </div>

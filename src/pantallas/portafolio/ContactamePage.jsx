@@ -13,7 +13,6 @@ export const ContactamePage = () => {
     const { startSalvarMensaje } = useMensajeStore();
 
     const onInputChange = ({ target }) => {
-
         setValoresFormulario({
             ...valoresFormulario,
             [ target.name ]: target.value
@@ -25,7 +24,6 @@ export const ContactamePage = () => {
             setClaseEmail('');
         if ( target.name === 'mensaje' && target.value.length > 9 )
             setClaseMensaje('');
-        
     }
 
     const guardaMensaje = async () => {
@@ -34,21 +32,41 @@ export const ContactamePage = () => {
         setClaseMensaje('');
 
         if ( valoresFormulario.mensajeNombre.length === 0 ) {
-            Swal.fire( 'Información incorrecta', 'Es necesario proporciones tu nombre <br>antes de enviar el mensaje', 'error' );
+            Swal.fire({
+                title: 'Información incorrecta',
+                html: 'Es necesario proporciones tu nombre <br>antes de enviar el mensaje',
+                icon: 'error',
+                confirmButtonColor: '#542052'
+            });
             setClaseNombre('is-invalid');
             return;
         }
         if ( valoresFormulario.mensajeEmail.length === 0 ) {
-            Swal.fire( 'Información incorrecta', 'Es necesario proporciones tu correo electrónico <br>antes de enviar el mensaje', 'error' );
+            Swal.fire({
+                title: 'Información incorrecta',
+                html: 'Es necesario proporciones tu correo electrónico <br>antes de enviar el mensaje',
+                icon: 'error',
+                confirmButtonColor: '#542052'
+            });
             setClaseEmail('is-invalid');
             return;
         }
         if ( valoresFormulario.mensajeDetalle.length === 0 ) {
-            Swal.fire( 'Información incorrecta', 'Es necesario escribir el mensaje antes de enviar la información', 'error' );
+            Swal.fire({
+                title: 'Información incorrecta',
+                html: 'Es necesario escribir el mensaje antes de enviar la información',
+                icon: 'error',
+                confirmButtonColor: '#542052'
+            });
             setClaseMensaje('is-invalid');
             return;
         } else if ( valoresFormulario.mensajeDetalle.length< 10 ) {
-            Swal.fire( 'Información incorrecta', 'El mensaje debe tener al menos 10 caractéres', 'error' );
+            Swal.fire({
+                title: 'Información incorrecta',
+                html: 'El mensaje debe tener al menos 10 caractéres',
+                icon: 'error',
+                confirmButtonColor: '#542052'
+            });
             setClaseMensaje('is-invalid');
             return;
         }
@@ -61,6 +79,7 @@ export const ContactamePage = () => {
         await startSalvarMensaje( valoresFormulario )
         setValoresFormulario( mensajeInicial );
     }
+
     return (
         <>
             {/* Formulario de contacto */}
