@@ -46,7 +46,7 @@ export const BlogCabeceroPage = () => {
 				<div className="col-4 col-lg-5 d-flex justify-content-center align-items-center">
 					<h1 className=" me-lg-5">Blog</h1>
 					<div className="ms-lg-2">
-						<img src="./img/solo-logo.png" alt="Perla Maldonado" className="logo-encabezado-blog"/>
+						<img src="../img/solo-logo.png" alt="Perla Maldonado" className="logo-encabezado-blog" />
 					</div>
 					{/* <a href="#" className="text-dark logo">Blog - Perla Maldonado</a> */}
 				</div>

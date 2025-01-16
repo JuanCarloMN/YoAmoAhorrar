@@ -72,6 +72,11 @@ header .menu .opcion-menu:hover {
 .boton-seccion:hover {
     background: #7e6d86ff;
 }
+
+.boton-banner {
+    background: #542052;
+}
+
 .icono-perfil svg {
     fill: white;
     margin-top: 10px;

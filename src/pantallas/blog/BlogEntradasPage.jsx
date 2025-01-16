@@ -19,7 +19,7 @@ export const BlogEntradasPage = () => {
 				<div className="col pb-2">
 					{
 						blogs.map( blog => (
-							<div className="mb-5 border-bottom pb-5" key={ blog.id }>
+							<div className="mb-5 border-bottom pb-5" key={ blog.id } id={ blog.blogCategoria }>
 								<h2 className="titulo">{ blog.blogTitulo }</h2>
 								<p className="text-muted mb-4">{ moment( blog.blogFecha ).format('DD MMMM YYYY') } por <a href="#">{ blog.blogUsuario }</a></p>
 								<p className="blog-parrafo w-100">{ blog.blogDetalle }</p>
@@ -28,7 +28,7 @@ export const BlogEntradasPage = () => {
 					}
 				</div>
 				<div className="text-center p-0 align-items-center">
-					<img src="./img/solo-logo.png" alt="Perla Maldonado" className="logo-footer"/>
+					<img src="../img/solo-logo.png" alt="Perla Maldonado" className="logo-footer"/>
 					<br />
 					<span className="fw-lighter">2025</span>
 				</div>

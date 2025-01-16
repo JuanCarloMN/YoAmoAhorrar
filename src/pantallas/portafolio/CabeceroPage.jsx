@@ -26,6 +26,17 @@ export const CabeceroPage = () => {
 
                         <a href="testimonios" className="opcion-menu border col-4 flex-fill px-lg-4 d-flex align-items-center ">
                             <div className="w-100">
+                                <span>News</span>
+                                <div className="icono-perfil">
+                                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512">
+                                        <path d="M316.9 18C311.6 7 300.4 0 288.1 0s-23.4 7-28.8 18L195 150.3 51.4 171.5c-12 1.8-22 10.2-25.7 21.7s-.7 24.2 7.9 32.7L137.8 329 113.2 474.7c-2 12 3 24.2 12.9 31.3s23 8 33.8 2.3l128.3-68.5 128.3 68.5c10.8 5.7 23.9 4.9 33.8-2.3s14.9-19.3 12.9-31.3L438.5 329 542.7 225.9c8.6-8.5 11.7-21.2 7.9-32.7s-13.7-19.9-25.7-21.7L381.2 150.3 316.9 18z"/>
+                                    </svg>
+                                </div>
+                            </div> 
+                        </a>
+
+                        <a href="testimonios" className="opcion-menu border col-4 flex-fill px-lg-4 d-flex align-items-center ">
+                            <div className="w-100">
                                 <span>Testimonio</span>
                                 <div className="icono-perfil">
                                 <svg xmlns="http://www.w3.org/2000/svg" className="icono-perfil" viewBox="0 0 512 512">
@@ -55,19 +66,15 @@ export const CabeceroPage = () => {
                         <div className="carousel slide" data-bs-ride="carousel" id="slider">
                             <div className="carousel-inner">
                                 <div className="carousel-item active">
-                                    <a href="/blog">
+                                    <a href="/blog#blog01">
                                         <img src="./img/banner_seguro_moderno.jpg" className="d-block w-100 " />
                                     </a>
                                 </div>
-                                {/* <div className="carousel-item ">
-                                    <img src="./img/banner_ppr.jpg" className="d-block w-100 " />
+                                <div className="carousel-item ">
+                                    <a href="/blog#blog02">
+                                        <img src="./img/banner_seguro_educacion.jpg" className="d-block w-100 " />
+                                    </a>
                                 </div>
-                                <div className="carousel-item">
-                                    <img src="./img/banner_seguro_vida.jpg" className="d-block w-100" />
-                                </div>
-                                <div className="carousel-item">
-                                    <img src="./img/banner_vida_mujer.jpg" className="d-block w-100" />
-                                </div> */}
                             </div>
 
                             <button className="carousel-control-prev" type="button" data-bs-target="#slider" data-bs-slide="prev">
@@ -81,7 +88,8 @@ export const CabeceroPage = () => {
                             </button>
 
                             <div className="carousel-indicators">
-                                <button type="button" data-bs-target="#slider" data-bs-slide-to="0" className="active" aria-current="true" aria-label="Slideshow1"></button>
+                                <button type="button" data-bs-target="#slider" data-bs-slide-to="0" className="active bg-dark" aria-current="true" aria-label="Slideshow1"></button>
+                                <button type="button" data-bs-target="#slider" data-bs-slide-to="1" className="active bg-dark" aria-label="Slideshow2"></button>
                                 {/* <button type="button" data-bs-target="#slider" data-bs-slide-to="1" aria-label="Slideshow2"></button>
                                 <button type="button" data-bs-target="#slider" data-bs-slide-to="2" aria-label="Slideshow3"></button>
                                 <button type="button" data-bs-target="#slider" data-bs-slide-to="3" aria-label="Slideshow4"></button> */}
