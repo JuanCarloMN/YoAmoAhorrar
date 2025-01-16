@@ -5,6 +5,7 @@ import { LoginPage } from "../auth"
 import { useAuthStore } from "../hooks"
 import { PrivateRoute } from "./"
 import { TestimonioPage } from "../pantallas/testimonios/TestimonioPage"
+import { NewsPage } from "../pantallas/news/NewsPage"
 
 export const SeccionesRouter = () => {
 
@@ -30,6 +31,7 @@ export const SeccionesRouter = () => {
                     <Route path='/auth/*' element={ <LoginPage /> } />
                     <Route path='/blog/*' element={ <BlogPage /> } />
                     <Route path='/testimonios/*' element={ <TestimonioPage /> } />
+                    <Route path='/news/*' element={ <NewsPage /> } />
                     <Route path='/*' element={ <Navigate to='/portafolio' /> } />
                     {/* <Route path='/*' element={ <Navigate to='/auth/login' /> } /> */}
                 </>

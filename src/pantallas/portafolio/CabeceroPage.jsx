@@ -24,7 +24,7 @@ export const CabeceroPage = () => {
                             </div> 
                         </a>
 
-                        <a href="testimonios" className="opcion-menu border col-4 flex-fill px-lg-4 d-flex align-items-center ">
+                        <a href="news" className="opcion-menu border col-4 flex-fill px-lg-4 d-flex align-items-center ">
                             <div className="w-100">
                                 <span>News</span>
                                 <div className="icono-perfil">
