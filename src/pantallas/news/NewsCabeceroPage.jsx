@@ -19,7 +19,6 @@ export const NewsCabeceroPage = () => {
             </div>
 
             <hr />
-            <h3>Proximamente...</h3>
             {/* <div className="row">
                 <nav className="nav justify-content-center">
                     <a href="#" className="nav-link text-muted">Últimas publicaciones</a>

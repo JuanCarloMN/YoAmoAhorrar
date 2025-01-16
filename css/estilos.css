@@ -114,6 +114,17 @@ header .menu .opcion-menu:hover {
     max-width: 1000px;
 }
 
+/* Noticias */
+.imagen-noticia {
+    height: 250px;
+}
+
+.noticia-parrafo {
+    white-space: pre;
+    text-wrap: inherit;
+    text-align: justify;
+}
+
 /* Acerca de */
 .acerca-de .foto .nombre {
     color: #545454;
