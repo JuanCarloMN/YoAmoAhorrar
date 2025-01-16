@@ -12,7 +12,7 @@ const NewsEntradasPage = () => {
                             <b>Quiero compartir contigo una noticia importante: </b>Arrancamos el 2025 con una gran noticia, ya que se integra a mi equipo Lorena Arismendi quien estará colaborando como mi asistente ejecutiva. Su principal objetivo será apoyarte con cualquier consulta o trámite relacionado con tu seguro de vida, PPR o seguro médico, siempre asegurándonos de brindarte el mejor servicio.
                         </p>
                         <p className="noticia-parrafo w-100">
-                            Quiero reiterarte que yo, Perla Maldonado, seguiré atendiéndote personalmente y estaré disponible para ti como siempre. Lorena estará aquí para complementar y facilitar nuestra atención, y puede contar con ambas para cualquier necesidad que tengas.
+                            Quiero reiterarte que yo, Perla Maldonado, seguiré atendiéndote personalmente y estaré disponible para ti como siempre. Lorena estará aquí para complementar y facilitar nuestra atención, y puedes contar con ambas para cualquier necesidad que tengas.
                         </p>
                         <p className="noticia-parrafo w-100">
                             Estamos comprometidas en ofrecerte un servicio de excelencia y atención personalizada. Si tienes alguna duda o necesitas asistencia, no dudes en ponerte en contacto con nosotras.

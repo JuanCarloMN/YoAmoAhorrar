@@ -87,13 +87,13 @@ export const CabeceroPage = () => {
                                 <span className="visually-hidden">Siguiente</span>
                             </button>
 
-                            <div className="carousel-indicators">
+                            {/* <div className="carousel-indicators">
                                 <button type="button" data-bs-target="#slider" data-bs-slide-to="0" className="active bg-dark" aria-current="true" aria-label="Slideshow1"></button>
                                 <button type="button" data-bs-target="#slider" data-bs-slide-to="1" className="active bg-dark" aria-label="Slideshow2"></button>
-                                {/* <button type="button" data-bs-target="#slider" data-bs-slide-to="1" aria-label="Slideshow2"></button>
+                                <button type="button" data-bs-target="#slider" data-bs-slide-to="1" aria-label="Slideshow2"></button>
                                 <button type="button" data-bs-target="#slider" data-bs-slide-to="2" aria-label="Slideshow3"></button>
-                                <button type="button" data-bs-target="#slider" data-bs-slide-to="3" aria-label="Slideshow4"></button> */}
-                            </div>
+                                <button type="button" data-bs-target="#slider" data-bs-slide-to="3" aria-label="Slideshow4"></button>
+                            </div> */}
                         </div>
                     </div>
                 </div>

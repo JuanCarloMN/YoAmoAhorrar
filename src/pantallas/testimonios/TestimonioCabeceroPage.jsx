@@ -8,7 +8,7 @@ export const TestimonioCabeceroPage = () => {
                     <button className="boton-seccion" type="button" >Regresar</button>
                 </a>
                 </div>
-                <div className="col-8 col-lg-10 d-flex justify-content-center align-items-center">
+				<div className="col-8 col-lg-10 d-lg-flex justify-content-lg-center align-items-center text-center">
                     <h1 className=" me-lg-5">Testimonios</h1>
                     <div className="ms-lg-2">
                         <img src="../img/solo-logo.png" alt="Perla Maldonado" className="logo-encabezado-blog"/>

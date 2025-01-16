@@ -43,12 +43,11 @@ export const BlogCabeceroPage = () => {
 				<div className="col-4 col-lg-2">
 					<button className="boton-seccion" onClick={ suscribirse }>Suscribirse</button>
 				</div>
-				<div className="col-4 col-lg-5 d-flex justify-content-center align-items-center">
+				<div className="col-4 col-lg-5 d-lg-flex justify-content-lg-center align-items-center text-center">
 					<h1 className=" me-lg-5">Blog</h1>
 					<div className="ms-lg-2">
 						<img src="../img/solo-logo.png" alt="Perla Maldonado" className="logo-encabezado-blog" />
 					</div>
-					{/* <a href="#" className="text-dark logo">Blog - Perla Maldonado</a> */}
 				</div>
 				<div className="col-4 col-lg-2 d-flex justify-content-end align-items-center">
 					{/* <a href="#" className="text-muted mx-3">
