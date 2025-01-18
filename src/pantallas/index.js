@@ -2,6 +2,7 @@ export * from './blog/BlogPage';
 export * from './blog/MiBlogPage';
 export * from './componentes/secciones/Navbar';
 export * from './news/NewsPage';
+export * from './news/NoticiasPage'
 export * from './paginas/AgendaPage';
 export * from './paginas/CatalogosPage';
 export * from './paginas/ClientesPage';

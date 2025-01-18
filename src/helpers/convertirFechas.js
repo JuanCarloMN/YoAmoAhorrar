@@ -44,9 +44,9 @@ export const convierteFechaMensaje = ( mensajes = [] ) => {
     });
 }
 
-export const convierteFechaBlog = ( blogs = [] ) => {
+export const convierteFechaBlog = ( noticias = [] ) => {
 
-    return blogs.map( blog => {
+    return noticias.map( blog => {
        
         blog.blogFecha = parseISO( blog.blogFecha );
         
@@ -61,5 +61,15 @@ export const convierteFechaSuscriptor = ( suscriptores = [] ) => {
         suscriptor.suscriptorFecha = parseISO( suscriptor.suscriptorFecha );
         
         return suscriptor;
+    });
+}
+
+export const convierteFechaNoticia = ( noticias = [] ) => {
+
+    return noticias.map( noticia => {
+       
+        noticia.noticiaFecha = parseISO( noticia.noticiaFecha );
+        
+        return noticia;
     });
 }

@@ -21,6 +21,13 @@ export const validaBlog = {
     validaUsuario: '',
 }
 
+export const validaNoticia = {
+    validaTitulo: '',
+    validaDetalle: '',
+    validaCategoria: '',
+    validaUsuario: '',
+}
+
 export const formularioDatos = {
         datoNombre: '',
         datoApellidoP: '',
@@ -106,12 +113,19 @@ export const blogInicial = {
     blogCategoria: '',
     blogUsuario: '',
     blogFecha: new Date(),
-    blogFoto1: '',
-    blogFoto2: '',
-    blogFoto3: ''
+    blogFoto: []
 }
 
 export const blogSuscribirse = {
     blogEmail: '',
     blogFecha: new Date()
+}
+
+export const noticiaInicial = {
+    noticiaTitulo: '',
+    noticiaDetalle: '',
+    noticiaCategoria: '',
+    noticiaUsuario: '',
+    noticiaFecha: new Date(),
+    noticiaFoto: []
 }

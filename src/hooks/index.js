@@ -5,6 +5,7 @@ export * from './useCatalogoStore';
 export * from './useClienteStore';
 export * from './useForm';
 export * from './useMensajeStore';
+export * from './useNoticiaStore';
 export * from './useProspectoStore';
 export * from './useSuscriptoresStore';
 export * from './useUiStore';

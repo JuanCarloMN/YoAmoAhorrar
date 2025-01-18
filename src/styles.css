@@ -261,6 +261,13 @@
 .blog-parrafo {
   white-space: pre;
   text-wrap: inherit;
+  text-align: justify;
+}
+
+.noticia-parrafo {
+  white-space: pre;
+  text-wrap: inherit;
+  text-align: justify;
 }
 
 input:checked + .radio-title {

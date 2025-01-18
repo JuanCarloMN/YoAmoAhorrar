@@ -1,5 +1,5 @@
 import { configureStore } from '@reduxjs/toolkit';
-import { agendaSlice, authSlice, clienteSlice, uiSlice, prospectoSlice, catalogoSlice, blogSlice, suscriptoresSlice } from './'
+import { agendaSlice, authSlice, clienteSlice, uiSlice, prospectoSlice, catalogoSlice, blogSlice, suscriptoresSlice, noticiaSlice } from './'
 import { mensajeSlice } from './slice/mensajeSlice';
 
 export const store = configureStore({
@@ -13,6 +13,7 @@ export const store = configureStore({
         mensaje: mensajeSlice.reducer,
         prospecto: prospectoSlice.reducer,
         suscriptor: suscriptoresSlice.reducer,
+        noticia: noticiaSlice.reducer,
     },
     middleware: ( getDefaultMiddleware ) => getDefaultMiddleware({
         serializableCheck: false
