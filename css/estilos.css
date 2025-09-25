@@ -301,6 +301,13 @@ header .menu .opcion-menu:hover {
         width: 70%;
     }
 
+    .mision-vision {
+        width: 10%;
+        height: 10%;
+        color: #542052;
+        opacity: .2;
+    }
+
     .logo-encabezado-blog {
         width: 150px;
     }

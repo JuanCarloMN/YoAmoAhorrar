@@ -7,3 +7,4 @@ export { default as mensajeApi } from './mensajeApi';
 export { default as noticiaApi } from './noticiaApi';
 export { default as prospectoApi } from './prospectoApi';
 export { default as suscriptorApi } from './suscriptorApi';
+export { default as citaApi } from './citaApi';

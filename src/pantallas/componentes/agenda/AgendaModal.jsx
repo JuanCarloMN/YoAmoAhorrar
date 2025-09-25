@@ -87,8 +87,6 @@ export const AgendaModal = () => {
         }
         
         if ( valoresFormulario.titulo.length <= 0 ) return;
-
-        console.log({valoresFormulario});
         
         await startSalvarEvento( valoresFormulario );
         closeEventoModal();

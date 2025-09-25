@@ -44,13 +44,24 @@ export const convierteFechaMensaje = ( mensajes = [] ) => {
     });
 }
 
-export const convierteFechaBlog = ( noticias = [] ) => {
+export const convierteFechaBlog = ( blogs = [] ) => {
 
-    return noticias.map( blog => {
+    return blogs.map( blog => {
        
         blog.blogFecha = parseISO( blog.blogFecha );
         
         return blog;
+    });
+}
+
+export const convierteFechaCita = ( citas = [] ) => {
+
+    return citas.map( cita => {
+       
+        cita.inicio = parseISO( cita.inicio );
+        cita.fin = parseISO( cita.fin );
+        
+        return cita;
     });
 }
 

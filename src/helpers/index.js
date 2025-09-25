@@ -8,3 +8,4 @@ export * from './getEnvVariables';
 export * from './getMessages';
 export * from './funcionesFormulario';
 export * from './valoresIniciales';
+export * from './citaLocalizer';

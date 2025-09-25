@@ -85,12 +85,31 @@ export const estiloEvento = {
     },
 }
 
+export const estiloCita = {
+    content: {
+        top: '50%',
+        left: '50%',
+        right: 'auto',
+        bottom: 'auto',
+        transform: 'translate(-100, 0%)', 
+    },
+}
+
 export const inicioCP = {
     colonias: [[0, 'Seleccione la colonia']],
     ciudades: [[0, 'Seleccione la ciudad']],
     estados: [[0, 'Seleccione el estado']]
 }
 
+export const citaInicial = {
+    titulo: '',
+    nombre: '',
+    email: '',
+    telefono: '',
+    notas: '',
+    inicio: new Date(),
+    fin: addHours( new Date(), 1 )
+}
 
 export const eventoInicial = {
     titulo: '',

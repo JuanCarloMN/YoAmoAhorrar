@@ -1,69 +1,57 @@
-import { useEffect, useState } from 'react';
-import { Calendar } from 'react-big-calendar';
+import { useEffect, useState } from "react";
+import { Calendar } from "react-big-calendar"
 import 'react-big-calendar/lib/css/react-big-calendar.css';
 
-import { localizer, getMessagesES } from '../../helpers';
-import { useAgendaStore, useUiStore } from '../../hooks';
-import { AgendaEvento, AgendaModal, FabNuevo, FabBorrar, AgendaToolbar } from '../componentes/agenda';
-import { useDispatch, useSelector } from 'react-redux';
-import { onActualizaEventosTipo } from '../../store/slice/agendaSlice';
+import { citaLocalizer, getMessagesES } from "../../helpers"
+import { useCitaStore } from "../../hooks/useCitaStore";
+import { useDispatch, useSelector } from "react-redux";
+import { CitasToolbar, FabCita, CitaEvento, CitaModal } from "../componentes/cita";
+import { useUiStore } from "../../hooks";
 
-export const AgendaPage = () => {
+export const CitasCalendarioPage = () => {
     const fechaActual = new Date();
     const fechaAgenda = (localStorage.getItem('fechaAgenda')) ? localStorage.getItem('fechaAgenda') : fechaActual;
 
-    const { openEventoModal } = useUiStore();
-    const { eventos } = useSelector( state => state.agenda );
-    const { eventosTipo, setEventoActivo, startCargarEventos } = useAgendaStore();
+    const { citas } = useSelector( state => state.cita );
     const [ ultimaVista, setUltimaVista ] = useState( localStorage.getItem('ultimaVista') || 'month' );
     const [ fecha, setFecha ] = useState( fechaAgenda );
-    const [ tipo, setTipo ] = useState( localStorage.getItem('tipoEvento') || 0);
+    const { setCitaActiva, startCargarCitas } = useCitaStore();
+    const { openCitaModal } = useUiStore();
     const dispatch = useDispatch();
-    
-    const eventStyleGetter = ( evento, inicio, fin, isSelected ) => {
+
+
+    const eventStyleGetter = () => {
         const style = {
-            backgroundColor: colorEvento( evento.tipo ),
+            backgroundColor: '#1568C0',
             borderRadious: '0px',
             opacity: 0.8,
             color: 'white'
             }
-    
-        return {
-            style
+
+            return {
+                style
         }
     }
 
-    const colorEvento = ( tipo ) => {
-        let color = '#FDFDFD';
-        switch ( tipo ) {
-            case 1: color = '#C015BD'; break;   // Agenda Personal
-            case 2: color = '#599F1E'; break;   // Cumpleaños
-            case 3: color = '#E3DD21'; break;   // Renovaciones
-            case 4: color = '#1568C0'; break;   // Pendientes
-            case 5: color = '#DB0707'; break;   // Otros
+    const onDoubleClick = ( cita ) => {
+        console.log('Doble click dia');        
+        openCitaModal();
+    }
+
+    const onSelect = ( cita ) => {
+        setCitaActiva( cita );
+        if (localStorage.getItem('isMobile') === 'true') {
+            onDoubleClick( cita );
         }
-        return color;
     }
 
-    const onDoubleClick = ( evento ) => {
-        openEventoModal();
-    }
-
-    const onSelect = ( evento ) => {
-        setEventoActivo( evento );
-    }
-
-    const onViewChange = ( evento ) => {
-        localStorage.setItem( 'ultimaVista', evento );
-        setUltimaVista( evento );
+    const onViewChange = ( cita ) => {
+        localStorage.setItem( 'ultimaVista', cita );
+        setUltimaVista( cita );
     }
 
     const cambiaVista = ( tipo ) => {
         setUltimaVista( tipo );
-    }
-
-    const cambiaTipo = ( tipo ) => {
-        setTipo( tipo );
     }
 
     const fechaCalendario = ( nuevaFecha ) => {
@@ -72,6 +60,7 @@ export const AgendaPage = () => {
 
     const cambiaFecha = ( tipo ) => {
         let nuevaFecha = new Date( fecha );
+        
         if ( tipo === 1 ) {
             setFecha( fechaActual );
             return;
@@ -95,39 +84,30 @@ export const AgendaPage = () => {
     }
 
     useEffect( () => {
-        startCargarEventos();
+        startCargarCitas();
     }, []);
 
-    // Si cambia el tipo de evento, se deben de cargar los nuevos eventos
-    useEffect( () => {
-        if ( eventos.length === 0 ){
-            return;
-        }
-        localStorage.setItem( 'tipoEvento', tipo );
-        dispatch( onActualizaEventosTipo() );
-      
-    }, [ tipo ]);
-
-    useEffect( () => {
+    useEffect(() => {
         localStorage.setItem('fechaAgenda', fecha )
     }, [ fecha ])
 
     return (
         <>
-            <AgendaToolbar cambiaVista={ cambiaVista } cambiaTipo={ cambiaTipo } cambiaFecha={ cambiaFecha } fechaCalendario={ fechaCalendario } fecha={ fecha } vista={ ultimaVista } tipo={ tipo } />
+            <CitasToolbar cambiaVista={ cambiaVista } cambiaFecha={ cambiaFecha } fechaCalendario={ fechaCalendario } fecha={ fecha } vista={ ultimaVista } />
             <Calendar 
                 culture='es'
-                localizer={ localizer }
-                events={ eventosTipo }
+                localizer={ citaLocalizer }
+                events={ citas }
                 defaultView={ ultimaVista }
                 startAccessor="inicio"
                 endAccessor="fin"
-                style={{ height: 'calc( 100vh - 180px )', width: 'calc( 100vw - 35px )' }}
+                style={{ height: 'calc( 100vh - 240px )', width: 'calc( 100vw - 35px )' }}
                 messages={ getMessagesES() }
                 eventPropGetter={ eventStyleGetter }
                 components={{
-                    event: AgendaEvento,
+                    event: CitaEvento,
                 }}
+                onDoubleClick={ onDoubleClick }
                 onDoubleClickEvent={ onDoubleClick }
                 onSelectEvent={ onSelect }
                 onView={ onViewChange }
@@ -140,12 +120,8 @@ export const AgendaPage = () => {
                 min={new Date(new Date().setHours(9,0,0))}
                 max={new Date(new Date().setHours(21,0,0))}
             />
-
-            <AgendaModal />
-            
-            <FabNuevo />
-            <FabBorrar />
+            <CitaModal />
+            <FabCita />
         </>
     )
 }
-

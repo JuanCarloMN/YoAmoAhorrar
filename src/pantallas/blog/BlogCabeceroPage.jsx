@@ -40,15 +40,6 @@ export const BlogCabeceroPage = () => {
     return (
         <header className="container py-3 ">
 			<div className="row flex-nowrap justify-content-between align-items-center">
-				<div className="col-4 col-lg-2">
-					<button className="boton-seccion" onClick={ suscribirse }>Suscribirse</button>
-				</div>
-				<div className="col-4 col-lg-5 d-lg-flex justify-content-lg-center align-items-center text-center">
-					<h1 className=" me-lg-5">Blog</h1>
-					<div className="ms-lg-2">
-						<img src="../img/solo-logo.png" alt="Perla Maldonado" className="logo-encabezado-blog" />
-					</div>
-				</div>
 				<div className="col-4 col-lg-2 d-flex justify-content-end align-items-center">
 					{/* <a href="#" className="text-muted mx-3">
 						<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" className="bi bi-search" viewBox="0 0 16 16">
@@ -58,6 +49,15 @@ export const BlogCabeceroPage = () => {
 					<a href="/" >
 						<button className="boton-seccion" type="button" >Regresar</button>
 					</a>
+				</div>
+				<div className="col-4 col-lg-5 d-lg-flex justify-content-lg-center align-items-center text-center">
+					<h1 className=" me-lg-5">Blog</h1>
+					<div className="ms-lg-2">
+						<img src="../img/solo-logo.png" alt="Perla Maldonado" className="logo-encabezado-blog" />
+					</div>
+				</div>
+				<div className="col-4 col-lg-2">
+					<button className="boton-seccion" onClick={ suscribirse }>Suscribirse</button>
 				</div>
 			</div>
 

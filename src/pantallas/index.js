@@ -12,3 +12,6 @@ export * from './paginas/PolizasPage';
 export * from './paginas/ProspectosPage';
 export * from './portafolio/PerlaMaldonadoPage';
 export * from './testimonios/TestimonioPage';
+export * from './faq/FAQPage';
+export * from './acerca/AcercaDePage';
+export * from './citas/CitasPage';

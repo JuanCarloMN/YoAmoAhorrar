@@ -9,3 +9,4 @@ export * from './useNoticiaStore';
 export * from './useProspectoStore';
 export * from './useSuscriptoresStore';
 export * from './useUiStore';
+export * from './useCitaStore';

@@ -6,6 +6,7 @@ export const uiSlice = createSlice({
         isBlogModalOpen: false,
         isNoticiaModalOpen: false,
         isClienteModalOpen: false,
+        isCitaModalOpen: false,
         isEventoModalOpen: false,
         isPolizaModalOpen: false,
         isProspectoModalOpen: false,
@@ -17,6 +18,12 @@ export const uiSlice = createSlice({
         },
         onCloseBlogModal: ( state ) => {
             state.isBlogModalOpen = false;
+        },
+        onOpenCitaModal: ( state ) => {
+            state.isCitaModalOpen = true;
+        },
+        onCloseCitaModal: ( state ) => {
+            state.isCitaModalOpen = false;
         },
         onOpenNoticiaModal: ( state ) => {
             state.isNoticiaModalOpen = true;
@@ -35,6 +42,12 @@ export const uiSlice = createSlice({
         },
         onCloseEventoModal: ( state ) => {
             state.isEventoModalOpen = false;
+        },
+        onOpenCitaoModal: ( state ) => {
+            state.isCitaModalOpen = true;
+        },
+        onCloseCitaModal: ( state ) => {
+            state.isCitaModalOpen = false;
         },
         onOpenPolizaModal: ( state ) => {
             state.isPolizaModalOpen = true;
@@ -66,6 +79,9 @@ export const {
     
     onOpenEventoModal, 
     onCloseEventoModal,
+
+    onOpenCitaModal, 
+    onCloseCitaModal,
 
     onOpenClienteModal,
     onCloseClienteModal, 

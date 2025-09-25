@@ -1,5 +1,5 @@
 import { useDispatch, useSelector } from 'react-redux';
-import { onClosePolizaModal, onCloseClienteModal, onCloseEventoModal, onCloseProspectoModal, onOpenPolizaModal, onOpenClienteModal, onOpenEventoModal, onOpenProspectoModal, onOpenBlogModal, onCloseBlogModal, onOpenSuscriptoresModal, onCloseSuscriptoresModal, onOpenNoticiaModal, onCloseNoticiaModal } from '../store';
+import { onClosePolizaModal, onCloseClienteModal, onCloseEventoModal, onCloseProspectoModal, onOpenPolizaModal, onOpenClienteModal, onOpenEventoModal, onOpenProspectoModal, onOpenBlogModal, onCloseBlogModal, onOpenSuscriptoresModal, onCloseSuscriptoresModal, onOpenNoticiaModal, onCloseNoticiaModal, onOpenCitaModal, onCloseCitaModal } from '../store';
 
 
 export const useUiStore = () => {
@@ -8,6 +8,7 @@ export const useUiStore = () => {
 
     const { 
         isBlogModalOpen,
+        isCitaModalOpen,
         isClienteModalOpen,
         isEventoModalOpen,
         isNoticiaModalOpen,
@@ -22,6 +23,14 @@ export const useUiStore = () => {
     
     const closeBlogModal = () => {
         dispatch( onCloseBlogModal() );
+    }
+
+    const openCitaModal = () => {
+        dispatch( onOpenCitaModal() );
+    }
+    
+    const closeCitaModal = () => {
+        dispatch( onCloseCitaModal() );
     }
 
     const openNoticiaModal = () => {
@@ -81,6 +90,7 @@ export const useUiStore = () => {
     return {
         // Propiedades
         isBlogModalOpen,
+        isCitaModalOpen,
         isClienteModalOpen,
         isEventoModalOpen,
         isNoticiaModalOpen,
@@ -90,6 +100,7 @@ export const useUiStore = () => {
 
         // Métodos
         closeBlogModal,
+        closeCitaModal,
         closeClienteModal,
         closeEventoModal,
         closeNoticiaModal,
@@ -97,6 +108,7 @@ export const useUiStore = () => {
         closeProspectoModal,
         closeSuscriptoresModal,
         openBlogModal,
+        openCitaModal,
         openClienteModal,
         openEventoModal,
         openNoticiaModal,

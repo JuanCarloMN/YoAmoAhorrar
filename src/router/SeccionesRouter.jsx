@@ -1,6 +1,6 @@
 import { useEffect } from "react"
 import { Navigate, Route, Routes } from "react-router-dom"
-import { ClientesPage, Navbar, PolizasPage, ProspectosPage, AgendaPage, PerfilPage, CatalogosPage, PerlaMaldonadoPage, BlogPage, MensajesPage, MiBlogPage, NoticiasPage } from "../pantallas"
+import { ClientesPage, Navbar, PolizasPage, ProspectosPage, AgendaPage, PerfilPage, CatalogosPage, PerlaMaldonadoPage, BlogPage, MensajesPage, MiBlogPage, NoticiasPage, FAQPage, AcercaDePage, CitasPage } from "../pantallas"
 import { LoginPage } from "../auth"
 import { useAuthStore } from "../hooks"
 import { PrivateRoute } from "./"
@@ -32,6 +32,9 @@ export const SeccionesRouter = () => {
                     <Route path='/blog/*' element={ <BlogPage /> } />
                     <Route path='/testimonios/*' element={ <TestimonioPage /> } />
                     <Route path='/news/*' element={ <NewsPage /> } />
+                    <Route path='/faq/*' element={ <FAQPage /> } />
+                    <Route path='/acerca/*' element={ <AcercaDePage /> } />
+                    <Route path='/citas/*' element={ <CitasPage /> } />
                     <Route path='/*' element={ <Navigate to='/portafolio' /> } />
                     {/* <Route path='/*' element={ <Navigate to='/auth/login' /> } /> */}
                 </>
@@ -98,6 +101,20 @@ export const SeccionesRouter = () => {
                         <PrivateRoute>
                             <Navbar />
                             <NoticiasPage /> 
+                        </PrivateRoute>
+                        } />
+
+                    <Route path='/faq' element={ 
+                        <PrivateRoute>
+                            <Navbar />
+                            <FAQPage />
+                        </PrivateRoute>
+                        } />
+
+                    <Route path='/acerca' element={ 
+                        <PrivateRoute>
+                            <Navbar />
+                            <AcercaDePage />
                         </PrivateRoute>
                         } />
 
