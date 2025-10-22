@@ -1,6 +1,6 @@
 import { useEffect } from "react"
 import { Navigate, Route, Routes } from "react-router-dom"
-import { ClientesPage, Navbar, PolizasPage, ProspectosPage, AgendaPage, PerfilPage, CatalogosPage, PerlaMaldonadoPage, BlogPage, MensajesPage, MiBlogPage, NoticiasPage, FAQPage, AcercaDePage, CitasPage } from "../pantallas"
+import { ClientesPage, Navbar, PolizasPage, ProspectosPage, AgendaPage, PerfilPage, CatalogosPage, PerlaMaldonadoPage, BlogPage, MensajesPage, MiBlogPage, NoticiasPage, FAQPage, AcercaDePage, CitasPage, PresupuestoPage, PerfilInversorPage, PerfilesPage } from "../pantallas"
 import { LoginPage } from "../auth"
 import { useAuthStore } from "../hooks"
 import { PrivateRoute } from "./"
@@ -35,6 +35,8 @@ export const SeccionesRouter = () => {
                     <Route path='/faq/*' element={ <FAQPage /> } />
                     <Route path='/acerca/*' element={ <AcercaDePage /> } />
                     <Route path='/citas/*' element={ <CitasPage /> } />
+                    <Route path='/perfil/*' element={ <PerfilInversorPage /> } />
+                    <Route path='/presupuesto/*' element={ <PresupuestoPage /> } />
                     <Route path='/*' element={ <Navigate to='/portafolio' /> } />
                     {/* <Route path='/*' element={ <Navigate to='/auth/login' /> } /> */}
                 </>
@@ -87,6 +89,13 @@ export const SeccionesRouter = () => {
                         <PrivateRoute>
                             <Navbar />
                             <MensajesPage /> 
+                        </PrivateRoute>
+                        } />
+
+                    <Route path='/perfiles' element={ 
+                        <PrivateRoute>
+                            <Navbar />
+                            <PerfilesPage /> 
                         </PrivateRoute>
                         } />
 

@@ -315,6 +315,10 @@ input:checked + .radio-title .template-claro {
   background-color: #190A19;
 }
 
+.formulario-perfil {
+  background-color: #ded0de;
+}
+
 @media screen and ( max-width: 380px ) {
   .fab-cita {
     bottom: 10px;

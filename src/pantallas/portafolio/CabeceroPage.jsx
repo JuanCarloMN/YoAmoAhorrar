@@ -101,6 +101,11 @@ export const CabeceroPage = () => {
                                         <img src="./img/banner_seguro_educacion.jpg" className="d-block w-100 " />
                                     </a>
                                 </div>
+                                <div className="carousel-item ">
+                                    <a href="/perfil">
+                                        <img src="./img/banner_perfil_inversor.jpg" className="d-block w-100 " />
+                                    </a>
+                                </div>
                             </div>
 
                             <button className="carousel-control-prev" type="button" data-bs-target="#slider" data-bs-slide="prev">

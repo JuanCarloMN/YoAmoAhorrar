@@ -148,3 +148,16 @@ export const noticiaInicial = {
     noticiaFecha: new Date(),
     noticiaFoto: []
 }
+
+export const perfilInicial = {
+    perfilNombre: '',
+    perfilEmail: '',
+    perfilTelefono: '',
+    perfilSitioWeb: '',
+    perfilIngresos: 0,
+    perfilObjetivo: 0,
+    perfilRespuestas: [0, 0, 0, 0, 0, 0, 0, 0],
+    perfilResultado: "",
+    perfilPrivacidad: false,
+    perfilFecha: new Date()
+}

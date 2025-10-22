@@ -71,7 +71,8 @@ export const Navbar = () => {
                             <ul className="dropdown-menu" aria-labelledby="dropdown-menu">
                                 <li><NavLink className="dropdown-item" to="/miblog">Entradas de Mi Blogs</NavLink></li>
                                 <li><NavLink className="dropdown-item" to="/noticias">Administrar Noticias</NavLink></li>
-                                <li><NavLink className="dropdown-item" to="/mensajes">Revisar mensajes</NavLink></li>
+                                <li><NavLink className="dropdown-item" to="/mensajes">Revisar Mensajes</NavLink></li>
+                                <li><NavLink className="dropdown-item" to="/perfiles">Revisar Perfiles Inversores</NavLink></li>
                                 <li><hr className="dropdown-divider" /></li>
                                 <li><a href="#" className="dropdown-item">Opciones de Speech</a></li>
                                 <li><a href="#" className="dropdown-item">Exportar Clientes</a></li>

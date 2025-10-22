@@ -6,6 +6,7 @@ export * from './slice/citaSlice';
 export * from './slice/clienteSlice';
 export * from './slice/mensajeSlice';
 export * from './slice/noticiaSlice';
+export * from './slice/perfilSlice';
 export * from './slice/prospectoSlice';
 export * from './slice/suscriptoresSlice';
 export * from './slice/uiSlice';

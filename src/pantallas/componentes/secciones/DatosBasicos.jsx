@@ -94,8 +94,8 @@ export const DatosBasicos = ( { valoresFormulario, setValoresFormulario } ) => {
                 <div className="accordion-body me-2">
                     <div className="form-group d-flex mt-2 mb-0 justify-content-between">    
                         <div className="form-floating me-2 col-4">
-                            <input type="text" className={ `form-control ${ validaciones.validaNombre }` } placeholder="Nombre(s)" autoComplete="on" value={ valoresFormulario.datoNombre } onChange={ onInputChange } name="datoNombre" id='nombre' />
-                            <label htmlFor="nombre">Nombre(s)</label>
+                                <input type="text" className={ `form-control ${ validaciones.validaNombre }` } placeholder="Nombre(s)" autoComplete="on" value={ valoresFormulario.datoNombre } onChange={ onInputChange } name="datoNombre" id='nombre' />
+                                <label htmlFor="nombre">Nombre(s)</label>
                         </div>
                         <div className="form-floating me-2 col-4">
                             <input type="text" className="form-control" placeholder="Apellido paterno" autoComplete="on" value={ valoresFormulario.datoApellidoP } onChange={ onInputChange } name="datoApellidoP" id='paterno' />

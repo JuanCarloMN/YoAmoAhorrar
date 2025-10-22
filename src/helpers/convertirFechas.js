@@ -54,6 +54,16 @@ export const convierteFechaBlog = ( blogs = [] ) => {
     });
 }
 
+export const convierteFechaPerfil = ( perfiles = [] ) => {
+
+    return perfiles.map( perfil => {
+       
+        perfil.perfilFecha = parseISO( perfil.perfilFecha );
+        
+        return perfil;
+    });
+}
+
 export const convierteFechaCita = ( citas = [] ) => {
 
     return citas.map( cita => {
