@@ -102,7 +102,7 @@ export const CabeceroPage = () => {
                                     </a>
                                 </div>
                                 <div className="carousel-item ">
-                                    <a href="/perfil">
+                                    <a href="/test_perfil_inversor">
                                         <img src="./img/banner_perfil_inversor.jpg" className="d-block w-100 " />
                                     </a>
                                 </div>

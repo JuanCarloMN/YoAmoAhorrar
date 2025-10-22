@@ -35,7 +35,7 @@ export const SeccionesRouter = () => {
                     <Route path='/faq/*' element={ <FAQPage /> } />
                     <Route path='/acerca/*' element={ <AcercaDePage /> } />
                     <Route path='/citas/*' element={ <CitasPage /> } />
-                    <Route path='/perfil/*' element={ <PerfilInversorPage /> } />
+                    <Route path='/test_perfil_inversor/*' element={ <PerfilInversorPage /> } />
                     <Route path='/presupuesto/*' element={ <PresupuestoPage /> } />
                     <Route path='/*' element={ <Navigate to='/portafolio' /> } />
                     {/* <Route path='/*' element={ <Navigate to='/auth/login' /> } /> */}
