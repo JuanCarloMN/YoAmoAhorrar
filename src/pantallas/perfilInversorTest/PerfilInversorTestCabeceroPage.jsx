@@ -1,5 +1,5 @@
 
-export const PerfilInversorCabeceroPage = () => {
+export const PerfilInversorTestCabeceroPage = () => {
     return (
         <header className="container py-3 ">
             <div className="row flex-nowrap justify-content-between align-items-center">

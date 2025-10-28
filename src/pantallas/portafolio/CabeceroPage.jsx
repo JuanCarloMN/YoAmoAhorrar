@@ -36,7 +36,7 @@ export const CabeceroPage = () => {
                                 </div> 
                             </a>
 
-                            <a href="testimonios" className="opcion-menu border flex-fill px-lg-4 d-flex align-items-center col-4 col-lg-2 text-center">
+                            <a href="testimonios" className="opcion-menu border flex-fill px-lg-0 d-flex align-items-center col-4 col-lg-2 text-center">
                                 <div className="w-100">
                                     <span>Testimonio</span>
                                     <div className="icono-perfil">
@@ -49,8 +49,8 @@ export const CabeceroPage = () => {
                         </div>
 
                         <div className="col-12 menu col-lg-6 d-flex justify-content-lg-between justify-content-center">
-                            <a href="acerca" className="opcion-menu border flex-fill px-lg-4 d-flex align-items-center col-4 col-lg-2 text-center">
-                                <div className="w-100 text-center">
+                            <a href="acerca" className="opcion-menu border flex-fill px-lg-0 d-flex align-items-center col-4 col-lg-2 text-center">
+                                <div className="w-100">
                                     <span className="text-center">Acerca de...</span>
                                     <div className="icono-perfil">
                                     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 640">
@@ -86,7 +86,7 @@ export const CabeceroPage = () => {
                     </section>
                 </section>
 
-                {/* Slider */}
+                {/* Carrusel */}
                 <div className="row">
                     <div className="col">
                         <div className="carousel slide" data-bs-ride="carousel" id="slider">

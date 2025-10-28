@@ -10,11 +10,12 @@ export * from './paginas/AgendaPage';
 export * from './paginas/CatalogosPage';
 export * from './paginas/ClientesPage';
 export * from './paginas/MensajesPage';
-export * from './paginas/PerfilesPage';
+export * from './paginas/PerfilInversorPage';
 export * from './paginas/PerfilPage';
 export * from './paginas/PolizasPage';
 export * from './paginas/ProspectosPage';
-export * from './perfil/PerfilInversorPage';
+export * from './perfilInversorTest/PerfilInversorTestPage';
 export * from './portafolio/PerlaMaldonadoPage';
 export * from './presupuesto/PresupuestoPage';
 export * from './testimonios/TestimonioPage';
+

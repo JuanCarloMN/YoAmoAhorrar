@@ -5,13 +5,13 @@ import 'sweetalert2/dist/sweetalert2.min.css';
 import { useEffect } from "react";
 import moment from "moment";
 
-export const PerfilesPage = () => {
+export const PerfilInversorPage = () => {
     const { startCargarPerfiles, startSalvarPerfil } = usePerfilStore();
     const { perfiles } = useSelector( state => state.perfil );
 
     const atenderPerfil = ( perfil ) => {
         Swal.fire({
-            title: "¿Deseas marcar como atendido el perfil?",
+            title: "¿Deseas marcar el perfil como atendido?",
             html: perfil.perfilNombre + "<br>" + perfil.perfilResultado,
             icon: "question",
             iconColor: "#125d0e",
@@ -94,6 +94,4 @@ export const PerfilesPage = () => {
             </div>
         </>
     )
-
 }
-

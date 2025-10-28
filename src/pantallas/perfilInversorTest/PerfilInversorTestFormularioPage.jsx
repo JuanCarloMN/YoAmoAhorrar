@@ -1,7 +1,6 @@
-import { useState } from "react";
 import ReactInputMask from "react-input-mask";
 
-export const PerfilInversorFormularioPage = ( { valoresFormulario, enviarPropuesta, onInputChange, claseEmail, claseNombre, claseTelefono }) => {
+export const PerfilInversorTestFormularioPage = ( { valoresFormulario, enviarPropuesta, onInputChange, claseEmail, claseNombre, claseTelefono }) => {
 
     return (
         <div className="border rounded p-2 formulario-perfil">

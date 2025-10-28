@@ -1,5 +1,5 @@
 
-export const PerfilInversorCuestionarioPage = ( { onRespuestaChange, resultado } ) => {
+export const PerfilInversorTestCuestionarioPage = ( { onRespuestaChange, resultado } ) => {
     return (
         <>
             {/* Pregunta 1 */}

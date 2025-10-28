@@ -2,10 +2,10 @@ import { useState } from "react";
 import Swal from "sweetalert2";
 import { perfilInicial } from "../../helpers";
 import { usePerfilStore } from "../../hooks";
-import { PerfilInversorCuestionarioPage } from "./PerfilInversorCuestionarioPage";
-import { PerfilInversorFormularioPage } from "./PerfilInversorFormularioPage";
+import { PerfilInversorTestCuestionarioPage } from "./PerfilInversorTestCuestionarioPage";
+import { PerfilInversorTestFormularioPage } from "./PerfilInversorTestFormularioPage";
 
-export const PerfilInversorContenidoPage = () => {
+export const PerfilInversorTestContenidoPage = () => {
 
     const [ valoresFormulario, setValoresFormulario ] = useState( perfilInicial );
     const [ claseNombre, setClaseNombre ] = useState('');
@@ -147,12 +147,12 @@ export const PerfilInversorContenidoPage = () => {
             <div className="row d-flex justify-content-center my-4 p-2 p-lg-0">
                 {/* Preguntas */}
                 <div className="col-lg-8 col-12 info">
-                    <PerfilInversorCuestionarioPage onRespuestaChange={ onRespuestaChange } resultado={ resultado } />
+                    <PerfilInversorTestCuestionarioPage onRespuestaChange={ onRespuestaChange } resultado={ resultado } />
                 </div>
 
                 {/* Formulario */}
                 <div className="col-lg-4 col-12 info">
-                    <PerfilInversorFormularioPage onInputChange={ onInputChange } valoresFormulario={ valoresFormulario } enviarPropuesta={ enviarPropuesta } claseNombre={ claseNombre } claseEmail={ claseEmail } claseTelefono={ claseTelefono } />
+                    <PerfilInversorTestFormularioPage onInputChange={ onInputChange } valoresFormulario={ valoresFormulario } enviarPropuesta={ enviarPropuesta } claseNombre={ claseNombre } claseEmail={ claseEmail } claseTelefono={ claseTelefono } />
                 </div>
             </div>
 
