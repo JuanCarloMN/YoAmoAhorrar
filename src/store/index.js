@@ -4,6 +4,7 @@ export * from './slice/blogSlice';
 export * from './slice/catalogoSlice';
 export * from './slice/citaSlice';
 export * from './slice/clienteSlice';
+export * from './slice/indicadoresSlice';
 export * from './slice/mensajeSlice';
 export * from './slice/noticiaSlice';
 export * from './slice/perfilSlice';

@@ -16,5 +16,4 @@ mensajeApi.interceptors.request.use( config => {
     return config;
 });
 
-
 export default mensajeApi

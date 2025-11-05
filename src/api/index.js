@@ -4,6 +4,7 @@ export { default as catalogoApi } from './catalogoApi';
 export { default as citaApi } from './citaApi';
 export { default as clienteApi } from './clienteApi';
 export { default as codigoPostalApi } from './codigoPostalApi';
+export { default as indicadoresApi } from './indicadoresApi';
 export { default as mensajeApi } from './mensajeApi';
 export { default as noticiaApi } from './noticiaApi';
 export { default as perfilApi } from './perfilApi';

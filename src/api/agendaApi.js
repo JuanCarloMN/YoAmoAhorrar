@@ -16,5 +16,4 @@ agendaApi.interceptors.request.use( config => {
     return config;
 });
 
-
 export default agendaApi
