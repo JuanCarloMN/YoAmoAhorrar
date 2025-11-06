@@ -5,7 +5,7 @@ import { useSelector } from 'react-redux';
 export const GraficaUDIPage = () => {
 
     const { indicadoresUDI } = useSelector( state => state.indicadores );
-    
+
     const chartContainerStyle = {
         width: '100%',
         height: '300px',
