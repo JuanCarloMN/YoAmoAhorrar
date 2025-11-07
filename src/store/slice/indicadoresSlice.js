@@ -4,6 +4,8 @@ export const indicadoresSlice = createSlice({
     name: 'indicadores',
     initialState: {
         isCargandoIndicadores: true,
+        actualDolar: 0,
+        actualUDI: 0,
         indicadoresUDI: [],
         indicadoresDolar: [],
     },
@@ -17,6 +19,7 @@ export const indicadoresSlice = createSlice({
                 if ( !existe ){
                     state.indicadoresUDI.push( indicador );
                 }
+                state.actualUDI = parseFloat( indicador.dato, 10 ).toFixed( 4 ) || 0;
             });
         },
         onCargarIndicadoresDolar: ( state, { payload } ) => {
@@ -28,6 +31,7 @@ export const indicadoresSlice = createSlice({
                 if ( !existe ){
                     state.indicadoresDolar.push( indicador );
                 }
+                state.actualDolar = parseFloat( indicador.dato, 10 ).toFixed( 2 ) || 0;
             });
         },
     }

@@ -6,11 +6,11 @@ export const FAQContenidoPage = () => {
                 <div className="accordion accordion-flush" id="faqs">
                     <div className="accordion-item">
                         <h2 className="accordion-header" id="encabezado-1">
-                            <button className="accordion-button " type="button" data-bs-toggle="collapse" data-bs-target="#elemento-1" aria-expanded="true" aria-controls="elemento-1">
+                            <button className="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#elemento-1" aria-expanded="true" aria-controls="elemento-1">
                                 <b>1. ¿Qué pasa si fallezco antes de que termine mi plan?</b>
                             </button>
                         </h2>
-                        <div id="elemento-1" className="accordion-collapse collapse show" aria-labelledby="encabezado-1" data-bs-parent="#faqs">
+                        <div id="elemento-1" className="accordion-collapse collapse" aria-labelledby="encabezado-1" data-bs-parent="#faqs">
                             <div className="accordion-body">
                                 <p>
                                     Si faltas antes del término del plan, tus beneficiarios recibirán la suma asegurada contratada por fallecimiento.
@@ -272,12 +272,6 @@ export const FAQContenidoPage = () => {
                         </div>
                     </div>
                 </div>
-            </div>
-            <div className="text-center p-0 align-items-center">
-                <hr />
-                <img src="../img/solo-logo.png" alt="Perla Maldonado" className="logo-footer"/>
-                <br />
-                <span className="fw-lighter">2025</span>
             </div>
         </div>
     )

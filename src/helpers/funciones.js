@@ -74,5 +74,15 @@ export const obtenIndicadores = async () => {
         localStorage.setItem( 'valorDolar', indicador[0].valor );
         localStorage.setItem( 'valorUDI', indicador[1].valor );
     }
-    
+   
+}
+
+// Formatea un número a moneda mexicana
+export function formatoMoneda( valor ) {
+    const formatter = new Intl.NumberFormat( 'es-MX', {
+        style: 'currency',
+        currency: 'MXN',
+        minimumFractionDigits: 2,
+        } );
+    return formatter.format( valor );
 }

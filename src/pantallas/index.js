@@ -4,6 +4,9 @@ export * from './blog/MiBlogPage';
 export * from './citas/CitasPage';
 export * from './componentes/secciones/Navbar';
 export * from './faq/FAQPage';
+export * from './herramientas/HerramientasPage';
+export * from './indicadores/IndicadoresPage';
+export * from './interesCompuesto/InteresCompuestoPage';
 export * from './news/NewsPage';
 export * from './news/NoticiasPage'
 export * from './paginas/AgendaPage';
@@ -18,4 +21,3 @@ export * from './perfilInversorTest/PerfilInversorTestPage';
 export * from './portafolio/PerlaMaldonadoPage';
 export * from './presupuesto/PresupuestoPage';
 export * from './testimonios/TestimonioPage';
-

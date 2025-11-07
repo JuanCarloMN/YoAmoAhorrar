@@ -56,6 +56,11 @@ header .menu .opcion-menu:hover {
     background: #542052;
 }
 
+.seccion {
+    background-color: #9B769A !important;
+    color: white !important;
+}
+
 /* MAIN */
 /* Portafolio */
 .boton-seccion {

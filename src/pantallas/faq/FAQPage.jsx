@@ -4,7 +4,7 @@ import { FAQContenidoPage } from "./FAQContenidoPage"
 export const FAQPage = () => {
     return (
         <>
-            <FAQCabeceroPage />
+            {/* <FAQCabeceroPage /> */}
             <FAQContenidoPage />
         </>
     )
