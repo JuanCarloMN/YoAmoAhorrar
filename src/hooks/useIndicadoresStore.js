@@ -1,24 +1,25 @@
-import { useDispatch, useSelector } from 'react-redux';
+import { useDispatch } from 'react-redux';
 import { onCargarIndicadoresDolar, onCargarIndicadoresUDI } from '../store';
 import { indicadoresApi } from '../api';
-import { useState } from 'react';
 
 export const useIndicadoresStore = () => {
 
     const dispatch = useDispatch();
 
     const fechaActual = new Date();
-    // const fechaInicio = `${fechaActual.getFullYear() - 1 }-${ (fechaActual.getMonth()+1).toString().padStart(2,'0') }-${ fechaActual.getDate().toString().padStart(2,'0') }`;
+    const fechaDatos = `${fechaActual.getFullYear() - 1 }${ (fechaActual.getMonth() + 1).toString().padStart(2, '0') }${ (fechaActual.getDate()).toString().padStart(2, '0') }`;
     const serieUDI = import.meta.env.VITE_API_BANXICO_SERIE_UDI;
     const serieDolar = import.meta.env.VITE_API_BANXICO_SERIE_DOLAR;
 
     const startCargarIndicadores = async () => {
-        try {
-
+        try {            
+            localStorage.removeItem("datosIndicadores");
             const { data } = await indicadoresApi.get('/indicadores');
+            localStorage.setItem("datosIndicadores", JSON.stringify( { data: data, fecha: fechaDatos } ) );
 
             const datosUDI = data.bmx.series.filter( indicador => indicador.idSerie === serieUDI );
             const datosDolar = data.bmx.series.filter( indicador => indicador.idSerie === serieDolar );
+
             dispatch( onCargarIndicadoresUDI( datosUDI[0] ) );
             dispatch( onCargarIndicadoresDolar( datosDolar[0] ) );
 

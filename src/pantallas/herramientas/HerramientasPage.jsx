@@ -6,7 +6,7 @@ export const HerramientasPage = () => {
         <>
             <HerramientasCabeceroPage />
             <HerramientasDatosPage />
-            <div className="text-center p-0 align-items-center">
+            <div className="container text-center p-0 align-items-center">
                 <hr />
                 <img src="../img/solo-logo.png" alt="Perla Maldonado" className="logo-footer"/>
                 <br />
