@@ -1,6 +1,6 @@
 import { useEffect } from "react"
 import { Navigate, Route, Routes } from "react-router-dom"
-import { ClientesPage, Navbar, PolizasPage, ProspectosPage, AgendaPage, PerfilPage, CatalogosPage, PerlaMaldonadoPage, BlogPage, MensajesPage, MiBlogPage, NoticiasPage, FAQPage, AcercaDePage, CitasPage, PresupuestoPage, PerfilInversorTestPage, PerfilInversorPage, InteresCompuestoPage, HerramientasPage } from "../pantallas"
+import { ClientesPage, Navbar, PolizasPage, ProspectosPage, AgendaPage, PerfilPage, CatalogosPage, PerlaMaldonadoPage, BlogPage, MensajesPage, MiBlogPage, NoticiasPage, FAQPage, AcercaDePage, CitasPage, PresupuestoPage, PerfilInversorTestPage, PerfilInversorPage, InteresCompuestoPage, HerramientasPage, NotasPage } from "../pantallas"
 import { LoginPage } from "../auth"
 import { useAuthStore } from "../hooks"
 import { PrivateRoute } from "./"
@@ -91,6 +91,13 @@ export const SeccionesRouter = () => {
                         <PrivateRoute>
                             <Navbar />
                             <MensajesPage /> 
+                        </PrivateRoute>
+                        } />
+
+                    <Route path='/notas' element={ 
+                        <PrivateRoute>
+                            <Navbar />
+                            <NotasPage /> 
                         </PrivateRoute>
                         } />
 

@@ -6,6 +6,7 @@ export * from './useCitaStore';
 export * from './useClienteStore';
 export * from './useForm';
 export * from './useMensajeStore';
+export * from './useNotaStore';
 export * from './useNoticiaStore';
 export * from './usePerfilStore';
 export * from './useProspectoStore';

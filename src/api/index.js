@@ -6,6 +6,7 @@ export { default as clienteApi } from './clienteApi';
 export { default as codigoPostalApi } from './codigoPostalApi';
 export { default as indicadoresApi } from './indicadoresApi';
 export { default as mensajeApi } from './mensajeApi';
+export { default as notaApi } from './notaApi';
 export { default as noticiaApi } from './noticiaApi';
 export { default as perfilApi } from './perfilApi';
 export { default as prospectoApi } from './prospectoApi';

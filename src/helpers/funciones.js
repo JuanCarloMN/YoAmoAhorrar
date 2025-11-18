@@ -50,32 +50,32 @@ export const fechaMongo = ( fecha ) => {
 }
 
 // Obtiene el valor del dólar y la UDI al día de hoy
-export const obtenIndicadores = async () => {
-    const { VITE_URL_VALORES } = getEnvVariables();
-    const hoy = fechaCorta( new Date(), '-' );
-    let indicadores, indicador;
+// export const obtenIndicadores = async () => {
+//     const { VITE_URL_VALORES } = getEnvVariables();
+//     const hoy = fechaCorta( new Date(), '-' );
+//     let indicadores, indicador;
 
-    const fechaIndicadores = localStorage.getItem('fechaIndicadores');
-    const localDolar = localStorage.getItem('valorDolar');
-    const localUDI = localStorage.getItem('valorUDI');
+//     const fechaIndicadores = localStorage.getItem('fechaIndicadores');
+//     const localDolar = localStorage.getItem('valorDolar');
+//     const localUDI = localStorage.getItem('valorUDI');
 
-    if ( !fechaIndicadores || !localDolar || !localUDI ) {
-        indicadores = await ( await fetch( VITE_URL_VALORES )).json();
-        indicador = indicadores.ListaIndicadores.filter( valor => ( valor.codTipoIndicador === 158 || valor.codTipoIndicador === 159 ) );
-    } else {
-        if ( hoy !== fechaIndicadores ) {
-            indicadores = await ( await fetch( VITE_URL_VALORES )).json();
-            indicador = indicadores.ListaIndicadores.filter( valor => ( valor.codTipoIndicador === 158 || valor.codTipoIndicador === 159 ) );
-        } 
-    }
-
-    if ( indicador ){
-        localStorage.setItem( 'fechaIndicadores', indicador[0].fecha );
-        localStorage.setItem( 'valorDolar', indicador[0].valor );
-        localStorage.setItem( 'valorUDI', indicador[1].valor );
-    }
+//     if ( !fechaIndicadores || !localDolar || !localUDI ) {
+//         indicadores = await ( await fetch( VITE_URL_VALORES )).json();
+//         indicador = indicadores.ListaIndicadores.filter( valor => ( valor.codTipoIndicador === 158 || valor.codTipoIndicador === 159 ) );
+//     } else {
+//         if ( hoy !== fechaIndicadores ) {
+//             indicadores = await ( await fetch( VITE_URL_VALORES )).json();
+//             indicador = indicadores.ListaIndicadores.filter( valor => ( valor.codTipoIndicador === 158 || valor.codTipoIndicador === 159 ) );
+//         } 
+//     }
+    
+//     if ( indicador ){
+//         localStorage.setItem( 'fechaIndicadores', indicador[0].fecha );
+//         localStorage.setItem( 'valorDolar', indicador[0].valor );
+//         localStorage.setItem( 'valorUDI', indicador[1].valor );
+//     }
    
-}
+// }
 
 // Formatea un número a moneda mexicana
 export function formatoMoneda( valor ) {

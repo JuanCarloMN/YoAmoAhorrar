@@ -2,6 +2,7 @@ import { useEffect } from "react";
 import { useSelector } from "react-redux";
 import { useClienteStore, useUiStore } from "../../hooks";
 import { ClienteModal } from "../componentes/modal/ClienteModal"
+import { NotaModal } from "../componentes/modal/NotaModal";
 
 import Swal from 'sweetalert2';
 import 'sweetalert2/dist/sweetalert2.min.css';
@@ -9,8 +10,8 @@ import { cambiaCampos, exportarExcel, formularioDatos } from "../../helpers";
 
 export const ClientesPage = () => {
 
-    const { openClienteModal } = useUiStore()
-    const { startCargaClientes, setClienteActivo, startBorrarCliente } = useClienteStore()
+    const { openClienteModal, openNotaModal } = useUiStore()
+    const { startCargaClientes, setClienteActivo, startBorrarCliente, startBuscaCliente } = useClienteStore()
     const { clientes } = useSelector( state => state.cliente );
     
     const nuevoCliente = () => {
@@ -46,6 +47,44 @@ export const ClientesPage = () => {
         openClienteModal();
     }
 
+    const agregarNota = ( cliente ) => {
+        const datoActivo = cambiaCampos( cliente, 1 );
+        setClienteActivo( datoActivo );
+        openNotaModal();
+    }
+
+    const buscaCliente = () => {
+        Swal.fire(
+            {
+                title: "Buscar cliente",
+                input: "text",
+                inputPlaceholder: "RFC del cliente a buscar",
+                showCancelButton: true,
+                showDenyButton: true,
+                cancelButtonColor: "#405364ff",
+                confirmButtonText: "Aceptar",
+                confirmButtonColor: "#10A009",
+                denyButtonText: "Todos",
+                denyButtonColor: "#542052"
+            }
+        ).then( async ( result ) => 
+            {
+                if ( result.isDenied ){
+                    startCargaClientes();
+                } else {
+                    if ( result.isConfirmed ) {
+                        if ( result.value.trim() === '' ) {
+                            Swal.fire( "Buscar cliente", 'Información incorrecta', 'error' );
+                        } else {                        
+                            startBuscaCliente( result.value.trim() );
+                        }
+                    }
+                }
+                
+            }
+        );
+    }
+
     useEffect( () => {
         startCargaClientes();
     }, []);
@@ -56,7 +95,13 @@ export const ClientesPage = () => {
                 <div className="row">
                     <div className="col-12 d-flex justify-content-between align-items-center">
                         <h1 className="mt-2">Lista de Clientes</h1>
+
                         <div className="col text-end">
+                            <button className="btn btn-outline-dark me-3" onClick={ buscaCliente }>
+                                <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="currentColor" className="bi bi-cloud-arrow-down" viewBox="0 0 512 512">
+                                    <path d="M416 208c0 45.9-14.9 88.3-40 122.7L502.6 457.4c12.5 12.5 12.5 32.8 0 45.3s-32.8 12.5-45.3 0L330.7 376C296.3 401.1 253.9 416 208 416 93.1 416 0 322.9 0 208S93.1 0 208 0 416 93.1 416 208zM208 352a144 144 0 1 0 0-288 144 144 0 1 0 0 288z"/>
+                                </svg>
+                            </button>
                             <button className="btn btn-outline-success me-3" onClick={ exportarExcel }>
                                 <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="currentColor" className="bi bi-cloud-arrow-down" viewBox="0 0 16 16">
                                     <path fillRule="evenodd" d="M7.646 10.854a.5.5 0 0 0 .708 0l2-2a.5.5 0 0 0-.708-.708L8.5 9.293V5.5a.5.5 0 0 0-1 0v3.793L6.354 8.146a.5.5 0 1 0-.708.708z"/>
@@ -92,6 +137,10 @@ export const ClientesPage = () => {
                                                     <i className="fa-solid fa-pen-to-square"></i>
                                                 </button>
                                                 
+                                                <button className="btn btn-outline-dark me-2" onClick={ () => agregarNota( cliente ) } aria-label="Agregar nota de cliente" >
+                                                    <i className="fa-regular fa-comment-dots"></i>
+                                                </button>
+
                                                 <button className="btn btn-outline-danger" onClick={ () => eliminaCliente( cliente ) } aria-label="Eliminar cliente" >
                                                     <i className="fa-solid fa-trash"></i>
                                                 </button>
@@ -107,7 +156,7 @@ export const ClientesPage = () => {
             </div>
 
             <ClienteModal />
+            <NotaModal tipo={ 1 } />
         </>
     )
 }
-

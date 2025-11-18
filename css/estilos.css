@@ -264,6 +264,10 @@ header .menu .opcion-menu:hover {
     width: 150px;
 }
 
+.tabla-encabezado {
+    background: #542052;
+}
+
 /* MEDIAQUERIES */
 
 /* Dispositivo xs */

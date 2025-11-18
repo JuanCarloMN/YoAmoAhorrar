@@ -30,18 +30,26 @@ export const CatalogosPage = () => {
                     </div>
                     <div className="row mb-3">
                         <div className="col">
-                            <CatalogoCard tipo={ 3 } datos={ catalogos.filter( catalogo => catalogo.catalogoDescripcion === "Tipo de Pólizas" ) } />
+                            <CatalogoCard tipo={ 3 } datos={ catalogos.filter( catalogo => catalogo.catalogoDescripcion === "Tipos de Póliza" ) } />
                         </div>
                         <div className="col">
-                            <CatalogoCard tipo={ 4 } datos={ catalogos.filter( catalogo => catalogo.catalogoDescripcion === "Tipo de Estatus" ) } />
+                            <CatalogoCard tipo={ 4 } datos={ catalogos.filter( catalogo => catalogo.catalogoDescripcion === "Tipos de Estatus" ) } />
                         </div>
                     </div>
                     <div className="row mb-3">
                         <div className="col">
-                            <CatalogoCard tipo={ 5 } datos={ catalogos.filter( catalogo => catalogo.catalogoDescripcion === "Tipo de Monedas" ) } />
+                            <CatalogoCard tipo={ 5 } datos={ catalogos.filter( catalogo => catalogo.catalogoDescripcion === "Tipos de Moneda" ) } />
                         </div>
                         <div className="col">
-                            <CatalogoCard tipo={ 6 } datos={ catalogos.filter( catalogo => catalogo.catalogoDescripcion === "Tipo de Pagos" ) } />
+                            <CatalogoCard tipo={ 6 } datos={ catalogos.filter( catalogo => catalogo.catalogoDescripcion === "Tipos de Pago" ) } />
+                        </div>
+                    </div>
+                    <div className="row mb-3">
+                        <div className="col">
+                            <CatalogoCard tipo={ 7 } datos={ catalogos.filter( catalogo => catalogo.catalogoDescripcion === "Tipos de Nota" ) } />
+                        </div>
+                        <div className="col">
+                            &nbsp;
                         </div>
                     </div>
                 </div>

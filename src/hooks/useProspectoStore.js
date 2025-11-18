@@ -70,7 +70,6 @@ export const useProspectoStore = () => {
             }
             const { data } = await clienteApi.post('/clientes/nuevo', datosCliente);
             dispatch( onNuevoCliente( { ...datosCliente, id: data.cliente.id, usuario } ) )
-            dispatch( starBorrarProspecto( prospecto) );
         } catch (error) {
             Swal.fire('Error al convertir a cliente', error.response.data.msg, 'error');
         }

@@ -1,5 +1,5 @@
 import { useDispatch, useSelector } from 'react-redux';
-import { onClosePolizaModal, onCloseClienteModal, onCloseEventoModal, onCloseProspectoModal, onOpenPolizaModal, onOpenClienteModal, onOpenEventoModal, onOpenProspectoModal, onOpenBlogModal, onCloseBlogModal, onOpenSuscriptoresModal, onCloseSuscriptoresModal, onOpenNoticiaModal, onCloseNoticiaModal, onOpenCitaModal, onCloseCitaModal } from '../store';
+import { onClosePolizaModal, onCloseClienteModal, onCloseEventoModal, onCloseProspectoModal, onOpenPolizaModal, onOpenClienteModal, onOpenEventoModal, onOpenProspectoModal, onOpenBlogModal, onCloseBlogModal, onOpenSuscriptoresModal, onCloseSuscriptoresModal, onOpenNoticiaModal, onCloseNoticiaModal, onOpenCitaModal, onCloseCitaModal, onOpenNotaModal, onCloseNotaModal } from '../store';
 
 
 export const useUiStore = () => {
@@ -10,6 +10,7 @@ export const useUiStore = () => {
         isBlogModalOpen,
         isCitaModalOpen,
         isClienteModalOpen,
+        isNotaModalOpen,
         isEventoModalOpen,
         isNoticiaModalOpen,
         isPolizaModalOpen,
@@ -79,6 +80,14 @@ export const useUiStore = () => {
         dispatch( onCloseClienteModal() );
     }
 
+    const openNotaModal = () => {
+        dispatch( onOpenNotaModal() );
+    }
+
+    const closeNotaModal = () => {
+        dispatch( onCloseNotaModal() );
+    }
+
     const openProspectoModal = () => {
         dispatch( onOpenProspectoModal() );
     }
@@ -93,6 +102,7 @@ export const useUiStore = () => {
         isCitaModalOpen,
         isClienteModalOpen,
         isEventoModalOpen,
+        isNotaModalOpen,
         isNoticiaModalOpen,
         isPolizaModalOpen,
         isProspectoModalOpen,
@@ -103,6 +113,7 @@ export const useUiStore = () => {
         closeCitaModal,
         closeClienteModal,
         closeEventoModal,
+        closeNotaModal,
         closeNoticiaModal,
         closePolizaModal,
         closeProspectoModal,
@@ -111,6 +122,7 @@ export const useUiStore = () => {
         openCitaModal,
         openClienteModal,
         openEventoModal,
+        openNotaModal,
         openNoticiaModal,
         openPolizaModal,
         openProspectoModal,

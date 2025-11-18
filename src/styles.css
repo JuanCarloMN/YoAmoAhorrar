@@ -142,7 +142,7 @@
 }
 
 .menu-opciones .nav-item .btn {
-  font-size: 18px;
+  font-size: 18px !important;
 }
 
 .logo {

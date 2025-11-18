@@ -6,6 +6,7 @@ export const uiSlice = createSlice({
         isBlogModalOpen: false,
         isNoticiaModalOpen: false,
         isClienteModalOpen: false,
+        isNotaModalOpen: false,
         isCitaModalOpen: false,
         isEventoModalOpen: false,
         isPolizaModalOpen: false,
@@ -61,6 +62,12 @@ export const uiSlice = createSlice({
         onCloseClienteModal: ( state ) => {
             state.isClienteModalOpen = false;
         },
+        onOpenNotaModal: ( state ) => {
+            state.isNotaModalOpen = true;
+        },
+        onCloseNotaModal: ( state ) => {
+            state.isNotaModalOpen = false;
+        },
         onOpenProspectoModal: ( state ) => {
             state.isProspectoModalOpen = true;
         },
@@ -85,6 +92,9 @@ export const {
 
     onOpenClienteModal,
     onCloseClienteModal, 
+    
+    onOpenNotaModal,
+    onCloseNotaModal, 
     
     onOpenPolizaModal,
     onClosePolizaModal, 

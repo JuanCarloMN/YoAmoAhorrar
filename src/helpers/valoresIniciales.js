@@ -28,6 +28,11 @@ export const validaNoticia = {
     validaUsuario: '',
 }
 
+export const validaNota = {
+    validaDetalle: '',
+    validaCategoria: '',
+}
+
 export const formularioDatos = {
         datoNombre: '',
         datoApellidoP: '',
@@ -69,6 +74,21 @@ export const estiloModal = {
             bottom: 'auto',
             height: 'calc( 100vh - 100px )',
             width: 'calc( 100vw - 35px )',
+            marginRight: '-50%',
+            transform: 'translate(-50%, -50%)',
+        },
+    }
+
+export const estiloNotaModal = {
+        content: {
+            top: '50%',
+            left: '50%',
+            right: 'auto',
+            bottom: 'auto',
+            // height: 'calc( 100vh - 200px )',
+            // width: 'calc( 100vw - 600px )',
+            height: '800px',
+            width: '600px',
             marginRight: '-50%',
             transform: 'translate(-50%, -50%)',
         },
@@ -147,6 +167,14 @@ export const noticiaInicial = {
     noticiaUsuario: '',
     noticiaFecha: new Date(),
     noticiaFoto: []
+}
+
+export const notaInicial = {
+    notaCliente: '',
+    notaCategoria: '',
+    notaDetalle: '',
+    notaUsuario: '',
+    notaFecha: new Date(),
 }
 
 export const perfilInicial = {

@@ -1,5 +1,5 @@
 import { configureStore } from '@reduxjs/toolkit';
-import { agendaSlice, authSlice, clienteSlice, uiSlice, prospectoSlice, catalogoSlice, blogSlice, suscriptoresSlice, noticiaSlice, citaSlice, mensajeSlice, perfilSlice, indicadoresSlice } from './'
+import { agendaSlice, authSlice, clienteSlice, uiSlice, prospectoSlice, catalogoSlice, blogSlice, suscriptoresSlice, noticiaSlice, citaSlice, mensajeSlice, perfilSlice, indicadoresSlice, notaSlice } from './'
 
 export const store = configureStore({
     reducer: {
@@ -12,6 +12,7 @@ export const store = configureStore({
         indicadores: indicadoresSlice.reducer,
         iu: uiSlice.reducer,
         mensaje: mensajeSlice.reducer,
+        nota: notaSlice.reducer,
         noticia: noticiaSlice.reducer,
         perfil: perfilSlice.reducer,
         prospecto: prospectoSlice.reducer,

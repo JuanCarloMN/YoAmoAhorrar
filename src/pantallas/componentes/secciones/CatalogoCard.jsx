@@ -28,6 +28,7 @@ export const CatalogoCard = ( { tipo = 0, datos = [] } ) => {
             case 4: return 'TipoEstatus';
             case 5: return 'TipoMoneda';
             case 6: return 'TipoPago';
+            case 7: return 'TipoNota';
 
             default:
                 return '';
@@ -91,4 +92,3 @@ export const CatalogoCard = ( { tipo = 0, datos = [] } ) => {
         </div>
     )
 }
-

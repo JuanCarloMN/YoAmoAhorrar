@@ -1,4 +1,5 @@
 import Swal from "sweetalert2";
+import { useClienteStore } from "../hooks";
 
 export const nuevoDato = ( idCatalogo, titulo, startSalvarDato ) => {
     Swal.fire(

@@ -1,21 +1,28 @@
 import { useEffect } from "react";
 import { useSelector } from "react-redux";
-import { useProspectoStore, useUiStore } from "../../hooks";
+import { useNotaStore, useProspectoStore, useUiStore } from "../../hooks";
 import { ProspectoModal } from "../componentes/modal/ProspectoModal";
 
 import Swal from 'sweetalert2';
 import 'sweetalert2/dist/sweetalert2.min.css';
 import { cambiaCampos, exportarExcel, formularioDatos } from "../../helpers";
+import { NotaModal } from "../componentes/modal/NotaModal";
 
 export const ProspectosPage = () => {
 
-    const { openProspectoModal } = useUiStore()
+    const { openProspectoModal, openNotaModal } = useUiStore()
     const { startCargaProspectos, setProspectoActivo, starBorrarProspecto, startConvierteProspecto } = useProspectoStore()
     const { prospectos } = useSelector( state => state.prospecto );
     
     const nuevoProspecto = () => {
         setProspectoActivo( formularioDatos );
         openProspectoModal();
+    }
+    
+    const agregarNota = ( cliente ) => {
+        const datoActivo = cambiaCampos( cliente, 1 );
+        setProspectoActivo( datoActivo );
+        openNotaModal();
     }
 
     const convertirCliente = ( prospecto ) => {
@@ -33,7 +40,7 @@ export const ProspectosPage = () => {
             if ( result.isConfirmed ) {
 
                 await startConvierteProspecto( prospecto );
-
+                await starBorrarProspecto( prospecto );
                 Swal.fire({
                     title: "Prospecto convertido a cliente",
                     icon: "success",
@@ -111,7 +118,11 @@ export const ProspectosPage = () => {
                                                 <button className="btn btn-outline-primary me-2" onClick={ () => editaProspecto( prospecto ) } aria-label="Editar prospecto" >
                                                     <i className="fa-solid fa-pen-to-square"></i>
                                                 </button>
-                                                
+
+                                                <button className="btn btn-outline-dark me-2" onClick={ () => agregarNota( prospecto ) } aria-label="Agregar nota de cliente" >
+                                                    <i className="fa-regular fa-comment-dots"></i>
+                                                </button>
+
                                                 <button className="btn btn-outline-success me-2" onClick={ () => convertirCliente( prospecto ) } aria-label="Convertir a cliente" >
                                                     <i className="fa-solid fa-circle-dollar-to-slot"></i>
                                                 </button>
@@ -132,6 +143,7 @@ export const ProspectosPage = () => {
             </div>
 
             <ProspectoModal />
+            <NotaModal tipo={ 2 } />
         </>
     )
 }

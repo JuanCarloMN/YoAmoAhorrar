@@ -4,6 +4,7 @@ export * from './DatosContacto';
 export * from './DatosInteres';
 export * from './DatosLaborales';
 export * from './DatosOtros';
+export * from './NotasHistoricasPage';
 export * from './PerfilConfiguracion';
 export * from './PerfilDatosUsuario';
 export * from './PerfilObjetivos';

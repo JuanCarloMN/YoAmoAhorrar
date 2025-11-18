@@ -54,6 +54,29 @@ export const useClienteStore = () => {
         }
     }
 
+    const startBuscaCliente = async ( clienteRFC ) => {
+        try {
+            const { data } = await clienteApi.get(`clientes/${ clienteRFC }`);
+
+            if ( !data ){
+                Swal.fire('Cliente no encontrado', 'RFC: ' + clienteRFC, 'info');
+            } else {
+                const cliente = convierteFechaCliente( data.cliente );
+    
+                console.log(data);
+                
+                dispatch( onCargarClientes( cliente ) );
+            }
+        } catch (error) {
+            console.log(error);
+            if ( error.response.status === 204 ){
+                Swal.fire('Cliente no encontrado', 'RFC: ' + clienteRFC, 'info');
+            } else {
+                Swal.fire('Error al buscar al cliente', error.response.data.msg, 'error');
+            }
+        }
+    }
+
     const startActualizaActivo = ( campo, valor ) => {
         clienteActivo[ campo ] = valor;
     }
@@ -68,6 +91,7 @@ export const useClienteStore = () => {
         setClienteActivo,
         startActualizaActivo,
         startBorrarCliente,
+        startBuscaCliente,
         startCargaClientes,
         startSalvarCliente,
     }

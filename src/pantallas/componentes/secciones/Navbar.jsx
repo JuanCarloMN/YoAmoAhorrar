@@ -1,31 +1,61 @@
 import { NavLink } from "react-router-dom";
 import { useEffect, useState } from "react";
 import { useAuthStore, useCatalogoStore } from "../../../hooks";
-import { obtenIndicadores } from "../../../helpers";
+import { useIndicadoresStore } from "../../../hooks/useIndicadoresStore";
+import { useDispatch, useSelector } from "react-redux";
+import { onCargarIndicadoresDolar, onCargarIndicadoresUDI } from "../../../store";
 
 export const Navbar = () => {
 
+    const dispatch = useDispatch();
     const { starLogout, usuario } = useAuthStore();
     const { startCargaCatalogos } = useCatalogoStore();
+    const { startCargarIndicadores } = useIndicadoresStore();
+
+    const { actualUDI, actualDolar } = useSelector( state => state.indicadores );
+    const hoy = new Date();
+    const fechaActual = `${hoy.getFullYear() - 1 }${ (hoy.getMonth() + 1).toString().padStart(2, '0') }${ hoy.getDate().toString().padStart(2, '0') }`;
 
     const [ valores, setValores ] = useState({
-        fecha: new Date(),
         valorUDI: 0,
         valorDolar: 0
     })
-    const obtenValores = async () => {
-        await obtenIndicadores();
 
-        setValores({
-            valorDolar: localStorage.getItem('valorDolar'),
-            valorUDI: localStorage.getItem('valorUDI')
-        })
+    const obtenValores = async () => {
+
+        const datosIndicadores = localStorage.getItem("datosIndicadores");
+
+        if ( !datosIndicadores ) {
+            startCargarIndicadores();
+        } else {
+            const losIndicadores = JSON.parse( datosIndicadores );
+            const fechaDatos = losIndicadores.fecha;
+                        
+            if ( fechaActual > fechaDatos ) {
+                startCargarIndicadores();
+            } else {
+                const serieUDI = import.meta.env.VITE_API_BANXICO_SERIE_UDI;
+                const serieDolar = import.meta.env.VITE_API_BANXICO_SERIE_DOLAR;
+                const datosUDI = losIndicadores.data.bmx.series.filter( indicador => indicador.idSerie === serieUDI );
+                const datosDolar = losIndicadores.data.bmx.series.filter( indicador => indicador.idSerie === serieDolar );
+    
+                dispatch( onCargarIndicadoresUDI( datosUDI[0] ) );
+                dispatch( onCargarIndicadoresDolar( datosDolar[0] ) );
+            }
+        }
     }
 
     useEffect( () => {
         obtenValores();
         startCargaCatalogos();
     }, []);
+
+    useEffect( () => {
+        setValores({
+            valorDolar: actualDolar,
+            valorUDI: actualUDI
+        });
+    }, [ actualDolar ])
 
     return (
         <nav className="navbar navbar-expand-md navbar-dark bg-dark p-1 ">
@@ -69,6 +99,8 @@ export const Navbar = () => {
                         <li className="nav-item dropdown mt-1">
                             <a href="#" className="btn btn-dark dropdown-toggle" role="button" data-bs-toggle="dropdown" aria-expanded="false" id="dropdown-menu" > Utilerías </a>
                             <ul className="dropdown-menu" aria-labelledby="dropdown-menu">
+                                <li><NavLink className="dropdown-item" to="/notas">Notas de mis clientes</NavLink></li>
+                                <li><hr className="dropdown-divider" /></li>
                                 <li><NavLink className="dropdown-item" to="/miblog">Entradas de Mi Blogs</NavLink></li>
                                 <li><NavLink className="dropdown-item" to="/noticias">Administrar Noticias</NavLink></li>
                                 <li><NavLink className="dropdown-item" to="/mensajes">Revisar Mensajes</NavLink></li>
@@ -87,20 +119,20 @@ export const Navbar = () => {
                 </div>
 
                 <div className="container menu-opciones text-light">
-                    <div className="row">
-                        <div className="col text-end">
+                    <div className="row d-flex p-0">
+                        <div className="col-4 text-start text-md-end p-0">
                             <small>UDI:</small>
                         </div>
-                        <div className="col text-start">
-                            <span>${ valores.valorUDI }</span>
+                        <div className="col-8 text-start">
+                            <small><span>${ valores.valorUDI }</span></small>
                         </div>
                     </div>
-                    <div className="row">
-                        <div className="col text-end">
+                    <div className="row d-flex">
+                        <div className="col-4 text-start text-md-end p-0">
                             <small>Dólar:</small>
                         </div>
-                        <div className="col text-start">
-                            <span>${ valores.valorDolar }</span>
+                        <div className="col-8 text-start">
+                            <small><span>${ valores.valorDolar }</span></small>
                         </div>
                     </div>
                 </div>
