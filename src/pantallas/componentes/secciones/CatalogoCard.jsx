@@ -29,7 +29,7 @@ export const CatalogoCard = ( { tipo = 0, datos = [] } ) => {
             case 5: return 'TipoMoneda';
             case 6: return 'TipoPago';
             case 7: return 'TipoNota';
-            case 7: return 'Aseguradoras';
+            case 8: return 'Aseguradoras';
 
             default:
                 return '';

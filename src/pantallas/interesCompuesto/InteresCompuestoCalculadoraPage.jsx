@@ -103,7 +103,7 @@ export const InteresCompuestoCalculadoraPage = () => {
         const valoresTotales = {
             deposito: valoresFormulario.depositoInicial,
             interes: datosInteres[ anos - 1 ].value,
-            aportacion: datosAportacion[ anos - 1 ].value,
+            aportacion: ( isNaN( datosAportacion[ anos - 1 ].value)) ? 0 : datosAportacion[ anos - 1 ].value,
             total: datosGrafica[ anos - 1 ].value,
             anos: valoresFormulario.anosInvertir
         };

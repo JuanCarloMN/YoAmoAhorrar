@@ -40,12 +40,15 @@ export const useCatalogoStore = () => {
 
     const starBorrarDato = async ( catalogo ) => {
         try {
-            const { data } = await catalogoApi.delete(`/catalogos/dato`, { data: catalogo } );
-            if ( data.ok ) {
-                dispatch( onBorrarDato( catalogo ) );
-                Swal.fire( { position: "top-end", icon: "success", html: "<h3>Información eliminada <br>de forma correcta</h3>", showConfirmButton: false, timer: 1000 } );
-            } else {
-                Swal.fire('Error al eliminar el dato del catálogo', data.errores, 'error');
+            if ( catalogo.idEliminar ) {
+                const { data } = await catalogoApi.delete(`/catalogos/eliminaDato/${ catalogo.id }`, catalogo );
+                if ( data.ok ) {
+                    dispatch( onBorrarDato( catalogo ) );
+                    Swal.fire( { position: "top-end", icon: "success", html: "<h3>Información eliminada <br>de forma correcta</h3>", showConfirmButton: false, timer: 1000 } );
+                } else {
+                    Swal.fire('Error al eliminar el dato del catálogo', data.errores, 'error');
+                }
+                return;
             }
         } catch (error) {
             Swal.fire('Error al eliminar el dato del catálogo', error.response.data.msg, 'error');
