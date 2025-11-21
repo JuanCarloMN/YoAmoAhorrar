@@ -1,6 +1,6 @@
 import Modal from 'react-modal';
 import { estiloNotaModal, formularioDatos, notaInicial, validaNota } from "../../../helpers"
-import { useClienteStore, useNotaStore, useProspectoStore, useUiStore } from '../../../hooks';
+import { useCatalogoStore, useClienteStore, useNotaStore, useProspectoStore, useUiStore } from '../../../hooks';
 import { useEffect, useState } from 'react';
 import { NotasHistoricasPage } from '../secciones';
 import { useSelector } from 'react-redux';
@@ -18,7 +18,8 @@ export const NotaModal = ( { tipo } ) => {
     const { startSalvarNota, startBuscaNotas, starLimpiarNotas } = useNotaStore();
     const { clienteActivo } = useClienteStore();
     const { prospectoActivo } = useProspectoStore();
-    const { catalogos } = useSelector( state => state.catalogo );
+    const { catalogos} = useCatalogoStore();
+
     const { usuario } = useSelector( state => state.auth );
 
     const catalogoNotas = catalogos.find( cat => cat.catalogoDescripcion === "Tipos de Nota" ) || { catalogoDatos: [] };
@@ -118,32 +119,37 @@ export const NotaModal = ( { tipo } ) => {
     return (
         <Modal isOpen={ isNotaModalOpen } style={ customStyles } overlayClassName="modal-fondo" closeTimeoutMS={ 200 } >
             <form className="container" onSubmit={ onSubmit }>
-                <div className="row">
-                    <div className="col d-flex justify-content-between align-items-end">
+                <div className="row d-flex justify-content-between ">
+                    <div className="col-10 ">
                         <h2>Notas del { tipo === 1 ? "cliente" : "prospecto" }</h2>
+                    </div>
+                    <div className="col-2 text-end">
+                        <button type="button" className="btn btn-outline-dark btn-block" onClick={ onCloseModal }>X</button>
                     </div>
                 </div>
                 <div className="form-group mb-5 card p-3">
-                    <div className="row d-flex">
-                        <div className="col-3 text-end">
-                            { tipo === 1 ? "Cliente" : "Prospecto" }:
+                    <div className="card border-secondary mb-3">
+                        <div className="row d-flex">
+                            <div className="col-3 text-end">
+                                { tipo === 1 ? "Cliente" : "Prospecto" }:
+                            </div>
+                            <div className="col-9 text-start fw-bold">
+                                { valoresFormulario.datoNombre + " " + valoresFormulario.datoApellidoP + " " + valoresFormulario.datoApellidoM }
+                            </div>
                         </div>
-                        <div className="col-9">
-                            { valoresFormulario.datoNombre + " " + valoresFormulario.datoApellidoP + " " + valoresFormulario.datoApellidoM }
-                        </div>
-                    </div>
-                    <div className="row d-flex mb-3">
-                        <div className="col-3 text-end">
-                            RFC:
-                        </div>
-                        <div className="col-9">
-                            { valoresFormulario.datoRFC }
+                        <div className="row d-flex">
+                            <div className="col-3 text-end">
+                                RFC:
+                            </div>
+                            <div className="col-9 text-start fw-bold">
+                                { valoresFormulario.datoRFC }
+                            </div>
                         </div>
                     </div>
                     <div className="row d-flex content-justify-between">
                         <div className="form-floating mb-3">
-                            <select className={ `form-select ${ validacion.validaCategoria }` } id="notaCategoria" name='notaCategoria' aria-label="Seleccione la categoría de la nota" value={ valoresNotas.notaCategoria } onChange={ onInputChange } >
-                                <option key="0" value="seleccion">Seleccione la categoría de la nota</option>
+                            <select className={ `form-select ${ validacion.validaCategoria }` } name="notaCategoria" value={ valoresNotas.notaCategoria } onChange={ onInputChange } >
+                                <option key="0" value=""></option>
                                 { catalogoNotas.catalogoDatos.map( ( catalogo ) => {
                                     return (
                                         <option key={ catalogo._id } value={ catalogo.descripcion }>
@@ -157,12 +163,12 @@ export const NotaModal = ( { tipo } ) => {
                     </div>
                     <div className="row d-flex content-justify-between mb-3">
                         <div className="form-floating col">
-                            <textarea type="text" className={`notas form-control ${ validacion.validaDetalle }` } placeholder="Detalle de la nota" style={{ height: 120 }} value={ valoresNotas.notaDetalle } onChange={ onInputChange } name="notaDetalle" id='notas' />
+                            <textarea type="text" className={`notas form-control ${ validacion.validaDetalle }` } style={{ height: 120 }} value={ valoresNotas.notaDetalle } onChange={ onInputChange } name="notaDetalle" />
                             <label htmlFor="notas">Detalle de la nota</label>
                         </div>
                     </div>
-                        <div className="col d-flex justify-content-between">
-                            <button type="submit" className="btn btn-outline-primary btn-block me-5">
+                        <div className="col d-flex justify-content-center">
+                            <button type="submit" className="btn btn-outline-success btn-block me-5">
                                 <span> Guardar</span>
                             </button>
 

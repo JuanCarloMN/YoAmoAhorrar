@@ -1,11 +1,9 @@
 import { useEffect } from "react";
 import { useNoticiaStore } from "../../hooks";
-import { useSelector } from "react-redux";
 import moment from "moment";
 
 const NewsEntradasPage = () => {
-    const { startCargarNoticias } = useNoticiaStore();
-    const { noticias } = useSelector( state => state.noticia );
+    const { noticias, startCargarNoticias } = useNoticiaStore();
 
 	useEffect( () => {
         startCargarNoticias();

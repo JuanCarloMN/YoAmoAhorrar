@@ -1,17 +1,9 @@
-import { useEffect } from "react"
-import { useIndicadoresStore } from "../../hooks/useIndicadoresStore"
 import { FAQPage } from "../faq/FAQPage"
 import { IndicadoresPage } from "../indicadores/IndicadoresPage"
 import { InteresCompuestoPage } from "../interesCompuesto/InteresCompuestoPage"
 import { PerfilInversorTestContenidoPage } from "../perfilInversorTest/PerfilInversorTestContenidoPage"
 
 export const HerramientasDatosPage = () => {
-
-    // const { startCargarIndicadores } = useIndicadoresStore()
-    
-    // useEffect( () => {
-    //     startCargarIndicadores();
-    // }, []);
 
     return (
         <div className="container">

@@ -33,21 +33,21 @@ export const DatosLaborales = ( { valoresFormulario, setValoresFormulario } ) =>
                 <div className="accordion-body me-2">
                     <div className="form-group d-flex justify-content-between mt-2">
                         <div className="form-floating me-2 col-4">
-                            <input type="text" className="form-control" placeholder="Empresa donde trabaja" autoComplete="on" value={ valoresFormulario.datoEmpresa } onChange={ onInputChange } name="datoEmpresa" id='empresa' />
+                            <input type="text" className="form-control" autoComplete="on" value={ valoresFormulario.datoEmpresa } onChange={ onInputChange } name="datoEmpresa" />
                             <label htmlFor="empresa">Empresa donde trabaja</label>
                         </div>
                         <div className="form-floating me-2 col-4">
-                            <input type="text" className="form-control" placeholder="Puesto" autoComplete="on" value={ valoresFormulario.datoPuesto } onChange={ onInputChange } name="datoPuesto" id='puesto' />
+                            <input type="text" className="form-control" autoComplete="on" value={ valoresFormulario.datoPuesto } onChange={ onInputChange } name="datoPuesto" />
                             <label htmlFor="puesto">Puesto</label>
                         </div>
                         <div className="form-floating col-4">
-                            <input type="text" className="form-control" placeholder="Antigüedad" autoComplete="on" value={ valoresFormulario.datoAntiguedad } onChange={ onInputChange } name="datoAntiguedad" id='antiguedad' />
+                            <input type="text" className="form-control" autoComplete="on" value={ valoresFormulario.datoAntiguedad } onChange={ onInputChange } name="datoAntiguedad" />
                             <label htmlFor="antiguedad">Antigüedad</label>
                         </div>
                     </div>
                     <div className="form-group d-flex justify-content-between mt-2">
                         <div className="form-floating col-12">
-                            <input type="text" className="form-control" placeholder="Actividades que desempeña" autoComplete="on" value={ valoresFormulario.datoActividades } onChange={ onInputChange } name="datoActividades" id='actividades' />
+                            <input type="text" className="form-control" autoComplete="on" value={ valoresFormulario.datoActividades } onChange={ onInputChange } name="datoActividades" />
                             <label htmlFor="actividades">Actividades que desempeña</label>
                         </div>
                     </div>

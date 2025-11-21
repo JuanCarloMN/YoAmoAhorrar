@@ -11,4 +11,3 @@ export const CitaEvento = ( { event } ) => {
         </>
     )
 }
-

@@ -4,7 +4,7 @@ import 'react-big-calendar/lib/css/react-big-calendar.css';
 
 import { citaLocalizer, getMessagesES } from "../../helpers"
 import { useCitaStore } from "../../hooks/useCitaStore";
-import { useDispatch, useSelector } from "react-redux";
+import { useDispatch } from "react-redux";
 import { CitasToolbar, FabCita, CitaEvento, CitaModal } from "../componentes/cita";
 import { useUiStore } from "../../hooks";
 
@@ -12,10 +12,9 @@ export const CitasCalendarioPage = () => {
     const fechaActual = new Date();
     const fechaAgenda = (localStorage.getItem('fechaAgenda')) ? localStorage.getItem('fechaAgenda') : fechaActual;
 
-    const { citas } = useSelector( state => state.cita );
     const [ ultimaVista, setUltimaVista ] = useState( localStorage.getItem('ultimaVista') || 'month' );
     const [ fecha, setFecha ] = useState( fechaAgenda );
-    const { setCitaActiva, startCargarCitas } = useCitaStore();
+    const { citas, setCitaActiva, startCargarCitas } = useCitaStore();
     const { openCitaModal } = useUiStore();
     const dispatch = useDispatch();
 

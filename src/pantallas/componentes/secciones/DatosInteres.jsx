@@ -33,29 +33,29 @@ export const DatosInteres = ( { valoresFormulario, setValoresFormulario } ) => {
                 <div className="accordion-body me-2">
                     <div className="form-group d-flex mt-2 mb-0 justify-content-between">    
                         <div className="form-floating me-2 col-4">
-                            <input type="text" className="form-control" placeholder="Conyugue" autoComplete="on" value={ valoresFormulario.datoConyugue } onChange={ onInputChange } name="datoConyugue" id='conyugue' />
+                            <input type="text" className="form-control" autoComplete="on" value={ valoresFormulario.datoConyugue } onChange={ onInputChange } name="datoConyugue" />
                             <label htmlFor="antiguedad">Conyugue</label>
                         </div>
                         <div className="form-floating me-2 col-4">
-                            <input type="text" className="form-control" placeholder="Número de hijos" autoComplete="on" value={ valoresFormulario.datoNumeroHijos } onChange={ onInputChange } name="datoNumeroHijos" id='hijos' />
+                            <input type="text" className="form-control" autoComplete="on" value={ valoresFormulario.datoNumeroHijos } onChange={ onInputChange } name="datoNumeroHijos" />
                             <label htmlFor="hijos">Número de hijos</label>
                         </div>
                         <div className="form-floating col-4">
-                            <input type="text" className="form-control" placeholder="Tipo de vivienda" autoComplete="on" value={ valoresFormulario.datoTipoVivienda } onChange={ onInputChange } name="datoTipoVivienda" id='vivienda' />
+                            <input type="text" className="form-control" autoComplete="on" value={ valoresFormulario.datoTipoVivienda } onChange={ onInputChange } name="datoTipoVivienda" />
                             <label htmlFor="vivienda">Tipo de vivienda</label>
                         </div>
                     </div>
                     <div className="form-group d-flex mt-2 mb-0 p-0 justify-content-between">
                         <div className="form-floating me-2 col-4">
-                            <input type="text" className="form-control" placeholder="Pasatiempo" autoComplete="on" value={ valoresFormulario.datoPasatiempo } onChange={ onInputChange } name="datoPasatiempo" id='pasatiempo' />
+                            <input type="text" className="form-control" autoComplete="on" value={ valoresFormulario.datoPasatiempo } onChange={ onInputChange } name="datoPasatiempo" />
                             <label htmlFor="pasatiempo">Pasatiempo</label>
                         </div>
                         <div className="form-floating me-2 col-4">
-                            <input type="text" className="form-control" placeholder="Mascotas" autoComplete="on" value={ valoresFormulario.datoMascotas } onChange={ onInputChange } name="datoMascotas" id='mascotas' />
+                            <input type="text" className="form-control" autoComplete="on" value={ valoresFormulario.datoMascotas } onChange={ onInputChange } name="datoMascotas" />
                             <label htmlFor="mascotas">Mascotas</label>
                         </div>
                         <div className="form-floating col-4">
-                        <input type="text" className="form-control" placeholder="Deporte favorito" autoComplete="on" value={ valoresFormulario.datoDeporte } onChange={ onInputChange } name="datoDeporte" id='deporte' />
+                        <input type="text" className="form-control" autoComplete="on" value={ valoresFormulario.datoDeporte } onChange={ onInputChange } name="datoDeporte" />
                         <label htmlFor="deporte">Deporte favorito</label>
                         </div>
                     </div>

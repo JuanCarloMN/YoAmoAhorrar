@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react';
 import Modal from 'react-modal';
 
-import { useProspectoStore, useUiStore } from '../../../hooks';
+import { useCatalogoStore, useProspectoStore, useUiStore } from '../../../hooks';
 import { cambiaCampos, estiloModal, formularioDatos, validacionDatos, validaFormulario } from '../../../helpers';
 import { DatosBasicos, DatosContacto, DatosInteres, DatosLaborales, DatosOtros } from '../secciones';
 
@@ -15,8 +15,12 @@ const inicioFormulario = formularioDatos;
 export const ProspectoModal = () => {
     const [ validaciones, setValidaciones ] = useState( inicioValidacion );
     const [ valoresFormulario, setValoresFormulario ] = useState( inicioFormulario );
+    const [ estadoCivil, setEstadoCivil ] = useState([{_id: '0', descripcion: ''}]);
+    const [ escolaridad, setEscolaridad ] = useState([{_id: '0', descripcion: ''}]);
     const { isProspectoModalOpen, closeProspectoModal } = useUiStore();
     const { prospectoActivo, startSalvarProspecto, setProspectoActivo } = useProspectoStore();
+    const { catalogos } = useCatalogoStore();
+    
 
     const validaCampos = () => {
         let todoBien = true;
@@ -86,6 +90,14 @@ export const ProspectoModal = () => {
         setValidaciones( inicioValidacion );
     }, [ prospectoActivo ]);
 
+    useEffect( () => {
+        const estados = catalogos.find( catalogo => catalogo.catalogoDescripcion === 'Estado Civil')?.catalogoDatos || [];
+        setEstadoCivil( estados );     
+
+        const escolaridad = catalogos.find( catalogo => catalogo.catalogoDescripcion === 'Escolaridad')?.catalogoDatos || [];
+        setEscolaridad( escolaridad );
+    }, [ catalogos ]);
+
     return (
         <Modal isOpen={ isProspectoModalOpen } style={ customStyles } overlayClassName="modal-fondo" closeTimeoutMS={ 200 } >
             <form className="container" onSubmit={ onSubmit }>
@@ -108,7 +120,7 @@ export const ProspectoModal = () => {
                 <div className="container border p-3">
                     <div className="accordion accordion-flush " id="datos">
                         {/* Datos básicos */}
-                        <DatosBasicos valoresFormulario={ valoresFormulario } setValoresFormulario={ setValoresFormulario } />
+                        <DatosBasicos valoresFormulario={ valoresFormulario } setValoresFormulario={ setValoresFormulario } estadoCivil={ estadoCivil } escolaridad={ escolaridad } />
 
                         {/* Datos de contacto */}
                         <DatosContacto valoresFormulario={ valoresFormulario } setValoresFormulario={ setValoresFormulario } />
@@ -127,4 +139,3 @@ export const ProspectoModal = () => {
         </Modal>
     )
 }
-

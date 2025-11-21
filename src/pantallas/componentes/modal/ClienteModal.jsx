@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react';
 import Modal from 'react-modal';
 
-import { useClienteStore, useUiStore } from '../../../hooks';
+import { useCatalogoStore, useClienteStore, useUiStore } from '../../../hooks';
 import { cambiaCampos, estiloModal, formularioDatos, validacionDatos, validaFormulario } from '../../../helpers';
 import { DatosBasicos, DatosContacto, DatosInteres, DatosLaborales, DatosOtros } from '../secciones';
 
@@ -13,10 +13,14 @@ const inicioValidacion = validacionDatos;
 const inicioFormulario = formularioDatos;
 
 export const ClienteModal = () => {
-    const [ validaciones, setValidaciones ] = useState( inicioValidacion );
-    const [ valoresFormulario, setValoresFormulario ] = useState( inicioFormulario );
     const { isClienteModalOpen, closeClienteModal } = useUiStore();
     const { clienteActivo, startSalvarCliente, setClienteActivo } = useClienteStore();
+    const { catalogos } = useCatalogoStore();
+    
+    const [ validaciones, setValidaciones ] = useState( inicioValidacion );
+    const [ valoresFormulario, setValoresFormulario ] = useState( inicioFormulario );
+    const [ estadoCivil, setEstadoCivil ] = useState([{_id: '0', descripcion: ''}]);
+    const [ escolaridad, setEscolaridad ] = useState([{_id: '0', descripcion: ''}]);
 
     const validaCampos = () => {
         let todoBien = true;
@@ -82,9 +86,16 @@ export const ClienteModal = () => {
         } else {
             setValoresFormulario( inicioFormulario )
         }
-
         setValidaciones( inicioValidacion );
     }, [ clienteActivo ]);
+
+    useEffect( () => {
+        const estados = catalogos.find( catalogo => catalogo.catalogoDescripcion === 'Estado Civil')?.catalogoDatos || [];
+        setEstadoCivil( estados );     
+
+        const escolaridad = catalogos.find( catalogo => catalogo.catalogoDescripcion === 'Escolaridad')?.catalogoDatos || [];
+        setEscolaridad( escolaridad );
+    }, [ catalogos ]);
 
     return (
         <Modal isOpen={ isClienteModalOpen } style={ customStyles } overlayClassName="modal-fondo" closeTimeoutMS={ 200 } >
@@ -108,7 +119,7 @@ export const ClienteModal = () => {
                 <div className="container border p-3">
                     <div className="accordion accordion-flush " id="datos">
                         {/* Datos básicos */}
-                        <DatosBasicos valoresFormulario={ valoresFormulario } setValoresFormulario={ setValoresFormulario } />
+                        <DatosBasicos valoresFormulario={ valoresFormulario } setValoresFormulario={ setValoresFormulario } estadoCivil={ estadoCivil } escolaridad={ escolaridad } />
 
                         {/* Datos de contacto */}
                         <DatosContacto valoresFormulario={ valoresFormulario } setValoresFormulario={ setValoresFormulario } />

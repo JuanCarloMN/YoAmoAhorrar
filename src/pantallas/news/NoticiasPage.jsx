@@ -1,4 +1,3 @@
-import { useSelector } from "react-redux";
 import { noticiaInicial } from "../../helpers";
 import { useUiStore } from "../../hooks";
 import { useNoticiaStore } from "../../hooks/useNoticiaStore";
@@ -9,8 +8,7 @@ import Swal from "sweetalert2";
 
 export const NoticiasPage = () => {
     const { openNoticiaModal } = useUiStore();
-    const { startCargarNoticias, setNoticiaActiva, startBorrarNoticia} = useNoticiaStore()
-    const { noticias } = useSelector( state => state.noticia );
+    const { noticias, startCargarNoticias, setNoticiaActiva, startBorrarNoticia} = useNoticiaStore()
     
     const nuevaNoticia= () => {        
         setNoticiaActiva( noticiaInicial );
@@ -102,4 +100,3 @@ export const NoticiasPage = () => {
         </>
     )
 }
-

@@ -17,6 +17,11 @@ export const useClienteStore = () => {
         dispatch( onSetClienteActivo( cliente ) );
     }
 
+    const setLimpiarClientes = () => {
+        dispatch( onCargarClientes( [] ) );
+        setClienteActivo( null );
+    }
+
     const startSalvarCliente = async ( cliente ) => {
         try {
             
@@ -61,14 +66,10 @@ export const useClienteStore = () => {
             if ( !data ){
                 Swal.fire('Cliente no encontrado', 'RFC: ' + clienteRFC, 'info');
             } else {
-                const cliente = convierteFechaCliente( data.cliente );
-    
-                console.log(data);
-                
+                const cliente = convierteFechaCliente( data.cliente );                
                 dispatch( onCargarClientes( cliente ) );
             }
         } catch (error) {
-            console.log(error);
             if ( error.response.status === 204 ){
                 Swal.fire('Cliente no encontrado', 'RFC: ' + clienteRFC, 'info');
             } else {
@@ -89,6 +90,7 @@ export const useClienteStore = () => {
 
         // // Métodos
         setClienteActivo,
+        setLimpiarClientes,
         startActualizaActivo,
         startBorrarCliente,
         startBuscaCliente,

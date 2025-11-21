@@ -13,7 +13,6 @@ export * from './paginas/AgendaPage';
 export * from './paginas/CatalogosPage';
 export * from './paginas/ClientesPage';
 export * from './paginas/MensajesPage';
-export * from './paginas/NotasPage';
 export * from './paginas/PerfilInversorPage';
 export * from './paginas/PerfilPage';
 export * from './paginas/PolizasPage';

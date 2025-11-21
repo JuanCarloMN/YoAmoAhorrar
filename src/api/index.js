@@ -9,5 +9,6 @@ export { default as mensajeApi } from './mensajeApi';
 export { default as notaApi } from './notaApi';
 export { default as noticiaApi } from './noticiaApi';
 export { default as perfilApi } from './perfilApi';
+export { default as polizaApi } from './polizaApi';
 export { default as prospectoApi } from './prospectoApi';
 export { default as suscriptorApi } from './suscriptorApi';

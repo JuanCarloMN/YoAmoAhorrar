@@ -121,19 +121,19 @@ export const MiBlogModal = () => {
                 <div className='container border p-3' >
                     <div className="form-group d-flex justify-content-between align-items-end me-3 mb-3">
                         <div className="form-floating col-7">
-                            <input type="text" className={ `form-control ${ validaciones.validaTitulo }` } placeholder="Título de la entrada" autoComplete="on" value={ valoresFormulario.blogTitulo } onChange={ onInputChange } name="blogTitulo" id='titulo' />
+                            <input type="text" className={ `form-control ${ validaciones.validaTitulo }` } autoComplete="on" value={ valoresFormulario.blogTitulo } onChange={ onInputChange } name="blogTitulo" />
                             <label htmlFor="titulo">Título de la entrada</label>
                         </div>
                         <div className="col-4">
                             <div className="form-floating col">
-                                <input type="text" className={ `form-control ${ validaciones.validaCategoria }` } placeholder="Categoría de la entrada" autoComplete="on" value={ valoresFormulario.blogCategoria } onChange={ onInputChange } name="blogCategoria" id='categoria' />
+                                <input type="text" className={ `form-control ${ validaciones.validaCategoria }` } autoComplete="on" value={ valoresFormulario.blogCategoria } onChange={ onInputChange } name="blogCategoria" />
                                 <label htmlFor="categoria">Categoría</label>
                             </div>
                         </div>
                     </div>
                     <div className="form-group d-flex justify-content-between align-items-end me-3 mb-3">
                         <div className="form-floating col">
-                            <textarea type="text" className={ `notas form-control ${ validaciones.validaDetalle }` } placeholder="Detalle de la entrada" style={{ height: 300 }} value={ valoresFormulario.blogDetalle } onChange={ onInputChange } name="blogDetalle" id='detalle' />
+                            <textarea type="text" className={ `notas form-control ${ validaciones.validaDetalle }` } style={{ height: 300 }} value={ valoresFormulario.blogDetalle } onChange={ onInputChange } name="blogDetalle" />
                             <label htmlFor="detalle">Detalle de la entrada</label>
                         </div>
                     </div>
@@ -152,7 +152,6 @@ export const MiBlogModal = () => {
                                     locale="es"
                                     registerLocale
                                     name="blogFecha"
-                                    id='fecha'
                                     popperPlacement="top-start"
                                     placeholder="Fecha de publicación"
                                 />
@@ -160,7 +159,7 @@ export const MiBlogModal = () => {
                         </div>
                         <div className="col-7">
                             <div className="form-floating col">
-                                <input type="text" className={ `form-control ${ validaciones.validaUsuario }` } placeholder="Autor de la entrada" autoComplete="on" value={ valoresFormulario.blogUsuario } onChange={ onInputChange } name="blogUsuario" id='autor' />
+                                <input type="text" className={ `form-control ${ validaciones.validaUsuario }` } autoComplete="on" value={ valoresFormulario.blogUsuario } onChange={ onInputChange } name="blogUsuario" />
                                 <label htmlFor="autor">Autor</label>
                             </div>
                         </div>

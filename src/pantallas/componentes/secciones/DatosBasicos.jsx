@@ -1,5 +1,4 @@
 import { useState } from "react";
-import { useSelector } from "react-redux";
 import { validaCampo, validacionDatos } from "../../../helpers";
 import ReactInputMask from "react-input-mask";
 import DatePicker from 'react-datepicker';
@@ -8,10 +7,8 @@ import Swal from "sweetalert2";
 const inicioValidacion = validacionDatos;
 const anoActual = new Date().getFullYear() - 2000;
 
-export const DatosBasicos = ( { valoresFormulario, setValoresFormulario } ) => {
-
+export const DatosBasicos = ( { valoresFormulario, setValoresFormulario, estadoCivil, escolaridad } ) => {
     const [ validaciones, setValidaciones ] = useState( inicioValidacion );
-    const { catalogos } = useSelector( state => state.catalogo );
 
     const onInputChange = ({ target }) => {
         const valor = ( target.value ) ? '' : 'is-invalid'
@@ -94,37 +91,37 @@ export const DatosBasicos = ( { valoresFormulario, setValoresFormulario } ) => {
                 <div className="accordion-body me-2">
                     <div className="form-group d-flex mt-2 mb-0 justify-content-between">    
                         <div className="form-floating me-2 col-4">
-                                <input type="text" className={ `form-control ${ validaciones.validaNombre }` } placeholder="Nombre(s)" autoComplete="on" value={ valoresFormulario.datoNombre } onChange={ onInputChange } name="datoNombre" id='nombre' />
-                                <label htmlFor="nombre">Nombre(s)</label>
+                            <input type="text" className={ `form-control ${ validaciones.validaNombre }` } autoComplete="on" value={ valoresFormulario.datoNombre } onChange={ onInputChange } name="datoNombre" />
+                            <label htmlFor="nombre">Nombre(s)</label>
                         </div>
                         <div className="form-floating me-2 col-4">
-                            <input type="text" className="form-control" placeholder="Apellido paterno" autoComplete="on" value={ valoresFormulario.datoApellidoP } onChange={ onInputChange } name="datoApellidoP" id='paterno' />
+                            <input type="text" className="form-control" autoComplete="on" value={ valoresFormulario.datoApellidoP } onChange={ onInputChange } name="datoApellidoP" />
                             <label htmlFor="paterno">Apellido paterno</label>
                         </div>
                         <div className="form-floating col-4">
-                            <input type="text" className="form-control" placeholder="Apellido materno" autoComplete="on" value={ valoresFormulario.datoApellidoM } onChange={ onInputChange } name="datoApellidoM" id='materno' />
+                            <input type="text" className="form-control" autoComplete="on" value={ valoresFormulario.datoApellidoM } onChange={ onInputChange } name="datoApellidoM" />
                             <label htmlFor="materno">Apellido materno</label>
                         </div>
                     </div>
                     <div className="form-group d-flex justify-content-between mt-2 align-items-end">
                         <div className="form-floating me-2 col-4">
-                            <ReactInputMask  type="text"  className={ `form-control ${ validaciones.validaRFC }` } mask="aaaa-999999-***" maskChar="" placeholder="RFC" autoComplete="on" value={ valoresFormulario.datoRFC } onChange={ onRFCChange } name="datoRFC" id='rfc' />
+                            <ReactInputMask  type="text"  className={ `form-control ${ validaciones.validaRFC }` } mask="aaaa-999999-***" maskChar="" autoComplete="on" value={ valoresFormulario.datoRFC } onChange={ onRFCChange } name="datoRFC" />
                             <label htmlFor="rfc">RFC</label>
                         </div>
                         <div className="form-floating me-2 col-4">
-                            <ReactInputMask type="text"  className={ `form-control ${ validaciones.validaCURP }` } mask="aaaa999999aaaaaa**" maskChar="" placeholder="CURP" autoComplete="on" value={ valoresFormulario.datoCURP } onChange={ onCURPChange } name="datoCURP" id='curp' />
+                            <ReactInputMask type="text"  className={ `form-control ${ validaciones.validaCURP }` } mask="aaaa999999aaaaaa**" maskChar="" autoComplete="on" value={ valoresFormulario.datoCURP } onChange={ onCURPChange } name="datoCURP" />
                             <label htmlFor="curp">CURP</label>
                         </div>
                         <div className="form-item col-4 ">
                             <label className="form-label" htmlFor="nacimiento" >Fecha de nacimiento</label>
-                            <DatePicker selected={ (valoresFormulario.datoNacimiento) } onChange={ ( fecha ) => onNacimientoChanged( fecha, 'datoNacimiento' ) } dateFormat="dd-MMM-yyyy" wrapperClassName="datePicker" maxDate={ new Date() } dropdownMode="select" className={ `form-control ${ validaciones.validaNacimiento }` } locale="es" registerLocale name="datoNacimiento" id='nacimiento' popperPlacement="top-start" placeholder="Fecha de nacimiento" />
+                            <DatePicker selected={ (valoresFormulario.datoNacimiento) } onChange={ ( fecha ) => onNacimientoChanged( fecha, 'datoNacimiento' ) } dateFormat="dd-MMM-yyyy" wrapperClassName="datePicker" maxDate={ new Date() } dropdownMode="select" className={ `form-control ${ validaciones.validaNacimiento }` } locale="es" registerLocale name="datoNacimiento" id='nacimiento' popperPlacement="top-start" />
                         </div>
                     </div>
                     <div className="form-group d-flex justify-content-between mt-3 align-items-end">
                         <div className="form-floating me-2 col-4">
-                            <select className="form-select" id="colonia" name='datoEstadoCivil' aria-label="Seleccione el estado civil" value={ valoresFormulario.datoEstadoCivil } onChange={ onInputChange } >
-                                <option key="0" value="seleccion">Seleccione el estado civil</option>
-                                { catalogos[0].catalogoDatos.map( ( catalogo ) => {
+                            <select className="form-select" name="datoEstadoCivil" value={ valoresFormulario.datoEstadoCivil } onChange={ onInputChange } >
+                                <option key="0" value=""></option>
+                                { estadoCivil.map( ( catalogo ) => {
                                     return (
                                         <option key={ catalogo._id } value={ catalogo.descripcion }>
                                             { catalogo.descripcion }
@@ -135,8 +132,8 @@ export const DatosBasicos = ( { valoresFormulario, setValoresFormulario } ) => {
                             <label htmlFor="colonia">Estado Civil</label>
                         </div>
                         <div className="form-floating me-2 col-4">
-                            <select className="form-select" id="ciudad" name='datoSexo' aria-label="Seleccione el sexo" value={ valoresFormulario.datoSexo } onChange={ onInputChange } >
-                                <option key="0" value="seleccion">Seleccione el sexo</option>
+                            <select className="form-select" name="datoSexo" value={ valoresFormulario.datoSexo } onChange={ onInputChange } >
+                                <option key="0" value=""></option>
                                 <option key="1" value="Hombre">Hombre</option>
                                 <option key="2" value="Mujer">Mujer</option>
                                 <option key="3" value="Otro">Otro</option>
@@ -144,9 +141,9 @@ export const DatosBasicos = ( { valoresFormulario, setValoresFormulario } ) => {
                             <label htmlFor="ciudad">Sexo</label>
                         </div>
                         <div className="form-floating col-4">
-                            <select className="form-select" id="estado" name='datoEscolaridad' aria-label="Seleccione la escolaridad" value={ valoresFormulario.datoEscolaridad } onChange={ onInputChange } >
-                                <option key="0" value="seleccion">Seleccione la escolaridad</option>
-                                { catalogos[4].catalogoDatos.map( ( catalogo ) => {
+                            <select className="form-select" name="datoEscolaridad" value={ valoresFormulario.datoEscolaridad } onChange={ onInputChange } >
+                                <option key="0" value=""></option>
+                                { escolaridad.map( ( catalogo ) => {
                                     return (
                                         <option key={ catalogo._id } value={ catalogo.descripcion }>
                                             { catalogo.descripcion }
@@ -162,4 +159,3 @@ export const DatosBasicos = ( { valoresFormulario, setValoresFormulario } ) => {
         </div> 
     )
 }
-

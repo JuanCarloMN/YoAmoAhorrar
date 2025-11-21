@@ -23,6 +23,16 @@ export const convierteFechaCliente = ( clientes = [] ) => {
     });
 }
 
+export const convierteFechaPoliza = ( polizas = [] ) => {
+
+    return polizas.map( poliza => {
+       
+        poliza.polizaFecha = parseISO( poliza.polizaFecha );
+        
+        return poliza;
+    });
+}
+
 export const convierteFechaNotas = ( notas = [] ) => {
 
     return notas.map( nota => {

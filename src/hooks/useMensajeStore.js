@@ -2,11 +2,13 @@ import { mensajeApi } from '../api';
 import Swal from 'sweetalert2';
 import { convierteFechaMensaje } from '../helpers';
 import { onActualizaMensaje, onCargarMensajes } from '../store/slice/mensajeSlice';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 
 export const useMensajeStore = () => {
 
     const dispatch = useDispatch();
+    const { mensajes } = useSelector( state => state.mensaje );
+
     const startSalvarMensaje = async ( mensaje ) => {
         
         try {
@@ -49,14 +51,10 @@ export const useMensajeStore = () => {
  
     return {
         // Propiedades
-        // eventoActivo,
-        // eventos,
-        // eventosTipo,
-        // hayEventoSeleccionado: !!eventoActivo,
+        mensajes,
+
 
         // Métodos
-        // setEventoActivo,
-        // startBorrarEvento,
         startCargarMensajes,
         startSalvarMensaje,
     }

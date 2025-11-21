@@ -178,4 +178,3 @@ export const PerfilInversorTestCuestionarioPage = ( { onRespuestaChange, resulta
         </>
     )
 }
-

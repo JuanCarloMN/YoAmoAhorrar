@@ -9,6 +9,7 @@ export * from './useMensajeStore';
 export * from './useNotaStore';
 export * from './useNoticiaStore';
 export * from './usePerfilStore';
+export * from './usePolizaStore';
 export * from './useProspectoStore';
 export * from './useSuscriptoresStore';
 export * from './useUiStore';

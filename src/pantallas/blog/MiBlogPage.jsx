@@ -1,5 +1,4 @@
 import { useEffect } from "react";
-import { useSelector } from "react-redux";
 import { useBlogStore, useUiStore } from "../../hooks";
 
 import Swal from 'sweetalert2';
@@ -12,8 +11,7 @@ import { ListaSuscriptores } from "./ListaSuscriptores";
 export const MiBlogPage = () => {
 
     const { openBlogModal, openSuscriptoresModal } = useUiStore()
-    const { startCargarBlogs, setBlogActivo, startBorrarBlog } = useBlogStore();
-    const { blogs } = useSelector( state => state.blog );
+    const { blogs, startCargarBlogs, setBlogActivo, startBorrarBlog } = useBlogStore();
     
     const nuevoBlog= () => {        
         setBlogActivo( blogInicial );

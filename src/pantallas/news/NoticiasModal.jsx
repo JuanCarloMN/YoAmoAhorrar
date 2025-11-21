@@ -1,5 +1,3 @@
-
-
 import { useEffect, useState } from 'react';
 import Modal from 'react-modal';
 import ReactDatePicker from "react-datepicker";
@@ -118,19 +116,19 @@ export const NoticiasModal = () => {
                 <div className='container border p-3' >
                     <div className="form-group d-flex justify-content-between align-items-end me-3 mb-3">
                         <div className="form-floating col-7">
-                            <input type="text" className={ `form-control ${ validaciones.validaTitulo }` } placeholder="Título de la entrada" autoComplete="on" value={ valoresFormulario.noticiaTitulo } onChange={ onInputChange } name="noticiaTitulo" id='titulo' />
+                            <input type="text" className={ `form-control ${ validaciones.validaTitulo }` } autoComplete="on" value={ valoresFormulario.noticiaTitulo } onChange={ onInputChange } name="noticiaTitulo" />
                             <label htmlFor="titulo">Título de la noticia</label>
                         </div>
                         <div className="col-4">
                             <div className="form-floating col">
-                                <input type="text" className={ `form-control ${ validaciones.validaCategoria }` } placeholder="Categoría de la entrada" autoComplete="on" value={ valoresFormulario.noticiaCategoria } onChange={ onInputChange } name="noticiaCategoria" id='categoria' />
+                                <input type="text" className={ `form-control ${ validaciones.validaCategoria }` } autoComplete="on" value={ valoresFormulario.noticiaCategoria } onChange={ onInputChange } name="noticiaCategoria" />
                                 <label htmlFor="categoria">Categoría</label>
                             </div>
                         </div>
                     </div>
                     <div className="form-group d-flex justify-content-between align-items-end me-3 mb-3">
                         <div className="form-floating col">
-                            <textarea type="text" className={ `notas form-control ${ validaciones.validaDetalle }` } placeholder="Detalle de la entrada" style={{ height: 300 }} value={ valoresFormulario.noticiaDetalle } onChange={ onInputChange } name="noticiaDetalle" id='detalle' />
+                            <textarea type="text" className={ `notas form-control ${ validaciones.validaDetalle }` } style={{ height: 300 }} value={ valoresFormulario.noticiaDetalle } onChange={ onInputChange } name="noticiaDetalle" />
                             <label htmlFor="detalle">Detalle de la noticia</label>
                         </div>
                     </div>
@@ -149,7 +147,6 @@ export const NoticiasModal = () => {
                                     locale="es"
                                     registerLocale
                                     name="noticiaFecha"
-                                    id='fecha'
                                     popperPlacement="top-start"
                                     placeholder="Fecha de publicación"
                                 />
@@ -157,7 +154,7 @@ export const NoticiasModal = () => {
                         </div>
                         <div className="col-7">
                             <div className="form-floating col">
-                                <input type="text" className={ `form-control ${ validaciones.validaUsuario }` } placeholder="Autor de la entrada" autoComplete="on" value={ valoresFormulario.noticiaUsuario } onChange={ onInputChange } name="noticiaUsuario" id='autor' />
+                                <input type="text" className={ `form-control ${ validaciones.validaUsuario }` } autoComplete="on" value={ valoresFormulario.noticiaUsuario } onChange={ onInputChange } name="noticiaUsuario" />
                                 <label htmlFor="autor">Autor</label>
                             </div>
                         </div>

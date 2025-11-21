@@ -1,10 +1,9 @@
-import { useEffect } from "react"
-import { useSelector } from "react-redux";
 import moment from "moment";
+import { useNotaStore } from "../../../hooks";
 
 export const NotasHistoricasPage = ( { tipo } ) => {
     
-    const { notas } = useSelector( state => state.nota );
+    const { notas } = useNotaStore();
     
     return (
         <div className="col">
@@ -16,9 +15,8 @@ export const NotasHistoricasPage = ( { tipo } ) => {
                 <div className="row mb-3" key={ nota.id }>
                     <div className="col">
                         <div className="card">
-                            <div className="card-body">
-                                <h5 className="card-title">{ nota.notaCategoria }</h5>
-                                <hr />
+                            <h5 className="card-header border-dark">{ nota.notaCategoria }</h5>
+                            <div className="card-body border-dark">
                                 <p className="card-text" style={{ whiteSpace: 'pre-wrap' }}>{ nota.notaDetalle }</p>
                                 <p className="card-text"><small className="text-muted">Creado por: { nota.notaUsuario } - { moment(nota.notaFecha).format('DD MMMM YYYY') + " " + moment(nota.notaFecha).format('hh:mma') } </small></p>
                             </div>
@@ -30,4 +28,3 @@ export const NotasHistoricasPage = ( { tipo } ) => {
         </div>
     )
 }
-

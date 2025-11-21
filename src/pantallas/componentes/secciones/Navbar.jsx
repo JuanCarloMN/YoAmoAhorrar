@@ -11,7 +11,6 @@ export const Navbar = () => {
     const { starLogout, usuario } = useAuthStore();
     const { startCargaCatalogos } = useCatalogoStore();
     const { startCargarIndicadores } = useIndicadoresStore();
-
     const { actualUDI, actualDolar } = useSelector( state => state.indicadores );
     const hoy = new Date();
     const fechaActual = `${hoy.getFullYear() - 1 }${ (hoy.getMonth() + 1).toString().padStart(2, '0') }${ hoy.getDate().toString().padStart(2, '0') }`;
@@ -88,9 +87,9 @@ export const Navbar = () => {
                                 <li><NavLink className="dropdown-item" to="/prospectos">Prospectos</NavLink></li>
                                 <li><NavLink className="dropdown-item" to="/polizas">Pólizas</NavLink></li>
                                 <li><hr className="dropdown-divider" /></li>
-                                <li><a href="#" className="dropdown-item">Agentes</a></li>
+                                {/* <li><a href="#" className="dropdown-item">Agentes</a></li>
                                 <li><a href="#" className="dropdown-item">Promotorías</a></li>
-                                <li><hr className="dropdown-divider" /></li>
+                                <li><hr className="dropdown-divider" /></li> */}
                                 <li><NavLink className="dropdown-item" to="/catalogos">Catálogos</NavLink></li>
                             </ul>
                         </li>
@@ -99,8 +98,7 @@ export const Navbar = () => {
                         <li className="nav-item dropdown mt-1">
                             <a href="#" className="btn btn-dark dropdown-toggle" role="button" data-bs-toggle="dropdown" aria-expanded="false" id="dropdown-menu" > Utilerías </a>
                             <ul className="dropdown-menu" aria-labelledby="dropdown-menu">
-                                <li><NavLink className="dropdown-item" to="/notas">Notas de mis clientes</NavLink></li>
-                                <li><hr className="dropdown-divider" /></li>
+
                                 <li><NavLink className="dropdown-item" to="/miblog">Entradas de Mi Blogs</NavLink></li>
                                 <li><NavLink className="dropdown-item" to="/noticias">Administrar Noticias</NavLink></li>
                                 <li><NavLink className="dropdown-item" to="/mensajes">Revisar Mensajes</NavLink></li>

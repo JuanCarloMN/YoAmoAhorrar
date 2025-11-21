@@ -8,3 +8,5 @@ export * from './NotasHistoricasPage';
 export * from './PerfilConfiguracion';
 export * from './PerfilDatosUsuario';
 export * from './PerfilObjetivos';
+export * from './PolizaDatosCliente';
+export * from './PolizaDatosDetalle';

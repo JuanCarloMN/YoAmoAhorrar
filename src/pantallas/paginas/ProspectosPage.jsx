@@ -1,6 +1,5 @@
 import { useEffect } from "react";
-import { useSelector } from "react-redux";
-import { useNotaStore, useProspectoStore, useUiStore } from "../../hooks";
+import { useProspectoStore, useUiStore } from "../../hooks";
 import { ProspectoModal } from "../componentes/modal/ProspectoModal";
 
 import Swal from 'sweetalert2';
@@ -11,8 +10,7 @@ import { NotaModal } from "../componentes/modal/NotaModal";
 export const ProspectosPage = () => {
 
     const { openProspectoModal, openNotaModal } = useUiStore()
-    const { startCargaProspectos, setProspectoActivo, starBorrarProspecto, startConvierteProspecto } = useProspectoStore()
-    const { prospectos } = useSelector( state => state.prospecto );
+    const { prospectos, startCargaProspectos, setProspectoActivo, starBorrarProspecto, startConvierteProspecto } = useProspectoStore()
     
     const nuevoProspecto = () => {
         setProspectoActivo( formularioDatos );
@@ -119,7 +117,7 @@ export const ProspectosPage = () => {
                                                     <i className="fa-solid fa-pen-to-square"></i>
                                                 </button>
 
-                                                <button className="btn btn-outline-dark me-2" onClick={ () => agregarNota( prospecto ) } aria-label="Agregar nota de cliente" >
+                                                <button className="btn btn-outline-dark me-2" onClick={ () => agregarNota( prospecto ) } aria-label="Agregar nota de prospecto" >
                                                     <i className="fa-regular fa-comment-dots"></i>
                                                 </button>
 
@@ -127,7 +125,7 @@ export const ProspectosPage = () => {
                                                     <i className="fa-solid fa-circle-dollar-to-slot"></i>
                                                 </button>
                                                 
-                                                <button className="btn btn-outline-danger" onClick={ () => eliminaProspecto( prospecto ) } aria-label="Editar prospecto" >
+                                                <button className="btn btn-outline-danger" onClick={ () => eliminaProspecto( prospecto ) } aria-label="Eliminar prospecto" >
                                                     <i className="fa-solid fa-trash"></i>
                                                 </button>
 

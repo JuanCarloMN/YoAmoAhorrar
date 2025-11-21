@@ -12,12 +12,8 @@ export const FAQContenidoPage = () => {
                         </h2>
                         <div id="elemento-1" className="accordion-collapse collapse" aria-labelledby="encabezado-1" data-bs-parent="#faqs">
                             <div className="accordion-body">
-                                <p>
-                                    Si faltas antes del término del plan, tus beneficiarios recibirán la suma asegurada contratada por fallecimiento.
-                                </p>
-                                <p>
-                                    <b>Cubre todos tus productos:</b> Vida Mujer, Imagina Ser, Nuevo Plenitud, Star Dotal.
-                                </p>
+                                <p>Si faltas antes del término del plan, tus beneficiarios recibirán la suma asegurada contratada por fallecimiento.</p>
+                                <p><b>Cubre todos tus productos:</b> Vida Mujer, Imagina Ser, Nuevo Plenitud, Star Dotal.</p>
                             </div>
                         </div>
                     </div>
@@ -30,9 +26,7 @@ export const FAQContenidoPage = () => {
                         </h2>
                         <div id="elemento-2" className="accordion-collapse collapse" aria-labelledby="encabezado-2" data-bs-parent="#faqs">
                             <div className="accordion-body">
-                                <p>
-                                    En productos como Imagina Ser o Nuevo Plenitud, tus ingresos o ahorro pueden heredarse a un beneficiario según las condiciones de la póliza.
-                                </p>
+                                <p>En productos como Imagina Ser o Nuevo Plenitud, tus ingresos o ahorro pueden heredarse a un beneficiario según las condiciones de la póliza.</p>
                             </div>
                         </div>
                     </div>
@@ -45,12 +39,8 @@ export const FAQContenidoPage = () => {
                         </h2>
                         <div id="elemento-3" className="accordion-collapse collapse" aria-labelledby="encabezado-3" data-bs-parent="#faqs">
                             <div className="accordion-body">
-                                <p>
-                                    <b>Vida Mujer:</b> a partir del 5.º año recibes el 5% de la suma asegurada, cada 2 años hasta el año 17; en el año 20 recibes el 80%.
-                                </p>
-                                <p>
-                                    <b>Nuevo Plenitud:</b> puedes solicitar adelantos como 6 mensualidades o el 30 % de una mensualidad.
-                                </p>
+                                <p><b>Vida Mujer:</b> a partir del 5.º año recibes el 5% de la suma asegurada, cada 2 años hasta el año 17; en el año 20 recibes el 80%.</p>
+                                <p><b>Nuevo Plenitud:</b> puedes solicitar adelantos como 6 mensualidades o el 30 % de una mensualidad.</p>
                             </div>
                         </div>
                     </div>
@@ -101,9 +91,7 @@ export const FAQContenidoPage = () => {
                         </h2>
                         <div id="elemento-6" className="accordion-collapse collapse" aria-labelledby="encabezado-6" data-bs-parent="#faqs">
                             <div className="accordion-body">
-                                <p>
-                                    Las aportaciones de ahorro pueden ser deducibles, según la Ley del ISR (máximo 5 UMAs o 10% del ingreso anual, hasta $152,000 MXN).
-                                </p>
+                                <p>Las aportaciones de ahorro pueden ser deducibles, según la Ley del ISR (máximo 5 UMAs o 10% del ingreso anual, hasta $152,000 MXN).</p>
                             </div>
                         </div>
                     </div>
@@ -116,9 +104,7 @@ export const FAQContenidoPage = () => {
                         </h2>
                         <div id="elemento-7" className="accordion-collapse collapse" aria-labelledby="encabezado-7" data-bs-parent="#faqs">
                             <div className="accordion-body">
-                                <p>
-                                    Productos como Se Adapta, Imagina Ser, Star Dotal permiten ahorro en USD o UDI, protegiendo valor ante inflación.
-                                </p>
+                                <p>Productos como Se Adapta, Imagina Ser, Star Dotal permiten ahorro en USD o UDI, protegiendo valor ante inflación.</p>
                             </div>
                         </div>
                     </div>
@@ -131,9 +117,7 @@ export const FAQContenidoPage = () => {
                         </h2>
                         <div id="elemento-8" className="accordion-collapse collapse" aria-labelledby="encabezado-8" data-bs-parent="#faqs">
                             <div className="accordion-body">
-                                <p>
-                                    Es un seguro renovable cada 5 años hasta los 65 años. Luego puedes convertirlo en un seguro más completo.
-                                </p>
+                                <p>Es un seguro renovable cada 5 años hasta los 65 años. Luego puedes convertirlo en un seguro más completo.</p>
                             </div>
                         </div>
                     </div>
@@ -146,9 +130,7 @@ export const FAQContenidoPage = () => {
                         </h2>
                         <div id="elemento-9" className="accordion-collapse collapse" aria-labelledby="encabezado-9" data-bs-parent="#faqs">
                             <div className="accordion-body">
-                                <p>
-                                    La mayoría de los planes ofrecen exención de pago de primas por invalidez total y permanente.
-                                </p>
+                                <p>La mayoría de los planes ofrecen exención de pago de primas por invalidez total y permanente.</p>
                             </div>
                         </div>
                     </div>
@@ -161,9 +143,7 @@ export const FAQContenidoPage = () => {
                         </h2>
                         <div id="elemento-10" className="accordion-collapse collapse" aria-labelledby="encabezado-10" data-bs-parent="#faqs">
                             <div className="accordion-body">
-                                <p>
-                                    Un seguro de vida con ahorro: al término del plazo (5, 10, 15 o 20 años), recibes lo que ahorraste. Si falleces antes, tus beneficiarios reciben la suma asegurada.
-                                </p>
+                                <p>Un seguro de vida con ahorro: al término del plazo (5, 10, 15 o 20 años), recibes lo que ahorraste. Si falleces antes, tus beneficiarios reciben la suma asegurada.</p>
                             </div>
                         </div>
                     </div>
@@ -176,9 +156,7 @@ export const FAQContenidoPage = () => {
                         </h2>
                         <div id="elemento-11" className="accordion-collapse collapse" aria-labelledby="encabezado-11" data-bs-parent="#faqs">
                             <div className="accordion-body">
-                                <p>
-                                    Sí, puedes contratar una póliza mancomunada para proteger a tu pareja.
-                                </p>
+                                <p>Sí, puedes contratar una póliza mancomunada para proteger a tu pareja.</p>
                             </div>
                         </div>
                     </div>
@@ -191,9 +169,7 @@ export const FAQContenidoPage = () => {
                         </h2>
                         <div id="elemento-12" className="accordion-collapse collapse" aria-labelledby="encabezado-12" data-bs-parent="#faqs">
                             <div className="accordion-body">
-                                <p>
-                                    Con Se Adapta, a partir del tercer año puedes migrar a otro seguro que te ofrezca mayores beneficios.
-                                </p>
+                                <p>Con Se Adapta, a partir del tercer año puedes migrar a otro seguro que te ofrezca mayores beneficios.</p>
                             </div>
                         </div>
                     </div>
@@ -225,9 +201,7 @@ export const FAQContenidoPage = () => {
                         </h2>
                         <div id="elemento-14" className="accordion-collapse collapse" aria-labelledby="encabezado-14" data-bs-parent="#faqs">
                             <div className="accordion-body">
-                                <p>
-                                    Tú eliges: pago mensual, trimestral, semestral o anual, según tu plan y comodidad financiera.
-                                </p>
+                                <p>Tú eliges: pago mensual, trimestral, semestral o anual, según tu plan y comodidad financiera.</p>
                             </div>
                         </div>
                     </div>
@@ -240,9 +214,7 @@ export const FAQContenidoPage = () => {
                         </h2>
                         <div id="elemento-15" className="accordion-collapse collapse" aria-labelledby="encabezado-15" data-bs-parent="#faqs">
                             <div className="accordion-body">
-                                <p>
-                                    Vida Mujer, Imagina Ser, Nuevo Plenitud y Star Dotal incluyen anticipos o apoyo en vida si te diagnostican enfermedad terminal o similares.
-                                </p>
+                                <p>Vida Mujer, Imagina Ser, Nuevo Plenitud y Star Dotal incluyen anticipos o apoyo en vida si te diagnostican enfermedad terminal o similares.</p>
                             </div>
                         </div>
                     </div>
@@ -255,9 +227,7 @@ export const FAQContenidoPage = () => {
                         </h2>
                         <div id="elemento-16" className="accordion-collapse collapse" aria-labelledby="encabezado-16" data-bs-parent="#faqs">
                             <div className="accordion-body">
-                                <p>
-                                    <b>SMNYL</b> no publica precios fijos en el sitio: las primas se adaptan a tus necesidades, suma asegurada y posibilidades económicas. Se cotizan con un asesor. Sin embargo, cada plan tiene diferencias claras:
-                                </p>
+                                <p><b>SMNYL</b> no publica precios fijos en el sitio: las primas se adaptan a tus necesidades, suma asegurada y posibilidades económicas. Se cotizan con un asesor. Sin embargo, cada plan tiene diferencias claras:</p>
                                 <p>
                                     <br /><b>Vida Mujer:</b> protección + ahorro con anticipos cada dos años y apoyo en enfermedades femeninas.
                                     <br /><b>Imagina Ser:</b> ahorro para retiro desde los 60 años, opción de ingreso vitalicio o pago único, ahorro en USD o UDI.
@@ -265,9 +235,7 @@ export const FAQContenidoPage = () => {
                                     <br /><b>Star Dotal:</b> ahorro puro durante plazo definido, sumas en una exhibición al vencimiento, protección en vida.
                                     <br /><b>Se Adapta:</b> seguro renovable, flexible y escalable conforme cambian tus necesidades.
                                 </p>
-                                <p>
-                                    Para obtener precios específicos, se requiere consultar con un asesor especializado.
-                                </p>
+                                <p>Para obtener precios específicos, se requiere consultar con un asesor especializado.</p>
                             </div>
                         </div>
                     </div>
@@ -276,4 +244,3 @@ export const FAQContenidoPage = () => {
         </div>
     )
 }
-

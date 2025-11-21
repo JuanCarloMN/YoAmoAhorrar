@@ -59,4 +59,3 @@ export const PerfilInversorTestFormularioPage = ( { valoresFormulario, enviarPro
         </div>
     )
 }
-

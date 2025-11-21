@@ -6,24 +6,34 @@ export const validaFormulario = ( campo ) => {
 }
 
 export const validaCampo = ( campo ) => {
-        switch ( campo ) {
-            case 'datoNombre': return 'validaNombre'
-            case 'datoRFC': return 'validaRFC'
-            case 'datoCURP': return 'validaCURP'
-            case 'datoNoacimiento': return 'validaNacimiento'
-            case 'datoCelular': return 'validaCelular'
-            case 'datoEmail': return 'validaEmail'
-            case 'datoDireccion': return 'validaDireccion'
-            case 'datoCP': return 'validaCP'
-            case 'datoColonia': return 'validaColonia'
-            case 'datoCiudad': return 'validaCiudad'
-            case 'datoEstado': return 'validaEstado'
+    switch ( campo ) {
+        case 'datoNombre': return 'validaNombre'
+        case 'datoRFC': return 'validaRFC'
+        case 'datoCURP': return 'validaCURP'
+        case 'datoNoacimiento': return 'validaNacimiento'
+        case 'datoCelular': return 'validaCelular'
+        case 'datoEmail': return 'validaEmail'
+        case 'datoDireccion': return 'validaDireccion'
+        case 'datoCP': return 'validaCP'
+        case 'datoColonia': return 'validaColonia'
+        case 'datoCiudad': return 'validaCiudad'
+        case 'datoEstado': return 'validaEstado'
 
-            case 'blogTitulo': return 'validaTitulo'
-            case 'blogDetalle': return 'validaDetalle'
-            case 'blogCategoria': return 'validaCategoria'
-            case 'blogUsuario': return 'validaUsuario'
-        }
+        case 'blogTitulo': return 'validaTitulo'
+        case 'blogDetalle': return 'validaDetalle'
+        case 'blogCategoria': return 'validaCategoria'
+        case 'blogUsuario': return 'validaUsuario'
+
+        case 'polizaClave': return 'validaClave'
+        case 'polizaTipo': return 'validaTipo'
+        case 'polizaTipoMoneda': return 'validaTipoMoneda'
+        case 'polizaMonto': return 'validaMonto'
+        case 'polizaFecha': return 'validaFecha'
+        case 'polizaCliente': return 'validaCliente'
+        case 'polizaAsesor': return 'validaAsesor'
+        case 'polizaAseguradora': return 'validaAseguradora'
+        case 'polizaEstatus': return 'validaEstatus'
+    }
 }
 
 export const campoEquivalente = ( campo, tipo ) => {

@@ -84,4 +84,3 @@ export const CitasToolbar = ( { cambiaVista, cambiaFecha, fechaCalendario, fecha
         </div>
     )
 }
-

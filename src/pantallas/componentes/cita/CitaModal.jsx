@@ -1,7 +1,6 @@
 import { useEffect, useMemo, useState } from 'react';
 import { addHours, differenceInSeconds } from 'date-fns';
 
-import Swal from 'sweetalert2';
 import 'sweetalert2/dist/sweetalert2.min.css';
 
 import Modal from 'react-modal';
@@ -167,4 +166,3 @@ export const CitaModal = () => {
         </Modal>
     )
 }
-

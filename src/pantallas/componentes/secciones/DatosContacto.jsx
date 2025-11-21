@@ -44,7 +44,7 @@ export const DatosContacto = ( { valoresFormulario, setValoresFormulario } ) => 
 
         const codigoPostal = await buscaCodigoPostal( parseInt( target.value ) );
         contadorColonia = 0
-        colonias = [[0, 'Seleccione la colonia']];
+        colonias = [[0, '']];
 
         if ( codigoPostal.length > 0 ) {
             codigoPostal[0].colonias.map( colonia => {
@@ -53,8 +53,8 @@ export const DatosContacto = ( { valoresFormulario, setValoresFormulario } ) => 
             })
 
             setCodigosPostales({
-                ciudades: [[0, 'Seleccione la ciudad'], [1, codigoPostal[0].ciudad]], 
-                estados: [[0, 'Seleccione el estado'], [1, codigoPostal[0].estado]],
+                ciudades: [[0, ''], [1, codigoPostal[0].ciudad]], 
+                estados: [[0, ''], [1, codigoPostal[0].estado]],
                 colonias: colonias
             })
         }
@@ -70,9 +70,9 @@ export const DatosContacto = ( { valoresFormulario, setValoresFormulario } ) => 
 
         if ( valoresFormulario.datoCiudad ) {
             setCodigosPostales({
-                colonias: [[0, 'Seleccione la colonia'], [1, valoresFormulario.datoColonia]],
-                ciudades: [[0, 'Seleccione la ciudad'], [1, valoresFormulario.datoCiudad]],
-                estados: [[0, 'Seleccione el estado'], [1, valoresFormulario.datoEstado]]
+                colonias: [[0, ''], [1, valoresFormulario.datoColonia]],
+                ciudades: [[0, 'd'], [1, valoresFormulario.datoCiudad]],
+                estados: [[0, 'S'], [1, valoresFormulario.datoEstado]]
             })
         }
     }, [valoresFormulario.datoCP])
@@ -90,31 +90,31 @@ export const DatosContacto = ( { valoresFormulario, setValoresFormulario } ) => 
                 <div className="accordion-body me-2">
                     <div className="form-group d-flex justify-content-between mt-2 align-items-center">
                         <div className="form-floating me-2 col-3">
-                            <ReactInputMask type="text" className={ `form-control ${ validaciones.validaCelular }` } placeholder="Celular" mask="999-9999-999" maskChar="" autoComplete="on" value={ valoresFormulario.datoCelular } onChange={ onInputChange } name="datoCelular" id='celular' />
+                            <ReactInputMask type="text" className={ `form-control ${ validaciones.validaCelular }` } mask="999-9999-999" maskChar="" autoComplete="on" value={ valoresFormulario.datoCelular } onChange={ onInputChange } name="datoCelular" />
                             <label htmlFor="celular">Celular</label>
                         </div>
                         <div className="form-floating me-2 col-3">
-                            <ReactInputMask type="text" className="form-control" placeholder="Teléfono fijo" mask="999-9999-999" maskChar="" autoComplete="on" value={ valoresFormulario.datoTelefono } onChange={ onInputChange } name="datoTelefono" id='telefono' />
+                            <ReactInputMask type="text" className="form-control" mask="999-9999-999" maskChar="" autoComplete="on" value={ valoresFormulario.datoTelefono } onChange={ onInputChange } name="datoTelefono" />
                             <label htmlFor="telefono">Teléfono fijo</label>
                         </div>
                         <div className="form-floating col-6">
-                            <input type="email" className={ `form-control ${ validaciones.validaEmail }` } placeholder="Correo electrónico" autoComplete="on" value={ valoresFormulario.datoEmail } onChange={ onInputChange } name="datoEmail" id='email' />
+                            <input type="email" className={ `form-control ${ validaciones.validaEmail }` } autoComplete="on" value={ valoresFormulario.datoEmail } onChange={ onInputChange } name="datoEmail" />
                             <label htmlFor="email">Correo electrónico</label>
                         </div>
                     </div>
                     <div className="form-group d-flex justify-content-between mt-2 align-items-center">
                         <div className="form-floating me-3 col-10">
-                            <input type="text" className={ `form-control ${ validaciones.validaDireccion }` } placeholder="Direccion" autoComplete="on" value={ valoresFormulario.datoDireccion } onChange={ onInputChange } name="datoDireccion" id='direccion' />
+                            <input type="text" className={ `form-control ${ validaciones.validaDireccion }` } autoComplete="on" value={ valoresFormulario.datoDireccion } onChange={ onInputChange } name="datoDireccion" />
                             <label htmlFor="direccion">Direccion</label>
                         </div>
                         <div className="form-floating col-2">
-                            <ReactInputMask type="text" className={ `form-control ${ validaciones.validaCP }` } placeholder="Código Postal" mask="999999" maskChar="" autoComplete="on" value={ valoresFormulario.datoCP } onChange={ onCPChange } name="datoCP" id='cp' />
+                            <ReactInputMask type="text" className={ `form-control ${ validaciones.validaCP }` } mask="999999" maskChar="" autoComplete="on" value={ valoresFormulario.datoCP } onChange={ onInputChange } onBlur={ onCPChange } name="datoCP" />
                             <label htmlFor="cp">C. P.</label>
                         </div>
                     </div>
                     <div className="form-group d-flex justify-content-between mt-2 align-items-center">
                         <div className="form-floating me-2 col-4">
-                            <select className="form-select" id="colonia" name='datoColonia' aria-label="Seleccione la colonia" value={ valoresFormulario.datoColonia } onChange={ onInputChange } >
+                            <select className="form-select" name="datoColonia" value={ valoresFormulario.datoColonia } onChange={ onInputChange } >
                                 { colonias.map( ( colonia ) => {
                                     return (
                                         <option key={ colonia[0] } value={ colonia[1] }>
@@ -126,7 +126,7 @@ export const DatosContacto = ( { valoresFormulario, setValoresFormulario } ) => 
                             <label htmlFor="colonia">Colonia</label>
                         </div>
                         <div className="form-floating me-2 col-4">
-                            <select className="form-select" id="ciudad" name='datoCiudad' aria-label="Seleccione la ciudad" value={ valoresFormulario.datoCiudad } onChange={ onInputChange } >
+                            <select className="form-select" name="datoCiudad" value={ valoresFormulario.datoCiudad } onChange={ onInputChange } >
                                 { ciudades.map( ( ciudad ) => {
                                     return (
                                         <option key={ ciudad[0] } value={ ciudad[1] }>
@@ -138,7 +138,7 @@ export const DatosContacto = ( { valoresFormulario, setValoresFormulario } ) => 
                             <label htmlFor="ciudad">Ciudad</label>
                         </div>
                         <div className="form-floating col-4">
-                            <select className="form-select" id="estado" name='datoEstado' aria-label="Seleccione el estado" value={ valoresFormulario.datoEstado } onChange={ onInputChange } >
+                            <select className="form-select" name="datoEstado" value={ valoresFormulario.datoEstado } onChange={ onInputChange } >
                                 { estados.map( ( estado ) => {
                                     return (
                                         <option key={ estado[0] } value={ estado[1] }>
@@ -155,4 +155,3 @@ export const DatosContacto = ( { valoresFormulario, setValoresFormulario } ) => 
         </div>
     )
 }
-

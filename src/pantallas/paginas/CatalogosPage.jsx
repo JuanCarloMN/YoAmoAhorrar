@@ -1,13 +1,11 @@
 import { useEffect } from "react";
-import { useSelector } from "react-redux";
 
 import { useCatalogoStore } from "../../hooks";
 import { CatalogoCard } from "../componentes/secciones/CatalogoCard";
 
 export const CatalogosPage = () => {
 
-    const { startCargaCatalogos } = useCatalogoStore()
-    const { catalogos } = useSelector( state => state.catalogo );
+    const { catalogos, startCargaCatalogos } = useCatalogoStore()
 
     useEffect( () => {
         startCargaCatalogos();
@@ -49,7 +47,7 @@ export const CatalogosPage = () => {
                             <CatalogoCard tipo={ 7 } datos={ catalogos.filter( catalogo => catalogo.catalogoDescripcion === "Tipos de Nota" ) } />
                         </div>
                         <div className="col">
-                            &nbsp;
+                            <CatalogoCard tipo={ 8 } datos={ catalogos.filter( catalogo => catalogo.catalogoDescripcion === "Aseguradoras" ) } />
                         </div>
                     </div>
                 </div>
@@ -57,4 +55,3 @@ export const CatalogosPage = () => {
         </>
     )
 }
-

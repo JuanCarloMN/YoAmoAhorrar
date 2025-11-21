@@ -1,18 +1,30 @@
 import { addHours } from "date-fns"
 
 export const validacionDatos = {
-        validaNombre: '',
-        validaRFC: '',
-        validaCURP: '',
-        validaNacimiento: '',
-        validaCelular: '',
-        validaEmail: '',
-        validaDireccion: '',
-        validaCP: '',
-        validaColonia: '',
-        validaCiudad: '',
-        validaEstado: ''
-    }
+    validaNombre: '',
+    validaRFC: '',
+    validaCURP: '',
+    validaNacimiento: '',
+    validaCelular: '',
+    validaEmail: '',
+    validaDireccion: '',
+    validaCP: '',
+    validaColonia: '',
+    validaCiudad: '',
+    validaEstado: ''
+}
+
+export const validaPoliza = {
+    validaClave: '',
+    validaTipo: '',
+    validaTipoMoneda: '',
+    validaMonto: '',
+    validaFecha: '',
+    validaCliente: '',
+    validaAsesor: '',
+    validaAseguradora: '',
+    validaEstatus: '',
+}
 
 export const validaBlog = {
     validaTitulo: '',
@@ -34,91 +46,42 @@ export const validaNota = {
 }
 
 export const formularioDatos = {
-        datoNombre: '',
-        datoApellidoP: '',
-        datoApellidoM: '',
-        datoRFC: '',
-        datoCURP: '',
-        datoNacimiento: new Date(),
-        datoEstadoCivil: '',
-        datoSexo: '',
-        datoEscolaridad: '',
-        datoCelular: '',
-        datoTelefono: '',
-        datoEmail: '',
-        datoDireccion: '',
-        datoCP: '',
-        datoColonia: '',
-        datoCiudad: '',
-        datoEstado: '',
-        datoEmpresa: '',
-        datoPuesto: '',
-        datoAntiguedad: '',
-        datoActividades: '',
-        datoConyugue: '',
-        datoNumeroHijos: '',
-        datoTipoVivienda: '',
-        datoPasatiempo: '',
-        datoMascotas: '',
-        datoDeporte: '',
-        datoDesde: new Date(),
-        datoReferido: '',
-        datoNotas: ''
-    }
-
-export const estiloModal = {
-        content: {
-            top: '50%',
-            left: '50%',
-            right: 'auto',
-            bottom: 'auto',
-            height: 'calc( 100vh - 100px )',
-            width: 'calc( 100vw - 35px )',
-            marginRight: '-50%',
-            transform: 'translate(-50%, -50%)',
-        },
-    }
-
-export const estiloNotaModal = {
-        content: {
-            top: '50%',
-            left: '50%',
-            right: 'auto',
-            bottom: 'auto',
-            // height: 'calc( 100vh - 200px )',
-            // width: 'calc( 100vw - 600px )',
-            height: '800px',
-            width: '600px',
-            marginRight: '-50%',
-            transform: 'translate(-50%, -50%)',
-        },
-    }
-
-export const estiloEvento = {
-    content: {
-        top: '50%',
-        left: '50%',
-        right: 'auto',
-        bottom: 'auto',
-        marginRight: '-50%',
-        transform: 'translate(-50%, -50%)',
-    },
-}
-
-export const estiloCita = {
-    content: {
-        top: '50%',
-        left: '50%',
-        right: 'auto',
-        bottom: 'auto',
-        transform: 'translate(-100, 0%)', 
-    },
+    datoNombre: '',
+    datoApellidoP: '',
+    datoApellidoM: '',
+    datoRFC: '',
+    datoCURP: '',
+    datoNacimiento: new Date(),
+    datoEstadoCivil: '',
+    datoSexo: '',
+    datoEscolaridad: '',
+    datoCelular: '',
+    datoTelefono: '',
+    datoEmail: '',
+    datoDireccion: '',
+    datoCP: '',
+    datoColonia: '',
+    datoCiudad: '',
+    datoEstado: '',
+    datoEmpresa: '',
+    datoPuesto: '',
+    datoAntiguedad: '',
+    datoActividades: '',
+    datoConyugue: '',
+    datoNumeroHijos: '',
+    datoTipoVivienda: '',
+    datoPasatiempo: '',
+    datoMascotas: '',
+    datoDeporte: '',
+    datoDesde: new Date(),
+    datoReferido: '',
+    datoNotas: ''
 }
 
 export const inicioCP = {
-    colonias: [[0, 'Seleccione la colonia']],
-    ciudades: [[0, 'Seleccione la ciudad']],
-    estados: [[0, 'Seleccione el estado']]
+    colonias: [[0, '']],
+    ciudades: [[0, '']],
+    estados: [[0, '']]
 }
 
 export const citaInicial = {
@@ -188,4 +151,27 @@ export const perfilInicial = {
     perfilResultado: "",
     perfilPrivacidad: false,
     perfilFecha: new Date()
+}
+
+export const polizaInicial = {
+    polizaClave: '',
+    polizaTipo: '',
+    polizaPlan: '',
+    polizaTipoMoneda: '',
+    polizaMonto: 0,
+    polizaSumaAsegurada: 0,
+    polizaPrimaPlaneada: 0,
+    polizaPrimaBasica: 0,
+    polizaDeducible: 0,
+    polizCoaseguro: 0,
+    polizTope: 0,
+    polizaPlazo: 0,
+    polizaTipoPlazo: '',
+    polizaFecha: new Date(),
+    polizaCliente: '',
+    polizaTipoPago: '',
+    polizaAsesor: '',
+    polizaAseguradora: '',
+    polizaEstatus: '',
+    polizaNotas: ''
 }

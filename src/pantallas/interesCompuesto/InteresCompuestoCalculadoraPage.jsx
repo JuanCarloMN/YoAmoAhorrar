@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react"
 import { InteresCompuestoGraficaPage } from "./InteresCompuestoGraficaPage";
-import Swal from "sweetalert2";
 import { InteresCompuestoResultadoPage } from "./InteresCompuestoResultadoPage";
+import Swal from "sweetalert2";
 
 const valoresIniciales = {
     depositoInicial: 0,

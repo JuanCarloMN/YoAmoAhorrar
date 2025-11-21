@@ -1,6 +1,5 @@
 import { useEffect, useState } from 'react';
 import Modal from 'react-modal';
-import { useSelector } from 'react-redux';
 
 import Swal from 'sweetalert2';
 import 'sweetalert2/dist/sweetalert2.min.css';
@@ -12,8 +11,7 @@ const customStyles = estiloModal;
 
 export const ListaSuscriptores = () => {
         const { isSuscriptoresModalOpen, closeSuscriptoresModal } = useUiStore();
-        const { startCargarSuscriptores, setSuscriptorActivo, startSalvarSuscriptor, startBorrarSucriptor } = useSuscriptoresStore();
-        const { suscriptores } = useSelector( state => state.suscriptor );
+        const { suscriptores, startCargarSuscriptores, setSuscriptorActivo, startSalvarSuscriptor, startBorrarSucriptor } = useSuscriptoresStore();
 
 
         const onCloseModal = () => {

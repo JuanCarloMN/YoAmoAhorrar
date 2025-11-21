@@ -1,5 +1,4 @@
 import { useEffect } from "react";
-import { useSelector } from "react-redux";
 import { useMensajeStore } from "../../hooks";
 
 import Swal from 'sweetalert2';
@@ -16,40 +15,72 @@ moment.locale('es', {
   );
 
 export const MensajesPage = () => {
-    const { startCargarMensajes, startSalvarMensaje } = useMensajeStore();
-    const { mensajes } = useSelector( state => state.mensaje );
+    const { mensajes, startCargarMensajes, startSalvarMensaje } = useMensajeStore();
 
     const atenderMensaje = ( mensaje ) => {
-        Swal.fire({
-            title: "¿Deseas marcar como atendido el mensaje?",
-            text: mensaje.mensajeDetalle,
-            icon: "question",
-            iconColor: "#125d0e",
-            showCancelButton: true,
-            cancelButtonColor: "#3085d6",
-            cancelButtonText: "Cancelar",
-            confirmButtonText: "Atender",
-            confirmButtonColor: "#125d0e"
-        }).then( async ( result ) => {
-            if ( result.isConfirmed ) {
-
-                const actualizaMensaje = {
-                    id: mensaje.id,
-                    mensajeNombre: mensaje.mensajeNombre,
-                    mensajeEmail: mensaje.mensajeEmail,
-                    mensajeDetalle: mensaje.mensajeDetalle,
-                    mensajeAtendido: true,
-                    mensajeFecha: mensaje.mensajeFecha
-                }
-                await startSalvarMensaje( actualizaMensaje );
-
-                Swal.fire({
-                    title: "Mensaje atendido",
-                    text: "El mensaje ha sido atendido de forma correcta",
-                    icon: "success"
-                });
+        if ( mensaje.mensajeAtendido ) {
+            Swal.fire({
+                title: "¿Marcar como no atendido el mensaje?",
+                text: mensaje.mensajeDetalle,
+                icon: "question",
+                iconColor: "#d33",
+                showCancelButton: true,
+                cancelButtonColor: "#3085d6",
+                cancelButtonText: "Regresar",
+                confirmButtonText: "No atendido",
+                confirmButtonColor: "#d33"
+            }).then( async ( result ) => {
+                if ( result.isConfirmed ) {
+    
+            const actualizaMensaje = {
+                id: mensaje.id,
+                mensajeNombre: mensaje.mensajeNombre,
+                mensajeEmail: mensaje.mensajeEmail,
+                mensajeDetalle: mensaje.mensajeDetalle,
+                mensajeAtendido: false,
+                mensajeFecha: mensaje.mensajeFecha
             }
-        });
+            await startSalvarMensaje( actualizaMensaje );
+    
+                    Swal.fire({
+                        title: "Mensaje actualizado",
+                        text: "El mensaje se marcó como no atendido",
+                        icon: "success"
+                    });
+                }
+            });
+        } else {
+            Swal.fire({
+                title: "¿Deseas marcar como atendido el mensaje?",
+                text: mensaje.mensajeDetalle,
+                icon: "question",
+                iconColor: "#125d0e",
+                showCancelButton: true,
+                cancelButtonColor: "#3085d6",
+                cancelButtonText: "Cancelar",
+                confirmButtonText: "Atender",
+                confirmButtonColor: "#125d0e"
+            }).then( async ( result ) => {
+                if ( result.isConfirmed ) {
+
+                    const actualizaMensaje = {
+                        id: mensaje.id,
+                        mensajeNombre: mensaje.mensajeNombre,
+                        mensajeEmail: mensaje.mensajeEmail,
+                        mensajeDetalle: mensaje.mensajeDetalle,
+                        mensajeAtendido: true,
+                        mensajeFecha: mensaje.mensajeFecha
+                    }
+                    await startSalvarMensaje( actualizaMensaje );
+
+                    Swal.fire({
+                        title: "Mensaje atendido",
+                        text: "El mensaje ha sido atendido de forma correcta",
+                        icon: "success"
+                    });
+                }
+            });
+        }
     }
 
     useEffect( () => {
@@ -101,6 +132,4 @@ export const MensajesPage = () => {
             </div>
         </>
     )
-
 }
-

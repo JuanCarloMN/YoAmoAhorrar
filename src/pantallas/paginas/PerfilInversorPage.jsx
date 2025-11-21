@@ -1,4 +1,3 @@
-import { useSelector } from "react-redux";
 import { usePerfilStore } from "../../hooks";
 import Swal from 'sweetalert2';
 import 'sweetalert2/dist/sweetalert2.min.css';
@@ -6,41 +5,73 @@ import { useEffect } from "react";
 import moment from "moment";
 
 export const PerfilInversorPage = () => {
-    const { startCargarPerfiles, startSalvarPerfil } = usePerfilStore();
-    const { perfiles } = useSelector( state => state.perfil );
+    const { perfiles, startCargarPerfiles, startSalvarPerfil } = usePerfilStore();
 
     const atenderPerfil = ( perfil ) => {
-        Swal.fire({
-            title: "¿Deseas marcar el perfil como atendido?",
-            html: perfil.perfilNombre + "<br>" + perfil.perfilResultado,
-            icon: "question",
-            iconColor: "#125d0e",
-            showCancelButton: true,
-            cancelButtonColor: "#3085d6",
-            cancelButtonText: "Cancelar",
-            confirmButtonText: "Atender",
-            confirmButtonColor: "#125d0e"
-        }).then( async ( result ) => {
-            if ( result.isConfirmed ) {
-
-                const actualizaPerfil = {
-                    id: perfil.id,
-                    perfilNombre: perfil.perfilNombre,
-                    perfilEmail: perfil.perfilEmail,
-                    perfilTelefono: perfil.perfilTelefono,
-                    perfilResultado: perfil.perfilResultado,
-                    perfilAtendido: true,
-                    perfilFecha: perfil.perfilFecha
+        if ( perfil.perfilAtendido ) {
+            Swal.fire({
+                title: "¿Marcar como no atendido el Perfil Inversor?",
+                html: perfil.perfilNombre + "<br>" + perfil.perfilResultado,
+                icon: "question",
+                iconColor: "#d33",
+                showCancelButton: true,
+                cancelButtonColor: "#3085d6",
+                cancelButtonText: "Regresar",
+                confirmButtonText: "No atendido",
+                confirmButtonColor: "#d33"
+            }).then( async ( result ) => {
+                if ( result.isConfirmed ) {
+                    const actualizaPerfil = {
+                        id: perfil.id,
+                        perfilNombre: perfil.perfilNombre,
+                        perfilEmail: perfil.perfilEmail,
+                        perfilTelefono: perfil.perfilTelefono,
+                        perfilResultado: perfil.perfilResultado,
+                        perfilAtendido: false,
+                        perfilFecha: perfil.perfilFecha
+                    }
+                    await startSalvarPerfil( actualizaPerfil );
+            
+                    Swal.fire({
+                        title: "Perfil actualizado",
+                        text: "El Perfil Inversor se marcó como no atendido",
+                        icon: "success"
+                    });
                 }
-                await startSalvarPerfil( actualizaPerfil );
+            });
+        } else {
+            Swal.fire({
+                title: "¿Deseas marcar el perfil como atendido?",
+                html: perfil.perfilNombre + "<br>" + perfil.perfilResultado,
+                icon: "question",
+                iconColor: "#125d0e",
+                showCancelButton: true,
+                cancelButtonColor: "#3085d6",
+                cancelButtonText: "Cancelar",
+                confirmButtonText: "Atender",
+                confirmButtonColor: "#125d0e"
+            }).then( async ( result ) => {
+                if ( result.isConfirmed ) {
 
-                Swal.fire({
-                    title: "Perfil Inversor atendido",
-                    text: "El Perfil Inversor ha sido atendido de forma correcta",
-                    icon: "success"
-                });
-            }
-        });
+                    const actualizaPerfil = {
+                        id: perfil.id,
+                        perfilNombre: perfil.perfilNombre,
+                        perfilEmail: perfil.perfilEmail,
+                        perfilTelefono: perfil.perfilTelefono,
+                        perfilResultado: perfil.perfilResultado,
+                        perfilAtendido: true,
+                        perfilFecha: perfil.perfilFecha
+                    }
+                    await startSalvarPerfil( actualizaPerfil );
+
+                    Swal.fire({
+                        title: "Perfil Inversor atendido",
+                        text: "El Perfil Inversor ha sido atendido de forma correcta",
+                        icon: "success"
+                    });
+                }
+            });
+        }
     }
 
     useEffect( () => {

@@ -1,12 +1,14 @@
 import { perfilApi } from '../api';
 import Swal from 'sweetalert2';
 import { convierteFechaPerfil } from '../helpers';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { onActualizaPerfil, onCargarPerfiles } from '../store/slice/perfilSlice';
 
 export const usePerfilStore = () => {
 
     const dispatch = useDispatch();
+    const { perfiles } = useSelector( state => state.perfil );
+
     const startSalvarPerfil = async ( perfil ) => {
         
         try {
@@ -49,12 +51,9 @@ export const usePerfilStore = () => {
  
     return {
         // Propiedades
-        // perfilActivo,
-        // perfiles,
+        perfiles,
 
         // Métodos
-        // setEventoActivo,
-        // startBorrarEvento,
         startCargarPerfiles,
         startSalvarPerfil,
     }

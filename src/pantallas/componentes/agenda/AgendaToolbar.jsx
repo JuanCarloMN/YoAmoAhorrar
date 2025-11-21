@@ -119,4 +119,3 @@ export const AgendaToolbar = ( { cambiaVista, cambiaTipo, cambiaFecha, fechaCale
         </div>
     )
 }
-

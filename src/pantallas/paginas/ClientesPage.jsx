@@ -1,5 +1,4 @@
 import { useEffect } from "react";
-import { useSelector } from "react-redux";
 import { useClienteStore, useUiStore } from "../../hooks";
 import { ClienteModal } from "../componentes/modal/ClienteModal"
 import { NotaModal } from "../componentes/modal/NotaModal";
@@ -11,8 +10,7 @@ import { cambiaCampos, exportarExcel, formularioDatos } from "../../helpers";
 export const ClientesPage = () => {
 
     const { openClienteModal, openNotaModal } = useUiStore()
-    const { startCargaClientes, setClienteActivo, startBorrarCliente, startBuscaCliente } = useClienteStore()
-    const { clientes } = useSelector( state => state.cliente );
+    const { clientes, startCargaClientes, setClienteActivo, startBorrarCliente, startBuscaCliente } = useClienteStore()
     
     const nuevoCliente = () => {
         setClienteActivo( formularioDatos );
@@ -80,7 +78,6 @@ export const ClientesPage = () => {
                         }
                     }
                 }
-                
             }
         );
     }

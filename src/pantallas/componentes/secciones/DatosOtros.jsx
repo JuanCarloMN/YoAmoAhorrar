@@ -54,19 +54,18 @@ export const DatosOtros = ( { valoresFormulario, setValoresFormulario } ) => {
                                     locale="es"
                                     registerLocale
                                     name="clienteDesde"
-                                    id='desde'
                                     popperPlacement="top-start"
                                     placeholder="Cliente desde"
                                 />
                             </div>
                             <div className="form-floating">
-                                <input type="text" className="form-control" placeholder="¿Quién lo refirió?" autoComplete="on" value={ valoresFormulario.datoReferido } onChange={ onInputChange } name="datoReferido" id='referido' />
+                                <input type="text" className="form-control" autoComplete="on" value={ valoresFormulario.datoReferido } onChange={ onInputChange } name="datoReferido" />
                                 <label htmlFor="referido">¿Quién lo refirió?</label>
                             </div>
                         </div>
 
                         <div className="form-floating col-6">
-                            <textarea type="text" className="notas form-control" placeholder="Notas" style={{ height: 120 }} value={ valoresFormulario.datoNotas } onChange={ onInputChange } name="datoNotas" id='notas' />
+                            <textarea type="text" className="notas form-control" style={{ height: 120 }} value={ valoresFormulario.datoNotas } onChange={ onInputChange } name="datoNotas" />
                             <label htmlFor="notas">Notas</label>
                         </div>
 

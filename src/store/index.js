@@ -10,6 +10,7 @@ export * from './slice/notasSlice';
 export * from './slice/noticiaSlice';
 export * from './slice/perfilSlice';
 export * from './slice/prospectoSlice';
+export * from './slice/polizaSlice';
 export * from './slice/suscriptoresSlice';
 export * from './slice/uiSlice';
 
