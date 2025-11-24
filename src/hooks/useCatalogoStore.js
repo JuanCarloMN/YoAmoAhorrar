@@ -41,7 +41,7 @@ export const useCatalogoStore = () => {
     const starBorrarDato = async ( catalogo ) => {
         try {
             if ( catalogo.idEliminar ) {
-                const { data } = await catalogoApi.delete(`/catalogos/eliminaDato/${ catalogo.id }`, catalogo );
+                const { data } = await catalogoApi.put(`/catalogos/eliminaDato/${ catalogo.id }`, catalogo );
                 if ( data.ok ) {
                     dispatch( onBorrarDato( catalogo ) );
                     Swal.fire( { position: "top-end", icon: "success", html: "<h3>Información eliminada <br>de forma correcta</h3>", showConfirmButton: false, timer: 1000 } );

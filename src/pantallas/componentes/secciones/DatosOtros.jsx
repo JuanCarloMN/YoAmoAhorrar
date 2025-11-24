@@ -1,10 +1,12 @@
 import { useState } from "react";
 import ReactDatePicker from "react-datepicker";
 import { validaCampo, validacionDatos } from "../../../helpers";
+import { useUiStore } from "../../../hooks";
 
 const inicioValidacion = validacionDatos;
 export const DatosOtros = ( { valoresFormulario, setValoresFormulario } ) => {
     const [ validaciones, setValidaciones ] = useState( inicioValidacion );
+    const { isProspectoModalOpen } = useUiStore();
 
     const onInputChange = ({ target }) => {
         const valor = ( target.value ) ? '' : 'is-invalid'
@@ -42,7 +44,7 @@ export const DatosOtros = ( { valoresFormulario, setValoresFormulario } ) => {
                     <div className="form-group d-flex justify-content-between align-items-end me-3">
                         <div className="form-item me-3 col-6 ">
                             <div className="form-item mb-2">
-                                <label className="form-label" htmlFor="desde" >Cliente desde</label>
+                                <label className="form-label" htmlFor="desde" >{ isProspectoModalOpen ? "Prospecto" : "Cliente"} desde</label>
                                 <ReactDatePicker 
                                     selected={  valoresFormulario.datoDesde }
                                     onChange={ ( fecha ) => onDesdeChanged( fecha, 'datoDesde' ) }

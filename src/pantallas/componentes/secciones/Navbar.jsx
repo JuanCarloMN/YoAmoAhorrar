@@ -4,6 +4,7 @@ import { useAuthStore, useCatalogoStore } from "../../../hooks";
 import { useIndicadoresStore } from "../../../hooks/useIndicadoresStore";
 import { useDispatch, useSelector } from "react-redux";
 import { onCargarIndicadoresDolar, onCargarIndicadoresUDI } from "../../../store";
+import { obtenerDatosExportar } from "../../../helpers";
 
 export const Navbar = () => {
 
@@ -19,6 +20,10 @@ export const Navbar = () => {
         valorUDI: 0,
         valorDolar: 0
     })
+
+    const excel = ( tipo ) => {
+        obtenerDatosExportar( tipo );
+    }
 
     const obtenValores = async () => {
 
@@ -103,13 +108,13 @@ export const Navbar = () => {
                                 <li><NavLink className="dropdown-item" to="/noticias">Administrar Noticias</NavLink></li>
                                 <li><NavLink className="dropdown-item" to="/mensajes">Revisar Mensajes</NavLink></li>
                                 <li><NavLink className="dropdown-item" to="/perfiles">Revisar Perfiles Inversores</NavLink></li>
-                                <li><hr className="dropdown-divider" /></li>
+                                {/* <li><hr className="dropdown-divider" /></li>
                                 <li><a href="#" className="dropdown-item">Opciones de Speech</a></li>
-                                <li><a href="#" className="dropdown-item">Exportar Clientes</a></li>
+                                <li><button onClick={ excel( 1 )} className="dropdown-item">Exportar Clientes</button></li>
                                 <li><a href="#" className="dropdown-item">Exportar Prospectos</a></li>
                                 <li><a href="#" className="dropdown-item">Exportar Pólizas</a></li>
                                 <li><hr className="dropdown-divider" /></li>
-                                <li><a href="#" className="dropdown-item">Respaldar Base de Datos</a></li>
+                                <li><a href="#" className="dropdown-item">Respaldar Base de Datos</a></li> */}
                             </ul>
                         </li>
 
