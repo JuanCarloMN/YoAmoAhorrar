@@ -48,7 +48,7 @@ export const AcercaDeContenidoPage = () => {
                 </div>
                 <div className="col-lg-7 col-12 info">
                     <h1>Nuestros valores</h1>
-                    <p className="resumen">
+                    <div className="resumen">
                         <ul>
                             <li><b>Amor:</b> actuar con conciencia y compromiso genuino, diseñando planes como si fueran para mí misma.</li>
                             <li><b>Profesionalismo:</b> brindar un servicio ético, transparente y de calidad.</li>
@@ -56,7 +56,7 @@ export const AcercaDeContenidoPage = () => {
                             <li><b>Empatía:</b> escuchar y entender las necesidades reales de cada persona.</li>
                             <li><b>Innovación:</b> ofrecer soluciones modernas y creativas en finanzas personales.</li>
                         </ul>
-                    </p>
+                    </div>
                 </div>
             </div>
             <div className="text-center p-0 align-items-center">

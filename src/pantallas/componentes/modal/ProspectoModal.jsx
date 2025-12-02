@@ -21,8 +21,6 @@ export const ProspectoModal = () => {
     const { prospectoActivo, startSalvarProspecto, setProspectoActivo } = useProspectoStore();
     const { catalogos } = useCatalogoStore();
     
-console.log(prospectoActivo);
-
     const validaCampos = () => {
         let todoBien = true;
 

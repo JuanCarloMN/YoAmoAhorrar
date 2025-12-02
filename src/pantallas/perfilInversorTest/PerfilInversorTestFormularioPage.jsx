@@ -21,19 +21,19 @@ export const PerfilInversorTestFormularioPage = ( { valoresFormulario, enviarPro
             <form id="lead" >
                 <div className="mb-2">
                     <label htmlFor="nombre">Nombre completo:</label>
-                    <input type="text" className={`form-control ` + claseNombre } placeholder="Nombre completo" autoComplete="on" name="perfilNombre" id='nombre' value={ valoresFormulario.perfilNombre } onChange={ onInputChange } />
+                    <input type="text" className={`form-control ` + claseNombre } placeholder="Nombre completo" autoComplete="on" name="perfilNombre" id='nombre' value={ valoresFormulario.perfilNombre || '' } onChange={ onInputChange } />
                 </div>
                 <div className="mb-2">
                     <label htmlFor="email">Correo electrónico:</label>
-                    <input type="email" className={`form-control ` + claseEmail } placeholder="Correo electrónico" autoComplete="on" name="perfilEmail" id='email' value={ valoresFormulario.perfilEmail } onChange={ onInputChange } />
+                    <input type="email" className={`form-control ` + claseEmail } placeholder="Correo electrónico" autoComplete="on" name="perfilEmail" id='email' value={ valoresFormulario.perfilEmail || '' } onChange={ onInputChange } />
                 </div>
                 <div className="mb-2">
                     <label htmlFor="celular">WhatsApp / Teléfono:</label>
-                    <ReactInputMask type="text" className={`form-control ` + claseTelefono } placeholder="Celular" mask="999-9999-999" maskChar="" autoComplete="on" name="perfilTelefono" id='celular' value={ valoresFormulario.perfilTelefono } onChange={ onInputChange } />
+                    <ReactInputMask type="text" className={`form-control ` + claseTelefono } placeholder="Celular" mask="999-9999-999" maskChar="" autoComplete="on" name="perfilTelefono" id='celular' value={ valoresFormulario.perfilTelefono || '' } onChange={ onInputChange } />
                 </div>
                 <div className="mb-2">
                     <label htmlFor="income">Ingreso mensual aproximado:</label>
-                    <select className="form-select" id="ingreso" name='perfilIngresos' aria-label="Seleccione el ingreso" onChange={ onInputChange } value={ valoresFormulario.perfilIngresos }>
+                    <select className="form-select" id="ingreso" name='perfilIngresos' aria-label="Seleccione el ingreso" onChange={ onInputChange } value={ valoresFormulario.perfilIngresos || '' }>
                         <option value="0">Selecciona</option>
                         <option value="1">$30,000 – $49,999</option>
                         <option value="2">$50,000 – $79,999</option>
@@ -43,7 +43,7 @@ export const PerfilInversorTestFormularioPage = ( { valoresFormulario, enviarPro
                 </div>
                 <div className="mb-2">
                     <label htmlFor="goal">Objetivo principal de inversión:</label>
-                    <select className="form-select" id="objetivo" name='perfilObjetivo' aria-label="Seleccione el objetivo" onChange={ onInputChange } value={ valoresFormulario.perfilObjetivo }>
+                    <select className="form-select" id="objetivo" name='perfilObjetivo' aria-label="Seleccione el objetivo" onChange={ onInputChange } value={ valoresFormulario.perfilObjetivo || '' }>
                         <option value="0">Selecciona</option>
                         <option value="1">Fondo de emergencia</option>
                         <option value="2">Ahorro para retiro</option>
@@ -54,7 +54,7 @@ export const PerfilInversorTestFormularioPage = ( { valoresFormulario, enviarPro
                 </div>
                 <div className="mb-2 hidden" aria-hidden="true">
                     <label htmlFor="web">Tu sitio Web:</label>
-                    <input type="web" className="form-control" placeholder="Sitio Web" autoComplete="on" name="perfilSitioWeb" id='web' value={ valoresFormulario.perfilSitioWeb } onChange={ onInputChange } />
+                    <input type="web" className="form-control" placeholder="Sitio Web" autoComplete="on" name="perfilSitioWeb" id='web' value={ valoresFormulario.perfilSitioWeb || '' } onChange={ onInputChange } />
                 </div>
                 <div className="check d-flex" >
                     <input type="checkbox" id="consent" required name="perfilPrivacidad" onChange={ onInputChange } checked={ valoresFormulario.perfilPrivacidad } />
