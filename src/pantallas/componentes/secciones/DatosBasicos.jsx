@@ -9,7 +9,9 @@ const anoActual = new Date().getFullYear() - 2000;
 
 export const DatosBasicos = ( { valoresFormulario, setValoresFormulario, estadoCivil, escolaridad } ) => {
     const [ validaciones, setValidaciones ] = useState( inicioValidacion );
-
+    
+    console.log(valoresFormulario.datoEscolaridad);
+    
     const onInputChange = ({ target }) => {
         const valor = ( target.value ) ? '' : 'is-invalid'
         const campoValida = validaCampo( target.name );

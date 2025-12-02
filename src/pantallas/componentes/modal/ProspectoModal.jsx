@@ -21,6 +21,7 @@ export const ProspectoModal = () => {
     const { prospectoActivo, startSalvarProspecto, setProspectoActivo } = useProspectoStore();
     const { catalogos } = useCatalogoStore();
     
+console.log(prospectoActivo);
 
     const validaCampos = () => {
         let todoBien = true;
@@ -82,7 +83,7 @@ export const ProspectoModal = () => {
     
     useEffect( () => {        
         if ( prospectoActivo !== null ) {
-            setValoresFormulario({ ...prospectoActivo });
+            setValoresFormulario({ ...prospectoActivo });            
         } else {
             setValoresFormulario( inicioFormulario )
         }

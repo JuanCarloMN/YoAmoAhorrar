@@ -1,6 +1,6 @@
 import { useEffect } from "react"
 import { Navigate, Route, Routes } from "react-router-dom"
-import { ClientesPage, Navbar, PolizasPage, ProspectosPage, AgendaPage, PerfilPage, CatalogosPage, PerlaMaldonadoPage, BlogPage, MensajesPage, MiBlogPage, NoticiasPage, FAQPage, AcercaDePage, CitasPage, PresupuestoPage, PerfilInversorTestPage, PerfilInversorPage, InteresCompuestoPage, HerramientasPage } from "../pantallas"
+import { ClientesPage, Navbar, PolizasPage, ProspectosPage, AgendaPage, PerfilPage, CatalogosPage, PerlaMaldonadoPage, BlogPage, MensajesPage, MiBlogPage, NoticiasPage, FAQPage, AcercaDePage, CitasPage, PresupuestoPage, PerfilInversorTestPage, PerfilInversorPage, InteresCompuestoPage, HerramientasPage, ReportesPage } from "../pantallas"
 import { LoginPage } from "../auth"
 import { useAuthStore } from "../hooks"
 import { PrivateRoute } from "./"
@@ -50,84 +50,91 @@ export const SeccionesRouter = () => {
                             <Navbar />
                             <AgendaPage /> 
                         </PrivateRoute>
-                        } />
+                    } />
 
                     <Route path='/clientes' element={ 
                         <PrivateRoute>
                             <Navbar />
                             <ClientesPage /> 
                         </PrivateRoute>
-                        } />
+                    } />
 
                     <Route path='/prospectos' element={ 
                         <PrivateRoute>
                             <Navbar />
                             <ProspectosPage /> 
                         </PrivateRoute>
-                        } />
+                    } />
 
                     <Route path='/polizas' element={ 
                         <PrivateRoute>
                             <Navbar />
                             <PolizasPage /> 
                         </PrivateRoute>
-                        } />
+                    } />
 
                     <Route path='/perfil' element={ 
                         <PrivateRoute>
                             <Navbar />
                             <PerfilPage /> 
                         </PrivateRoute>
-                        } />
+                    } />
 
                     <Route path='/catalogos' element={ 
                         <PrivateRoute>
                             <Navbar />
                             <CatalogosPage /> 
                         </PrivateRoute>
-                        } />
+                    } />
+
+                    <Route path='/reportes' element={ 
+                        <PrivateRoute>
+                            <Navbar />
+                            <ReportesPage /> 
+                        </PrivateRoute>
+                    } />
 
                     <Route path='/mensajes' element={ 
                         <PrivateRoute>
                             <Navbar />
                             <MensajesPage /> 
                         </PrivateRoute>
-                        } />
+                    } />
 
                     <Route path='/perfiles' element={ 
                         <PrivateRoute>
                             <Navbar />
                             <PerfilInversorPage /> 
                         </PrivateRoute>
-                        } />
+                    } />
 
                     <Route path='/miblog' element={ 
                         <PrivateRoute>
                             <Navbar />
                             <MiBlogPage /> 
                         </PrivateRoute>
-                        } />
+                    } />
 
                     <Route path='/noticias' element={ 
                         <PrivateRoute>
                             <Navbar />
                             <NoticiasPage /> 
                         </PrivateRoute>
-                        } />
+                    } />
 
                     <Route path='/faq' element={ 
                         <PrivateRoute>
                             <Navbar />
                             <FAQPage />
                         </PrivateRoute>
-                        } />
+                    } />
 
                     <Route path='/acerca' element={ 
                         <PrivateRoute>
                             <Navbar />
                             <AcercaDePage />
                         </PrivateRoute>
-                        } />
+                    } />
 
                     <Route path='/*' element={ <Navigate to='/agenda' /> } />
                 </>

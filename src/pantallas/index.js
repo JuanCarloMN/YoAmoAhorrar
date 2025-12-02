@@ -17,6 +17,7 @@ export * from './paginas/PerfilInversorPage';
 export * from './paginas/PerfilPage';
 export * from './paginas/PolizasPage';
 export * from './paginas/ProspectosPage';
+export * from './paginas/ReportesPage'
 export * from './perfilInversorTest/PerfilInversorTestPage';
 export * from './portafolio/PerlaMaldonadoPage';
 export * from './presupuesto/PresupuestoPage';

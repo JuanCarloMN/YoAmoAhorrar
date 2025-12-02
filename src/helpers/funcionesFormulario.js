@@ -46,8 +46,8 @@ export const campoEquivalente = ( campo, tipo ) => {
             case 'prospectoCURP': return 'datoCURP';
             case 'prospectoNacimiento': return 'datoNacimiento';
             case 'prospectoEstadoCivil': return 'datoEstadoCivil';
-            case 'prospectoEstadoCivil': return 'datoSexo';
-            case 'prospectoEstadoCivil': return 'datoEscolaridad';
+            case 'prospectoSexo': return 'datoSexo';
+            case 'prospectoEscolaridad': return 'datoEscolaridad';
             case 'prospectoCelular': return 'datoCelular';
             case 'prospectoTelefono': return 'datoTelefono';
             case 'prospectoEmail': return 'datoEmail';

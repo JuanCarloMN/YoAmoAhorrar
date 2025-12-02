@@ -103,7 +103,8 @@ export const Navbar = () => {
                         <li className="nav-item dropdown mt-1">
                             <a href="#" className="btn btn-dark dropdown-toggle" role="button" data-bs-toggle="dropdown" aria-expanded="false" id="dropdown-menu" > Utilerías </a>
                             <ul className="dropdown-menu" aria-labelledby="dropdown-menu">
-
+                                {/* <li><NavLink className="dropdown-item" to="/reportes">Reportes</NavLink></li>
+                                <li><hr className="dropdown-divider" /></li> */}
                                 <li><NavLink className="dropdown-item" to="/miblog">Entradas de Mi Blogs</NavLink></li>
                                 <li><NavLink className="dropdown-item" to="/noticias">Administrar Noticias</NavLink></li>
                                 <li><NavLink className="dropdown-item" to="/mensajes">Revisar Mensajes</NavLink></li>
@@ -117,7 +118,6 @@ export const Navbar = () => {
                                 <li><a href="#" className="dropdown-item">Respaldar Base de Datos</a></li> */}
                             </ul>
                         </li>
-
                     </ul>
                 </div>
 
