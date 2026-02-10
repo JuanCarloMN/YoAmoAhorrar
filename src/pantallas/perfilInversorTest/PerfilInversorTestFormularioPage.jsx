@@ -73,24 +73,77 @@ export const PerfilInversorTestFormularioPage = ( { valoresFormulario, enviarPro
             </div>
             <div className="row mt-3 border rounded" hidden={ aviso ? '' : 'hidden' } >
                 <div className="col text-justify">
-                    <p><i>AVISO DE PRIVACIDAD</i></p>
-                    <p><b>Yo Amo Ahorrar</b>, comercialmente conocido como <b>Yo Amo Ahorrar</b>, con domicilio en <b>Ciudad de México</b>, es el responsable del uso y protección de sus datos personales.</p><br />
-                    <p><b>FINALIDADES PRIMARIAS</b></p>
-                    <p>Los datos personales que recabamos de usted, los utilizaremos para las siguientes finalidades que son necesarias para el servicio que solicita:</p>
-                    <p>• Asesoramiento en temas de finanzas</p>
-                    <p>• Prestación de cualquier servicio solicitado</p><br />
-                    <p><b>DATOS PERSONALES RECABADOS</b></p>
-                    <p>Para las finalidades señaladas en el presente aviso de privacidad, podemos recabar sus datos de identificación y contacto, datos laborales, datos académicos, datos patrimoniales y/o financieros, datos sobre pasatiempos.</p><br />
-                    <p><b>DERECHOS ARCO</b></p>
-                    <p>Usted tiene derecho a conocer qué datos personales tenemos de usted, para qué los utilizamos y las condiciones del uso que les damos (Acceso). Asimismo, es su derecho solicitar la corrección de su información personal en caso de que esté desactualizada, sea inexacta o incompleta (Rectificación); que la eliminemos de nuestros registros o bases de datos cuando considere que la misma no está siendo utilizada adecuadamente (Cancelación); así como oponerse al uso de sus datos personales para fines específicos (Oposición). Estos derechos se conocen como derechos ARCO.</p>
-                    <p>Para el ejercicio de cualquiera de los derechos ARCO, usted deberá presentar la solicitud respectiva a través del mismo correo electrónico con el que se hizo la solicitud. La respuesta a su solicitud será atendida en un plazo máximo de 15 días hábiles.</p><br />
-                    <p><b>DATOS RECABADOS POR EL SITIO WEB</b></p>
-                    <p>Nuestro sitio web recaba automáticamente los siguientes datos:</p>
-                    <p>• Ningún dato se recaba automáticamente</p><br />
-                    <p><b>CONTACTO</b></p>
-                    <p>Para más información sobre este aviso de privacidad, puede contactarnos en:</p><br />
-                    <p>Sitio web: <a href="https://perlamaldonado.com/">https://perlamaldonado.com/</a></p><br />
-                    <p className="blockquote-footer">Última actualización: 21/11/2025</p><br />
+                    <p><i><h2>AVISO DE PRIVACIDAD</h2></i></p>
+                    <p><b>Perla Maldonado</b> | Planeación de Retiro & Finanzas Inteligentes</p>
+                    <p><h3>1. Responsable del tratamiento de datos personales</h3></p>
+                    <p>Perla Gabriela Maldonado Granados, con sitio web <b>https://perlamaldonado.com</b>, es responsable del uso y protección de sus datos personales, y al respecto le informa lo siguiente:</p>
+                    <hr />
+                    <p><h3>2. Datos personales que se recaban</h3></p>
+                    <p>Para brindarle un servicio adecuado de análisis financiero, planeación patrimonial y asesoría en seguros, podremos recabar las siguientes categorías de datos:</p>
+                    <p>•	Datos de identificación (nombre, edad, estado civil, etc.)</p>
+                    <p>•	Datos de contacto (teléfono, correo electrónico, domicilio)</p>
+                    <p>•	Datos familiares y laborales</p>
+                    <p>•	Datos financieros y patrimoniales (ingresos, bienes, deudas, inversiones, seguros)</p>
+                    <p>•	Información necesaria para elaborar su <b>Radiografía Financiera Personal</b></p><br />
+                    <p>No se solicitarán datos personales sensibles sin su consentimiento expreso.</p>
+                    <hr />
+                    <p><h3>3. Finalidades del tratamiento de sus datos</h3></p>
+                    <p>Sus datos personales serán utilizados para:</p>
+                    <p><h5>Finalidades primarias (necesarias)</h5></p>
+                    <p>•	Elaborar diagnósticos y análisis financieros personalizados</p>
+                    <p>•	Diseñar estrategias de protección, ahorro, inversión y retiro</p>
+                    <p>•	Brindar asesoría en seguros y planeación patrimonial</p>
+                    <p>•	Dar seguimiento a solicitudes, cotizaciones o contrataciones</p>
+                    <p>•	Cumplir obligaciones legales y regulatorias aplicables</p><br />
+                    <p><h5>Finalidades secundarias (no necesarias)</h5></p>
+                    <p>•	Contactarle para información educativa, financiera o promocional</p>
+                    <p>•	Invitarle a eventos, talleres o contenidos de educación financiera</p><br />
+                    <p>Usted puede oponerse al uso de sus datos para finalidades secundarias enviando un correo a:</p>
+                    <p><b>asesoria.perlamaldonado@gmail.com</b></p>
+                    <hr />
+                    <p><h3>4. Transferencia de datos</h3></p>
+                    <p>Sus datos personales no serán vendidos ni compartidos con terceros ajenos a la prestación del servicio.</p>
+                    <p>Únicamente podrán compartirse, cuando sea necesario:</p>
+                    <p>•	Con compañías aseguradoras o instituciones financieras para cotizaciones o contrataciones solicitadas por usted</p>
+                    <p>•	Con autoridades competentes cuando exista obligación legal</p><br />
+                    <p>En todos los casos, se mantendrán medidas de confidencialidad y protección.</p>
+                    <hr />
+                    <p><h3>5. Derechos ARCO (Acceso, Rectificación, Cancelación y Oposición)</h3></p>
+                    <p>Usted tiene derecho a:</p>
+                    <p>•	Acceder a sus datos personales</p>
+                    <p>•	Rectificarlos si son inexactos o incompletos</p>
+                    <p>•	Cancelarlos cuando considere que no se requieren</p>
+                    <p>•	Oponerse a su uso para fines específicos</p><br />
+                    <p>Para ejercer sus derechos ARCO, envíe una solicitud al correo:</p>
+                    <p><b>asesoria.perlamaldonado@gmail.com</b></p><br />
+                    <p>La solicitud deberá incluir:</p>
+                    <p>•	Nombre completo</p>
+                    <p>•	Medio de contacto</p>
+                    <p>•	Descripción clara de la solicitud</p><br />
+                    <p>Recibirá respuesta dentro de los plazos legales aplicables.</p>
+                    <hr />
+                    <p><h3>6. Uso de cookies y tecnologías de rastreo</h3></p>
+                    <p>El sitio web podrá utilizar cookies u otras tecnologías para:</p>
+                    <p>•	Mejorar la experiencia de navegación</p>
+                    <p>•	Analizar el uso del sitio</p>
+                    <p>•	Ofrecer contenido relevante</p><br />
+                    <p>Usted puede deshabilitar las cookies desde su navegador.</p>
+                    <hr />
+                    <p><h3>7. Medidas de seguridad</h3></p>
+                    <p>Se han implementado medidas administrativas, técnicas y físicas para proteger sus datos personales contra:</p>
+                    <p>•	Daño</p>
+                    <p>•	Pérdida</p>
+                    <p>•	Alteración</p>
+                    <p>•	Uso no autorizado</p><br />
+                    <p>Su información será tratada con estricta confidencialidad.</p>
+                    <hr />
+                    <p><h3>8. Cambios al aviso de privacidad</h3></p>
+                    <p>Este aviso puede actualizarse en cualquier momento para cumplir con cambios legales o de operación.</p>
+                    <p>Las modificaciones estarán disponibles en:</p>
+                    <p><b>https://perlamaldonado.com</b></p>
+                    <hr />
+                    <p><h3>9. Consentimiento</h3></p>
+                    <p>Al proporcionar sus datos personales por cualquier medio, usted acepta el presente Aviso de Privacidad.</p>
                     <p className="text-center"><button className="boton-seccion" type="button" onClick={ () => avisoPrivacidad( false ) }>Cerrar aviso de privacidad</button></p>
                 </div>
             </div>

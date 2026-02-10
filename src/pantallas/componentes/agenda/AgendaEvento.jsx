@@ -12,11 +12,11 @@ const icoEvento = ( tipo ) => {
 
 export const AgendaEvento = ( { event } ) => {
 
-    const { titulo, usuario, tipo } = event;
+    const { titulo, usuario, tipo } = event;    
 
     return (
         <>
-            {/* <strong>{ titulo }</strong> */}
+            <strong>{ titulo }</strong>
             <img src={ `../../../../../img/${icoEvento( tipo )}` } className="icono-evento mt-2 ms-2" />
             {/* <span> - { usuario.nombre }</span> */}
         </>

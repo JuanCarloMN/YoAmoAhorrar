@@ -45,6 +45,11 @@ export const AgendaPage = () => {
         return color;
     }
 
+    const handleSelectSlot = ({ start, end }) => {
+        console.log("seleccion");
+        
+    };
+
     const onDoubleClick = ( evento ) => {
         openEventoModal();
     }
@@ -53,9 +58,12 @@ export const AgendaPage = () => {
         setEventoActivo( evento );
     }
 
-    const onViewChange = ( evento ) => {
+    const onViewChange = ( evento ) => { 
+        
         localStorage.setItem( 'ultimaVista', evento );
+        cambiaVista( evento );
         setUltimaVista( evento );
+        console.log(evento);
     }
 
     const cambiaVista = ( tipo ) => {
@@ -120,6 +128,7 @@ export const AgendaPage = () => {
                 localizer={ localizer }
                 events={ eventosTipo }
                 defaultView={ ultimaVista }
+                view={ ultimaVista }
                 startAccessor="inicio"
                 endAccessor="fin"
                 style={{ height: 'calc( 100vh - 180px )', width: 'calc( 100vw - 35px )' }}
@@ -132,17 +141,16 @@ export const AgendaPage = () => {
                 onSelectEvent={ onSelect }
                 onView={ onViewChange }
                 className='ms-3 mb-3'
-                view={ ultimaVista }
                 toolbar={ false }
                 date={ fecha }
                 onNavigate={ fecha }
                 showAllEvents
                 min={new Date(new Date().setHours(9,0,0))}
                 max={new Date(new Date().setHours(21,0,0))}
+                onSelectSlot={ handleSelectSlot }
             />
-
-            <AgendaModal />
             
+            <AgendaModal />
             <FabNuevo />
             <FabBorrar />
         </>
