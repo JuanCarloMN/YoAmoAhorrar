@@ -76,7 +76,7 @@ export const PerfilInversorTestFormularioPage = ( { valoresFormulario, enviarPro
                     <p><i><h2>AVISO DE PRIVACIDAD</h2></i></p>
                     <p><b>Perla Maldonado</b> | Planeación de Retiro & Finanzas Inteligentes</p>
                     <p><h3>1. Responsable del tratamiento de datos personales</h3></p>
-                    <p>Perla Gabriela Maldonado Granados, con sitio web <b>https://perlamaldonado.com</b>, es responsable del uso y protección de sus datos personales, y al respecto le informa lo siguiente:</p>
+                    <p>Perla Gabriela Maldonado Granados, con sitio web <b><a href="https://perlamaldonado.com" target="_blank" className="email table-light">https://perlamaldonado.com</a></b>, es responsable del uso y protección de sus datos personales, y al respecto le informa lo siguiente:</p>
                     <hr />
                     <p><h3>2. Datos personales que se recaban</h3></p>
                     <p>Para brindarle un servicio adecuado de análisis financiero, planeación patrimonial y asesoría en seguros, podremos recabar las siguientes categorías de datos:</p>
@@ -99,7 +99,7 @@ export const PerfilInversorTestFormularioPage = ( { valoresFormulario, enviarPro
                     <p>•	Contactarle para información educativa, financiera o promocional</p>
                     <p>•	Invitarle a eventos, talleres o contenidos de educación financiera</p><br />
                     <p>Usted puede oponerse al uso de sus datos para finalidades secundarias enviando un correo a:</p>
-                    <p><b>asesoria.perlamaldonado@gmail.com</b></p>
+                    <p><b><a href="mailto:asesoria@perlamaldonado.com" className="email table-light">asesoria@perlamaldonado.com</a></b></p>
                     <hr />
                     <p><h3>4. Transferencia de datos</h3></p>
                     <p>Sus datos personales no serán vendidos ni compartidos con terceros ajenos a la prestación del servicio.</p>
@@ -115,7 +115,7 @@ export const PerfilInversorTestFormularioPage = ( { valoresFormulario, enviarPro
                     <p>•	Cancelarlos cuando considere que no se requieren</p>
                     <p>•	Oponerse a su uso para fines específicos</p><br />
                     <p>Para ejercer sus derechos ARCO, envíe una solicitud al correo:</p>
-                    <p><b>asesoria.perlamaldonado@gmail.com</b></p><br />
+                    <p><b><a href="mailto:asesoria@perlamaldonado.com" className="email table-light">asesoria@perlamaldonado.com</a></b></p><br />
                     <p>La solicitud deberá incluir:</p>
                     <p>•	Nombre completo</p>
                     <p>•	Medio de contacto</p>
@@ -140,7 +140,7 @@ export const PerfilInversorTestFormularioPage = ( { valoresFormulario, enviarPro
                     <p><h3>8. Cambios al aviso de privacidad</h3></p>
                     <p>Este aviso puede actualizarse en cualquier momento para cumplir con cambios legales o de operación.</p>
                     <p>Las modificaciones estarán disponibles en:</p>
-                    <p><b>https://perlamaldonado.com</b></p>
+                    <p><b><a href="https://perlamaldonado.com" target="_blank" className="email table-light">https://perlamaldonado.com</a></b></p>
                     <hr />
                     <p><h3>9. Consentimiento</h3></p>
                     <p>Al proporcionar sus datos personales por cualquier medio, usted acepta el presente Aviso de Privacidad.</p>
