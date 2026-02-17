@@ -1,5 +1,6 @@
 import { HerramientasCabeceroPage } from "./HerramientasCabeceroPage"
 import { HerramientasDatosPage } from "./HerramientasDatosPage"
+const anio = new Date().getFullYear();
 
 export const HerramientasPage = () => {
     return (
@@ -10,7 +11,7 @@ export const HerramientasPage = () => {
                 <hr />
                 <img src="../img/solo-logo.png" alt="Perla Maldonado" className="logo-footer"/>
                 <br />
-                <span className="fw-lighter">2025</span>
+                <span className="fw-lighter">{ anio }</span>
             </div>
         </>
     )

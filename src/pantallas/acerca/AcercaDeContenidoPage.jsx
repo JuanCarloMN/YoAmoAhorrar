@@ -1,3 +1,4 @@
+const anio = new Date().getFullYear();
 
 export const AcercaDeContenidoPage = () => {
     return (
@@ -63,7 +64,7 @@ export const AcercaDeContenidoPage = () => {
                 <hr />
                 <img src="../img/solo-logo.png" alt="Perla Maldonado" className="logo-footer"/>
                 <br />
-                <span className="fw-lighter">2025</span>
+                <span className="fw-lighter">{ anio }</span>
             </div>
         </div>
     )

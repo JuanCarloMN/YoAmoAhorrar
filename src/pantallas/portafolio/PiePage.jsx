@@ -1,3 +1,4 @@
+const anio = new Date().getFullYear();
 
 export const PiePage = () => {
     return (
@@ -50,7 +51,7 @@ export const PiePage = () => {
                     <div className="text-center py-3 align-items-center">
                         <img src="./img/solo-logo.png" alt="Perla Maldonado" className="logo-footer"/>
                         <br />
-                        <span className="fw-lighter">2025</span>
+                        <span className="fw-lighter">{ anio }</span>
                     </div>
                 </div>
             </footer>

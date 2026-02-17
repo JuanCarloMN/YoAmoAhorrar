@@ -1,6 +1,7 @@
 import { useEffect } from "react";
 import { useNoticiaStore } from "../../hooks";
 import moment from "moment";
+const anio = new Date().getFullYear();
 
 const NewsEntradasPage = () => {
     const { noticias, startCargarNoticias } = useNoticiaStore();
@@ -27,7 +28,7 @@ const NewsEntradasPage = () => {
                 <div className="text-center p-0 align-items-center">
                     <img src="../img/solo-logo.png" alt="Perla Maldonado" className="logo-footer"/>
                     <br />
-                    <span className="fw-lighter">2025</span>
+                    <span className="fw-lighter">{ anio }</span>
                 </div>
             </div>
         </main>
