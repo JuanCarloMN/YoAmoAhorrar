@@ -1,3 +1,4 @@
+const anio = new Date().getFullYear();
 
 export const PrivacidadContenidoPage = () => {
     return (
@@ -73,6 +74,13 @@ export const PrivacidadContenidoPage = () => {
             <hr />
             <h3>9. Consentimiento</h3>
             <p>Al proporcionar sus datos personales por cualquier medio, usted acepta el presente Aviso de Privacidad.</p>
+            <hr />
+
+            <div className="text-center p-0 align-items-center">
+                <img src="../img/solo-logo.png" alt="Perla Maldonado" className="logo-footer"/>
+                <br />
+                <span className="fw-lighter">{ anio }</span>
+            </div>
         </div>
     )
 }
