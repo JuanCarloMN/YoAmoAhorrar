@@ -21,4 +21,5 @@ export * from './paginas/ReportesPage'
 export * from './perfilInversorTest/PerfilInversorTestPage';
 export * from './portafolio/PerlaMaldonadoPage';
 export * from './presupuesto/PresupuestoPage';
+export * from './privacidad/PrivacidadPage';
 export * from './testimonios/TestimonioPage';

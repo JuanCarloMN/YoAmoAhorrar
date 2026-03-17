@@ -1,6 +1,6 @@
 import { useEffect } from "react"
 import { Navigate, Route, Routes } from "react-router-dom"
-import { ClientesPage, Navbar, PolizasPage, ProspectosPage, AgendaPage, PerfilPage, CatalogosPage, PerlaMaldonadoPage, BlogPage, MensajesPage, MiBlogPage, NoticiasPage, FAQPage, AcercaDePage, CitasPage, PresupuestoPage, PerfilInversorTestPage, PerfilInversorPage, InteresCompuestoPage, HerramientasPage, ReportesPage } from "../pantallas"
+import { ClientesPage, Navbar, PolizasPage, ProspectosPage, AgendaPage, PerfilPage, CatalogosPage, PerlaMaldonadoPage, BlogPage, MensajesPage, MiBlogPage, NoticiasPage, FAQPage, AcercaDePage, CitasPage, PresupuestoPage, PerfilInversorTestPage, PerfilInversorPage, InteresCompuestoPage, HerramientasPage, ReportesPage, PrivacidadPage } from "../pantallas"
 import { LoginPage } from "../auth"
 import { useAuthStore } from "../hooks"
 import { PrivateRoute } from "./"
@@ -39,6 +39,7 @@ export const SeccionesRouter = () => {
                     <Route path='/presupuesto/*' element={ <PresupuestoPage /> } />
                     <Route path='/interes_compuesto/*' element={ <InteresCompuestoPage /> } />
                     <Route path='/herramientas/*' element={ <HerramientasPage /> } />
+                    <Route path='/avisodeprivacidad/*' element={ <PrivacidadPage /> } />
                     <Route path='/*' element={ <Navigate to='/portafolio' /> } />
                     {/* <Route path='/*' element={ <Navigate to='/auth/login' /> } /> */}
                 </>
