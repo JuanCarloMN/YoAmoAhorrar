@@ -17,6 +17,9 @@ export const InformacionPage = () => {
                             <p className="resumen">Soy especialista en proteger tus finanzas personales, con más de 6 años de experiencia ayudando a personas como tú  a construir un retiro espectacular y a cumplir sus metas financieras para que su “Yo” del futuro, se sienta orgulloso.</p>
                             <p className="resumen">Apasionada por el aprendizaje continuo y comprometida con brindar soluciones personalizadas para cada cliente.</p>
                             <p className="resumen">Viajar es una de mis mayores inspiraciones, lo que me permite entender diversas perspectivas y enriquecer mi enfoque en la asesoría financiera.</p>
+                            <div className="d-flex justify-content-center">
+                                <a className="boton-seccion"href="acerca">Ver más...</a>
+                            </div>
                         </div>
                     </div>
 

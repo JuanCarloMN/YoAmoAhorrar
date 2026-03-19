@@ -108,8 +108,9 @@ export const ContactamePage = () => {
                                     <label htmlFor="mensajeDetalle">Mensaje</label>
                                 </div>
 
-                                <div className="d-flex justify-content-center">
-                                    <button className="boton" type="button" onClick={ guardaMensaje }>Enviar</button>
+                                <div className="d-flex justify-content-center p-3">
+                                    <button className="boton me-3" type="button" onClick={ guardaMensaje }>Enviar</button>
+                                    <a className="boton-seccion"href="avisodeprivacidad">Ver aviso de privacidad</a>
                                 </div>
                             </div>
 
