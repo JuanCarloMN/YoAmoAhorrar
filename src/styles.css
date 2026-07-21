@@ -316,7 +316,13 @@ input:checked + .radio-title .template-claro {
 }
 
 .formulario-perfil {
-  background-color: #ded0de;
+  /* background-color: #ded0de; */
+  background-color: #F7F6FA;
+}
+
+.pregunta-test {
+  /* background-color: #ded0de; */
+  background-color: #f4edff;
 }
 
 @media screen and ( max-width: 380px ) {

@@ -57,8 +57,10 @@ header .menu .opcion-menu:hover {
 }
 
 .seccion {
-    background-color: #9B769A !important;
-    color: white !important;
+    /* background-color: #9B769A !important; */
+    /* color: white !important; */
+    background-color: #F7F6FA !important;
+    color: #542052 !important;
 }
 
 /* MAIN */

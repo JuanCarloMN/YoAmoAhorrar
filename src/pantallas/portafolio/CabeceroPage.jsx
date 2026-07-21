@@ -93,12 +93,7 @@ export const CabeceroPage = () => {
                             <div className="carousel-inner">
                                 <div className="carousel-item active">
                                     <a href="/blog#blog01">
-                                        <img src="./img/banner_seguro_moderno.jpg" className="d-block w-100 " />
-                                    </a>
-                                </div>
-                                <div className="carousel-item ">
-                                    <a href="/blog#blog02">
-                                        <img src="./img/banner_seguro_educacion.jpg" className="d-block w-100 " />
+                                        <img src="./img/banner_finanzas_para_todos.jpg" className="d-block w-100 " />
                                     </a>
                                 </div>
                                 <div className="carousel-item ">

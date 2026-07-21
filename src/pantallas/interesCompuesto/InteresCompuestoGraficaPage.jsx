@@ -38,7 +38,7 @@ export const InteresCompuestoGraficaPage = ( { valoresGrafica }) => {
         if (chartRef.current) {
             const graficaInteresCompuesto = createChart(chartRef.current,{
                 layout: {
-                    background: {color: '#F5EEF5'}
+                    background: {color: '#F7F6FA'}
                 },
                 crosshair: {
                     horzLine: {
@@ -55,12 +55,23 @@ export const InteresCompuestoGraficaPage = ( { valoresGrafica }) => {
                         return `Año ${time}`;
                     }
                 },
+                grid: {
+                    vertLines: {
+                        color: 'transparent', // O puedes usar visible: false
+                    },
+                    horzLines: {
+                        color: 'transparent', // O puedes usar visible: false
+                    },
+                }
             });
 
             const serieTotal = graficaInteresCompuesto.addSeries(AreaSeries, {
-                topColor: '#F5EEF5',
-                bottomColor: '#9B769A',
-                lineColor: '#542052',
+                // topColor: '#F5EEF5',
+                // bottomColor: '#9B769A',
+                // lineColor: '#542052',
+                topColor: '#f4edff',
+                bottomColor: '#f4edff',
+                lineColor: '#6D4C9F',
                 lineWidth: 2,
             });
             const serieDeposito = graficaInteresCompuesto.addSeries(LineSeries, {

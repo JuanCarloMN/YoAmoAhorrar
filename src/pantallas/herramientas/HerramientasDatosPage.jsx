@@ -13,7 +13,7 @@ export const HerramientasDatosPage = () => {
                     <div className="accordion-item ">
                         <h2 className="accordion-header" id="seccion-1">
                             <button className="accordion-button seccion" type="button" data-bs-toggle="collapse" data-bs-target="#dato-1" aria-expanded="true" aria-controls="dato-1">
-                                <b>Gráficas de indicadores</b>
+                                <b>Indicadores financieros</b>
                             </button>
                         </h2>
                         <div id="dato-1" className="accordion-collapse collapse show" aria-labelledby="seccion-1" data-bs-parent="#herrmaientas">
@@ -31,6 +31,9 @@ export const HerramientasDatosPage = () => {
                                 <b>Interés compuesto</b>
                             </button>
                         </h2>
+                        {/* <p className="fw-lighte">
+                            Descubre como tu dinero puede crecer con el poder del interés compuesto
+                        </p> */}
                         <div id="dato-2" className="accordion-collapse collapse" aria-labelledby="seccion-2" data-bs-parent="#herrmaientas">
                             <div className="accordion-body">
                                 <InteresCompuestoPage />

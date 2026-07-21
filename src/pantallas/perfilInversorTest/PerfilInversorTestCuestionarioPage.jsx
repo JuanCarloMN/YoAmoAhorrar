@@ -4,7 +4,7 @@ export const PerfilInversorTestCuestionarioPage = ( { onRespuestaChange, resulta
         <>
             {/* Pregunta 1 */}
             <div className="row d-flex align-items-center px-lg-4 mb-4" id="">
-                <p className="alert alert-secondary"><b>1. Si tuvieras que elegir entre estas opciones de inversión, ¿cuál prefieres?</b></p>
+                <p className="alert pregunta-test"><b>1. Si tuvieras que elegir entre estas opciones de inversión, ¿cuál prefieres?</b></p>
                 <div className="col">
                     <div className="form-check">
                         <input type="radio" name="pregunta1" className="form-check-input" id="pregunta1-1" onChange={ onRespuestaChange } value={ 1 } />
@@ -25,7 +25,7 @@ export const PerfilInversorTestCuestionarioPage = ( { onRespuestaChange, resulta
 
             {/* Pregunta 2 */}
             <div className="row d-flex align-items-center px-lg-4 mb-4" id="">
-                <p className="alert alert-secondary"><b>2. ¿Qué tan importante es para ti la seguridad de tu dinero?</b></p>
+                <p className="alert pregunta-test"><b>2. ¿Qué tan importante es para ti la seguridad de tu dinero?</b></p>
                 <div className="col">
                     <div className="form-check">
                         <input type="radio" name="pregunta2" className="form-check-input" id="pregunta2-1" onChange={ onRespuestaChange } value={ 1 } />
@@ -46,7 +46,7 @@ export const PerfilInversorTestCuestionarioPage = ( { onRespuestaChange, resulta
 
             {/* Pregunta 3 */}
             <div className="row d-flex align-items-center px-lg-4 mb-4" id="">
-                <p className="alert alert-secondary"><b>3. ¿Cómo reaccionarías si tu inversión baja de valor en un mes?</b></p>
+                <p className="alert pregunta-test"><b>3. ¿Cómo reaccionarías si tu inversión baja de valor en un mes?</b></p>
                 <div className="col">
                     <div className="form-check">
                         <input type="radio" name="pregunta3" className="form-check-input" id="pregunta3-1" onChange={ onRespuestaChange } value={ 1 } />
@@ -67,7 +67,7 @@ export const PerfilInversorTestCuestionarioPage = ( { onRespuestaChange, resulta
 
             {/* Pregunta 4 */}
             <div className="row d-flex align-items-center px-lg-4 mb-4" id="">
-                <p className="alert alert-secondary"><b>4. ¿Cuánto tiempo estás dispuesto a mantener tu inversión sin tocarla?</b></p>
+                <p className="alert pregunta-test"><b>4. ¿Cuánto tiempo estás dispuesto a mantener tu inversión sin tocarla?</b></p>
                 <div className="col">
                     <div className="form-check">
                         <input type="radio" name="pregunta4" className="form-check-input" id="pregunta4-1" onChange={ onRespuestaChange } value={ 1 } />
@@ -88,7 +88,7 @@ export const PerfilInversorTestCuestionarioPage = ( { onRespuestaChange, resulta
 
             {/* Pregunta 5 */}
             <div className="row d-flex align-items-center px-lg-4 mb-4" id="">
-                <p className="alert alert-secondary"><b>5. ¿Cuál es tu objetivo principal al invertir?</b></p>
+                <p className="alert pregunta-test"><b>5. ¿Cuál es tu objetivo principal al invertir?</b></p>
                 <div className="col">
                     <div className="form-check">
                         <input type="radio" name="pregunta5" className="form-check-input" id="pregunta5-1" onChange={ onRespuestaChange } value={ 1 } />
@@ -109,7 +109,7 @@ export const PerfilInversorTestCuestionarioPage = ( { onRespuestaChange, resulta
 
             {/* Pregunta 6 */}
             <div className="row d-flex align-items-center px-lg-4 mb-4" id="">
-                <p className="alert alert-secondary"><b>6. Si recibieras un bono anual de $100,000, ¿qué harías con él?</b></p>
+                <p className="alert pregunta-test"><b>6. Si recibieras un bono anual de $100,000, ¿qué harías con él?</b></p>
                 <div className="col">
                     <div className="form-check">
                         <input type="radio" name="pregunta6" className="form-check-input" id="pregunta6-1" onChange={ onRespuestaChange } value={ 1 } />
@@ -130,7 +130,7 @@ export const PerfilInversorTestCuestionarioPage = ( { onRespuestaChange, resulta
 
             {/* Pregunta 7 */}
             <div className="row d-flex align-items-center px-lg-4 mb-4" id="">
-                <p className="alert alert-secondary"><b>7. ¿Qué experiencia tienes invirtiendo?</b></p>
+                <p className="alert pregunta-test"><b>7. ¿Qué experiencia tienes invirtiendo?</b></p>
                 <div className="col">
                     <div className="form-check">
                         <input type="radio" name="pregunta7" className="form-check-input" id="pregunta7-1" onChange={ onRespuestaChange } value={ 1 } />
@@ -151,7 +151,7 @@ export const PerfilInversorTestCuestionarioPage = ( { onRespuestaChange, resulta
 
             {/* Pregunta 8 */}
             <div className="row d-flex align-items-center px-lg-4 mb-4" id="">
-                <p className="alert alert-secondary"><b>8. ¿Qué prefieres: dormir tranquilo o crecer rápido?</b></p>
+                <p className="alert pregunta-test"><b>8. ¿Qué prefieres: dormir tranquilo o crecer rápido?</b></p>
                 <div className="col">
                     <div className="form-check">
                         <input type="radio" name="pregunta8" className="form-check-input" id="pregunta8-1" onChange={ onRespuestaChange } value={ 1 } />
